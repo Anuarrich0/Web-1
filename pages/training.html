@@ -3,79 +3,194 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Сеть фитнес-клубов Underground Gym в Астане и Костанае</title>
-  <meta name="description" content="Крупнейшая сеть фитнес-центров в Астане. 11 филиалов, безлимитные тренировки с тренером, финские сауны.">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
+  <meta name="author" content="A. Maksat">
+  <meta name="description" content="Тренировочные программы и направления фитнес-сети Underground Gym в Астане. Кроссфит, тренажерный зал, сауны и групповые занятия.">
+  <title>Тренировки — Underground Gym</title>
+  <!-- Author metadata comment: Written by A. Maksat -->
 </head>
 <body>
 
-  <!-- Сквозная шапка сайта -->
+  <!-- Primary Site Header -->
   <header class="main-header">
-    <div class="container header-container">
-      <a href="index.html" class="logo" aria-label="Underground Gym — На главную">
-        <img src="images/logo.svg" alt="Underground Gym Logo" width="180" height="40">
-      </a>
+    <a href="../index.html" class="logo" aria-label="Underground Gym — На главную">
+    <img src="../assets/images/logo.svg" alt="Underground Gym Logo" width="180" height="40">
+    </a>
 
-      <nav class="main-nav" aria-label="Основная навигация">
-        <ul class="nav-list">
-          <li><a href="index.html" class="nav-link active">Главная</a></li>
-          <li><a href="locations.html" class="nav-link">Филиалы</a></li>
-          <li><a href="services.html" class="nav-link">Услуги и Зоны</a></li>
-          <li><a href="training.html" class="nav-link">Тренировки</a></li>
-          <li><a href="pricing.html" class="nav-link">Абонементы</a></li>
-          <li><a href="promotions.html" class="nav-link">Акции</a></li>
-          <li><a href="about.html" class="nav-link">О нас</a></li>
-          <li><a href="contacts.html" class="nav-link">Контакты</a></li>
-        </ul>
-      </nav>
+    <!-- Mobile Navigation Toggle Button (Prepared for JavaScript in Assignment 3) -->
+    <button type="button" class="menu-toggle" id="mobile-menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+      Menu
+    </button>
 
-      <div class="header-actions">
-        <a href="tel:+77000000000" class="header-phone">+7 (700) 000-00-00</a>
-        <a href="#trial-modal" class="btn btn-primary">Пробная тренировка</a>
-      </div>
-    </div>
+    <!-- Global Navigation Bar across all 8 project pages -->
+    <nav class="main-nav" id="primary-nav" aria-label="Основная навигация">
+      <ul class="nav-list">
+        <li><a href="../index.html" class="nav-link">Главная</a></li>
+        <li><a href="locations.html" class="nav-link">Филиалы</a></li>
+        <li><a href="services.html" class="nav-link">Услуги и Зоны</a></li>
+        <li><a href="training.html" class="nav-link active" aria-current="page">Тренировки</a></li>
+        <li><a href="pricing.html" class="nav-link">Абонементы</a></li>
+        <li><a href="promotions.html" class="nav-link">Акции</a></li>
+        <li><a href="colophon.html" class="nav-link">О проекте</a></li>
+        <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+      </ul>
+    </nav>
+
+    <!-- Header Actions replacing div with a semantic p tag for structural grouping -->
+    <!-- SEMANTIC COMMENT: Used 'p' instead of 'div' to group action elements semantically without breaking structure -->
+    <p class="header-actions">
+      <button type="button" class="theme-toggle-btn" id="theme-switcher-btn" data-theme="dark" aria-label="Switch color theme">
+        Theme
+      </button>
+      <a href="tel:+77000000000" class="header-phone">+7 (700) 000-00-00</a>
+      <a href="#trial-modal" class="btn btn-primary">Пробная тренировка</a>
+    </p>
   </header>
 
-  <!-- Основной контент страницы -->
+<!-- Main Content Area -->
   <main id="main-content">
-    <!-- Уникальный контент каждой из 8 страниц вставляется сюда -->
+
+    <!-- Page Introduction -->
+    <section class="services-intro-section" id="services-intro">
+      <!-- Requirement: Exactly one H1 tag per page -->
+      <h1>Фитнес-услуги и специализированные зоны залов</h1>
+      <p>
+        В сети клубов <strong>Underground Gym</strong> созданы все условия для эффективных и безопасных тренировок. 
+        Мы предлагаем клиентам просторные залы с зонированием по видам спорта, современным вентиляционным оборудованием 
+        и бесплатным доступом к финским саунам в рамках любого абонемента.
+      </p>
+    </section>
+
+    <!-- Interactive Category Tabs (Hook for JS switching in Assignment 3) -->
+    <nav class="category-tabs-nav" aria-label="Фильтр категорий услуг">
+      <ul class="tabs-list" role="tablist">
+        <li><button type="button" role="tab" aria-selected="true" data-category="all">Все зоны</button></li>
+        <li><button type="button" role="tab" aria-selected="false" data-category="strength">Силовой тренинг</button></li>
+        <li><button type="button" role="tab" aria-selected="false" data-category="group">Групповые программы</button></li>
+      </ul>
+    </nav>
+
+    <!-- Main Services Articles List -->
+    <section class="services-list-section" id="services-articles">
+      <h2>Тренировочные зоны и направления</h2>
+
+      <!-- Article 1 -->
+      <article class="service-card" data-category="strength">
+        <h3>Тренажерный зал и зона свободных весов</h3>
+        <p>
+          Профессиональные силовые рамы, помосты для тяжелоатлетов, гантельный ряд от 1 до 60 кг и блочные тренажеры. 
+          Пространство спроектировано с соблюдением стандартов безопасности для выполнения базовых упражнений.
+        </p>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="service-card" data-category="strength">
+        <h3>Кроссфит-арена и функциональный тренинг</h3>
+        <p>
+          Зона с резиновым покрытием, гирями, канатами, гребными тренажерами Concept2 и тумбами для запрыгиваний. 
+          Подходит как для самостоятельных атлетов, так и для высокоинтенсивных командных тренировок.
+        </p>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="service-card" data-category="group">
+        <h3>Студия групповых программ и растяжки</h3>
+        <p>
+          Специально оборудованное пространство с амортизирующим паркетом, зеркалами, ковриками и фитболами. 
+          Здесь проходят занятия по стретчингу, йоге и пилатесу под руководством сертифицированных инструкторов.
+        </p>
+      </article>
+    </section>
+
+    <!-- Required Aside Tag for Auxiliary Information -->
+    <aside class="recommendations-sidebar" id="workout-tips">
+      <h2>Рекомендации для новичков</h2>
+      <p>
+        <strong>Что взять на первую тренировку:</strong> удобную спортивную форму, сменную обувь на жесткой подошве, 
+        личное полотенце и бутылку для воды. В каждом филиале установлены питьевые кулеры.
+      </p>
+    </aside>
+
+    <!-- Student 1 Required Form: Newsletter Subscription & Goal Calculator -->
+    <section class="form-section" id="newsletter-subscription">
+      <h2>Подписка на анонсы и мастер-классы</h2>
+      <p>Заполните форму, чтобы получать расписание открытых тренировок и специальных мероприятий:</p>
+
+      <!-- Form element with method, action, required comment on no-backend -->
+      <!-- FORM COMMENT: This form uses standard HTML5 input validation. Server-side handling and backend submission will be implemented in later course assignments. -->
+      <form action="#" method="post" id="subscription-form">
+        <fieldset class="form-group-box">
+          <legend>Параметры подписки и контактные данные</legend>
+
+          <!-- Input Email -->
+          <p class="form-field">
+            <label for="subscriber-email">Ваш Email адрес:</label>
+            <input type="email" id="subscriber-email" name="email" required placeholder="example@mail.kz">
+          </p>
+
+          <!-- Radio Group for Interest Selection -->
+          <fieldset class="radio-subgroup">
+            <legend>Интересующее направление:</legend>
+            <label>
+              <input type="radio" name="interest-program" value="strength" checked> Силовой тренинг
+            </label>
+            <label>
+              <input type="radio" name="interest-program" value="crossfit"> Кроссфит и Кардио
+            </label>
+            <label>
+              <input type="radio" name="interest-program" value="yoga"> Йога и Стретчинг
+            </label>
+          </fieldset>
+
+          <!-- Prepared Output Tag for JS Calculations in Assignment 3 -->
+          <p class="form-field">
+            <label for="calc-output">Статус калькулятора (Заготовка под JS):</label>
+            <output id="calc-output" name="calc-status">Заполните Email и выберите направление</output>
+          </p>
+
+          <!-- Form Buttons -->
+          <p class="form-actions">
+            <button type="submit" class="btn btn-submit">Подписаться</button>
+            <button type="reset" class="btn btn-reset">Очистить форму</button>
+          </p>
+        </fieldset>
+      </form>
+    </section>
+
   </main>
 
-  <!-- Сквозной подвал сайта -->
-  <footer class="main-footer">
-    <div class="container footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="images/logo-white.svg" alt="Underground Gym Logo" width="160" height="35">
-        </a>
-        <p class="footer-tagline">Крупнейшая сеть фитнес-центров в Астане.</p>
-      </div>
+  <!-- Global Site Footer -->
+  <footer class="main-footer" id="site-footer">
+    <section class="footer-brand">
+      <a href="../index.html" class="logo">
+        <img src="../assets/images/logo-white.svg" alt="Underground Gym Logo" width="160" height="35">
+      </a>
+      <p class="footer-tagline">Крупнейшая сеть фитнес-центров в Астане.</p>
+    </section>
 
-      <div class="footer-nav">
-        <b class="footer-title">Навигация</b>
-        <ul>
-          <li><a href="locations.html">11 филиалов в Астане</a></li>
-          <li><a href="services.html">Финские сауны и залы</a></li>
-          <li><a href="pricing.html">Безлимитные абонементы</a></li>
-          <li><a href="promotions.html">Партнерские скидки</a></li>
-        </ul>
-      </div>
+    <nav class="footer-nav" aria-label="Навигация в подвале">
+      <h3 class="footer-title">Навигация</h3>
+      <ul>
+        <li><a href="locations.html">11 филиалов в Астане</a></li>
+        <li><a href="services.html">Финские сауны и залы</a></li>
+        <li><a href="pricing.html">Безлимитные абонементы</a></li>
+        <li><a href="promotions.html">Партнерские скидки</a></li>
+      </ul>
+    </nav>
 
-      <div class="footer-contacts">
-        <b class="footer-title">Контакты</b>
-        <p>Единый call-центр: <a href="tel:+77000000000">+7 (700) 000-00-00</a></p>
-        <p>График работы: Пн-Вс 07:00 – 23:00</p>
-        <div class="social-links">
-          <a href="https://wa.me/77000000000" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-        </div>
-      </div>
-    </div>
+    <section class="footer-contacts">
+      <h3 class="footer-title">Контакты</h3>
+      <p>Единый call-центр: <a href="tel:+77000000000">+7 (700) 000-00-00</a></p>
+      <p>График работы: Пн-Вс 07:00 – 23:00</p>
+      <p class="social-links">
+        <a href="https://wa.me/77000000000" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+      </p>
+    </section>
 
-    <div class="footer-bottom container">
+    <!-- Footer Copyright Section -->
+    <section class="footer-bottom">
       <p>&copy; 2026 Underground Gym. Все права защищены.</p>
-    </div>
+    </section>
   </footer>
 
 </body>

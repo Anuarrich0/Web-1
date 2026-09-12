@@ -30,7 +30,7 @@ An educational project website for **Underground Gym**, the largest network of f
   * Current special offers and loyalty program discounts from network partners[cite: 3].
   * *Features:* Countdown timer for limited-time offers, promo code claim form.
 
-* `about.html` — **About Us and FAQ**
+* `colophon.html` — **About the Project and FAQ**
   * Brand history, gym rules, and frequently asked questions[cite: 3].
   * *Features:* Accordion component for the FAQ section, "Ask a question" contact form.
 

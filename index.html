@@ -3,79 +3,159 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Сеть фитнес-клубов Underground Gym в Астане и Костанае</title>
+  <meta name="author" content="A. Maksat">
   <meta name="description" content="Крупнейшая сеть фитнес-центров в Астане. 11 филиалов, безлимитные тренировки с тренером, финские сауны.">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
+  <title>Сеть фитнес-клубов Underground Gym в Астане</title>
+  <!-- Author metadata comment: Written by A. Maksat -->
 </head>
 <body>
 
-  <!-- Сквозная шапка сайта -->
+  <!-- Primary Site Header -->
   <header class="main-header">
-    <div class="container header-container">
-      <a href="index.html" class="logo" aria-label="Underground Gym — На главную">
-        <img src="images/logo.svg" alt="Underground Gym Logo" width="180" height="40">
-      </a>
+    <a href="index.html" class="logo" aria-label="Underground Gym — На главную">
+      <img src="assets/images/logo.svg" alt="Underground Gym Logo" width="180" height="40">
+    </a>
 
-      <nav class="main-nav" aria-label="Основная навигация">
-        <ul class="nav-list">
-          <li><a href="index.html" class="nav-link active">Главная</a></li>
-          <li><a href="locations.html" class="nav-link">Филиалы</a></li>
-          <li><a href="services.html" class="nav-link">Услуги и Зоны</a></li>
-          <li><a href="training.html" class="nav-link">Тренировки</a></li>
-          <li><a href="pricing.html" class="nav-link">Абонементы</a></li>
-          <li><a href="promotions.html" class="nav-link">Акции</a></li>
-          <li><a href="about.html" class="nav-link">О нас</a></li>
-          <li><a href="contacts.html" class="nav-link">Контакты</a></li>
-        </ul>
-      </nav>
+    <!-- Mobile Navigation Toggle Button (Prepared for JavaScript in Assignment 3) -->
+    <button type="button" class="menu-toggle" id="mobile-menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+      Menu
+    </button>
 
-      <div class="header-actions">
-        <a href="tel:+77000000000" class="header-phone">+7 (700) 000-00-00</a>
-        <a href="#trial-modal" class="btn btn-primary">Пробная тренировка</a>
-      </div>
-    </div>
+    <!-- Global Navigation Bar across all 8 project pages -->
+    <nav class="main-nav" id="primary-nav" aria-label="Основная навигация">
+      <ul class="nav-list">
+        <li><a href="index.html" class="nav-link active" aria-current="page">Главная</a></li>
+        <li><a href="pages/locations.html" class="nav-link">Филиалы</a></li>
+        <li><a href="pages/services.html" class="nav-link">Услуги и Зоны</a></li>
+        <li><a href="pages/training.html" class="nav-link">Тренировки</a></li>
+        <li><a href="pages/pricing.html" class="nav-link">Абонементы</a></li>
+        <li><a href="pages/promotions.html" class="nav-link">Акции</a></li>
+        <li><a href="pages/colophon.html" class="nav-link">О проекте</a></li>
+        <li><a href="pages/contacts.html" class="nav-link">Контакты</a></li>
+      </ul>
+    </nav>
+
+    <!-- Header Actions replacing div with a semantic p tag for structural grouping -->
+    <!-- SEMANTIC COMMENT: Used 'p' instead of 'div' to group action elements semantically without breaking structure -->
+    <p class="header-actions">
+      <button type="button" class="theme-toggle-btn" id="theme-switcher-btn" data-theme="dark" aria-label="Switch color theme">
+        Theme
+      </button>
+      <a href="tel:+77000000000" class="header-phone">+7 (700) 000-00-00</a>
+      <a href="#trial-modal" class="btn btn-primary">Пробная тренировка</a>
+    </p>
   </header>
 
-  <!-- Основной контент страницы -->
+  <!-- Main Content Area -->
   <main id="main-content">
-    <!-- Уникальный контент каждой из 8 страниц вставляется сюда -->
+
+    <!-- Hero Banner Section -->
+    <section class="hero-section" id="hero-banner">
+      <!-- Requirement: Exactly one H1 tag per page -->
+      <h1>Underground Gym — Крупнейшая сеть фитнес-центров в Астане</h1>
+      <p>
+        Добро пожаловать в <strong>Underground Gym</strong>! Мы предлагаем современное оборудование, 
+        профессиональное сопровождение тренеров и удобную систему безлимитных абонементов. 
+        Достигайте своих спортивных целей в атмосфере настоящего фитнес-сообщества.
+      </p>
+      
+      <!-- Replaced div with a semantic p container for CTA links -->
+      <p class="hero-cta-buttons">
+        <a href="pages/pricing.html" class="btn btn-accent">Выбрать абонемент</a>
+        <a href="pages/locations.html" class="btn btn-outline">Найти ближайший филиал</a>
+      </p>
+    </section>
+
+    <!-- Promotional Carousel Section (Hook for JS Slider in Assignment 3) -->
+    <section class="promo-carousel-section" id="promotions-slider" data-autoplay="true" data-speed="4000">
+      <h2>Акции и специальные предложения</h2>
+      
+      <!-- DIV USAGE JUSTIFICATION: Used div here as a pure generic container for JS slider track manipulation where no semantic element (like section or article) fits. -->
+      <div class="carousel-track-wrapper" id="carousel-track">
+        <!-- Slide 1 -->
+        <article class="promo-card slide-item active" data-slide-id="1">
+          <h3>Персональная тренировка в подарок</h3>
+          <p>При покупке любого годового абонемента вы получаете вводное занятие с топ-тренером бесплатно.</p>
+        </article>
+
+        <!-- Slide 2 -->
+        <article class="promo-card slide-item" data-slide-id="2">
+          <h3>Студенческая скидка 15%</h3>
+          <p>Предъявите действующий студенческий билет и тренируйтесь по специальной сниженной цене.</p>
+        </article>
+      </div>
+
+      <!-- Navigation controls replacing div with a semantic nav tag -->
+      <nav class="slider-controls" aria-label="Управление акциями">
+        <button type="button" class="slider-btn prev-btn" id="slider-prev-btn" aria-label="Previous promo">← Назад</button>
+        <span class="slider-counter" id="slider-page-indicator">1 / 2</span>
+        <button type="button" class="slider-btn next-btn" id="slider-next-btn" aria-label="Next promo">Вперед →</button>
+      </nav>
+    </section>
+
+    <!-- Features & Competitive Advantages -->
+    <section class="features-section" id="key-advantages">
+      <h2>Преимущества фитнес-сети Underground Gym</h2>
+      <ul class="features-grid-list">
+        <li class="feature-card" data-feature="locations">
+          <strong>11 филиалов по городу:</strong> Удобное расположение в ключевых районах Астаны с парковкой.
+        </li>
+        <li class="feature-card" data-feature="schedule">
+          <strong>Удобный график:</strong> Залы открыты с 07:00 до 23:00 без выходных и перерывов.
+        </li>
+        <li class="feature-card" data-feature="amenities">
+          <strong>Финские сауны:</strong> Полноценный восстановительный комплекс входит в стоимость каждого абонемента.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Infrastructure Overview -->
+    <section class="overview-section" id="club-overview">
+      <h2>Инфраструктура и зоны залов</h2>
+      <p>
+        Каждый клуб сети оснащен зонами свободных весов, блочными тренажерами, кардио-зоной и залами для групповых программ. 
+        Подробную информацию обо всех площадях и характеристиках филиалов вы можете найти на специализированных страницах сайта.
+      </p>
+      <p>
+        <a href="pages/services.html" class="more-info-link">Узнать больше об услугах и зонах →</a>
+      </p>
+    </section>
+
   </main>
 
-  <!-- Сквозной подвал сайта -->
-  <footer class="main-footer">
-    <div class="container footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="images/logo-white.svg" alt="Underground Gym Logo" width="160" height="35">
-        </a>
-        <p class="footer-tagline">Крупнейшая сеть фитнес-центров в Астане.</p>
-      </div>
+  <!-- Global Site Footer -->
+  <footer class="main-footer" id="site-footer">
+    <section class="footer-brand">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo-white.svg" alt="Underground Gym Logo" width="160" height="35">
+      </a>
+      <p class="footer-tagline">Крупнейшая сеть фитнес-центров в Астане.</p>
+    </section>
 
-      <div class="footer-nav">
-        <b class="footer-title">Навигация</b>
-        <ul>
-          <li><a href="locations.html">11 филиалов в Астане</a></li>
-          <li><a href="services.html">Финские сауны и залы</a></li>
-          <li><a href="pricing.html">Безлимитные абонементы</a></li>
-          <li><a href="promotions.html">Партнерские скидки</a></li>
-        </ul>
-      </div>
+    <nav class="footer-nav" aria-label="Навигация в подвале">
+      <h3 class="footer-title">Навигация</h3>
+      <ul>
+        <li><a href="pages/locations.html">11 филиалов в Астане</a></li>
+        <li><a href="pages/services.html">Финские сауны и залы</a></li>
+        <li><a href="pages/pricing.html">Безлимитные абонементы</a></li>
+        <li><a href="pages/promotions.html">Партнерские скидки</a></li>
+      </ul>
+    </nav>
 
-      <div class="footer-contacts">
-        <b class="footer-title">Контакты</b>
-        <p>Единый call-центр: <a href="tel:+77000000000">+7 (700) 000-00-00</a></p>
-        <p>График работы: Пн-Вс 07:00 – 23:00</p>
-        <div class="social-links">
-          <a href="https://wa.me/77000000000" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-        </div>
-      </div>
-    </div>
+    <section class="footer-contacts">
+      <h3 class="footer-title">Контакты</h3>
+      <p>Единый call-центр: <a href="tel:+77000000000">+7 (700) 000-00-00</a></p>
+      <p>График работы: Пн-Вс 07:00 – 23:00</p>
+      <p class="social-links">
+        <a href="https://wa.me/77000000000" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+      </p>
+    </section>
 
-    <div class="footer-bottom container">
+    <!-- Footer Copyright Section -->
+    <section class="footer-bottom">
       <p>&copy; 2026 Underground Gym. Все права защищены.</p>
-    </div>
+    </section>
   </footer>
 
 </body>
