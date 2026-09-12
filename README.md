@@ -1,6 +1,6 @@
 # Underground Gym — Fitness Club Network Website
 
-An educational project website for **Underground Gym**, the largest network of fitness centers in Astana[cite: 3]. The project consists of 8 interconnected pages with interactive functionality.
+An educational HTML5 project website for **Underground Gym**, a fitness club network in Astana. The project contains 8 interconnected page templates; interactive behavior and styling will be added in later assignments.
 
 ---
 
@@ -10,41 +10,41 @@ An educational project website for **Underground Gym**, the largest network of f
   * Promotional banner, general statistics (11 branches), brief overview of gym zones, and partner discounts[cite: 3].
   * *Features:* Trial workout registration widget, quick branch filter ("With Sauna / All")[cite: 3].
 
-* `locations.html` — **Branches and Map**
-  * Full catalog of 11 branches in Astana (Seifullin St 1, Mangilik El Ave 19/2, Uly Dala Ave 55, etc.) with operating hours and amenities[cite: 3].
-  * *Features:* Interactive map (Yandex/Google), filter by amenities (sauna, training zones)[cite: 3].
+* `pages/locations.html` — **Branches and Map**
+  * Branch comparison table with branch areas, amenities, phone numbers, and external map links.
+  * *Prepared for later work:* Interactive map and branch filtering.
 
-* `services.html` — **Services and Zones**
-  * Detailed description of training areas: strength zone, cardio, free weights, functional training, Finnish saunas[cite: 3].
-  * *Features:* Tabbed zone switcher (Tabs), equipment gallery/slider.
+* `pages/services.html` — **Services and Zones**
+  * Detailed descriptions of strength, functional, and group-training areas.
+  * *Prepared for later work:* Category tabs and form processing.
 
-* `training.html` — **Personal Training**
-  * Benefits of training with a coach, methodology, and exercise routines[cite: 3].
-  * *Features:* Interactive quiz "Find a program for your goal", personal coach request form.
+* `pages/training.html` — **Personal Training**
+  * Training-zone information and a newsletter subscription form with interest selection.
+  * *Prepared for later work:* Program quiz and calculator behavior.
 
-* `pricing.html` — **Memberships and Pricing**
-  * Membership plans (1, 3, 6, 12 months) and inclusions (unlimited access, sauna, trainer)[cite: 3].
-  * *Features:* Membership cost calculator, online booking/checkout form.
+* `pages/pricing.html` — **Memberships and Pricing**
+  * Page template with the shared site header and footer.
+  * Main page content will be completed by another group member.
 
-* `promotions.html` — **Promotions and Partners**
-  * Current special offers and loyalty program discounts from network partners[cite: 3].
-  * *Features:* Countdown timer for limited-time offers, promo code claim form.
+* `pages/promotions.html` — **Promotions and Partners**
+  * Page template with the shared site header and footer.
+  * Main page content will be completed by another group member.
 
-* `colophon.html` — **About the Project and FAQ**
-  * Brand history, gym rules, and frequently asked questions[cite: 3].
-  * *Features:* Accordion component for the FAQ section, "Ask a question" contact form.
+* `pages/colophon.html` — **About the Project and FAQ**
+  * Page template with the shared site header and footer.
+  * Main page content will be completed by another group member.
 
-* `contacts.html` — **Contacts**
-  * Reception phone numbers for each branch, addresses, instant messengers, and social links[cite: 3].
-  * *Features:* Feedback form with branch selection, quick-action buttons for WhatsApp/Telegram.
+* `pages/contacts.html` — **Contacts**
+  * Page template with the shared site header and footer.
+  * Main page content will be completed by another group member.
 
 ---
 
 ## 🛠 Tech Stack
 
 * **HTML5** — Semantic page layout.
-* **CSS3** — Styling and responsive layout (Flexbox / Grid).
-* **JavaScript (ES6+)** — Interactive logic for calculators, quizzes, filters, and UI components.
+* **CSS3** — Planned styling and responsive layout.
+* **JavaScript (ES6+)** — Planned interactive logic for calculators, quizzes, filters, and UI components.
 
 ---
 
@@ -56,6 +56,8 @@ An educational project website for **Underground Gym**, the largest network of f
    ```
 2. Navigate to the project directory:
    ```bash
-   cd underground-gym
+   cd Web-1
    ```
-3. Open index.html in your browser (or use the Live Server extension in VS Code).
+3. Open `index.html` in a browser, or use the Live Server extension in VS Code.
+
+Pages are located in the `pages/` directory. Shared image assets, when available, are referenced from `assets/images/`.
