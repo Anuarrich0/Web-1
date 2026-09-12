@@ -10,7 +10,6 @@
 </head>
 <body>
 
-  <!-- Primary Site Header -->
   <header class="main-header">
     <a href="index.html" class="logo" aria-label="Underground Gym — На главную">
       <img src="assets/images/logo.svg" alt="Underground Gym Logo" width="180" height="40">
@@ -21,7 +20,6 @@
       Menu
     </button>
 
-    <!-- Global Navigation Bar across all 8 project pages -->
     <nav class="main-nav" id="primary-nav" aria-label="Основная навигация">
       <ul class="nav-list">
         <li><a href="index.html" class="nav-link active" aria-current="page">Главная</a></li>
@@ -35,7 +33,6 @@
       </ul>
     </nav>
 
-    <!-- Header Actions replacing div with a semantic p tag for structural grouping -->
     <!-- SEMANTIC COMMENT: Used 'p' instead of 'div' to group action elements semantically without breaking structure -->
     <p class="header-actions">
       <button type="button" class="theme-toggle-btn" id="theme-switcher-btn" data-theme="dark" aria-label="Switch color theme">
@@ -46,13 +43,11 @@
     </p>
   </header>
 
-  <!-- Main Content Area -->
   <main id="main-content">
 
-    <!-- Hero Banner Section -->
     <section class="hero-section" id="hero-banner">
       <!-- Requirement: Exactly one H1 tag per page -->
-      <h1>Underground Gym — Крупнейшая сеть фитнес-центров в Астане</h1>
+      <h1>Underground Gym &mdash; Крупнейшая сеть фитнес-центров в Астане</h1>
       <p>
         Добро пожаловать в <strong>Underground Gym</strong>! Мы предлагаем современное оборудование, 
         профессиональное сопровождение тренеров и удобную систему безлимитных абонементов. 
@@ -70,6 +65,13 @@
     <section class="promo-carousel-section" id="promotions-slider" data-autoplay="true" data-speed="4000">
       <h2>Акции и специальные предложения</h2>
       
+      <!-- Required: Ordered List with Attribute (ol start) for promo steps -->
+      <p><strong>Порядок получения первичной скидки:</strong></p>
+      <ol start="1" class="promo-steps-list">
+        <li>Выберите интересующий филиал на странице навигации.</li>
+        <li>Забронируйте визит через форму обратной связи.</li>
+      </ol>
+
       <!-- DIV USAGE JUSTIFICATION: Used div here as a pure generic container for JS slider track manipulation where no semantic element (like section or article) fits. -->
       <div class="carousel-track-wrapper" id="carousel-track">
         <!-- Slide 1 -->
@@ -78,7 +80,6 @@
           <p>При покупке любого годового абонемента вы получаете вводное занятие с топ-тренером бесплатно.</p>
         </article>
 
-        <!-- Slide 2 -->
         <article class="promo-card slide-item" data-slide-id="2">
           <h3>Студенческая скидка 15%</h3>
           <p>Предъявите действующий студенческий билет и тренируйтесь по специальной сниженной цене.</p>
@@ -87,13 +88,12 @@
 
       <!-- Navigation controls replacing div with a semantic nav tag -->
       <nav class="slider-controls" aria-label="Управление акциями">
-        <button type="button" class="slider-btn prev-btn" id="slider-prev-btn" aria-label="Previous promo">← Назад</button>
+        <button type="button" class="slider-btn prev-btn" id="slider-prev-btn" aria-label="Previous promo">&larr; Назад</button>
         <span class="slider-counter" id="slider-page-indicator">1 / 2</span>
-        <button type="button" class="slider-btn next-btn" id="slider-next-btn" aria-label="Next promo">Вперед →</button>
+        <button type="button" class="slider-btn next-btn" id="slider-next-btn" aria-label="Next promo">Вперед &rarr;</button>
       </nav>
     </section>
 
-    <!-- Features & Competitive Advantages -->
     <section class="features-section" id="key-advantages">
       <h2>Преимущества фитнес-сети Underground Gym</h2>
       <ul class="features-grid-list">
@@ -109,21 +109,33 @@
       </ul>
     </section>
 
-    <!-- Infrastructure Overview -->
     <section class="overview-section" id="club-overview">
-      <h2>Инфраструктура и зоны залов</h2>
+      <h2>Инфраструктура и спецификация зон</h2>
       <p>
-        Каждый клуб сети оснащен зонами свободных весов, блочными тренажерами, кардио-зоной и залами для групповых программ. 
-        Подробную информацию обо всех площадях и характеристиках филиалов вы можете найти на специализированных страницах сайта.
+        Каждый клуб сети оснащен зонированием по мировым стандартам &bull; Подробные термины сервисов:
       </p>
+
+      <!-- Required: Definition List (dl, dt, dd) -->
+      <dl class="gym-zones-def">
+        <dt><strong>Heavy-Duty Zone</strong></dt>
+        <dd>Зона тяжелой атлетики с помостами и профессиональными рамами.</dd>
+
+        <dt><strong>Recovery Zone</strong></dt>
+        <dd>Финские сауны и зоны отдыха, входящие в каждый базовый абонемент.</dd>
+      </dl>
+
       <p>
-        <a href="pages/services.html" class="more-info-link">Узнать больше об услугах и зонах →</a>
+        <a href="pages/services.html" class="more-info-link">Узнать больше об услугах и зонах &rarr;</a>
+      </p>
+
+      <!-- Required: Anchor Link to an ID on the same page -->
+      <p class="back-to-top">
+        <a href="#hero-banner">Наверх страницы &uarr;</a>
       </p>
     </section>
 
   </main>
 
-  <!-- Global Site Footer -->
   <footer class="main-footer" id="site-footer">
     
     <section class="footer-brand">
@@ -154,7 +166,6 @@
       </p>
     </section>
 
-    <!-- Footer Copyright Section -->
     <section class="footer-bottom">
       <h2>Правовая информация</h2>
       <p>&copy; 2026 Underground Gym. Все права защищены.</p>
