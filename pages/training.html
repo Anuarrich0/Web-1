@@ -48,119 +48,14 @@
 
 <!-- Main Content Area -->
   <main id="main-content">
-
-    <!-- Page Introduction -->
-    <section class="services-intro-section" id="services-intro">
-      <!-- Requirement: Exactly one H1 tag per page -->
-      <h1>Фитнес-услуги и специализированные зоны залов</h1>
-      <p>
-        В сети клубов <strong>Underground Gym</strong> созданы все условия для эффективных и безопасных тренировок. 
-        Мы предлагаем клиентам просторные залы с зонированием по видам спорта, современным вентиляционным оборудованием 
-        и бесплатным доступом к финским саунам в рамках любого абонемента.
-      </p>
-    </section>
-
-    <!-- Interactive Category Tabs (Hook for JS switching in Assignment 3) -->
-    <nav class="category-tabs-nav" aria-label="Фильтр категорий услуг">
-      <ul class="tabs-list" role="tablist">
-        <li><button type="button" role="tab" aria-selected="true" data-category="all">Все зоны</button></li>
-        <li><button type="button" role="tab" aria-selected="false" data-category="strength">Силовой тренинг</button></li>
-        <li><button type="button" role="tab" aria-selected="false" data-category="group">Групповые программы</button></li>
-      </ul>
-    </nav>
-
-    <!-- Main Services Articles List -->
-    <section class="services-list-section" id="services-articles">
-      <h2>Тренировочные зоны и направления</h2>
-
-      <!-- Article 1 -->
-      <article class="service-card" data-category="strength">
-        <h3>Тренажерный зал и зона свободных весов</h3>
-        <p>
-          Профессиональные силовые рамы, помосты для тяжелоатлетов, гантельный ряд от 1 до 60 кг и блочные тренажеры. 
-          Пространство спроектировано с соблюдением стандартов безопасности для выполнения базовых упражнений.
-        </p>
-      </article>
-
-      <!-- Article 2 -->
-      <article class="service-card" data-category="strength">
-        <h3>Кроссфит-арена и функциональный тренинг</h3>
-        <p>
-          Зона с резиновым покрытием, гирями, канатами, гребными тренажерами Concept2 и тумбами для запрыгиваний. 
-          Подходит как для самостоятельных атлетов, так и для высокоинтенсивных командных тренировок.
-        </p>
-      </article>
-
-      <!-- Article 3 -->
-      <article class="service-card" data-category="group">
-        <h3>Студия групповых программ и растяжки</h3>
-        <p>
-          Специально оборудованное пространство с амортизирующим паркетом, зеркалами, ковриками и фитболами. 
-          Здесь проходят занятия по стретчингу, йоге и пилатесу под руководством сертифицированных инструкторов.
-        </p>
-      </article>
-    </section>
-
-    <!-- Required Aside Tag for Auxiliary Information -->
-    <aside class="recommendations-sidebar" id="workout-tips">
-      <h2>Рекомендации для новичков</h2>
-      <p>
-        <strong>Что взять на первую тренировку:</strong> удобную спортивную форму, сменную обувь на жесткой подошве, 
-        личное полотенце и бутылку для воды. В каждом филиале установлены питьевые кулеры.
-      </p>
-    </aside>
-
-    <!-- Student 1 Required Form: Newsletter Subscription & Goal Calculator -->
-    <section class="form-section" id="newsletter-subscription">
-      <h2>Подписка на анонсы и мастер-классы</h2>
-      <p>Заполните форму, чтобы получать расписание открытых тренировок и специальных мероприятий:</p>
-
-      <!-- Form element with method, action, required comment on no-backend -->
-      <!-- FORM COMMENT: This form uses standard HTML5 input validation. Server-side handling and backend submission will be implemented in later course assignments. -->
-      <form action="#" method="post" id="subscription-form">
-        <fieldset class="form-group-box">
-          <legend>Параметры подписки и контактные данные</legend>
-
-          <!-- Input Email -->
-          <p class="form-field">
-            <label for="subscriber-email">Ваш Email адрес:</label>
-            <input type="email" id="subscriber-email" name="email" required placeholder="example@mail.kz">
-          </p>
-
-          <!-- Radio Group for Interest Selection -->
-          <fieldset class="radio-subgroup">
-            <legend>Интересующее направление:</legend>
-            <label>
-              <input type="radio" name="interest-program" value="strength" checked> Силовой тренинг
-            </label>
-            <label>
-              <input type="radio" name="interest-program" value="crossfit"> Кроссфит и Кардио
-            </label>
-            <label>
-              <input type="radio" name="interest-program" value="yoga"> Йога и Стретчинг
-            </label>
-          </fieldset>
-
-          <!-- Prepared Output Tag for JS Calculations in Assignment 3 -->
-          <p class="form-field">
-            <label for="calc-output">Статус калькулятора (Заготовка под JS):</label>
-            <output id="calc-output" name="calc-status">Заполните Email и выберите направление</output>
-          </p>
-
-          <!-- Form Buttons -->
-          <p class="form-actions">
-            <button type="submit" class="btn btn-submit">Подписаться</button>
-            <button type="reset" class="btn btn-reset">Очистить форму</button>
-          </p>
-        </fieldset>
-      </form>
-    </section>
-
+    
   </main>
 
   <!-- Global Site Footer -->
   <footer class="main-footer" id="site-footer">
+    
     <section class="footer-brand">
+      <h2>О бренде</h2>
       <a href="../index.html" class="logo">
         <img src="../assets/images/logo-white.svg" alt="Underground Gym Logo" width="160" height="35">
       </a>
@@ -168,7 +63,7 @@
     </section>
 
     <nav class="footer-nav" aria-label="Навигация в подвале">
-      <h3 class="footer-title">Навигация</h3>
+      <h2 class="footer-title">Навигация</h2>
       <ul>
         <li><a href="locations.html">11 филиалов в Астане</a></li>
         <li><a href="services.html">Финские сауны и залы</a></li>
@@ -178,7 +73,7 @@
     </nav>
 
     <section class="footer-contacts">
-      <h3 class="footer-title">Контакты</h3>
+      <h2 class="footer-title">Контакты</h2>
       <p>Единый call-центр: <a href="tel:+77000000000">+7 (700) 000-00-00</a></p>
       <p>График работы: Пн-Вс 07:00 – 23:00</p>
       <p class="social-links">
@@ -189,6 +84,7 @@
 
     <!-- Footer Copyright Section -->
     <section class="footer-bottom">
+      <h2>Правовая информация</h2>
       <p>&copy; 2026 Underground Gym. Все права защищены.</p>
     </section>
   </footer>
