@@ -47,9 +47,129 @@
   </header>
 
   <!-- Main Content Area -->
-  <main id="main-content">
-    
-  </main>
+  ```html
+<main id="main-content">
+
+    <section>
+        <h1>Контакты Underground Gym</h1>
+
+        <p>
+            Если у вас есть вопросы о тренировках, филиалах, услугах или
+            абонементах Underground Gym, вы можете связаться с нами удобным
+            способом. Наша фитнес-сеть работает в Астане и предлагает
+            современные тренажерные залы, групповые занятия, персональные
+            тренировки и зоны для восстановления. Мы стараемся сделать
+            посещение фитнес-центра удобным как для начинающих, так и для
+            опытных спортсменов.
+        </p>
+
+        <p>
+            Вы можете позвонить в наш единый call-центр или воспользоваться
+            контактной формой ниже. В сообщении укажите свое имя, электронную
+            почту и тему обращения. Это поможет нам быстрее понять ваш вопрос
+            и предоставить необходимую информацию. <span>Мы будем рады помочь
+            вам выбрать подходящий формат тренировок.</span>
+        </p>
+    </section>
+
+    <section>
+        <h2>Контактная информация</h2>
+
+        <address>
+            Underground Gym<br>
+            Астана, Казахстан<br>
+            Телефон:
+            <a href="tel:+77000000000">+7 (700) 000-00-00</a><br>
+            Email:
+            <a href="mailto:info@undergroundgym.kz">info@undergroundgym.kz</a>
+        </address>
+    </section>
+
+    <section>
+        <h2>График работы</h2>
+
+        <table border="1">
+            <caption>Режим работы Underground Gym</caption>
+
+            <thead>
+                <tr>
+                    <th>День</th>
+                    <th>Время работы</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Понедельник — Суббота</td>
+                    <td>07:00 – 23:00</td>
+                </tr>
+
+                <tr>
+                    <td>Воскресенье</td>
+                    <td>10:00 – 20:00</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Напишите нам</h2>
+
+        <form action="#" method="post">
+
+            <div>
+                <label for="name">Ваше имя:</label><br>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <br>
+
+            <div>
+                <label for="email">Ваш email:</label><br>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <br>
+
+            <div>
+                <label for="topic">Тема обращения:</label><br>
+
+                <select id="topic" name="topic">
+                    <option value="training">Тренировки</option>
+                    <option value="membership">Абонементы</option>
+                    <option value="locations">Филиалы</option>
+                    <option value="services">Услуги</option>
+                    <option value="other">Другое</option>
+                </select>
+            </div>
+
+            <br>
+
+            <div>
+                <label for="message">Ваше сообщение:</label><br>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    cols="40"
+                    placeholder="Введите ваш вопрос..."
+                    required></textarea>
+            </div>
+
+            <br>
+
+            <div>
+                <button type="submit">Отправить сообщение</button>
+                <button type="reset">Очистить форму</button>
+            </div>
+
+        </form>
+    </section>
+
+</main>
+```
+
 
   <!-- Global Site Footer -->
   <footer class="main-footer" id="site-footer">
