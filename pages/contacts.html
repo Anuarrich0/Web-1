@@ -63,7 +63,7 @@
 
         <p>
             Если у вас есть вопросы о тренировках, филиалах, услугах или
-            абонементах Underground Gym, вы можете связаться с нами удобным
+            абонементах <b>Underground Gym</b>, вы можете связаться с нами удобным
             способом. Наша фитнес-сеть работает в <strong>Астане</strong> и предлагает
             современные тренажерные залы, групповые занятия, персональные
             тренировки и зоны для восстановления. Мы стараемся сделать
@@ -72,7 +72,7 @@
         </p>
 
         <p>
-            Вы можете позвонить в наш единый call-центр или воспользоваться
+            Вы можете позвонить в наш единый <i>call-центр</i> или воспользоваться
             контактной формой ниже. В сообщении укажите свое имя, электронную
             почту и тему обращения. Это поможет нам быстрее понять ваш вопрос
             и предоставить необходимую информацию.
@@ -81,7 +81,8 @@
         </p>
 
         <blockquote cite="https://undergroundgym.kz">
-            <p>«Мы всегда на связи, чтобы тренировки были удобными» &mdash; команда поддержки Underground Gym.</p>
+            <!-- FIX: обычные кавычки заменены на семантический тег <q>, добавлен <cite> для источника цитаты -->
+            <p><q>Мы всегда на связи, чтобы тренировки были удобными</q> &mdash; команда поддержки <cite>Underground Gym</cite>.</p>
         </blockquote>
 
         <figure>
@@ -90,11 +91,13 @@
         </figure>
     </article>
 
+    <hr>
+
     <section>
         <h2>Контактная информация</h2>
 
         <address>
-            Underground Gym<br>
+            &laquo;Underground Gym&raquo;<br>
             Астана, Казахстан<br>
             Телефон:
             <a href="tel:+77000000000">+7 (700) 000-00-00</a><br>
@@ -105,7 +108,7 @@
         <h3>Способы связи</h3>
         <ul>
             <li>
-                Телефон
+                Телефон<sup>1</sup>
                 <!-- Вложенный список: уточняющие варианты телефонной связи -->
                 <ul>
                     <li>Call-центр: +7 (700) 000-00-00</li>
@@ -115,6 +118,8 @@
             <li>Email: info@undergroundgym.kz</li>
             <li>Контактная форма на этой странице</li>
         </ul>
+
+        <p><small><sup>1</sup> Звонки по Казахстану &ndash; бесплатные.</small></p>
 
         <figure>
             <img src="../assets/images/map-preview.jpg" alt="Превью карты с расположением филиалов Underground Gym в Астане" width="600" height="400">
@@ -191,7 +196,7 @@
             <fieldset>
                 <legend>Контактные данные</legend>
 
-                <!-- div используется как простой контейнер для группировки подписи и поля, без собственного смысла -->
+                <!-- div: группирует подпись и поле ввода имени -->
                 <div>
                     <label for="name">Ваше имя:</label><br>
                     <input type="text" id="name" name="name" required>
@@ -199,6 +204,7 @@
 
                 <br>
 
+                <!-- div: группирует подпись и поле ввода email -->
                 <div>
                     <label for="email">Ваш email:</label><br>
                     <input type="email" id="email" name="email" required>
@@ -206,6 +212,7 @@
 
                 <br>
 
+                <!-- div: группирует подпись и поле ввода телефона -->
                 <div>
                     <label for="phone">Телефон:</label><br>
                     <input type="tel" id="phone" name="phone" placeholder="+7 (700) 000-00-00">
@@ -213,6 +220,15 @@
 
                 <br>
 
+                <!-- div: группирует подпись и числовое поле возраста (новое поле number) -->
+                <div>
+                    <label for="client-age">Возраст:</label><br>
+                    <input type="number" id="client-age" name="client-age" min="12" max="99">
+                </div>
+
+                <br>
+
+                <!-- div: группирует подпись и поле выбора удобной даты звонка -->
                 <div>
                     <label for="callback-date">Удобная дата звонка:</label><br>
                     <input type="date" id="callback-date" name="callback-date">
@@ -222,6 +238,7 @@
             <fieldset>
                 <legend>Тема обращения</legend>
 
+                <!-- div: группирует подпись и выпадающий список темы обращения -->
                 <div>
                     <label for="topic">Тема обращения:</label><br>
 
@@ -236,7 +253,9 @@
 
                 <br>
 
+                <!-- div: группирует radio-варианты предпочитаемого способа ответа -->
                 <div>
+                    <!-- span: подпись-заголовок для группы radio-кнопок, отдельного смыслового блока не образует -->
                     <span>Предпочитаемый способ ответа:</span><br>
                     <input type="radio" id="reply-phone" name="reply-method" value="phone" checked>
                     <label for="reply-phone">По телефону</label>
@@ -249,6 +268,7 @@
             <fieldset>
                 <legend>Сообщение</legend>
 
+                <!-- div: группирует подпись и текстовое поле сообщения -->
                 <div>
                     <label for="message">Ваше сообщение:</label><br>
 
@@ -263,12 +283,14 @@
 
                 <br>
 
+                <!-- div: группирует обязательный чекбокс согласия на обработку данных -->
                 <div>
                     <input type="checkbox" id="agree-contact" name="agree-contact" required>
                     <label for="agree-contact">Согласен(на) с условиями обработки данных</label>
                 </div>
             </fieldset>
 
+            <!-- div: группирует кнопки отправки и сброса формы -->
             <div>
                 <button type="submit">Отправить сообщение</button>
                 <button type="reset">Очистить форму</button>

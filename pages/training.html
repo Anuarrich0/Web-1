@@ -61,7 +61,7 @@
         <h1>Тренировки в Underground Gym</h1>
 
         <p>
-            Underground Gym предлагает <strong>разнообразные тренировочные программы</strong>
+            <b>Underground Gym&trade;</b> предлагает <strong>разнообразные тренировочные программы</strong>
             для людей с разным уровнем подготовки и целями. Независимо от того,
             хотите ли вы набрать мышечную массу, увеличить силу, улучшить
             выносливость или просто поддерживать хорошую физическую форму,
@@ -71,7 +71,8 @@
         <p>
             Перед началом занятия важно выполнить разминку и подготовить мышцы
             к нагрузке. Во время тренировки необходимо соблюдать <em>правильную
-            технику</em> выполнения упражнений и постепенно увеличивать нагрузку.
+            технику</em> выполнения упражнений и постепенно увеличивать нагрузку,
+            следуя принципу <i>progressive overload</i> (постепенной прогрессии нагрузки).
             <!-- SEMANTIC COMMENT: span используется только для локального инлайн-акцента внутри абзаца, отдельного смыслового блока здесь нет -->
             <span>Регулярность важнее слишком высокой нагрузки.</span>
             После тренировки организму необходимо время для восстановления,
@@ -79,13 +80,21 @@
         </p>
 
         <blockquote cite="https://undergroundgym.kz">
-            <p>«Лучшая тренировка — та, которую вы делаете регулярно», — говорят тренеры Underground Gym.</p>
+            <!-- FIX: обычные кавычки заменены на семантический тег <q>, добавлен <cite> для источника цитаты -->
+            <p><q>Лучшая тренировка — та, которую вы делаете регулярно</q>, — говорят тренеры <cite>Underground Gym</cite>.</p>
         </blockquote>
     </section>
+
+    <hr>
 
     <!-- Самостоятельный, законченный блок контента -> article -->
     <article>
         <h2>Основные направления</h2>
+
+        <p>
+            Площадь основного тренажёрного зала составляет около 700 м<sup>2</sup>,
+            что позволяет комфортно тренироваться даже в часы пик.
+        </p>
 
         <ul>
             <li>Тренировки в тренажерном зале</li>
@@ -221,6 +230,7 @@
             <fieldset>
                 <legend>Личные данные</legend>
 
+                <!-- div: группирует подпись и поле ввода имени -->
                 <div>
                     <label for="full-name">Ваше имя:</label><br>
                     <input type="text" id="full-name" name="full-name" required>
@@ -228,6 +238,7 @@
 
                 <br>
 
+                <!-- div: группирует подпись и поле ввода email -->
                 <div>
                     <label for="train-email">Ваш email:</label><br>
                     <input type="email" id="train-email" name="train-email" required>
@@ -235,6 +246,7 @@
 
                 <br>
 
+                <!-- div: группирует подпись и поле ввода телефона -->
                 <div>
                     <label for="train-phone">Телефон:</label><br>
                     <input type="tel" id="train-phone" name="train-phone" placeholder="+7 (700) 000-00-00">
@@ -242,6 +254,7 @@
 
                 <br>
 
+                <!-- div: группирует подпись и числовое поле возраста -->
                 <div>
                     <label for="train-age">Возраст:</label><br>
                     <input type="number" id="train-age" name="train-age" min="12" max="99">
@@ -249,6 +262,7 @@
 
                 <br>
 
+                <!-- div: группирует подпись и поле выбора желаемой даты -->
                 <div>
                     <label for="preferred-date">Желаемая дата пробной тренировки:</label><br>
                     <input type="date" id="preferred-date" name="preferred-date">
@@ -258,16 +272,19 @@
             <fieldset>
                 <legend>Интересующее направление</legend>
 
+                <!-- div: группирует один radio-вариант "Тренажёрный зал" -->
                 <div>
                     <input type="radio" id="direction-gym" name="direction" value="gym" checked>
                     <label for="direction-gym">Тренажёрный зал</label>
                 </div>
 
+                <!-- div: группирует один radio-вариант "Кроссфит" -->
                 <div>
                     <input type="radio" id="direction-crossfit" name="direction" value="crossfit">
                     <label for="direction-crossfit">Кроссфит</label>
                 </div>
 
+                <!-- div: группирует один radio-вариант "Групповые занятия" -->
                 <div>
                     <input type="radio" id="direction-group" name="direction" value="group">
                     <label for="direction-group">Групповые занятия</label>
@@ -277,6 +294,7 @@
             <fieldset>
                 <legend>Дополнительно</legend>
 
+                <!-- div: группирует подпись и выпадающий список уровня подготовки -->
                 <div>
                     <label for="train-level">Уровень подготовки:</label><br>
                     <select id="train-level" name="train-level">
@@ -288,6 +306,7 @@
 
                 <br>
 
+                <!-- div: группирует чекбокс согласия на рассылку -->
                 <div>
                     <input type="checkbox" id="newsletter" name="newsletter" value="yes" checked>
                     <label for="newsletter">Хочу получать рассылку с советами по тренировкам</label>
@@ -295,6 +314,7 @@
 
                 <br>
 
+                <!-- div: группирует обязательный чекбокс согласия на обработку данных -->
                 <div>
                     <input type="checkbox" id="agree" name="agree" required>
                     <label for="agree">Согласен(на) с условиями обработки данных</label>
@@ -302,12 +322,14 @@
 
                 <br>
 
+                <!-- div: группирует подпись и текстовое поле комментария -->
                 <div>
                     <label for="train-comment">Комментарий:</label><br>
                     <textarea id="train-comment" name="train-comment" rows="4" cols="40" placeholder="Например, удобное время для звонка"></textarea>
                 </div>
             </fieldset>
 
+            <!-- div: группирует кнопки отправки и сброса формы -->
             <div>
                 <button type="submit">Подписаться и записаться</button>
                 <button type="reset">Очистить форму</button>
@@ -316,6 +338,7 @@
     </section>
 
   </main>
+
 
   <!-- Global Site Footer -->
   <footer class="main-footer" id="site-footer">
