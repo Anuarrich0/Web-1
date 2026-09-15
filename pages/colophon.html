@@ -1,93 +1,203 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="A. Maksat">
-  <meta name="description" content="Информация о проекте. Дизайн, верстка и разработка сайта Underground Gym в Астане.">
-  <title>О проекте — Underground Gym</title>
-  <!-- Author metadata comment: Written by A. Maksat -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="A. Maksat">
+<meta name="description" content="О проекте Underground Gym: технологии, структура страниц, инструменты разработки и часто задаваемые вопросы.">
+<title>О проекте и FAQ — Underground Gym</title>
+<!-- Author metadata comment: Written by A. Maksat -->
 </head>
 <body>
 
-  <!-- Primary Site Header -->
-  <header class="main-header">
+<header class="main-header">
     <a href="../index.html" class="logo" aria-label="Underground Gym — На главную">
-    <img src="../assets/images/logo.svg" alt="Underground Gym Logo" width="180" height="40">
+        <img src="../assets/images/logo.svg" alt="Underground Gym Logo" width="180" height="40">
     </a>
 
     <!-- Mobile Navigation Toggle Button (Prepared for JavaScript in Assignment 3) -->
     <button type="button" class="menu-toggle" id="mobile-menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
-      Menu
+        Menu
     </button>
 
-    <!-- Global Navigation Bar across all 8 project pages -->
     <nav class="main-nav" id="primary-nav" aria-label="Основная навигация">
-      <ul class="nav-list">
-        <li><a href="../index.html" class="nav-link">Главная</a></li>
-        <li><a href="locations.html" class="nav-link">Филиалы</a></li>
-        <li><a href="services.html" class="nav-link">Услуги и Зоны</a></li>
-        <li><a href="training.html" class="nav-link">Тренировки</a></li>
-        <li><a href="pricing.html" class="nav-link">Абонементы</a></li>
-        <li><a href="promotions.html" class="nav-link">Акции</a></li>
-        <li><a href="colophon.html" class="nav-link active" aria-current="page">О проекте</a></li>
-        <li><a href="contacts.html" class="nav-link">Контакты</a></li>
-      </ul>
+        <ul class="nav-list">
+            <li><a href="../index.html" class="nav-link">Главная</a></li>
+            <li><a href="locations.html" class="nav-link">Филиалы</a></li>
+            <li><a href="services.html" class="nav-link">Услуги и Зоны</a></li>
+            <li><a href="training.html" class="nav-link">Тренировки</a></li>
+            <li><a href="pricing.html" class="nav-link">Абонементы</a></li>
+            <li><a href="promotions.html" class="nav-link">Акции</a></li>
+            <li><a href="colophon.html" class="nav-link active" aria-current="page">О проекте</a></li>
+            <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+        </ul>
     </nav>
 
-    <!-- Header Actions replacing div with a semantic p tag for structural grouping -->
     <!-- SEMANTIC COMMENT: Used 'p' instead of 'div' to group action elements semantically without breaking structure -->
     <p class="header-actions">
-      <button type="button" class="theme-toggle-btn" id="theme-switcher-btn" data-theme="dark" aria-label="Switch color theme">
-        Theme
-      </button>
-      <a href="tel:+77000000000" class="header-phone">+7 (700) 000-00-00</a>
-      <a href="#trial-modal" class="btn btn-primary">Пробная тренировка</a>
+        <button type="button" class="theme-toggle-btn" id="theme-switcher-btn" data-theme="dark" aria-label="Switch color theme">
+            Theme
+        </button>
+        <a href="tel:+77000000000" class="header-phone">+7 (700) 000-00-00</a>
+        <a href="#trial-modal" class="btn btn-primary">Пробная тренировка</a>
     </p>
-  </header>
+</header>
 
-  <!-- Main Content Area -->
-  <main id="main-content">
-    
-  </main>
+<main id="main-content">
 
-  <!-- Global Site Footer -->
-  <footer class="main-footer" id="site-footer">
-    
+    <section class="page-intro-section" id="colophon-intro">
+        <!-- Requirement: Exactly one H1 tag per page -->
+        <h1>О проекте: как создан этот сайт</h1>
+        <p>
+            Здесь мы рассказываем, какими технологиями, инструментами и принципами руководствовалась
+            команда при разработке сайта <strong>Underground Gym</strong>, а также отвечаем на часто
+            задаваемые вопросы о проекте.
+        </p>
+    </section>
+
+    <section class="tech-stack-section" id="tech-stack">
+        <h2>Технологии</h2>
+        <p>Сайт создаётся поэтапно, в рамках учебных заданий, с постепенным наращиванием функциональности.</p>
+        <dl class="gym-zones-def">
+            <dt><strong>HTML5</strong></dt>
+            <dd>Семантическая вёрстка каждой страницы: осмысленные теги (<code>header</code>, <code>nav</code>,
+                <code>main</code>, <code>section</code>, <code>article</code>, <code>footer</code>) вместо
+                универсальных <code>div</code>, где это возможно.</dd>
+            <dt><strong>CSS3</strong></dt>
+            <dd>Стилизация и адаптивная вёрстка — запланированы на следующий этап работы.</dd>
+            <dt><strong>JavaScript (ES6+)</strong></dt>
+            <dd>Интерактивная логика — калькуляторы стоимости, квизы, фильтры филиалов и переключатель
+                темы — запланирована на следующее задание. В разметке уже подготовлены соответствующие
+                атрибуты и id-«крючки» для будущих скриптов.</dd>
+        </dl>
+    </section>
+
+    <section class="structure-section" id="project-structure">
+        <h2>Структура проекта</h2>
+        <p>Сайт состоит из восьми связанных между собой шаблонов страниц:</p>
+        <ul class="nested-programs-list">
+            <li><a href="../index.html">index.html</a> — Главная: баннер, статистика по 11 филиалам, акции и партнёрские скидки.</li>
+            <li><a href="locations.html">pages/locations.html</a> — Филиалы и карта: сравнительная таблица залов.</li>
+            <li><a href="services.html">pages/services.html</a> — Услуги и зоны: силовая, функциональная и групповая зоны.</li>
+            <li><a href="training.html">pages/training.html</a> — Тренировки: форма подписки на рассылку.</li>
+            <li><a href="pricing.html">pages/pricing.html</a> — Абонементы и цены.</li>
+            <li><a href="promotions.html">pages/promotions.html</a> — Акции и партнёры.</li>
+            <li><a href="colophon.html" class="nav-link active" aria-current="page">pages/colophon.html</a> — О проекте и FAQ (эта страница).</li>
+            <li><a href="contacts.html">pages/contacts.html</a> — Контакты.</li>
+        </ul>
+        <p>
+            Общие для всего сайта изображения хранятся в каталоге <code>assets/images/</code>
+            и переиспользуются на всех страницах через относительные пути.
+        </p>
+    </section>
+
+    <section class="workflow-section" id="tools-workflow">
+        <h2>Инструменты и процесс разработки</h2>
+        <ul class="features-grid-list">
+            <li class="feature-card">
+                <strong>Редактор кода:</strong> Visual Studio Code с расширением Live Server для
+                предпросмотра страниц в браузере без сборки проекта.
+            </li>
+            <li class="feature-card">
+                <strong>Контроль версий:</strong> Git и GitHub — каждое задание фиксируется отдельными
+                коммитами, история изменений доступна в репозитории проекта.
+            </li>
+            <li class="feature-card">
+                <strong>Проверка вёрстки:</strong> инструменты разработчика браузера и ручная проверка
+                семантики и доступности (атрибуты <code>aria-*</code>, альтернативный текст изображений).
+            </li>
+        </ul>
+    </section>
+
+    <section class="team-section" id="project-team">
+        <h2>Команда проекта</h2>
+        <p>
+            Сайт разрабатывается совместно небольшой командой в рамках учебного курса: каждая страница
+            закреплена за отдельным участником, а общий шаблон шапки и подвала используется на всех
+            страницах для единообразия.
+        </p>
+        <blockquote cite="#project-team">
+            <p><q>Главная страница и общая структура разметки подготовлены А. Максатом; остальные разделы
+                дорабатываются другими участниками команды.</q></p>
+        </blockquote>
+    </section>
+
+    <section class="faq-section" id="project-faq">
+        <h2>Часто задаваемые вопросы</h2>
+
+        <!-- Native <details>/<summary> used for accessible, no-JS-required FAQ accordion -->
+        <details class="faq-item">
+            <summary>Почему на сайте пока нет стилей и анимаций?</summary>
+            <p>Проект выполняется поэтапно: сначала прорабатывается семантическая HTML-структура,
+                затем добавляются стили (CSS3), а после — интерактивность (JavaScript). Сейчас сайт
+                находится на первом этапе.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>Будет ли сайт адаптивным для мобильных устройств?</summary>
+            <p>Да, адаптивная вёрстка запланирована вместе с добавлением CSS3. Кнопка мобильного меню
+                уже подготовлена в разметке шапки сайта.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>Когда заработают калькулятор абонемента и фильтр филиалов?</summary>
+            <p>Эта функциональность появится на этапе подключения JavaScript (ES6+). В разметке уже
+                есть необходимые id и data-атрибуты, которые будут использоваться скриптами.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>Это реальный фитнес-клуб или учебный проект?</summary>
+            <p>Underground Gym — учебный проект для отработки навыков семантической вёрстки HTML5.
+                Указанные контакты, адреса и отзывы используются в демонстрационных целях.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>Как связаться с командой проекта?</summary>
+            <p>Свяжитесь с нами через <a href="contacts.html">страницу контактов</a> или по телефону,
+                указанному в шапке сайта.</p>
+        </details>
+    </section>
+
+    <p class="back-to-top">
+        <a href="#main-content">Наверх страницы &uarr;</a>
+    </p>
+
+</main>
+
+<footer class="main-footer" id="site-footer">
     <section class="footer-brand">
-      <h2>О бренде</h2>
-      <a href="../index.html" class="logo">
-        <img src="../assets/images/logo-white.svg" alt="Underground Gym Logo" width="160" height="35">
-      </a>
-      <p class="footer-tagline">Крупнейшая сеть фитнес-центров в Астане.</p>
+        <h2>О бренде</h2>
+        <a href="../index.html" class="logo">
+            <img src="../assets/images/logo-white.svg" alt="Underground Gym Logo" width="160" height="35">
+        </a>
+        <p class="footer-tagline">Крупнейшая сеть фитнес-центров в Астане.</p>
     </section>
 
     <nav class="footer-nav" aria-label="Навигация в подвале">
-      <h2 class="footer-title">Навигация</h2>
-      <ul>
-        <li><a href="locations.html">11 филиалов в Астане</a></li>
-        <li><a href="services.html">Финские сауны и залы</a></li>
-        <li><a href="pricing.html">Безлимитные абонементы</a></li>
-        <li><a href="promotions.html">Партнерские скидки</a></li>
-      </ul>
+        <h2 class="footer-title">Навигация</h2>
+        <ul>
+            <li><a href="locations.html">11 филиалов в Астане</a></li>
+            <li><a href="services.html">Финские сауны и залы</a></li>
+            <li><a href="pricing.html">Безлимитные абонементы</a></li>
+            <li><a href="promotions.html">Партнерские скидки</a></li>
+        </ul>
     </nav>
 
     <section class="footer-contacts">
-      <h2 class="footer-title">Контакты</h2>
-      <p>Единый call-центр: <a href="tel:+77000000000">+7 (700) 000-00-00</a></p>
-      <p>График работы: Пн-Вс 07:00 – 23:00</p>
-      <p class="social-links">
-        <a href="https://wa.me/77000000000" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
-        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-      </p>
+        <h2 class="footer-title">Контакты</h2>
+        <p>Единый call-центр: <a href="tel:+77000000000">+7 (700) 000-00-00</a></p>
+        <p>График работы: Пн-Вс 07:00 – 23:00</p>
+        <p class="social-links">
+            <a href="https://wa.me/77000000000" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        </p>
     </section>
 
-    <!-- Footer Copyright Section -->
     <section class="footer-bottom">
-      <h2>Правовая информация</h2>
-      <p>&copy; 2026 Underground Gym. Все права защищены.</p>
+        <h2>Правовая информация</h2>
+        <p>&copy; 2026 Underground Gym. Все права защищены.</p>
     </section>
-  </footer>
+</footer>
 
 </body>
 </html>
