@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="A. Maksat">
+  <meta name="author" content="Z. Rysbek">
   <meta name="description" content="Контактная информация фитнес-клубов Underground Gym в Астане. Телефон, адреса и график работы.">
   <title>Контакты — Underground Gym</title>
-  <!-- Author metadata comment: Written by A. Maksat -->
+  <!-- Author metadata comment: Written by Z. Rysbek -->
 </head>
 <body>
 
-  <!-- Primary Site Header -->
   <header class="main-header">
     <a href="../index.html" class="logo" aria-label="Underground Gym — На главную">
-    <img src="../assets/images/logo.svg" alt="Underground Gym Logo" width="180" height="40">
+      <img src="../assets/images/logo-white.svg" alt="Underground Gym Logo" width="180" height="40">
     </a>
 
     <!-- Mobile Navigation Toggle Button (Prepared for JavaScript in Assignment 3) -->
@@ -21,7 +20,6 @@
       Menu
     </button>
 
-    <!-- Global Navigation Bar across all 8 project pages -->
     <nav class="main-nav" id="primary-nav" aria-label="Основная навигация">
       <ul class="nav-list">
         <li><a href="../index.html" class="nav-link">Главная</a></li>
@@ -35,7 +33,6 @@
       </ul>
     </nav>
 
-    <!-- Header Actions replacing div with a semantic p tag for structural grouping -->
     <!-- SEMANTIC COMMENT: Used 'p' instead of 'div' to group action elements semantically without breaking structure -->
     <p class="header-actions">
       <button type="button" class="theme-toggle-btn" id="theme-switcher-btn" data-theme="dark" aria-label="Switch color theme">
@@ -46,10 +43,8 @@
     </p>
   </header>
 
-  <!-- Main Content Area -->
   <main id="main-content">
 
-    <!-- In-page navigation: two working links pointing to element IDs further down this page -->
     <nav class="page-toc" aria-label="Содержание страницы">
       <ul>
         <li><a href="#working-hours">График работы</a></li>
@@ -57,7 +52,6 @@
       </ul>
     </nav>
 
-    <!-- This intro block is self-contained content that would make sense on its own -> article -->
     <article>
         <h1>Контакты Underground Gym</h1>
 
@@ -81,7 +75,6 @@
         </p>
 
         <blockquote cite="https://undergroundgym.kz">
-            <!-- FIX: обычные кавычки заменены на семантический тег <q>, добавлен <cite> для источника цитаты -->
             <p><q>Мы всегда на связи, чтобы тренировки были удобными</q> &mdash; команда поддержки <cite>Underground Gym</cite>.</p>
         </blockquote>
 
@@ -109,7 +102,6 @@
         <ul>
             <li>
                 Телефон<sup>1</sup>
-                <!-- Вложенный список: уточняющие варианты телефонной связи -->
                 <ul>
                     <li>Call-центр: +7 (700) 000-00-00</li>
                     <li>WhatsApp: +7 (700) 000-00-00</li>
@@ -122,7 +114,7 @@
         <p><small><sup>1</sup> Звонки по Казахстану &ndash; бесплатные.</small></p>
 
         <figure>
-            <img src="../assets/images/map-preview.jpg" alt="Превью карты с расположением филиалов Underground Gym в Астане" width="600" height="400">
+            <img src="../assets/images/map-preview.png" alt="Превью карты с расположением филиалов Underground Gym в Астане" width="600" height="400">
             <figcaption>Филиалы расположены в разных районах города</figcaption>
         </figure>
     </section>
@@ -156,7 +148,6 @@
         <p><small>Расписание актуально на 2026 год и может отличаться в отдельных филиалах.</small></p>
 
         <h3>Как быстрее всего к нам добраться</h3>
-        <!-- Ordered list with an attribute -->
         <ol start="1">
             <li>Определите ближайший филиал на карте</li>
             <li>Позвоните на ресепшн, чтобы уточнить загруженность зала</li>
@@ -167,7 +158,6 @@
     <section>
         <h2>Термины и сокращения</h2>
 
-        <!-- Definition list -->
         <dl>
             <dt><abbr title="Часто задаваемые вопросы">FAQ</abbr></dt>
             <dd>Раздел с ответами на самые частые вопросы клиентов.</dd>
@@ -177,7 +167,6 @@
         </dl>
     </section>
 
-    <!-- aside: дополнительная информация, не являющаяся основным содержанием страницы -->
     <aside>
         <h2>Полезно знать</h2>
         <p>
@@ -191,7 +180,7 @@
         <h2 id="contact-form">Напишите нам</h2>
 
         <form action="#" method="post">
-            <!-- Форма демонстрационная: обработка и отправка данных на сервер пока не реализованы -->
+            <!-- FORM COMMENT: This form uses standard HTML5 input validation. Server-side handling and backend submission will be implemented in later course assignments. -->
 
             <fieldset>
                 <legend>Контактные данные</legend>
@@ -300,7 +289,6 @@
 
   </main>
 
-  <!-- Global Site Footer -->
   <footer class="main-footer" id="site-footer">
     
     <section class="footer-brand">
@@ -331,7 +319,6 @@
       </p>
     </section>
 
-    <!-- Footer Copyright Section -->
     <section class="footer-bottom">
       <h2>Правовая информация</h2>
       <p>&copy; 2026 Underground Gym. Все права защищены.</p>

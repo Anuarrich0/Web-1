@@ -12,7 +12,7 @@
 
   <header class="main-header">
     <a href="index.html" class="logo" aria-label="Underground Gym — На главную">
-      <img src="assets/images/logo.svg" alt="Underground Gym Logo" width="180" height="40">
+      <img src="assets/images/logo-white.svg" alt="Underground Gym Logo" width="180" height="40">
     </a>
 
     <!-- Mobile Navigation Toggle Button (Prepared for JavaScript in Assignment 3) -->
@@ -46,7 +46,6 @@
   <main id="main-content">
 
     <section class="hero-section" id="hero-banner">
-      <!-- Requirement: Exactly one H1 tag per page -->
       <h1>Underground Gym &mdash; Крупнейшая сеть фитнес-центров в Астане</h1>
       <p>
         Добро пожаловать в <strong>Underground Gym</strong>! Мы предлагаем современное оборудование, 
@@ -54,12 +53,16 @@
         Достигайте своих спортивных целей в атмосфере настоящего фитнес-сообщества.
       </p>
       
-      <!-- Replaced div with a semantic p container for CTA links -->
       <p class="hero-cta-buttons">
         <a href="pages/pricing.html" class="btn btn-accent">Выбрать абонемент</a>
         <a href="pages/locations.html" class="btn btn-outline">Найти ближайший филиал</a>
       </p>
     </section>
+
+    <figure class="hero-gallery-photo">
+      <img src="assets/images/training-hall-with-logo.jpg" alt="Тренажёрный зал Underground Gym с зоной гантелей и силовыми тренажёрами" width="600" height="400">
+      <figcaption>Зона гантелей и силовых тренажёров в одном из клубов Underground Gym.</figcaption>
+    </figure>
 
     <!-- Promotional Carousel Section (Hook for JS Slider in Assignment 3) -->
     <section class="promo-carousel-section" id="promotions-slider" data-autoplay="true" data-speed="4000">
@@ -74,19 +77,17 @@
 
       <!-- Strict div justification: this wrapper exists only as a neutral JavaScript slider track; section, article, nav, main, and footer would add incorrect document semantics because the wrapper has no independent content or navigation purpose. -->
       <div class="carousel-track-wrapper" id="carousel-track">
-        <!-- Slide 1 -->
         <article class="promo-card slide-item active" data-slide-id="1">
           <h3>Персональная тренировка в подарок</h3>
           <p>При покупке любого годового абонемента вы получаете вводное занятие с топ-тренером бесплатно.</p>
         </article>
 
         <article class="promo-card slide-item" data-slide-id="2">
-          <h3>Студенческая скидка 15%</h3>
-          <p>Предъявите действующий студенческий билет и тренируйтесь по специальной сниженной цене.</p>
+          <h3>Скидка при оформлении абонемента до 17 сентября</h3>
+          <p>При оформлении абонемента до указанной даты вы получаете дополнительную скидку на абонемент.</p>
         </article>
       </div>
 
-      <!-- Navigation controls replacing div with a semantic nav tag -->
       <nav class="slider-controls" aria-label="Управление акциями">
         <button type="button" class="slider-btn prev-btn" id="slider-prev-btn" aria-label="Previous promo">&larr; Назад</button>
         <span class="slider-counter" id="slider-page-indicator">1 / 2</span>
@@ -125,7 +126,6 @@
 
       <hr>
 
-      <!-- Real 2GIS Review & Nested List Requirement -->
       <blockquote cite="https://2gis.kz/astana/inside/70030076195249679/firm/70000001085622713/71.374618%2C51.143032/tab/reviews?m=71.375363%2C51.142471%2F15">
         <p>
           <q>Отличный фитнес-клуб! Чисто, современное оборудование, дружелюбный персонал и профессиональные тренеры. Особенна на вахте Диляраа</q>

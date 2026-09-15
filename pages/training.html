@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="A. Maksat">
+  <meta name="author" content="Z. Rysbek">
   <meta name="description" content="Тренировочные программы и направления фитнес-сети Underground Gym в Астане. Кроссфит, тренажерный зал, сауны и групповые занятия.">
   <title>Тренировки — Underground Gym</title>
-  <!-- Author metadata comment: Written by A. Maksat -->
+  <!-- Author metadata comment: Written by Z. Rysbek -->
 </head>
 <body>
 
-  <!-- Primary Site Header -->
   <header class="main-header">
     <a href="../index.html" class="logo" aria-label="Underground Gym — На главную">
-    <img src="../assets/images/logo.svg" alt="Underground Gym Logo" width="180" height="40">
+    <img src="../assets/images/logo-white.svg" alt="Underground Gym Logo" width="180" height="40">
     </a>
 
     <!-- Mobile Navigation Toggle Button (Prepared for JavaScript in Assignment 3) -->
@@ -21,7 +20,6 @@
       Menu
     </button>
 
-    <!-- Global Navigation Bar across all 8 project pages -->
     <nav class="main-nav" id="primary-nav" aria-label="Основная навигация">
       <ul class="nav-list">
         <li><a href="../index.html" class="nav-link">Главная</a></li>
@@ -35,7 +33,6 @@
       </ul>
     </nav>
 
-    <!-- Header Actions replacing div with a semantic p tag for structural grouping -->
     <!-- SEMANTIC COMMENT: Used 'p' instead of 'div' to group action elements semantically without breaking structure -->
     <p class="header-actions">
       <button type="button" class="theme-toggle-btn" id="theme-switcher-btn" data-theme="dark" aria-label="Switch color theme">
@@ -46,10 +43,8 @@
     </p>
   </header>
 
-<!-- Main Content Area -->
   <main id="main-content">
 
-    <!-- In-page navigation: two working links pointing to element IDs further down this page -->
     <nav class="page-toc" aria-label="Содержание страницы">
       <ul>
         <li><a href="#glossary">Словарь терминов</a></li>
@@ -80,14 +75,12 @@
         </p>
 
         <blockquote cite="https://undergroundgym.kz">
-            <!-- FIX: обычные кавычки заменены на семантический тег <q>, добавлен <cite> для источника цитаты -->
             <p><q>Лучшая тренировка — та, которую вы делаете регулярно</q>, — говорят тренеры <cite>Underground Gym</cite>.</p>
         </blockquote>
     </section>
 
     <hr>
 
-    <!-- Самостоятельный, законченный блок контента -> article -->
     <article>
         <h2>Основные направления</h2>
 
@@ -101,7 +94,6 @@
             <li>Персональные тренировки</li>
             <li>
                 Групповые занятия
-                <!-- Вложенный список: конкретные виды групповых занятий -->
                 <ul>
                     <li>Йога</li>
                     <li>Степ-аэробика</li>
@@ -121,7 +113,6 @@
     <section>
         <h2>Этапы одной тренировки</h2>
 
-        <!-- Ordered list with an attribute -->
         <ol reversed>
             <li>Заминка и растяжка</li>
             <li>Основной блок упражнений</li>
@@ -179,7 +170,6 @@
     <section id="glossary">
         <h2>Словарь терминов</h2>
 
-        <!-- Definition list -->
         <dl>
             <dt>Кроссфит</dt>
             <dd>Высокоинтенсивная тренировка, сочетающая элементы тяжёлой атлетики, гимнастики и кардио.</dd>
@@ -192,7 +182,7 @@
         </dl>
     </section>
 
-    <!-- div используется как обычный контейнер для группировки заголовка и текста, без отдельного семантического значения -->
+    <!-- div is used as a neutral container for one visual advice block; section and aside do not fit because this block is neither a standalone section nor supplementary content -->
     <div class="tip-box">
         <h2>Совет для начинающих</h2>
 
@@ -206,7 +196,6 @@
         <p><small>Совет подготовлен тренерами Underground Gym.</small></p>
     </div>
 
-    <!-- aside: дополнительная информация рядом с основным содержанием страницы -->
     <aside>
         <h2>Полезно знать</h2>
         <p>
@@ -225,7 +214,7 @@
         <h2 id="signup-form">Подписка на тренировки и рассылку</h2>
 
         <form action="#" method="post">
-            <!-- Форма демонстрационная: обработка и отправка данных на сервер пока не реализованы -->
+            <!-- FORM COMMENT: This form uses standard HTML5 input validation. Server-side handling and backend submission will be implemented in later course assignments. -->
 
             <fieldset>
                 <legend>Личные данные</legend>
@@ -340,7 +329,6 @@
   </main>
 
 
-  <!-- Global Site Footer -->
   <footer class="main-footer" id="site-footer">
     
     <section class="footer-brand">
@@ -371,7 +359,6 @@
       </p>
     </section>
 
-    <!-- Footer Copyright Section -->
     <section class="footer-bottom">
       <h2>Правовая информация</h2>
       <p>&copy; 2026 Underground Gym. Все права защищены.</p>
