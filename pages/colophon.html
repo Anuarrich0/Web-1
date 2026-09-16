@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="N. Anuar">
+<meta name="author" content="Anuar Maksat">
 <meta name="description" content="О проекте Underground Gym: технологии, структура страниц, инструменты разработки и часто задаваемые вопросы.">
-<title>О проекте и FAQ — Underground Gym</title>
-<!-- Author metadata comment: Written by N. Anuar -->
+<title>Underground Gym</title>
+<!-- Author metadata comment: Written by A. Maksat -->
 </head>
 <body>
 
 <header class="main-header">
     <a href="../index.html" class="logo" aria-label="Underground Gym — На главную">
-        <img src="../assets/images/logo-white.svg" alt="Underground Gym Logo" width="180" height="40">
+        <img src="../assets/images/logo.svg" alt="Underground Gym Logo" width="180" height="40">
     </a>
 
     <!-- Mobile Navigation Toggle Button (Prepared for JavaScript in Assignment 3) -->
@@ -46,6 +46,7 @@
 <main id="main-content">
 
     <section class="page-intro-section" id="colophon-intro">
+        <!-- Requirement: Exactly one H1 tag per page -->
         <h1>О проекте: как создан этот сайт</h1>
         <p>
             Здесь мы рассказываем, какими технологиями, инструментами и принципами руководствовалась
@@ -69,6 +70,15 @@
                 темы — запланирована на следующее задание. В разметке уже подготовлены соответствующие
                 атрибуты и id-«крючки» для будущих скриптов.</dd>
         </dl>
+
+        <p>Пример базовой семантической структуры, которой мы придерживаемся на каждой странице:</p>
+        <pre><code>&lt;body&gt;
+  &lt;header class="main-header"&gt;...&lt;/header&gt;
+  &lt;main id="main-content"&gt;
+    &lt;section&gt;...&lt;/section&gt;
+  &lt;/main&gt;
+  &lt;footer class="main-footer"&gt;...&lt;/footer&gt;
+&lt;/body&gt;</code></pre>
     </section>
 
     <section class="structure-section" id="project-structure">
@@ -104,6 +114,13 @@
             <li class="feature-card">
                 <strong>Проверка вёрстки:</strong> инструменты разработчика браузера и ручная проверка
                 семантики и доступности (атрибуты <code>aria-*</code>, альтернативный текст изображений).
+                Открыть DevTools можно сочетанием клавиш <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>
+                (на macOS — <kbd>Cmd</kbd>+<kbd>Option</kbd>+<kbd>I</kbd>).
+            </li>
+            <li class="feature-card">
+                <strong>Валидация HTML:</strong> перед коммитом каждая страница проверяется через
+                W3C Markup Validator. При отсутствии ошибок сервис выводит сообщение:
+                <br><samp>Document checking completed. No errors or warnings to show.</samp>
             </li>
         </ul>
     </section>
