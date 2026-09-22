@@ -4,324 +4,287 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="N. Anuar">
-  <meta name="description" content="Безлимитные фитнес-абонементы и тарифные планы сети Underground Gym в Астане. Выберите подходящую карту: Silver, Gold или Platinum.">
-  <title>Абонементы и Тарифы — Underground Gym</title>
+  <meta name="description" content="Безлимитные фитнес-абонементы и тарифные планы сети Experience Fitness в Астане. Выберите подходящий карту: Silver, Gold или Platinum.">
+  <title>Абонементы и Тарифы — Experience Fitness</title>
   <!-- Author metadata comment: Written by N. Anuar -->
-  <link rel="stylesheet" href="../assets/css/base.css">
-  <link rel="stylesheet" href="../assets/css/anuar.css">
-  <link rel="icon" href="../assets/images/logo-white.svg" type="image/x-icon">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="icon" href="assets/images/logo-white.svg" type="image/x-icon
 </head>
 <body>
-  <header class="main-header site-header">
-    <div class="container header-container">
-      <a href="../index.html" class="logo" aria-label="Underground Gym — На главную">
-        <img src="../assets/images/logo-white.svg" alt="Underground Gym Logo" width="180" height="40">
-      </a>
+  <header class="main-header">
+    <a href="../index.html" class="logo" aria-label="Experience Fitness — На главную">
+      <img src="../assets/images/logo-white.svg" alt="Experience Fitness Logo" width="180" height="40">
+    </a>
 
-      <!-- Mobile Navigation Toggle Button -->
-      <button type="button" class="menu-toggle" id="mobile-menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
-        Menu
+    <!-- Mobile Navigation Toggle Button (Prepared for JavaScript in Assignment 3) -->
+    <button type="button" class="menu-toggle" id="mobile-menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+      Menu
+    </button>
+
+    <nav class="main-nav" id="primary-nav" aria-label="Основная навигация">
+      <ul class="nav-list">
+        <li><a href="../index.html" class="nav-link">Главная</a></li>
+        <li><a href="locations.html" class="nav-link">Филиалы</a></li>
+        <li><a href="services.html" class="nav-link">Услуги и Зоны</a></li>
+        <li><a href="training.html" class="nav-link">Тренировки</a></li>
+        <li><a href="pricing.html" class="nav-link active" aria-current="page">Абонементы</a></li>
+        <li><a href="promotions.html" class="nav-link">Акции</a></li>
+        <li><a href="colophon.html" class="nav-link">О проекте</a></li>
+        <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+      </ul>
+    </nav>
+
+    <!-- SEMANTIC COMMENT: Used 'p' instead of 'div' to group action elements semantically without breaking structure -->
+    <p class="header-actions">
+      <button type="button" class="theme-toggle-btn" id="theme-switcher-btn" data-theme="dark" aria-label="Switch color theme">
+        Theme
       </button>
-
-      <nav class="main-nav" id="primary-nav" aria-label="Основная навигация">
-        <ul class="nav-list">
-          <li><a href="../index.html" class="nav-link">Главная</a></li>
-          <li><a href="locations.html" class="nav-link">Филиалы</a></li>
-          <li><a href="services.html" class="nav-link">Услуги и Зоны</a></li>
-          <li><a href="training.html" class="nav-link">Тренировки</a></li>
-          <li><a href="pricing.html" class="nav-link active" aria-current="page">Абонементы</a></li>
-          <li><a href="promotions.html" class="nav-link">Акции</a></li>
-          <li><a href="colophon.html" class="nav-link">О проекте</a></li>
-          <li><a href="contacts.html" class="nav-link">Контакты</a></li>
-        </ul>
-      </nav>
-
-      <p class="header-actions">
-        <button type="button" class="theme-toggle-btn" id="theme-switcher-btn" data-theme="dark" aria-label="Switch color theme">
-          Theme
-        </button>
-        <a href="tel:+77000000000" class="header-phone">+7 (700) 000-00-00</a>
-        <a href="#order-form" class="btn btn-primary">Пробная тренировка</a>
-      </p>
-    </div>
+      <a href="tel:+77000000000" class="header-phone">+7 (700) 000-00-00</a>
+      <a href="#trial-modal" class="btn btn-primary">Пробная тренировка</a>
+    </p>
   </header>
 
-  <main id="main-content" class="container main-content">
-    <div class="page-intro">
-      <span class="badge">Автор страницы: Anuar</span>
-      <h1>Абонементы Underground Gym</h1>
-      <p class="lead-text">
-        Мы предлагаем три гибких тарифа в зависимости от того, сколько филиалов сети вам нужно
-        и на какой срок вы готовитесь зафиксировать цену. Чем длиннее срок абонемента,
-        тем ниже стоимость каждого месяца тренировок. Все тарифы включают полный доступ к тренажерному
-        залу, зоне кроссфита и финской сауне.
-      </p>
-    </div>
+  <main id="main-content">
+    <h1>Абонементы Experience Fitness</h1>
+    <p>
+      Мы предлагаем три тарифа в зависимости от того, сколько филиалов сети вам нужно
+      и на какой срок вы готовы зафиксировать цену. Чем длиннее срок абонемента,
+      тем ниже стоимость месяца тренировок. Все тарифы включают доступ к тренажерному
+      залу, зоне кроссфита и финской сауне на выбранных филиалах.
+    </p>
 
     <section class="pricing-plans" id="pricing-plans">
-      <h2 class="section-title">Тарифные планы</h2>
+      <h2>Тарифные планы</h2>
 
-      <div class="pricing-grid">
-        <article class="pricing-card" data-tariff="exp">
-          <div class="card-header">
-            <h3>GYM / EXP</h3>
-            <span class="tariff-badge">Стандарт</span>
-          </div>
-          <p class="card-desc">Доступ к одному выбранному филиалу сети.</p>
-          <ul class="pricing-features">
-            <li><span>1 месяц</span> <strong>30 000 ₸</strong></li>
-            <li><span>3 месяца</span> <strong>60 000 ₸</strong></li>
-            <li><span>6 месяцев</span> <strong>80 000 ₸</strong></li>
-            <li><span>12 месяцев</span> <strong>110 000 ₸</strong></li>
-          </ul>
-          <a href="#order-form" class="btn btn-card">Выбрать тариф</a>
-        </article>
+      <article class="pricing-card" data-tariff="exp">
+        <h3>GYM/EXP</h3>
+        <p>Доступ к одному филиалу по вашему выбору.</p>
+        <ul>
+          <li>1 месяц — 30 000 ₸</li>
+          <li>3 месяца — 60 000 ₸</li>
+          <li>6 месяцев — 80 000 ₸</li>
+          <li>12 месяцев — 110 000 ₸</li>
+        </ul>
+      </article>
 
-        <article class="pricing-card popular" data-tariff="exp-plus">
-          <div class="popular-tag">Популярный выбор</div>
-          <div class="card-header">
-            <h3>GYM / EXP+</h3>
-            <span class="tariff-badge highlight">Плюс</span>
-          </div>
-          <p class="card-desc">Расширенный доступ с дополнительными привилегиями в одном филиале.</p>
-          <ul class="pricing-features">
-            <li><span>1 месяц</span> <strong>35 000 ₸</strong></li>
-            <li><span>3 месяца</span> <strong>70 000 ₸</strong></li>
-            <li><span>6 месяцев</span> <strong>100 000 ₸</strong></li>
-            <li><span>12 месяцев</span> <strong>130 000 ₸</strong></li>
-          </ul>
-          <a href="#order-form" class="btn btn-primary btn-card">Выбрать тариф</a>
-        </article>
+      <article class="pricing-card" data-tariff="exp-plus">
+        <h3>GYM/EXP+</h3>
+        <p>Расширенный доступ с дополнительными привилегиями на одном филиале.</p>
+        <ul>
+          <li>1 месяц — 35 000 ₸</li>
+          <li>3 месяца — 70 000 ₸</li>
+          <li>6 месяцев — 100 000 ₸</li>
+          <li>12 месяцев — 130 000 ₸</li>
+        </ul>
+      </article>
 
-        <article class="pricing-card premium" data-tariff="big-plus">
-          <div class="card-header">
-            <h3>BIG+ / EXP</h3>
-            <span class="tariff-badge gold">Золотая карта</span>
-          </div>
-          <p class="card-desc">Единственный безлимитный тариф с доступом ко всем 11 филиалам сети.</p>
-          <ul class="pricing-features">
-            <li><span>1 месяц</span> <strong>40 000 ₸</strong></li>
-            <li><span>3 месяца</span> <strong>100 000 ₸</strong></li>
-            <li><span>6 месяцев</span> <strong>130 000 ₸</strong></li>
-            <li><span>12 месяцев</span> <strong>180 000 ₸</strong></li>
-          </ul>
-          <a href="#order-form" class="btn btn-card">Выбрать тариф</a>
-        </article>
-      </div>
+      <article class="pricing-card" data-tariff="big-plus">
+        <h3>BIG+/EXP (Золотая карта)</h3>
+        <p>Единственный тариф с доступом ко всем 11 филиалам сети без ограничений.</p>
+        <ul>
+          <li>1 месяц — 40 000 ₸</li>
+          <li>3 месяца — 100 000 ₸</li>
+          <li>6 месяцев — 130 000 ₸</li>
+          <li>12 месяцев — 180 000 ₸</li>
+        </ul>
+      </article>
     </section>
 
     <section class="gym-gallery" id="gym-gallery">
-      <h2 class="section-title">Атмосфера наших залов</h2>
+      <h2>Как выглядят наши залы</h2>
 
-      <div class="gallery-grid">
-        <figure class="gallery-card">
-          <img src="../assets/images/gym-weights-area.jpg" alt="Зона свободных весов и гантельный ряд в одном из филиалов Underground Gym" width="600" height="400">
-          <figcaption>Зона свободных весов — доступна во всех тарифах.</figcaption>
-        </figure>
+      <figure>
+        <img src="../assets/images/gym-weights-area.jpg" alt="Зона свободных весов и гантельный ряд в одном из филиалов Experience Fitness" width="600" height="400">
+        <figcaption>Зона свободных весов доступна во всех тарифах.</figcaption>
+      </figure>
 
-        <figure class="gallery-card">
-          <img src="../assets/images/training-hall-with-logo.jpg" alt="Тренажёрная зона с фирменной подсветкой и вывеской Underground Gym" width="600" height="400">
-          <figcaption>Фирменная тренажерная зона с неоновым освещением.</figcaption>
-        </figure>
-      </div>
+      <figure>
+        <img src="../assets/images/training-hall-with-logo.jpg" alt="Тренажёрная зона с фирменной подсветкой и вывеской Experience Fitness" width="600" height="400">
+        <figcaption>Фирменная зона с тренажёрами — часть тарифа GYM/EXP+.</figcaption>
+      </figure>
     </section>
 
     <section class="pricing-table-section" id="pricing-table">
-      <h2 class="section-title">Сравнение тарифов по срокам</h2>
-      <p class="section-desc">
-        Наглядное сравнение стоимости абонементов в зависимости от длительности периода подписки.
+      <h2>Сравнение тарифов в одной таблице</h2>
+      <p>
+        Если тарифные карточки выше не дают полной картины, вот та же информация
+        в виде таблицы для быстрого сравнения по срокам.
       </p>
 
-      <div class="table-responsive">
-        <table class="pricing-table">
-          <caption>Стоимость абонементов Underground Gym по срокам (в ₸)</caption>
-          <thead>
-            <tr>
-              <th scope="col">Тариф</th>
-              <th scope="col">1 месяц</th>
-              <th scope="col">3 месяца</th>
-              <th scope="col">6 месяцев</th>
-              <th scope="col">12 месяцев</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">GYM / EXP</th>
-              <td>30 000 ₸</td>
-              <td>60 000 ₸</td>
-              <td>80 000 ₸</td>
-              <td>110 000 ₸</td>
-            </tr>
-            <tr>
-              <th scope="row">GYM / EXP+</th>
-              <td>35 000 ₸</td>
-              <td>70 000 ₸</td>
-              <td>100 000 ₸</td>
-              <td>130 000 ₸</td>
-            </tr>
-            <tr class="highlight-row">
-              <th scope="row">BIG+ / EXP <span class="all-access-tag">(Все 11 филиалов)</span></th>
-              <td>40 000 ₸</td>
-              <td>100 000 ₸</td>
-              <td>130 000 ₸</td>
-              <td>180 000 ₸</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table>
+        <caption>Стоимость абонементов Experience Fitness по срокам (в ₸)</caption>
+        <thead>
+          <tr>
+            <th scope="col">Тариф</th>
+            <th scope="col">1 месяц</th>
+            <th scope="col">3 месяца</th>
+            <th scope="col">6 месяцев</th>
+            <th scope="col">12 месяцев</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">GYM/EXP</th>
+            <td>30 000</td>
+            <td>60 000</td>
+            <td>80 000</td>
+            <td>110 000</td>
+          </tr>
+          <tr>
+            <th scope="row">GYM/EXP+</th>
+            <td>35 000</td>
+            <td>70 000</td>
+            <td>100 000</td>
+            <td>130 000</td>
+          </tr>
+          <tr>
+            <th scope="row">BIG+/EXP</th>
+            <td>40 000 <span class="currency-note">(доступ ко всем филиалам)</span></td>
+            <td>100 000</td>
+            <td>130 000</td>
+            <td>180 000</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <aside class="pricing-tip" aria-label="Совет по выбору тарифа">
-      <div class="tip-content">
-        <h2>💡 Как выгодно выбрать тариф?</h2>
-        <p>
-          Если вы планируете заниматься только в одном зале рядом с домом или работой —
-          выбирайте <b>GYM / EXP</b>. Если хотите посещать <i>разные филиалы</i>
-          в течение недели, выбор BIG+ / EXP быстро окупает себя.
-        </p>
-        <p class="math-note">
-          Средняя стоимость месяца при годовом тарифе GYM / EXP составляет:
-          <mark>110 000 ₸ / 12 ≈ 9 167 ₸* в месяц</mark>, что более чем в 3 раза дешевле помесячной оплаты!
-        </p>
-        <p><small><sup>*</sup> Расчёт ориентировочный, без учёта персональных акционных скидок.</small></p>
-      </div>
+      <h2>Как выбрать тариф</h2>
+      <p>
+        Если вы планируете ходить только в один зал рядом с домом или работой —
+        берите <b>GYM/EXP</b>. Если хотите заниматься <i>в разных филиалах</i>
+        в течение недели, доплата за BIG+/EXP быстро окупается.
+      </p>
+      <p>
+        Средняя стоимость месяца при годовом тарифе GYM/EXP — это 110 000 ₸ / 12
+        ≈ 9 167 ₸<sup>*</sup> в месяц, что дешевле, чем месячная оплата напрямую.
+      </p>
+      <p><small><sup>*</sup> Расчёт приблизительный, без учёта акций и скидок.</small></p>
     </aside>
 
     <section class="pricing-terms" id="pricing-terms">
-      <h2 class="section-title">Дополнительные условия</h2>
-      <dl class="terms-def-list">
-        <div class="def-item">
-          <dt><strong>Заморозка абонемента</strong></dt>
-          <dd>До 14 дней в год бесплатно при наличии медицинской справки или по согласованию с администрацией.</dd>
-        </div>
-        <div class="def-item">
-          <dt><strong>Гостевой визит</strong></dt>
-          <dd>Один бесплатный гостевой визит для друга каждый месяц для постоянных держателей абонемента.</dd>
-        </div>
+      <h2>Условия абонемента</h2>
+      <dl>
+        <dt><strong>Заморозка абонемента</strong></dt>
+        <dd>До 14 дней в год бесплатно при наличии справки, далее по согласованию с администратором филиала.</dd>
+        <dt><strong>Гостевой визит</strong></dt>
+        <dd>Один бесплатный гостевой визит для друга по приглашению держателя абонемента раз в месяц.</dd>
       </dl>
     </section>
 
     <section class="order-form-section" id="order-form">
-      <h2 class="section-title">Оформить абонемент онлайн</h2>
-      <p class="form-intro">Заполните анкету, и наш менеджер свяжется с вами в течение 15 минут для подтверждения брони.</p>
-
-      <form action="#" method="post" class="styled-form">
-        <fieldset class="form-fieldset">
+      <h2>Оформить абонемент</h2>
+      <form action="#" method="post">
+        <!-- Form has no backend yet: server-side handling comes later in the course -->
+        <fieldset>
           <legend>Личные данные</legend>
-          <div class="form-grid">
-            <p class="form-group">
-              <label for="client-name">Ваше имя *</label>
-              <input type="text" id="client-name" name="client-name" required placeholder="Например, Ануар">
-            </p>
-            <p class="form-group">
-              <label for="client-email">Email адрес *</label>
-              <input type="email" id="client-email" name="client-email" required placeholder="you@example.com">
-            </p>
-            <p class="form-group">
-              <label for="client-phone">Номер телефона *</label>
-              <input type="tel" id="client-phone" name="client-phone" required placeholder="+7 (700) 000-00-00">
-            </p>
-            <p class="form-group">
-              <label for="client-age">Возраст *</label>
-              <input type="number" id="client-age" name="client-age" min="14" max="99" required placeholder="18">
-            </p>
-            <p class="form-group full-width">
-              <label for="client-dob">Дата рождения</label>
-              <input type="date" id="client-dob" name="client-dob">
-            </p>
-          </div>
+          <p>
+            <label for="client-name">Имя</label>
+            <input type="text" id="client-name" name="client-name" required placeholder="Ваше имя">
+          </p>
+          <p>
+            <label for="client-email">Email</label>
+            <input type="email" id="client-email" name="client-email" required placeholder="you@example.com">
+          </p>
+          <p>
+            <label for="client-phone">Телефон</label>
+            <input type="tel" id="client-phone" name="client-phone" required placeholder="+7 (700) 000-00-00">
+          </p>
+          <p>
+            <label for="client-age">Возраст</label>
+            <input type="number" id="client-age" name="client-age" min="14" max="99" required>
+          </p>
+          <p>
+            <label for="client-dob">Дата рождения</label>
+            <input type="date" id="client-dob" name="client-dob">
+          </p>
         </fieldset>
 
-        <fieldset class="form-fieldset">
-          <legend>Выбор тарифного плана</legend>
-          <p class="form-group">
-            <label for="tariff-select">Тариф *</label>
+        <fieldset>
+          <legend>Выбор тарифа</legend>
+          <p>
+            <label for="tariff-select">Тариф</label>
             <select id="tariff-select" name="tariff" required>
-              <option value="">— Выберите тарифный план —</option>
-              <option value="exp">GYM / EXP (1 филиал)</option>
-              <option value="exp-plus">GYM / EXP+ (1 филиал + Привилегии)</option>
-              <option value="big-plus">BIG+ / EXP (Все 11 филиалов)</option>
+              <option value="">— выберите тариф —</option>
+              <option value="exp">GYM/EXP</option>
+              <option value="exp-plus">GYM/EXP+</option>
+              <option value="big-plus">BIG+/EXP</option>
             </select>
           </p>
 
-          <div class="form-group">
-            <label class="group-label">Срок абонемента *</label>
-            <div class="radio-options">
-              <label class="radio-card">
-                <input type="radio" id="term-1" name="term" value="1">
-                <span>1 месяц</span>
-              </label>
-              <label class="radio-card">
-                <input type="radio" id="term-3" name="term" value="3">
-                <span>3 месяца</span>
-              </label>
-              <label class="radio-card">
-                <input type="radio" id="term-6" name="term" value="6">
-                <span>6 месяцев</span>
-              </label>
-              <label class="radio-card">
-                <input type="radio" id="term-12" name="term" value="12" checked>
-                <span>12 месяцев (Выгодно)</span>
-              </label>
-            </div>
-          </div>
+          <!-- Radio group instead of select: only 4 mutually exclusive options, radios stay visible without extra clicks -->
+          <p>Срок абонемента:</p>
+          <p>
+            <input type="radio" id="term-1" name="term" value="1">
+            <label for="term-1">1 месяц</label>
+          </p>
+          <p>
+            <input type="radio" id="term-3" name="term" value="3">
+            <label for="term-3">3 месяца</label>
+          </p>
+          <p>
+            <input type="radio" id="term-6" name="term" value="6">
+            <label for="term-6">6 месяцев</label>
+          </p>
+          <p>
+            <input type="radio" id="term-12" name="term" value="12">
+            <label for="term-12">12 месяцев</label>
+          </p>
         </fieldset>
 
-        <fieldset class="form-fieldset">
-          <legend>Дополнительные пожелания</legend>
-          <p class="form-group">
-            <label for="client-comment">Комментарий к заявке</label>
-            <textarea id="client-comment" name="comment" rows="3" placeholder="Укажите удобный филиал или цели тренировок..."></textarea>
+        <fieldset>
+          <legend>Дополнительно</legend>
+          <p>
+            <label for="client-comment">Комментарий</label>
+            <textarea id="client-comment" name="comment" placeholder="Пожелания по тренировкам или филиалу"></textarea>
           </p>
-          <p class="form-checkbox">
+          <p>
             <input type="checkbox" id="client-agree" name="agree" required>
-            <label for="client-agree">Согласен с правилами клуба и обработкой персональных данных</label>
+            <label for="client-agree">Согласен с условиями оформления абонемента</label>
           </p>
         </fieldset>
 
-        <div class="form-actions-buttons">
-          <button type="submit" class="btn btn-primary btn-submit">Отправить заявку</button>
-          <button type="reset" class="btn btn-reset">Очистить форму</button>
-        </div>
+        <p>
+          <button type="submit">Отправить заявку</button>
+          <button type="reset">Очистить форму</button>
+        </p>
       </form>
     </section>
   </main>
 
-  <footer class="main-footer site-footer" id="site-footer">
-    <div class="container footer-container">
-      <section class="footer-brand">
-        <h2>О бренде</h2>
-        <a href="../index.html" class="logo">
-          <img src="../assets/images/logo-white.svg" alt="Underground Gym Logo" width="160" height="35">
-        </a>
-        <p class="footer-tagline">Крупнейшая сеть фитнес-центров в Астане.</p>
-      </section>
+  <footer class="main-footer" id="site-footer">
+    <section class="footer-brand">
+      <h2>О бренде</h2>
+      <a href="../index.html" class="logo">
+        <img src="../assets/images/logo-white.svg" alt="Experience Fitness Logo" width="160" height="35">
+      </a>
+      <p class="footer-tagline">Крупнейшая сеть фитнес-центров в Астане.</p>
+    </section>
 
-      <nav class="footer-nav" aria-label="Навигация в подвале">
-        <h2 class="footer-title">Навигация</h2>
-        <ul>
-          <li><a href="locations.html">11 филиалов в Астане</a></li>
-          <li><a href="services.html">Финские сауны и залы</a></li>
-          <li><a href="pricing.html">Безлимитные абонементы</a></li>
-          <li><a href="promotions.html">Партнерские скидки</a></li>
-        </ul>
-      </nav>
+    <nav class="footer-nav" aria-label="Навигация в подвале">
+      <h2 class="footer-title">Навигация</h2>
+      <ul>
+        <li><a href="locations.html">11 филиалов в Астане</a></li>
+        <li><a href="services.html">Финские сауны и залы</a></li>
+        <li><a href="pricing.html">Безлимитные абонементы</a></li>
+        <li><a href="promotions.html">Партнерские скидки</a></li>
+      </ul>
+    </nav>
 
-      <section class="footer-contacts">
-        <h2 class="footer-title">Контакты</h2>
-        <p>Единый call-центр: <a href="tel:+77000000000">+7 (700) 000-00-00</a></p>
-        <p>График работы: Пн-Вс 07:00 – 23:00</p>
-        <p class="social-links">
-          <a href="https://wa.me/77000000000" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-        </p>
-      </section>
+    <section class="footer-contacts">
+      <h2 class="footer-title">Контакты</h2>
+      <p>Единый call-центр: <a href="tel:+77000000000">+7 (700) 000-00-00</a></p>
+      <p>График работы: Пн-Вс 07:00 – 23:00</p>
+      <p class="social-links">
+        <a href="https://wa.me/77000000000" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+      </p>
+    </section>
 
-      <section class="footer-bottom">
-        <h2>Правовая информация</h2>
-        <p>&copy; 2026 Underground Gym. Все права защищены.</p>
-      </section>
-    </div>
+    <section class="footer-bottom">
+      <h2>Правовая информация</h2>
+      <p>&copy; 2026 Experience Fitness. Все права защищены.</p>
+    </section>
   </footer>
 </body>
 </html>
