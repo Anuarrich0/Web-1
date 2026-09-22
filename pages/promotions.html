@@ -4,213 +4,239 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="N. Anuar">
-  <meta name="description" content="Акции и специальные предложения фитнес-клубов Underground Gym в Астане.">
+  <meta name="description" content="Акции и специальные предложения фитнес-клубов Underground Gym в Астане. Скидки для студентов и бонусы за друзей.">
   <title>Акции — Underground Gym</title>
   <!-- Author metadata comment: Written by N. Anuar -->
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="icon" href="assets/images/logo-white.svg" type="image/x-icon
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/anuar.css">
+  <link rel="icon" href="../assets/images/logo-white.svg" type="image/x-icon">
 </head>
 <body>
 
-  <header class="main-header">
-    <a href="../index.html" class="logo" aria-label="Underground Gym — На главную">
-    <img src="../assets/images/logo-white.svg" alt="Underground Gym Logo" width="180" height="40">
-    </a>
+  <header class="main-header site-header">
+    <div class="container header-container">
+      <a href="../index.html" class="logo" aria-label="Underground Gym — На главную">
+        <img src="../assets/images/logo-white.svg" alt="Underground Gym Logo" width="180" height="40">
+      </a>
 
-    <!-- Mobile Navigation Toggle Button (Prepared for JavaScript in Assignment 3) -->
-    <button type="button" class="menu-toggle" id="mobile-menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
-      Menu
-    </button>
-
-    <nav class="main-nav" id="primary-nav" aria-label="Основная навигация">
-      <ul class="nav-list">
-        <li><a href="../index.html" class="nav-link">Главная</a></li>
-        <li><a href="locations.html" class="nav-link">Филиалы</a></li>
-        <li><a href="services.html" class="nav-link">Услуги и Зоны</a></li>
-        <li><a href="training.html" class="nav-link">Тренировки</a></li>
-        <li><a href="pricing.html" class="nav-link">Абонементы</a></li>
-        <li><a href="promotions.html" class="nav-link active" aria-current="page">Акции</a></li>
-        <li><a href="colophon.html" class="nav-link">О проекте</a></li>
-        <li><a href="contacts.html" class="nav-link">Контакты</a></li>
-      </ul>
-    </nav>
-
-    <!-- SEMANTIC COMMENT: Used 'p' instead of 'div' to group action elements semantically without breaking structure -->
-    <p class="header-actions">
-      <button type="button" class="theme-toggle-btn" id="theme-switcher-btn" data-theme="dark" aria-label="Switch color theme">
-        Theme
+      <!-- Mobile Navigation Toggle Button -->
+      <button type="button" class="menu-toggle" id="mobile-menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+        Menu
       </button>
-      <a href="tel:+77000000000" class="header-phone">+7 (700) 000-00-00</a>
-      <a href="#trial-modal" class="btn btn-primary">Пробная тренировка</a>
-    </p>
+
+      <nav class="main-nav" id="primary-nav" aria-label="Основная навигация">
+        <ul class="nav-list">
+          <li><a href="../index.html" class="nav-link">Главная</a></li>
+          <li><a href="locations.html" class="nav-link">Филиалы</a></li>
+          <li><a href="services.html" class="nav-link">Услуги и Зоны</a></li>
+          <li><a href="training.html" class="nav-link">Тренировки</a></li>
+          <li><a href="pricing.html" class="nav-link">Абонементы</a></li>
+          <li><a href="promotions.html" class="nav-link active" aria-current="page">Акции</a></li>
+          <li><a href="colophon.html" class="nav-link">О проекте</a></li>
+          <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <p class="header-actions">
+        <button type="button" class="theme-toggle-btn" id="theme-switcher-btn" data-theme="dark" aria-label="Switch color theme">
+          Theme
+        </button>
+        <a href="tel:+77000000000" class="header-phone">+7 (700) 000-00-00</a>
+        <a href="pricing.html#order-form" class="btn btn-primary">Пробная тренировка</a>
+      </p>
+    </div>
   </header>
-  <main>
 
-  <h1>Акции и правила клуба Underground Gym</h1>
-  <p>
-    Здесь собраны актуальные акции для новых участников клуба, а также ключевые 
-    правила обслуживания, зафиксированные в договоре оферты. Ознакомьтесь с 
-    условиями перед тем, как <a href="#club-rules">перейти к правилам</a> или 
-    <a href="#current-promos">посмотреть текущие акции</a>.
-  </p>
+  <main class="container main-content">
 
-  <section class="current-promos" id="current-promos">
-    <h2>Текущие акции</h2>
-
-    <ul>
-      <li>
-        Для новых клиентов
-        <ul>
-          <li>Персональная тренировка в подарок при покупке годового абонемента</li>
-          <li>Студенческая скидка 15% по студенческому билету</li>
-        </ul>
-      </li>
-      <li>
-        Для действующих участников
-        <ul>
-          <li>Бонус за приглашённого друга</li>
-          <li>Скидка на продление в день рождения</li>
-        </ul>
-      </li>
-    </ul>
-
-    <article class="promo-highlight">
-      <h3>&laquo;Приведи друга&raquo;</h3>
-      <p>
-        Пригласите друга на бесплатную
-        <!-- Span is used because this phrase needs styling only, not separate semantic meaning. -->
-        <span class="highlight-term">пробную тренировку</span> —
-        если он оформит абонемент, вы получаете месяц занятий бесплатно.
+    <div class="page-intro">
+      <span class="badge">Автор страницы: Anuar</span>
+      <h1>Акции и правила клуба Underground Gym</h1>
+      <p class="lead-text">
+        Здесь собраны актуальные акции для новых и постоянных участников клуба, а также ключевые
+        правила обслуживания, зафиксированные в договоре оферты. Ознакомьтесь с
+        условиями перед тем, как <a href="#club-rules">перейти к правилам</a> или
+        <a href="#current-promos">посмотреть текущие акции</a>.
       </p>
-    </article>
-
-    <figure>
-      <img src="../assets/images/training-hall.jpg" alt="Тренажёрный зал Underground Gym с зоной отдыха и кулером для воды" width="600" height="400">
-      <figcaption>Зона зала, где часто проходят консультации по акциям.</figcaption>
-    </figure>
-
-    <p><strong>Как получить студенческую скидку:</strong></p>
-    <ol start="1">
-      <li>Предъявите действующий студенческий билет на ресепшене.</li>
-      <li>Менеджер применит скидку 15% к выбранному тарифу.</li>
-      <li>Скидка действует при каждом продлении абонемента.</li>
-    </ol>
-  </section>
-
-  <hr>
-
-  <section class="club-rules-section" id="club-rules">
-    <h2>Правила клуба</h2>
-    <p>
-      Полные условия зафиксированы в договоре оферты клуба. Как указано в документе, 
-      абонемент определяется как <q>совокупность основных услуг, предоставляемых 
-      фитнес-клубом, и порядок их предоставления</q> — то есть это не просто доступ 
-      к залу, а конкретный набор условий обслуживания.
-    </p>
-
-    <dl>
-      <dt><strong>Акция</strong></dt>
-      <dd>Временное специальное предложение клуба, действующее в ограниченный период или при определённых условиях (например, наличие студенческого билета).</dd>
-
-      <dt><strong>Промокод</strong></dt>
-      <dd>Уникальный код, который клиент называет администратору или вводит в форме заявки для применения скидки.</dd>
-    </dl>
-
-    <details>
-      <summary><strong>Заморозка абонемента</strong></summary>
-      <p>
-        Абонемент можно временно приостановить: срок действия продлевается на 
-        период заморозки. Заявка подаётся лично в отделе продаж <em>заранее</em>, 
-        до даты начала паузы, а не задним числом.
-      </p>
-    </details>
-
-    <details>
-      <summary><strong>Гостевые визиты</strong></summary>
-      <p>
-        Гостевой визит — дополнительная услуга и <mark>не входит в стоимость базового абонемента</mark>. 
-        Уточняйте условия на ресепшене вашего филиала.
-      </p>
-    </details>
-
-    <details>
-      <summary><strong>Групповые и персональные тренировки</strong></summary>
-      <p>
-        Групповые занятия длятся 30–60 минут в зависимости от направления. 
-        Персональные тренировки — от 45 до 90 минут, оплачиваются отдельно 
-        и активируются только после оплаты.<br>
-        Расписание групповых занятий уточняйте у администратора филиала.
-      </p>
-    </details>
-
-    <details>
-      <summary><strong>Возрастные ограничения</strong></summary>
-      <p>
-        Посетителям младше 18 лет для оформления абонемента требуется согласие 
-        законного представителя (<abbr title="лицо, действующее от имени несовершеннолетнего">закон. представитель</abbr>). 
-        Лицам младше 15 лет доступ в зал возможен <strong>только в сопровождении</strong> 
-        законного представителя или тренера клуба.
-      </p>
-    </details>
-
-    <blockquote cite="https://instagram.com/underground.astana">
-      <p>
-        <q>Сопровождающий взрослый не имеет права пользоваться спортивно-оздоровительными 
-        услугами клуба и ожидает в специально отведённой зоне.</q>
-      </p>
-      <p>&mdash; <cite>Официальные правила клуба, договор оферты Underground GYM/BIG</cite>.</p>
-    </blockquote>
-
-    <!-- DIV JUSTIFICATION: generic wrapper for a short legal disclaimer line; no semantic tag (aside/section) fits a single small-print sentence -->
-    <div class="fine-print">
-      <p><small>Полный текст договора оферты доступен на ресепшене клуба и по запросу через <abbr title="электронная почта">эл. почту</abbr>.</small></p>
     </div>
 
-    <p>
-      Вопросы по акциям? Напишите нам: 
-      <a href="mailto:info@undergroundgym.kz">info@undergroundgym.kz</a>
-    </p>
+    <section class="current-promos" id="current-promos">
+      <h2 class="section-title">Текущие специальные предложения</h2>
 
-    <p class="back-to-top">
-      <a href="#current-promos">Вернуться к акциям &uarr;</a>
-    </p>
-  </section>
+      <div class="promo-category-grid">
+        <div class="promo-cat-card">
+          <h3>🎁 Для новых клиентов</h3>
+          <ul class="promo-bullets">
+            <li><strong>Персональная тренировка в подарок</strong> при покупке любого годового абонемента</li>
+            <li><strong>Студенческая скидка 15%</strong> при предъявлении студенческого билета</li>
+          </ul>
+        </div>
+
+        <div class="promo-cat-card">
+          <h3>🔥 Для действующих участников</h3>
+          <ul class="promo-bullets">
+            <li><strong>Бонус за приглашённого друга:</strong> +1 месяц безлимита в подарок</li>
+            <li><strong>Скидка на продление</strong> в ваш день рождения</li>
+          </ul>
+        </div>
+      </div>
+
+      <article class="promo-highlight">
+        <div class="highlight-badge">Акция месяца</div>
+        <h3>🔥 &laquo;Приведи друга&raquo;</h3>
+        <p>
+          Пригласите друга на бесплатную
+          <span class="highlight-term">пробную тренировку</span> —
+          если он оформит абонемент, вы получаете целый месяц клубных занятий абсолютно бесплатно!
+        </p>
+      </article>
+
+      <div class="promo-gallery-block">
+        <figure class="gallery-card">
+          <img src="../assets/images/training-hall.jpg" alt="Тренажёрный зал Underground Gym с зоной отдыха и кулером для воды" width="600" height="400">
+          <figcaption>Зона ожидания и консультаций по акциям в одном из филиалов Underground Gym.</figcaption>
+        </figure>
+
+        <div class="steps-card">
+          <h3>Как получить студенческую скидку:</h3>
+          <ol start="1" class="promo-steps-ol">
+            <li>Предъявите действующий студенческий билет на ресепшене клуба.</li>
+            <li>Менеджер применит скидку 15% к выбранному тарифу абонемента.</li>
+            <li>Скидка будет автоматически действовать при каждом продлении.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="club-rules-section" id="club-rules">
+      <h2 class="section-title">Правила и регламент клуба</h2>
+      <p class="section-desc">
+        Полные условия зафиксированы в договоре оферты клуба. Согласно документу,
+        абонемент определяется как <q>совокупность основных услуг, предоставляемых
+        фитнес-клубом, и порядок их предоставления</q> — это гарантирует высокое качество обслуживания.
+      </p>
+
+      <dl class="terms-def-list promo-def-list">
+        <div class="def-item">
+          <dt><strong>Акция</strong></dt>
+          <dd>Временное специальное предложение клуба, действующее в ограниченный период или при определённых условиях (например, наличие студенческого билета).</dd>
+        </div>
+        <div class="def-item">
+          <dt><strong>Промокод</strong></dt>
+          <dd>Уникальный кодовый набор, который клиент сообщает администратору или вводит в форме заявки для активации скидки.</dd>
+        </div>
+      </dl>
+
+      <div class="accordions-container">
+        <details class="styled-details">
+          <summary><strong>❄️ Заморозка абонемента</strong></summary>
+          <div class="details-body">
+            <p>
+              Абонемент можно временно приостановить: срок действия продлевается на
+              период заморозки. Заявка подаётся лично в отделе продаж <em>заранее</em>,
+              до даты начала паузы, а не задним числом.
+            </p>
+          </div>
+        </details>
+
+        <details class="styled-details">
+          <summary><strong>🎟️ Гостевые визиты</strong></summary>
+          <div class="details-body">
+            <p>
+              Гостевой визит — дополнительная услуга и <mark>не входит в стоимость базового абонемента</mark>.
+              Уточняйте актуальные условия и правила на ресепшене вашего филиала.
+            </p>
+          </div>
+        </details>
+
+        <details class="styled-details">
+          <summary><strong>⏱️ Групповые и персональные тренировки</strong></summary>
+          <div class="details-body">
+            <p>
+              Групповые занятия длятся 30–60 минут в зависимости от направления.
+              Персональные тренировки — от 45 до 90 минут, оплачиваются отдельно
+              и активируются только после оплаты.<br>
+              Расписание групповых занятий уточняйте у администратора филиала.
+            </p>
+          </div>
+        </details>
+
+        <details class="styled-details">
+          <summary><strong>🔞 Возрастные ограничения</strong></summary>
+          <div class="details-body">
+            <p>
+              Посетителям младше 18 лет для оформления абонемента требуется согласие
+              законного представителя (<abbr title="лицо, действующее от имени несовершеннолетнего">закон. представитель</abbr>).
+              Лицам младше 15 лет доступ в зал возможен <strong>только в сопровождении</strong>
+              законного представителя или тренера клуба.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <blockquote class="styled-quote" cite="https://instagram.com/underground.astana">
+        <p>
+          <q>Сопровождающий взрослый не имеет права пользоваться спортивно-оздоровительными
+          услугами клуба и ожидает в специально отведённой зоне.</q>
+        </p>
+        <footer>&mdash; <cite>Официальные правила клуба, договор оферты Underground GYM</cite></footer>
+      </blockquote>
+
+      <div class="fine-print">
+        <p><small>Полный текст договора оферты доступен на ресепшене клуба и по запросу через <abbr title="электронная почта">эл. почту</abbr>.</small></p>
+      </div>
+
+      <div class="contact-prompt">
+        <p>
+          Есть вопросы по акциям или скидкам? Напишите нам:
+          <a href="mailto:info@undergroundgym.kz" class="contact-email-link">info@undergroundgym.kz</a>
+        </p>
+
+        <p class="back-to-top">
+          <a href="#current-promos" class="btn btn-outline">&uarr; Вернуться к акциям</a>
+        </p>
+      </div>
+    </section>
 
   </main>
-  <footer class="main-footer" id="site-footer">
-    
-    <section class="footer-brand">
-      <h2>О бренде</h2>
-      <a href="index.html" class="logo">
-        <img src="../assets/images/logo-white.svg" alt="Underground Gym Logo" width="160" height="35">
-      </a>
-      <p class="footer-tagline">Крупнейшая сеть фитнес-центров в Астане.</p>
-    </section>
 
-    <nav class="footer-nav" aria-label="Навигация в подвале">
-      <h2 class="footer-title">Навигация</h2>
-      <ul>
-        <li><a href="locations.html">11 филиалов в Астане</a></li>
-        <li><a href="services.html">Финские сауны и залы</a></li>
-        <li><a href="pricing.html">Безлимитные абонементы</a></li>
-        <li><a href="promotions.html">Партнерские скидки</a></li>
-      </ul>
-    </nav>
+  <footer class="main-footer site-footer" id="site-footer">
+    <div class="container footer-container">
+      <section class="footer-brand">
+        <h2>О бренде</h2>
+        <a href="../index.html" class="logo">
+          <img src="../assets/images/logo-white.svg" alt="Underground Gym Logo" width="160" height="35">
+        </a>
+        <p class="footer-tagline">Крупнейшая сеть фитнес-центров в Астане.</p>
+      </section>
 
-    <section class="footer-contacts">
-      <h2 class="footer-title">Контакты</h2>
-      <p>Единый call-центр: <a href="tel:+77000000000">+7 (700) 000-00-00</a></p>
-      <p>График работы: Пн-Вс 07:00 – 23:00</p>
-      <p class="social-links">
-        <a href="https://wa.me/77000000000" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
-        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-      </p>
-    </section>
+      <nav class="footer-nav" aria-label="Навигация в подвале">
+        <h2 class="footer-title">Навигация</h2>
+        <ul>
+          <li><a href="locations.html">11 филиалов в Астане</a></li>
+          <li><a href="services.html">Финские сауны и залы</a></li>
+          <li><a href="pricing.html">Безлимитные абонементы</a></li>
+          <li><a href="promotions.html">Партнерские скидки</a></li>
+        </ul>
+      </nav>
 
-    <section class="footer-bottom">
-      <h2>Правовая информация</h2>
-      <p>&copy; 2026 Underground Gym. Все права защищены.</p>
-    </section>
+      <section class="footer-contacts">
+        <h2 class="footer-title">Контакты</h2>
+        <p>Единый call-центр: <a href="tel:+77000000000">+7 (700) 000-00-00</a></p>
+        <p>График работы: Пн-Вс 07:00 – 23:00</p>
+        <p class="social-links">
+          <a href="https://wa.me/77000000000" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        </p>
+      </section>
+
+      <section class="footer-bottom">
+        <h2>Правовая информация</h2>
+        <p>&copy; 2026 Underground Gym. Все права защищены.</p>
+      </section>
+    </div>
   </footer>
 
 </body>
