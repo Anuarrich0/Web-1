@@ -43,6 +43,11 @@
   margin-bottom: 48px;
 }
 
+.pricing-plans > h2 {
+  width: 100%;
+  margin-bottom: 24px; /* опционально, для отступа снизу до карточек */
+}
+
 .pricing-card {
   position: relative;
   display: flex;
