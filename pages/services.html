@@ -6,8 +6,9 @@
   <meta name="author" content="A. Maksat">
   <meta name="description" content="Услуги, спортивные зоны и тренировочные программы фитнес-сети Underground Gym в Астане. Кроссфит, тренажерный зал, сауны и групповые занятия.">  <title>Услуги и Зоны — Underground Gym</title>
   <!-- Author metadata comment: Written by A. Maksat -->
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="icon" href="assets/images/logo-white.svg" type="image/x-icon
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/maksat.css">
+  <link rel="icon" href="../assets/images/logo-white.svg" type="image/x-icon">
 </head>
 <body>
 
@@ -49,10 +50,15 @@
     <section class="services-intro-section" id="services-intro">
       <h1>Фитнес-услуги и специализированные зоны залов</h1>
       <p>
+        <!-- FLOAT & CLEAR DEMONSTRATION (Assignment 2 Requirement):
+             Floats the reception photograph inside descriptive text -->
+        <img src="../assets/images/reception.jpg" alt="Зона ресепшн фитнес-клуба Underground Gym" class="float-intro-img">
         В сети клубов <strong>Underground Gym</strong> созданы все условия для эффективных и безопасных тренировок. 
         Мы предлагаем клиентам просторные залы с зонированием по видам спорта, современным вентиляционным оборудованием 
         и бесплатным доступом к финским саунам в рамках любого абонемента.
       </p>
+      <!-- CLEARFIX (Assignment 2 Requirement): Clears floated elements to prevent parent section collapse -->
+      <div class="clearfix"></div>
     </section>
 
     <!-- Interactive Category Filters (Hook for JS switching in Assignment 3) -->
@@ -192,6 +198,9 @@
         </fieldset>
       </form>
     </section>
+
+    <!-- POSITIONING 4: FIXED element demonstrating persistent viewport anchoring -->
+    <a href="#consultation-form" class="floating-quick-link" aria-label="Быстрая запись на тренировку">Записаться &darr;</a>
 
   </main>
 

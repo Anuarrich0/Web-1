@@ -8,7 +8,8 @@
   <title>Сеть фитнес-клубов Underground Gym в Астане</title>
   <!-- Author metadata comment: Written by A. Maksat -->
   <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="icon" href="assets/images/logo-white.svg" type="image/x-icon
+  <link rel="stylesheet" href="assets/css/maksat.css">
+  <link rel="icon" href="assets/images/logo-white.svg" type="image/x-icon">
 </head>
 <body>
 
@@ -80,7 +81,10 @@
       <!-- Strict div justification: this wrapper exists only as a neutral JavaScript slider track; section, article, nav, main, and footer would add incorrect document semantics because the wrapper has no independent content or navigation purpose. -->
       <div class="carousel-track-wrapper" id="carousel-track">
         <article class="promo-card slide-item active" data-slide-id="1">
-          <h3>Персональная тренировка в подарок</h3>
+          <!-- CASCADE DEMONSTRATION 1 (Inline Style Attribute — Assignment 2 Requirement):
+               This inline style demonstrates the highest specificity (1,0,0,0) by deliberately 
+               overriding the default text-transform and letter-spacing for this key promotion heading. -->
+          <h3 style="letter-spacing: 0.05em; text-transform: uppercase;">Персональная тренировка в подарок</h3>
           <p>При покупке любого годового абонемента вы получаете вводное занятие с топ-тренером бесплатно.</p>
         </article>
 
@@ -163,6 +167,9 @@
         <a href="#hero-banner">Наверх страницы &uarr;</a>
       </p>
     </section>
+
+    <!-- POSITIONING 4: FIXED element demonstrating persistent viewport anchoring -->
+    <a href="#hero-banner" class="floating-quick-link" aria-label="Быстрый переход наверх">Наверх &uarr;</a>
 
   </main>
 

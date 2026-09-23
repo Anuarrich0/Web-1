@@ -1,0 +1,861 @@
+/* ==========================================================================
+   ASSIGNMENT 2 — PERSONAL STYLESHEET: maksat.css
+   Author: A. Maksat
+   Assigned Pages: index.html (Home), pages/locations.html, pages/services.html
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. SPECIFICITY EXPERIMENT (Assignment 2 Requirement):
+   Target element: Hero Section Call-to-Action Link (.hero-cta-buttons .btn-accent)
+   
+   Rule 1:
+   Specificity: (0, 1, 1) -> 1 class (.hero-cta-buttons) + 1 type selector (a)
+   Outcome: LOSES due to lower specificity.
+   -------------------------------------------------------------------------- */
+.hero-cta-buttons a {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* --------------------------------------------------------------------------
+   Rule 2:
+   Specificity: (0, 2, 0) -> 2 class selectors (.hero-cta-buttons + .btn-accent)
+   Outcome: WINS because (0, 2, 0) > (0, 1, 1). Resolves the conflict cleanly 
+   via specificity cascade without using !important.
+   -------------------------------------------------------------------------- */
+.hero-cta-buttons .btn-accent {
+  background-color: var(--accent-lime);
+  color: #000000;
+}
+
+/* --------------------------------------------------------------------------
+   2. CENTERING TECHNIQUE 1: MARGIN AUTO (Assignment 2 Requirement)
+   Technique: Block-level centering with max-width and margin: 0 auto.
+   Why it fits: Centers large structured blocks (sections, tables, figures) 
+   within the parent viewport cleanly without requiring flex or grid context.
+   -------------------------------------------------------------------------- */
+.hero-gallery-photo,
+.location-photo-card,
+.branches-table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --------------------------------------------------------------------------
+   3. HERO SECTION (index.html)
+   Positioning: Static explained in comment (Assignment 2 Requirement).
+   -------------------------------------------------------------------------- */
+/* ID selector #hero-banner: Unique landmark identifier for the home page hero header, 
+   used as the destination target for the 'Back to top' (#hero-banner) jump link. */
+#hero-banner {
+  /* POSITIONING 1: static — Elements remain in standard document flow where 
+     relative offsets (top/left/z-index) are not needed. */
+  position: static;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 40px 32px;
+  margin-bottom: 32px;
+}
+
+.hero-section h1 {
+  color: var(--text-main);
+  margin-bottom: 16px;
+  font-size: 2.2rem;
+}
+
+/* Descendant selector: Matches paragraphs inside hero section */
+.hero-section p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 850px;
+}
+
+/* --------------------------------------------------------------------------
+   CENTERING TECHNIQUE 2: FLEXBOX CENTERING (Assignment 2 Requirement)
+   Technique: display: flex with justify-content: flex-start / center and align-items: center.
+   Why it fits: Naturally aligns and wraps dynamic action buttons with equal gaps.
+   -------------------------------------------------------------------------- */
+.hero-cta-buttons {
+  display: flex;
+  flex-direction: row; /* Flex direction specified */
+  flex-wrap: wrap;     /* Flex wrap specified */
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+/* Hero Gallery Photo Figure */
+.hero-gallery-photo {
+  max-width: 800px;
+  margin-bottom: 40px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: var(--bg-secondary);
+}
+
+.hero-gallery-photo img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+
+.hero-gallery-photo figcaption {
+  padding: 12px 18px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+}
+
+/* --------------------------------------------------------------------------
+   4. FLOAT & CLEAR DEMONSTRATION (Assignment 2 Requirement)
+   Floats an image inside text and clears it with a clearfix block.
+   -------------------------------------------------------------------------- */
+.float-intro-img {
+  float: right;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  margin: 0 0 16px 24px;
+}
+
+/* CLEARFIX EXPLANATION (Assignment 2 Requirement):
+   Without 'clear: both', the floating image would break out of its parent section, 
+   causing subsequent headings and sibling cards to awkwardly wrap underneath or 
+   overlap with the floating image box (parent height collapse). */
+.clearfix {
+  clear: both;
+}
+
+/* --------------------------------------------------------------------------
+   5. PROMO CAROUSEL & CARDS (index.html)
+   -------------------------------------------------------------------------- */
+.promo-carousel-section {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 32px;
+  margin-bottom: 36px;
+}
+
+/* Adjacent sibling selector: Matches paragraph immediately following h2 */
+.promo-carousel-section h2 + p {
+  color: var(--text-main);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 10px;
+}
+
+/* Child selector & Pseudo-class :first-child */
+.promo-steps-list > li:first-child {
+  color: var(--accent-lime);
+}
+
+.promo-steps-list {
+  padding-left: 20px;
+  margin-bottom: 24px;
+  color: var(--text-muted);
+}
+
+.promo-steps-list li {
+  margin-bottom: 6px;
+}
+
+/* Universal selector inside carousel track */
+.carousel-track-wrapper * {
+  box-sizing: border-box;
+}
+
+.carousel-track-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* POSITIONING 2: relative containing block for child absolute badge/tag */
+.promo-card {
+  position: relative;
+  flex: 1 1 300px; /* Flex items grow and shrink */
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.promo-card:hover {
+  border-color: var(--accent-lime);
+  transform: translateY(-4px);
+}
+
+/* Attribute selector: Matches active slide item */
+.promo-card[data-slide-id="1"] {
+  border-left: 4px solid var(--accent-lime);
+}
+
+/* Pseudo-element ::before + POSITIONING 3: absolute badge inside relative card */
+.promo-card[data-slide-id="1"]::before {
+  content: "HOT";
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background-color: gold;
+  color: #000000;
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.slider-btn {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 8px 16px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.slider-btn:hover {
+  border-color: var(--accent-lime);
+  color: var(--accent-lime);
+}
+
+.slider-counter {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   6. GRID LAYOUT: FEATURES & ADVANTAGES (index.html)
+   GRID EXPLANATION (Assignment 2 Requirement):
+   Why Grid suited this block better than Flexbox:
+   The features section requires a structured two-dimensional matrix where 
+   cards align cleanly in two columns with equal tracks, while the primary 
+   featured card spans across both columns (grid-column: span 2) using repeat() 
+   and minmax(280px, 1fr). Grid guarantees strict 2D column alignment that 
+   flex-wrap items cannot enforce predictably.
+   -------------------------------------------------------------------------- */
+/* ID selector #key-advantages: Targets the primary advantages section */
+#key-advantages {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 32px;
+  margin-bottom: 36px;
+}
+
+.features-grid-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 20px;
+  list-style: none;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.feature-card {
+  position: relative;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 20px 24px 20px 48px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.feature-card:hover {
+  border-color: var(--accent-lime);
+  transform: translateY(-2px);
+}
+
+/* Item spanning more than one column (Assignment 2 Grid requirement) */
+.features-grid-list .feature-card:first-child {
+  grid-column: span 2;
+}
+
+/* Pseudo-element ::before for list item bullet icon */
+.feature-card::before {
+  content: "✔";
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  color: var(--accent-lime);
+  font-weight: bold;
+}
+
+/* --------------------------------------------------------------------------
+   7. INFRASTRUCTURE & DEFINITION LIST (index.html)
+   -------------------------------------------------------------------------- */
+.overview-section {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 32px;
+  margin-bottom: 36px;
+}
+
+.gym-zones-def {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) 1fr;
+  gap: 12px 24px;
+  margin: 20px 0;
+}
+
+/* Type selector for definition title */
+dt {
+  color: var(--accent-lime);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Adjacent sibling selector: Matches dd immediately following dt */
+dt + dd {
+  color: var(--text-muted);
+  margin-left: 0;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+/* Blockquote & Cite styling */
+blockquote {
+  border-left: 4px solid var(--accent-lime);
+  background-color: var(--bg-primary);
+  padding: 20px 24px;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  margin: 24px 0;
+  font-style: italic;
+}
+
+blockquote p {
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+blockquote cite {
+  color: var(--accent-lime);
+  font-style: normal;
+  font-weight: var(--font-weight-bold);
+}
+
+/* Nested lists */
+.nested-programs-list {
+  padding-left: 20px;
+  margin: 16px 0;
+  color: var(--text-main);
+}
+
+.nested-programs-list > li {
+  margin-bottom: 12px;
+}
+
+.nested-programs-list ul {
+  list-style: circle;
+  padding-left: 20px;
+  margin-top: 6px;
+  color: var(--text-muted);
+}
+
+.overview-section hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 24px 0;
+}
+
+.more-info-link {
+  font-weight: var(--font-weight-bold);
+  font-size: 1.05rem;
+}
+
+.back-to-top {
+  margin-top: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   8. LOCATIONS PAGE (pages/locations.html)
+   -------------------------------------------------------------------------- */
+.locations-intro-section {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 32px;
+  margin-bottom: 32px;
+}
+
+/* Filter Section & Fieldset */
+/* ID selector #branch-filters: Uniquely targets the branch search and filtering controls */
+#branch-filters {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 24px 32px;
+  margin-bottom: 32px;
+}
+
+.filter-group {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 16px 24px;
+}
+
+.filter-group legend {
+  color: var(--accent-lime);
+  font-weight: var(--font-weight-bold);
+  padding: 0 8px;
+}
+
+/* Child selector: labels directly inside filter group */
+.filter-group > label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 20px;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+.filter-group input[type="radio"] {
+  width: auto;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   9. BRANCHES COMPARISON TABLE (pages/locations.html)
+   -------------------------------------------------------------------------- */
+/* ID selector #locations-table-section: Anchor destination for page-jumping links */
+#locations-table-section {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 32px;
+  margin-bottom: 36px;
+  overflow-x: auto;
+}
+
+.branches-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.branches-table caption {
+  font-weight: var(--font-weight-bold);
+  color: var(--text-main);
+  text-align: left;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+/* Grouping with commas */
+.branches-table th,
+.branches-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.95rem;
+}
+
+.branches-table thead th {
+  background-color: #121418;
+  color: var(--accent-lime);
+  font-family: var(--font-family-heading);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+/* Pseudo-class :nth-child(even) on table rows */
+.branches-table tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.branches-table tbody tr:hover {
+  background-color: var(--bg-card-hover);
+}
+
+/* Attribute selector: external map links */
+a.map-link[target="_blank"]::after {
+  content: " ↗";
+  font-size: 0.85em;
+}
+
+.gallery-section,
+.map-container-section {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 32px;
+  margin-bottom: 36px;
+}
+
+.location-photo-card {
+  max-width: 700px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 24px;
+}
+
+.location-photo-card img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+}
+
+.location-photo-card figcaption {
+  padding: 14px 20px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+mark {
+  background-color: var(--accent-lime);
+  color: #000000;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+abbr {
+  text-decoration: underline dotted var(--accent-lime);
+  cursor: help;
+}
+
+/* --------------------------------------------------------------------------
+   10. SERVICES & ZONES PAGE (pages/services.html)
+   -------------------------------------------------------------------------- */
+.services-intro-section {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 32px;
+  margin-bottom: 32px;
+}
+
+/* Category Tabs Navigation */
+.category-tabs-nav {
+  margin-bottom: 32px;
+}
+
+.tabs-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tabs-list button {
+  background-color: var(--bg-secondary);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 10px 20px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tabs-list button:hover {
+  border-color: var(--accent-lime);
+  color: var(--accent-lime);
+}
+
+/* CASCADE DEMONSTRATION 3 (!important rule — Assignment 2 Requirement):
+   This single rule uses !important with justification to guarantee that the 
+   active category filter button strictly retains its lime background state 
+   regardless of any conflicting browser button styles or hover resets. */
+.tabs-list button[aria-pressed="true"] {
+  background-color: var(--accent-lime) !important;
+  color: #000000;
+  font-weight: 700;
+}
+
+/* Services Cards List Section */
+.services-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 36px;
+}
+
+/* Child selector: direct service cards in section */
+.services-list-section > .service-card {
+  position: relative;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+  transition: border-color var(--transition-fast);
+}
+
+.services-list-section > .service-card:hover {
+  border-color: var(--accent-lime);
+}
+
+/* Attribute selector with pseudo-element */
+article[data-category="strength"]::before {
+  content: "⚡ Силовая зона";
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 0.75rem;
+  color: var(--accent-lime);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+article[data-category="group"]::before {
+  content: "👥 Групповая зона";
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 0.75rem;
+  color: gold;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.service-card h3 {
+  grid-column: 1 / -1;
+  margin-bottom: 8px;
+}
+
+.service-card p {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.service-zone-photo {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: var(--bg-primary);
+}
+
+.service-zone-photo img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.service-zone-photo figcaption {
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Aside: Recommendations Sidebar */
+/* ID selector #workout-tips: Distinct landmark for workout advice block */
+#workout-tips {
+  background-color: var(--bg-secondary);
+  border-left: 4px solid var(--accent-lime);
+  border-radius: var(--border-radius);
+  padding: 24px 28px;
+  margin-bottom: 36px;
+}
+
+#workout-tips h2 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   11. CONSULTATION FORM (pages/services.html)
+   -------------------------------------------------------------------------- */
+.form-section {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 32px;
+  margin-bottom: 36px;
+}
+
+/* ID selector #consultation-form: Unique form element identification */
+#consultation-form {
+  margin-top: 20px;
+}
+
+.form-group-box {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 24px 28px;
+}
+
+.form-group-box legend {
+  color: var(--accent-lime);
+  font-weight: var(--font-weight-bold);
+  padding: 0 10px;
+}
+
+.form-field {
+  margin-bottom: 18px;
+}
+
+.form-field label {
+  display: block;
+  color: var(--text-main);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.radio-subgroup {
+  border: 1px dashed var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 16px 20px;
+  margin-bottom: 18px;
+}
+
+.radio-subgroup legend {
+  color: var(--text-main);
+  font-size: 0.95rem;
+  padding: 0 8px;
+}
+
+.radio-subgroup label {
+  margin-right: 20px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.radio-subgroup input[type="radio"] {
+  width: auto;
+  margin-right: 6px;
+}
+
+.form-field-checkbox {
+  margin: 18px 0;
+}
+
+.form-field-checkbox label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.form-field-checkbox input[type="checkbox"] {
+  width: auto;
+  cursor: pointer;
+}
+
+/* Output status tag */
+output {
+  display: block;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 10px 14px;
+  color: var(--accent-lime);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.btn-submit {
+  background-color: var(--accent-lime);
+  color: #000000;
+  border: none;
+  font-weight: var(--font-weight-bold);
+}
+
+.btn-submit:hover {
+  background-color: var(--accent-lime-hover);
+}
+
+.btn-reset {
+  background-color: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+}
+
+.btn-reset:hover {
+  border-color: var(--text-main);
+  color: var(--text-main);
+}
+
+/* --------------------------------------------------------------------------
+   12. CENTERING TECHNIQUE 3: ABSOLUTE POSITIONING WITH TRANSFORM & FIXED (Assignment 2 Requirement)
+   Technique: position: absolute with top: 50%; left: 50%; transform: translate(-50%, -50%).
+   Why it fits: Positions an overlay indicator or modal element exactly in the 
+   visual center of its relative containing block.
+   -------------------------------------------------------------------------- */
+.modal-center-demo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--accent-lime);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  z-index: 150;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* POSITIONING 4: FIXED (Assignment 2 Requirement)
+   Technique: position: fixed stays anchored to the viewport when user scrolls. */
+.floating-quick-link {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: var(--accent-lime);
+  color: #000000;
+  font-weight: var(--font-weight-bold);
+  font-size: 0.85rem;
+  padding: 10px 18px;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.floating-quick-link:hover {
+  background-color: var(--accent-lime-hover);
+  transform: translateY(-3px);
+  color: #000000;
+}

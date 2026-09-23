@@ -1,26 +1,44 @@
+/* ==========================================================================
+   ASSIGNMENT 2 — BASE STYLESHEET (base.css)
+   Underground Gym — Fitness Club Network Website
+   Authored jointly by: A. Maksat, N. Anuar, Z. Rysbek
+
+   COLOR PALETTE (5 colours maximum, with 1-line reason each):
+   1. #0d0f12 (HEX)  - Deep dark background representing the signature underground athletic aesthetic.
+   2. #181a1e (HEX)  - Elevated dark slate surface for cards, navigation header, and container panels.
+   3. #ccff00 (HEX)  - Vibrant neon lime brand accent for interactive elements, buttons, and link hover states.
+   4. rgba(255, 255, 255, 0.88) (RGBA) - High-contrast clean white for legible body typography and headings.
+   5. gold (NAMED)   - Distinctive warm accent for featured tariffs, promotional tags, and badges.
+   ========================================================================== */
+
 /* --------------------------------------------------------------------------
    1. CSS Custom Properties (Variables)
    -------------------------------------------------------------------------- */
 :root {
-  /* Main Background and Surface Colors */
-  --bg-primary: #0d0f12;       /* Deep dark main background */
-  --bg-secondary: #181a1e;     /* Surface background for cards, headers, and panels */
-  --bg-card-hover: #22252b;    /* Hover state for interactive cards */
+  /* Color Palette Variables */
+  --bg-primary: #0d0f12;
+  --bg-secondary: #181a1e;
+  --bg-card-hover: #22252b;
+  --accent-lime: #ccff00;
+  --accent-lime-hover: #b3e600;
+  --accent-gold: gold;
+  --text-main: rgba(255, 255, 255, 0.88);
+  --text-muted: #a0a0a0;
+  --border-color: #2a2d34;
 
-  /* Primary Accent (XF Logo Brand Color) */
-  --accent-lime: #ccff00;      /* Signature vibrant lime color */
-  --accent-lime-hover: #b3e600;/* Slightly darker lime for hover states */
+  /* Typography Stacks (Two distinct families with full fallbacks) */
+  --font-family-base: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-heading: 'Oswald', 'Montserrat', 'Segoe UI', Arial, sans-serif;
 
-  /* Typography Colors */
-  --text-main: #ffffff;        /* Primary high-contrast text */
-  --text-muted: #a0a0a0;       /* Secondary gray text for details and captions */
-
-  /* Borders and Dividers */
-  --border-color: #2a2d34;     /* Dark border color */
-
-  /* Typography Settings */
-  --font-family-base: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --line-height-base: 1.6;
+  /* Deliberate Typography Metrics */
+  --font-size-base: 1rem;              /* 16px base font size */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --line-height-base: 1.6;             /* Optimal body line-height for readability */
+  --line-height-heading: 1.25;         /* Tighter line-height for punchy headlines */
+  --letter-spacing-base: 0.015em;      /* Subtle letter-spacing for clean text rendering */
+  --letter-spacing-heading: 0.03em;    /* Elevated letter-spacing for athletic headings */
 
   /* Layout Spacing & Geometry */
   --container-max-width: 1200px;
@@ -30,7 +48,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. Global Reset & Box Sizing
+   2. Global Reset & Box Sizing (Universal Selector)
    -------------------------------------------------------------------------- */
 *,
 *::before,
@@ -39,6 +57,16 @@
   margin: 0;
   padding: 0;
 }
+
+/* --------------------------------------------------------------------------
+   BOX MODEL & MARGIN COLLAPSE EXPLANATION (Assignment 2 Requirement):
+   Margin collapse occurs when the vertical margins of adjacent block elements 
+   meet in normal flow: instead of adding together, the space collapses to the 
+   single largest margin value. For example, if a heading has margin-bottom: 24px 
+   and the following paragraph has margin-top: 16px, the space between them is 
+   24px (not 40px). In this stylesheet, we control vertical rhythm predictably 
+   by resetting margin-top to 0 and applying deliberate margin-bottom and padding.
+   -------------------------------------------------------------------------- */
 
 html {
   scroll-behavior: smooth;
@@ -49,7 +77,10 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-main);
   font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
   line-height: var(--line-height-base);
+  letter-spacing: var(--letter-spacing-base);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -57,32 +88,52 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   3. Typography
+   3. Typography & Text Alignment
    -------------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-main);
-  font-weight: 700;
-  line-height: 1.2;
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--letter-spacing-heading);
   margin-bottom: 1rem;
+  text-align: left;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.5rem; }
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.35rem; }
+h4 { font-size: 1.15rem; }
 
 p {
-  margin-bottom: 1rem;
+  margin-bottom: 1.15rem;
   color: var(--text-muted);
+  text-align: left;
+}
+
+strong, b {
+  color: var(--text-main);
+  font-weight: var(--font-weight-bold);
+}
+
+em, i {
+  color: var(--text-main);
+  font-style: italic;
 }
 
 a {
   color: var(--accent-lime);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
 }
 
 a:hover {
   color: var(--accent-lime-hover);
+}
+
+a:focus {
+  outline: 2px solid var(--accent-lime);
+  outline-offset: 3px;
 }
 
 img {
@@ -92,7 +143,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   4. Layout & Grid System
+   4. Layout Containers
    -------------------------------------------------------------------------- */
 .container {
   width: 100%;
@@ -103,42 +154,158 @@ img {
   padding-right: 20px;
 }
 
-.main-content {
+.main-content,
+#main-content {
   flex: 1;
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
-.grid {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 36px 20px 60px;
+  box-sizing: border-box;
 }
 
 /* --------------------------------------------------------------------------
-   5. Common UI Components (Buttons, Cards, Forms)
+   5. Header & Navigation (Flexbox Layout)
    -------------------------------------------------------------------------- */
-/* Primary Call to Action Button */
-.btn-primary {
-  display: inline-block;
-  background-color: var(--accent-lime);
-  color: #000000;
-  font-weight: 700;
-  padding: 12px 28px;
-  border: none;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  text-align: center;
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
+.main-header {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 28px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-sizing: border-box;
+  gap: 20px;
 }
 
-.btn-primary:hover {
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+/* Navigation flex row with justify-content, align-items, and gap */
+.main-nav .nav-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: var(--text-main);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-base);
+  font-size: 0.95rem;
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--accent-lime);
+  background-color: rgba(204, 255, 0, 0.08);
+}
+
+.nav-link.active {
+  color: #000000;
+  background-color: var(--accent-lime);
+  font-weight: var(--font-weight-bold);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.header-phone {
+  color: var(--text-main);
+  font-weight: var(--font-weight-bold);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.menu-toggle,
+.theme-toggle-btn {
+  background-color: var(--bg-primary);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: inherit;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.menu-toggle:hover,
+.theme-toggle-btn:hover {
+  color: var(--text-main);
+  border-color: var(--accent-lime);
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   6. Shared Common UI Components (Buttons, Form Resets, Cards)
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-base);
+  border-radius: var(--border-radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-primary,
+.btn-accent {
+  background-color: var(--accent-lime);
+  color: #000000;
+}
+
+.btn-primary:hover,
+.btn-accent:hover {
   background-color: var(--accent-lime-hover);
   color: #000000;
   transform: translateY(-2px);
 }
 
-/* Base Card Element */
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-lime);
+  color: var(--accent-lime);
+  transform: translateY(-2px);
+}
+
 .card {
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
@@ -152,7 +319,7 @@ img {
   border-color: var(--accent-lime);
 }
 
-/* Form Elements */
+/* Form base elements */
 input, textarea, select {
   width: 100%;
   padding: 12px 16px;
@@ -161,7 +328,9 @@ input, textarea, select {
   border-radius: var(--border-radius);
   color: var(--text-main);
   font-family: inherit;
-  margin-bottom: 16px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: border-color var(--transition-fast);
 }
 
 input:focus, textarea:focus, select:focus {
@@ -170,69 +339,73 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* --------------------------------------------------------------------------
-   6. Header & Navigation Architecture
+   7. Footer (Flexbox & Grid Layout)
    -------------------------------------------------------------------------- */
-.site-header {
-  height: var(--header-height);
+.main-footer,
+.site-footer,
+#site-footer {
   background-color: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-color);
-  display: flex;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  border-top: 1px solid var(--border-color);
+  padding: 48px 28px 24px;
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  box-sizing: border-box;
 }
 
-.site-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo img {
-  height: 40px;
-  width: auto;
-}
-
-.nav-list {
-  display: flex;
-  list-style: none;
-  gap: 24px;
-}
-
-.nav-link {
+.main-footer h2 {
+  font-size: 1.15rem;
   color: var(--text-main);
-  font-weight: 500;
+  margin-bottom: 16px;
+  font-family: var(--font-family-heading);
 }
 
-.nav-link:hover {
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav li {
+  margin-bottom: 8px;
+}
+
+.footer-nav a {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.footer-nav a:hover {
   color: var(--accent-lime);
 }
 
-/* --------------------------------------------------------------------------
-   7. Media & Specific Sections (Map / Gallery)
-   -------------------------------------------------------------------------- */
-.map-container {
+.social-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.social-links a {
+  display: inline-block;
+  padding: 6px 14px;
+  background-color: var(--bg-primary);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
-  overflow: hidden;
-  margin-top: 20px;
+  color: var(--text-main);
+  font-size: 0.85rem;
 }
 
-.map-container img {
-  width: 100%;
-  object-fit: cover;
+.social-links a:hover {
+  border-color: var(--accent-lime);
+  color: var(--accent-lime);
 }
 
-/* --------------------------------------------------------------------------
-   8. Footer
-   -------------------------------------------------------------------------- */
-.site-footer {
-  background-color: var(--bg-secondary);
+.footer-bottom {
+  grid-column: 1 / -1;
   border-top: 1px solid var(--border-color);
-  padding: 30px 0;
-  margin-top: auto;
+  padding-top: 20px;
   text-align: center;
-  font-size: 0.9rem;
   color: var(--text-muted);
+  font-size: 0.85rem;
 }

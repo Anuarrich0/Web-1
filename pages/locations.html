@@ -7,8 +7,17 @@
   <meta name="description" content="Крупнейшая сеть фитнес-центров в Астане. 11 филиалов, безлимитные тренировки с тренером, финские сауны.">
   <title>Филиалы — Underground Gym</title>
   <!-- Author metadata comment: Written by A. Maksat -->
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="icon" href="assets/images/logo-white.svg" type="image/x-icon
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/maksat.css">
+  <link rel="icon" href="../assets/images/logo-white.svg" type="image/x-icon">
+  <style>
+    /* CASCADE DEMONSTRATION 2 (Internal Style Block — Assignment 2 Requirement):
+       This internal <style> block deliberately overrides the .locations-intro-section border 
+       from maksat.css to demonstrate document-level cascade priority over external stylesheets. */
+    .locations-intro-section {
+      border-left: 4px solid var(--accent-lime);
+    }
+  </style>
 </head>
 <body>
 
@@ -159,6 +168,9 @@
       </p>
     </section>
 
+    <!-- POSITIONING 4: FIXED element demonstrating persistent viewport anchoring -->
+    <a href="#locations-table-section" class="floating-quick-link" aria-label="Быстрый переход к таблице">К таблице &darr;</a>
+
   </main>
 
   <footer class="main-footer" id="site-footer">
@@ -166,7 +178,7 @@
     <section class="footer-brand">
       <h2>О бренде</h2>
       <a href="../index.html" class="logo">
-        <img src="../assets/images/logo.svg" alt="Underground Gym Logo" width="160" height="35">
+        <img src="../assets/images/logo-white.svg" alt="Underground Gym Logo" width="160" height="35">
       </a>
       <p class="footer-tagline">Крупнейшая сеть фитнес-центров в Астане.</p>
     </section>
