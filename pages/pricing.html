@@ -6,9 +6,14 @@
   <meta name="author" content="N. Anuar">
   <meta name="description" content="Безлимитные фитнес-абонементы и тарифные планы сети Experience Fitness в Астане. Выберите подходящий карту: Silver, Gold или Platinum.">
   <title>Абонементы и Тарифы — Experience Fitness</title>
-  <!-- Author metadata comment: Written by N. Anuar -->
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="icon" href="assets/images/logo-white.svg" type="image/x-icon
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/anuar.css">
+  <link rel="icon" href="../assets/images/logo-white.svg" type="image/x-icon">
+  <style>
+    .pricing-tip {
+      border-left-color: #ffffff;
+    }
+  </style>
 </head>
 <body>
   <header class="main-header">
@@ -46,12 +51,15 @@
 
   <main id="main-content">
     <h1>Абонементы Experience Fitness</h1>
-    <p>
+    <p class="intro-text">
+      <img src="../assets/images/gym-weights-area.jpg" alt="" class="intro-float-img" width="160" height="120">
       Мы предлагаем три тарифа в зависимости от того, сколько филиалов сети вам нужно
       и на какой срок вы готовы зафиксировать цену. Чем длиннее срок абонемента,
       тем ниже стоимость месяца тренировок. Все тарифы включают доступ к тренажерному
-      залу, зоне кроссфита и финской сауне на выбранных филиалах.
+      залу, зоне кроссфита и финской сауне на выбранных филиалах. Фотография зала
+      обтекается текстом слева, как в печатной колонке журнала.
     </p>
+    <p class="intro-clearfix"></p>
 
     <section class="pricing-plans" id="pricing-plans">
       <h2>Тарифные планы</h2>
@@ -59,39 +67,39 @@
       <article class="pricing-card" data-tariff="exp">
         <h3>GYM/EXP</h3>
         <p>Доступ к одному филиалу по вашему выбору.</p>
-        <ul>
-          <li>1 месяц — 30 000 ₸</li>
-          <li>3 месяца — 60 000 ₸</li>
-          <li>6 месяцев — 80 000 ₸</li>
-          <li>12 месяцев — 110 000 ₸</li>
+        <ul class="price-list">
+          <li><span class="price-term">1 месяц</span><span class="price-value">30 000 ₸</span></li>
+          <li><span class="price-term">3 месяца</span><span class="price-value">60 000 ₸</span></li>
+          <li><span class="price-term">6 месяцев</span><span class="price-value">80 000 ₸</span></li>
+          <li><span class="price-term">12 месяцев</span><span class="price-value">110 000 ₸</span></li>
         </ul>
       </article>
 
       <article class="pricing-card" data-tariff="exp-plus">
         <h3>GYM/EXP+</h3>
         <p>Расширенный доступ с дополнительными привилегиями на одном филиале.</p>
-        <ul>
-          <li>1 месяц — 35 000 ₸</li>
-          <li>3 месяца — 70 000 ₸</li>
-          <li>6 месяцев — 100 000 ₸</li>
-          <li>12 месяцев — 130 000 ₸</li>
+        <ul class="price-list">
+          <li><span class="price-term">1 месяц</span><span class="price-value">35 000 ₸</span></li>
+          <li><span class="price-term">3 месяца</span><span class="price-value">70 000 ₸</span></li>
+          <li><span class="price-term">6 месяцев</span><span class="price-value">100 000 ₸</span></li>
+          <li><span class="price-term">12 месяцев</span><span class="price-value">130 000 ₸</span></li>
         </ul>
       </article>
 
       <article class="pricing-card" data-tariff="big-plus">
         <h3>BIG+/EXP (Золотая карта)</h3>
         <p>Единственный тариф с доступом ко всем 11 филиалам сети без ограничений.</p>
-        <ul>
-          <li>1 месяц — 40 000 ₸</li>
-          <li>3 месяца — 100 000 ₸</li>
-          <li>6 месяцев — 130 000 ₸</li>
-          <li>12 месяцев — 180 000 ₸</li>
+        <ul class="price-list">
+          <li><span class="price-term">1 месяц</span><span class="price-value">40 000 ₸</span></li>
+          <li><span class="price-term">3 месяца</span><span class="price-value">100 000 ₸</span></li>
+          <li><span class="price-term">6 месяцев</span><span class="price-value">130 000 ₸</span></li>
+          <li><span class="price-term">12 месяцев</span><span class="price-value">180 000 ₸</span></li>
         </ul>
       </article>
     </section>
 
     <section class="gym-gallery" id="gym-gallery">
-      <h2>Как выглядят наши залы</h2>
+      <h2 class="gallery-title">Как выглядят наши залы</h2>
 
       <figure>
         <img src="../assets/images/gym-weights-area.jpg" alt="Зона свободных весов и гантельный ряд в одном из филиалов Experience Fitness" width="600" height="400">
@@ -175,7 +183,6 @@
     <section class="order-form-section" id="order-form">
       <h2>Оформить абонемент</h2>
       <form action="#" method="post">
-        <!-- Form has no backend yet: server-side handling comes later in the course -->
         <fieldset>
           <legend>Личные данные</legend>
           <p>
@@ -212,7 +219,6 @@
             </select>
           </p>
 
-          <!-- Radio group instead of select: only 4 mutually exclusive options, radios stay visible without extra clicks -->
           <p>Срок абонемента:</p>
           <p>
             <input type="radio" id="term-1" name="term" value="1">
@@ -286,5 +292,10 @@
       <p>&copy; 2026 Experience Fitness. Все права защищены.</p>
     </section>
   </footer>
+
+  <a href="#pricing-plans" class="floating-cta">
+    <span class="floating-cta-icon" aria-hidden="true">&uarr;</span>
+    <span>Выбрать тариф</span>
+  </a>
 </body>
 </html>

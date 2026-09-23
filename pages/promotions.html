@@ -4,17 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="N. Anuar">
-  <meta name="description" content="Акции и специальные предложения фитнес-клубов Underground Gym в Астане.">
-  <title>Акции — Underground Gym</title>
+  <meta name="description" content="Акции и специальные предложения фитнес-клубов Experience Fitness в Астане.">
+  <title>Акции — Experience Fitness</title>
   <!-- Author metadata comment: Written by N. Anuar -->
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="icon" href="assets/images/logo-white.svg" type="image/x-icon
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/anuar.css">
+  <link rel="icon" href="../assets/images/logo-white.svg" type="image/x-icon">
 </head>
 <body>
 
   <header class="main-header">
-    <a href="../index.html" class="logo" aria-label="Underground Gym — На главную">
-    <img src="../assets/images/logo-white.svg" alt="Underground Gym Logo" width="180" height="40">
+    <a href="../index.html" class="logo" aria-label="Experience Fitness — На главную">
+    <img src="../assets/images/logo-white.svg" alt="Experience Fitness Logo" width="180" height="40">
     </a>
 
     <!-- Mobile Navigation Toggle Button (Prepared for JavaScript in Assignment 3) -->
@@ -46,13 +47,20 @@
   </header>
   <main>
 
-  <h1>Акции и правила клуба Underground Gym</h1>
+  <h1>Акции и правила клуба Experience Fitness</h1>
   <p>
     Здесь собраны актуальные акции для новых участников клуба, а также ключевые 
     правила обслуживания, зафиксированные в договоре оферты. Ознакомьтесь с 
     условиями перед тем, как <a href="#club-rules">перейти к правилам</a> или 
     <a href="#current-promos">посмотреть текущие акции</a>.
   </p>
+
+  <ul class="promo-tags">
+    <li class="promo-tag">Для новых клиентов</li>
+    <li class="promo-tag">Для действующих участников</li>
+    <li class="promo-tag">Приведи друга</li>
+    <li class="promo-tag">Скидка на день рождения</li>
+  </ul>
 
   <section class="current-promos" id="current-promos">
     <h2>Текущие акции</h2>
@@ -73,19 +81,17 @@
         </ul>
       </li>
     </ul>
-
-    <article class="promo-highlight">
+    <article class="promo-highlight" style="border-radius: 24px;">
       <h3>&laquo;Приведи друга&raquo;</h3>
       <p>
         Пригласите друга на бесплатную
-        <!-- Span is used because this phrase needs styling only, not separate semantic meaning. -->
         <span class="highlight-term">пробную тренировку</span> —
         если он оформит абонемент, вы получаете месяц занятий бесплатно.
       </p>
     </article>
 
     <figure>
-      <img src="../assets/images/training-hall.jpg" alt="Тренажёрный зал Underground Gym с зоной отдыха и кулером для воды" width="600" height="400">
+      <img src="../assets/images/training-hall.jpg" alt="Тренажёрный зал Experience Fitness с зоной отдыха и кулером для воды" width="600" height="400">
       <figcaption>Зона зала, где часто проходят консультации по акциям.</figcaption>
     </figure>
 
@@ -108,12 +114,15 @@
       к залу, а конкретный набор условий обслуживания.
     </p>
 
-    <dl>
+    <dl class="rules-glossary" id="rules-glossary">
       <dt><strong>Акция</strong></dt>
       <dd>Временное специальное предложение клуба, действующее в ограниченный период или при определённых условиях (например, наличие студенческого билета).</dd>
 
       <dt><strong>Промокод</strong></dt>
       <dd>Уникальный код, который клиент называет администратору или вводит в форме заявки для применения скидки.</dd>
+
+      <dt class="glossary-note-term"><strong>Как это соотносится друг с другом</strong></dt>
+      <dd class="glossary-note">Промокод — это способ <em>получить</em> акцию, а не отдельная акция сама по себе: один и тот же промокод может открывать разные акции в разные месяцы.</dd>
     </dl>
 
     <details>
@@ -153,12 +162,12 @@
       </p>
     </details>
 
-    <blockquote cite="https://instagram.com/underground.astana">
+    <blockquote cite="https://instagram.com/experience.fitness.kz">
       <p>
         <q>Сопровождающий взрослый не имеет права пользоваться спортивно-оздоровительными 
         услугами клуба и ожидает в специально отведённой зоне.</q>
       </p>
-      <p>&mdash; <cite>Официальные правила клуба, договор оферты Underground GYM/BIG</cite>.</p>
+      <p>&mdash; <cite>Официальные правила клуба, договор оферты Experience Fitness GYM/BIG</cite>.</p>
     </blockquote>
 
     <!-- DIV JUSTIFICATION: generic wrapper for a short legal disclaimer line; no semantic tag (aside/section) fits a single small-print sentence -->
@@ -168,7 +177,7 @@
 
     <p>
       Вопросы по акциям? Напишите нам: 
-      <a href="mailto:info@undergroundgym.kz">info@undergroundgym.kz</a>
+      <a href="mailto:info@experiencefitness.kz">info@experiencefitness.kz</a>
     </p>
 
     <p class="back-to-top">
@@ -181,8 +190,8 @@
     
     <section class="footer-brand">
       <h2>О бренде</h2>
-      <a href="index.html" class="logo">
-        <img src="../assets/images/logo-white.svg" alt="Underground Gym Logo" width="160" height="35">
+      <a href="../index.html" class="logo">
+        <img src="../assets/images/logo-white.svg" alt="Experience Fitness Logo" width="160" height="35">
       </a>
       <p class="footer-tagline">Крупнейшая сеть фитнес-центров в Астане.</p>
     </section>
@@ -209,7 +218,7 @@
 
     <section class="footer-bottom">
       <h2>Правовая информация</h2>
-      <p>&copy; 2026 Underground Gym. Все права защищены.</p>
+      <p>&copy; 2026 Experience Fitness. Все права защищены.</p>
     </section>
   </footer>
 
