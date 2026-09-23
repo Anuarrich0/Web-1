@@ -34,27 +34,27 @@ This checklist uses the current line numbers in the HTML files.
 | description meta | `index.html` | 7 | A. Maksat |
 | author meta | `index.html` | 6 | A. Maksat |
 | unique `<title>` | `index.html` | 8 | A. Maksat |
-| `<header>` / `<nav>` / navigation list | `index.html` | 16, 26-36 | A. Maksat |
-| relative links to all 8 pages | `index.html` | 27-34 | A. Maksat |
-| `<main>` / exactly one `<h1>` | `index.html` | 49, 52 | A. Maksat |
-| `<footer>` / `tel:` / `&copy;` | `index.html` | 176, 44, 208 | A. Maksat |
-| two explanatory comments | `index.html` | 9, 39 | A. Maksat |
+| `<header>` / `<nav>` / navigation list | `index.html` | 16, 26-35 | A. Maksat |
+| relative links to all pages | `index.html` | 27-33 | A. Maksat |
+| `<main>` / exactly one `<h1>` | `index.html` | 48, 51 | A. Maksat |
+| `<footer>` / `tel:` / `&copy;` | `index.html` | 175, 43, 207 | A. Maksat |
+| two explanatory comments | `index.html` | 9, 38 | A. Maksat |
 | `<!DOCTYPE html>` | `pages/locations.html` | 1 | A. Maksat |
 | `<html lang="ru">` | `pages/locations.html` | 2 | A. Maksat |
 | charset / viewport / description / author / title | `pages/locations.html` | 4-8 | A. Maksat |
-| `<header>` / `<nav>` / navigation list | `pages/locations.html` | 24, 34-44 | A. Maksat |
-| relative links to all 8 pages | `pages/locations.html` | 35-42 | A. Maksat |
-| `<main>` / exactly one `<h1>` | `pages/locations.html` | 57, 60 | A. Maksat |
-| `<footer>` / `tel:` / `&copy;` | `pages/locations.html` | 176, 52, 207 | A. Maksat |
-| two explanatory comments | `pages/locations.html` | 9, 47 | A. Maksat |
+| `<header>` / `<nav>` / navigation list | `pages/locations.html` | 24, 34-43 | A. Maksat |
+| relative links to all pages | `pages/locations.html` | 35-41 | A. Maksat |
+| `<main>` / exactly one `<h1>` | `pages/locations.html` | 56, 59 | A. Maksat |
+| `<footer>` / `tel:` / `&copy;` | `pages/locations.html` | 175, 51, 206 | A. Maksat |
+| two explanatory comments | `pages/locations.html` | 9, 46 | A. Maksat |
 | `<!DOCTYPE html>` | `pages/services.html` | 1 | A. Maksat |
 | `<html lang="ru">` | `pages/services.html` | 2 | A. Maksat |
 | charset / viewport / description / author / title | `pages/services.html` | 4-7 | A. Maksat |
-| `<header>` / `<nav>` / navigation list | `pages/services.html` | 15, 25-35 | A. Maksat |
-| relative links to all 8 pages | `pages/services.html` | 26-33 | A. Maksat |
-| `<main>` / exactly one `<h1>` | `pages/services.html` | 48, 51 | A. Maksat |
-| `<footer>` / `tel:` / `&copy;` | `pages/services.html` | 207, 43, 238 | A. Maksat |
-| two explanatory comments | `pages/services.html` | 8, 38 | A. Maksat |
+| `<header>` / `<nav>` / navigation list | `pages/services.html` | 15, 25-34 | A. Maksat |
+| relative links to all pages | `pages/services.html` | 26-32 | A. Maksat |
+| `<main>` / exactly one `<h1>` | `pages/services.html` | 47, 50 | A. Maksat |
+| `<footer>` / `tel:` / `&copy;` | `pages/services.html` | 206, 42, 237 | A. Maksat |
+| two explanatory comments | `pages/services.html` | 8, 37 | A. Maksat |
 | `<!DOCTYPE html>` | `pages/pricing.html` | 1 | N. Anuar |
 | `<html lang="ru">` | `pages/pricing.html` | 2 | N. Anuar |
 | charset / viewport / description / author / title | `pages/pricing.html` | 4-8 | N. Anuar |
@@ -102,27 +102,27 @@ This checklist uses the current line numbers in the HTML files.
 
 | Requirement | File | Line |
 | :--- | :--- | ---: |
-| `<section>` | `index.html` | 51 |
-| `<article>` | `index.html` | 83 |
-| `<aside>` | `pages/services.html` | 114 |
-| `<figure>` / `<figcaption>` | `pages/services.html` | 83-86 |
-| `<table>` / `<caption>` / `<thead>` / `<tbody>` | `pages/locations.html` | 90-101 |
-| `<th scope>` / `<td>` | `pages/locations.html` | 94, 103, 104 |
-| ordered list with attribute | `index.html` | 76 |
-| definition list `<dl>`, `<dt>`, `<dd>` | `index.html` | 122-128 |
-| external link with `target` and `rel` | `pages/locations.html` | 111 |
-| `mailto:` link | `pages/locations.html` | 155 |
-| two same-page ID links | `index.html`, `pages/locations.html` | 168, 143 |
-| three meaningful images with `alt` | `index.html`, `pages/locations.html`, `pages/services.html` | 66, 146, 55 |
-| `<strong>`, `<em>`, `<b>`, `<i>`, `<mark>`, `<small>` | `index.html`, `pages/locations.html` | 54, 164, 148, 148, 148, 149 |
-| `<sup>` and two `<abbr title>` | `pages/locations.html` | 106, 107, 130 |
-| `<br>` | `pages/locations.html` | 109 |
-| four different entities | `index.html` | 52, 119, 136, 168 |
-| nested list | `index.html` | 140-155 |
-| `<blockquote>`, `<q>`, `<cite>` | `index.html` | 132, 134, 136 |
-| `<hr>` | `index.html` | 130, 157 |
-| form with all required controls | `pages/services.html` | 127-200 |
-| `<div>` and `<span>` with justification | `index.html` | 82, 96 |
+| `<section>` | `index.html` | 50 |
+| `<article>` | `index.html` | 82 |
+| `<aside>` | `pages/services.html` | 113 |
+| `<figure>` / `<figcaption>` | `pages/services.html` | 82-85 |
+| `<table>` / `<caption>` / `<thead>` / `<tbody>` | `pages/locations.html` | 89-100 |
+| `<th scope>` / `<td>` | `pages/locations.html` | 93, 102, 103 |
+| ordered list with attribute | `index.html` | 75 |
+| definition list `<dl>`, `<dt>`, `<dd>` | `index.html` | 121-127 |
+| external link with `target` and `rel` | `pages/locations.html` | 110 |
+| `mailto:` link | `pages/locations.html` | 154 |
+| two same-page ID links | `index.html`, `pages/locations.html` | 167, 142 |
+| three meaningful images with `alt` | `index.html`, `pages/locations.html`, `pages/services.html` | 65, 145, 54 |
+| `<strong>`, `<em>`, `<b>`, `<i>`, `<mark>`, `<small>` | `index.html`, `pages/locations.html` | 53, 163, 147, 147, 147, 148 |
+| `<sup>` and two `<abbr title>` | `pages/locations.html` | 105, 106, 129 |
+| `<br>` | `pages/locations.html` | 108 |
+| four different entities | `index.html` | 51, 118, 135, 167 |
+| nested list | `index.html` | 139-154 |
+| `<blockquote>`, `<q>`, `<cite>` | `index.html` | 131, 133, 135 |
+| `<hr>` | `index.html` | 129, 156 |
+| form with all required controls | `pages/services.html` | 126-199 |
+| `<div>` and `<span>` with justification | `index.html` | 81, 95 |
 
 ### N. Anuar
 
