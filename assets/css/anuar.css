@@ -33,7 +33,7 @@
 }
 
 .pricing-plans > .pricing-card {
-  flex: 1 1 300px;
+  flex: 0 1 300px;
 }
 
 .pricing-plans {
