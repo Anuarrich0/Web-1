@@ -1,0 +1,324 @@
+/* ==========================================================================
+   roha.css
+   Стилизация main-контента страниц training.html и contacts.html.
+   Подключается ПОСЛЕ base.css. Header и footer здесь не переопределяются —
+   их стили задаются отдельно.
+   Вся цветовая гамма берётся из переменных base.css (:root).
+   ========================================================================== */
+
+@import url("base.css");
+
+/* --------------------------------------------------------------------------
+   1. Общие контейнеры main-контента
+   -------------------------------------------------------------------------- */
+#main-content {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+#main-content > section,
+#main-content > article {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 32px;
+}
+
+#main-content h1 {
+  color: var(--accent-lime);
+  margin-bottom: 1.25rem;
+}
+
+#main-content h2 {
+  border-left: 4px solid var(--accent-lime);
+  padding-left: 12px;
+  margin-top: 0.5rem;
+}
+
+#main-content h3 {
+  color: var(--text-main);
+  margin-top: 1.5rem;
+}
+
+#main-content hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 8px 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. Оглавление страницы (page-toc)
+   -------------------------------------------------------------------------- */
+.page-toc {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 16px 24px;
+}
+
+.page-toc ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.page-toc a {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+}
+
+/* --------------------------------------------------------------------------
+   3. Списки (features, programs, glossary)
+   -------------------------------------------------------------------------- */
+#main-content ul,
+#main-content ol {
+  padding-left: 1.4rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+#main-content li {
+  margin-bottom: 0.4rem;
+}
+
+#main-content ul ul,
+#main-content ol ul {
+  margin-top: 0.4rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. Цитаты (blockquote)
+   -------------------------------------------------------------------------- */
+#main-content blockquote {
+  border-left: 4px solid var(--accent-lime);
+  background-color: var(--bg-primary);
+  padding: 16px 24px;
+  border-radius: var(--border-radius);
+  margin: 1.5rem 0;
+  font-style: italic;
+}
+
+#main-content blockquote p {
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+#main-content blockquote cite {
+  color: var(--accent-lime);
+  font-style: normal;
+}
+
+/* --------------------------------------------------------------------------
+   5. Списки определений (dl/dt/dd) — словарь терминов
+   -------------------------------------------------------------------------- */
+#main-content dl {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px 16px;
+  margin-bottom: 1rem;
+}
+
+#main-content dt {
+  color: var(--accent-lime);
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+#main-content dd {
+  color: var(--text-muted);
+  margin-left: 0;
+  padding-left: 16px;
+  border-left: 2px solid var(--border-color);
+}
+
+/* --------------------------------------------------------------------------
+   6. Таблицы (расписание тренировок / график работы)
+   -------------------------------------------------------------------------- */
+#main-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+#main-content caption {
+  text-align: left;
+  color: var(--text-main);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+#main-content th,
+#main-content td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+#main-content thead th {
+  background-color: var(--bg-primary);
+  color: var(--accent-lime);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+}
+
+#main-content tbody tr:hover {
+  background-color: var(--bg-card-hover);
+}
+
+/* --------------------------------------------------------------------------
+   7. Изображения / figure
+   -------------------------------------------------------------------------- */
+#main-content figure {
+  margin: 1.5rem 0;
+}
+
+#main-content figure img {
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+#main-content figcaption {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   8. Совет / выделенный блок (.tip-box) и aside
+   -------------------------------------------------------------------------- */
+.tip-box {
+  background-color: var(--bg-primary);
+  border: 1px dashed var(--accent-lime);
+  border-radius: var(--border-radius);
+  padding: 24px;
+}
+
+#main-content aside {
+  background-color: var(--bg-card-hover);
+  border-left: 4px solid var(--accent-lime);
+  border-radius: var(--border-radius);
+  padding: 20px 24px;
+}
+
+#main-content mark {
+  background-color: var(--accent-lime);
+  color: #000000;
+  padding: 0 4px;
+  border-radius: 2px;
+}
+
+#main-content abbr {
+  text-decoration: underline dotted var(--text-muted);
+  cursor: help;
+}
+
+#main-content small {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. Формы (подписка / обратная связь)
+   -------------------------------------------------------------------------- */
+#main-content form fieldset {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 20px 24px 8px;
+  margin-bottom: 24px;
+}
+
+#main-content form legend {
+  color: var(--accent-lime);
+  font-weight: 700;
+  padding: 0 8px;
+}
+
+#main-content form label {
+  color: var(--text-main);
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+#main-content form input[type="radio"],
+#main-content form input[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+#main-content form button[type="submit"] {
+  background-color: var(--accent-lime);
+  color: #000000;
+  font-weight: 700;
+  border: none;
+  padding: 12px 28px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+#main-content form button[type="submit"]:hover {
+  background-color: var(--accent-lime-hover);
+  transform: translateY(-2px);
+}
+
+#main-content form button[type="reset"] {
+  background-color: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  padding: 12px 28px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  margin-left: 12px;
+}
+
+#main-content form button[type="reset"]:hover {
+  color: var(--text-main);
+  border-color: var(--text-main);
+}
+
+/* --------------------------------------------------------------------------
+   10. Контактная информация (address)
+   -------------------------------------------------------------------------- */
+#main-content address {
+  font-style: normal;
+  color: var(--text-main);
+  line-height: 1.8;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 20px 24px;
+  margin-bottom: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   11. Адаптивность
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  #main-content > section,
+  #main-content > article {
+    padding: 20px;
+  }
+
+  #main-content table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .page-toc ul {
+    gap: 12px;
+  }
+}
