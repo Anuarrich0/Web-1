@@ -37,10 +37,12 @@
 }
 
 .pricing-plans {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
   margin-bottom: 48px;
+}
+
+.pricing-plans > h2 {
+    text-align: center;
+    width: 100%;
 }
 
 .pricing-card {
