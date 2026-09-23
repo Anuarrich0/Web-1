@@ -344,6 +344,7 @@ input:focus, textarea:focus, select:focus {
 .main-footer,
 .site-footer,
 #site-footer {
+  margin-left: 50px;
   background-color: var(--bg-secondary);
   border-top: 1px solid var(--border-color);
   padding: 48px 28px 24px;
