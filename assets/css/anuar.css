@@ -45,7 +45,7 @@
 
 .pricing-plans > h2 {
   width: 100%;
-  margin-bottom: 24px; /* опционально, для отступа снизу до карточек */
+  margin-bottom: 24px; 
 }
 
 .pricing-card {
