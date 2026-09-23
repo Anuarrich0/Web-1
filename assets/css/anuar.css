@@ -14,8 +14,8 @@
 
 .intro-float-img {
   float: left;
-  width: 250px;
-  height: 180px;
+  width: 160px;
+  height: 120px;
   object-fit: cover;
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
@@ -33,15 +33,14 @@
 }
 
 .pricing-plans > .pricing-card {
-  flex: 0 1 300px;
+  flex: 1 1 300px;
 }
 
 .pricing-plans {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
   margin-bottom: 48px;
-}
-
-.pricing-plans > h2 {
-  flex-basis: 100%;
 }
 
 .pricing-card {
