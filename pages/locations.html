@@ -1,202 +1,272 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="A. Maksat">
-  <meta name="description" content="Филиалы сети фитнес-клубов Experience Fitness в Астане: ул. Шолпан Иманбаевой и ул. Санжара Асфендиярова. График работы, контакты и оснащение залов.">
-  <title>Филиалы — Experience Fitness</title>
-  <!-- Author metadata comment: Written by A. Maksat -->
-  <link rel="stylesheet" href="../assets/css/base.css">
-  <link rel="stylesheet" href="../assets/css/maksat.css">
-  <link rel="icon" href="../assets/images/logo-white.svg" type="image/x-icon">
-  <style>
-    /* CASCADE DEMONSTRATION 2 (Internal Style Block — Assignment 2 Requirement):
-       This internal <style> block deliberately overrides the .locations-intro-section border 
-       from maksat.css to demonstrate document-level cascade priority over external stylesheets. */
-    .locations-intro-section {
-      border-left: 4px solid var(--accent-lime);
-    }
-  </style>
-</head>
-<body>
+<html lang="ru" data-bs-theme="dark">
 
-  <header class="main-header">
-    <a href="../index.html" class="logo" aria-label="Experience Fitness — На главную">
-    <img src="../assets/images/logo-white.svg" alt="Experience Fitness Logo" width="180" height="40">
-    </a>
+  <!-- 0. Настройки страницы и стили -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="A. Maksat" />
+    <!-- Author: A. Maksat -->
+    <meta
+      name="description"
+      content="Филиалы сети фитнес-клубов Experience Fitness в Астане: ул. Шолпан Иманбаевой и ул. Санжара Асфендиярова. График работы, контакты и оснащение залов."
+    />
+    <title>Филиалы — Experience Fitness</title>
+    <!-- Bootstrap 5.3.8 из CDN; свои стили подключены после него для корректной работы каскада. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/maksat.css" />
+    <link rel="icon" href="../assets/images/logo-white.svg" type="image/svg+xml" />
+  </head>
+  <body class="d-flex flex-column min-vh-100">
 
-    <!-- Mobile Navigation Toggle Button (Prepared for JavaScript in Assignment 3) -->
-    <button type="button" class="menu-toggle" id="mobile-menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
-      Menu
-    </button>
-
-    <nav class="main-nav" id="primary-nav" aria-label="Основная навигация">
-      <ul class="nav-list">
-        <li><a href="../index.html" class="nav-link">Главная</a></li>
-        <li><a href="locations.html" class="nav-link active" aria-current="page">Филиалы</a></li>
-        <li><a href="services.html" class="nav-link">Услуги и Зоны</a></li>
-        <li><a href="training.html" class="nav-link">Тренировки</a></li>
-        <li><a href="pricing.html" class="nav-link">Абонементы</a></li>
-        <li><a href="promotions.html" class="nav-link">Акции</a></li>
-        <li><a href="contacts.html" class="nav-link">Контакты</a></li>
-      </ul>
-    </nav>
-
-    <!-- SEMANTIC COMMENT: Used 'p' instead of 'div' to group action elements semantically without breaking structure -->
-    <p class="header-actions">
-      <button type="button" class="theme-toggle-btn" id="theme-switcher-btn" data-theme="dark" aria-label="Switch color theme">
-        Theme
-      </button>
-      <a href="tel:+77783450000" class="header-phone">+7 (778) 345-00-00</a>
-      <a href="#trial-modal" class="btn btn-primary">Пробная тренировка</a>
-    </p>
-  </header>
-
-  <main id="main-content">
-
-    <section class="locations-intro-section" id="locations-intro">
-      <h1>Филиалы фитнес-сети Experience Fitness в Астане</h1>
-      <p>
-        Сеть Experience Fitness включает современные фитнес-клубы в Астане. 
-        Каждый филиал оборудован профессиональными тренажерами, залами для групповых программ и боевых искусств, 
-        а также финскими саунами и SPA-зонами. Ознакомьтесь с информацией о наших площадках и выберите удобный зал.
-      </p>
-    </section>
-
-    <!-- Interactive Filter Section (Hook for JS filtering in Assignment 3) -->
-    <section class="filter-section" id="branch-filters">
-      <h2>Быстрый подбор филиала</h2>
-      <!-- SEMANTIC COMMENT: Used fieldset to group interactive radio filters logically without using generic div tags -->
-      <fieldset class="filter-group">
-        <legend>Фильтровать по району города:</legend>
-        <label>
-          <input type="radio" name="district-filter" value="all" checked> Все районы
-        </label>
-        <label>
-          <input type="radio" name="district-filter" value="baikonur"> р-н Байконур
-        </label>
-        <label>
-          <input type="radio" name="district-filter" value="esil"> р-н Есиль
-        </label>
-      </fieldset>
-    </section>
-
-    <!-- Branches Data Table Section (Required HTML Table with full accessibility attributes) -->
-    <section class="table-section" id="locations-table-section">
-      <h2>Сравнительная таблица залов</h2>
-      <p>Ниже представлены детальные параметры филиалов Experience Fitness:</p>
-
-      <table class="branches-table">
-        <caption>Характеристики и оснащение фитнес-клубов Experience Fitness</caption>
-        <thead>
-          <tr>
-            <th scope="col">Филиал / Адрес</th>
-            <th scope="col">Район</th>
-            <th scope="col">График работы</th>
-            <th scope="col">Оснащение и Услуги</th>
-            <th scope="col">Контакты и Навигация</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr data-district="baikonur">
-            <th scope="row">Филиал на Иманбаевой<br><small>ул. Шолпан Иманбаевой, 8, корп. 2 (4-й этаж)</small></th>
-            <td>р-н Байконур</td>
-            <td>Пн – Сб: 07:00 – 23:00<br>Вс: выходной</td>
-            <td>Тренажёрный зал, Групповые программы (стретчинг, пилатес, кроссфит, зумба, аэробика), Боевые искусства, Финская сауна / SPA-зона</td>
-            <td>
-              <a href="tel:+77072388000">+7 (707) 238-80-00</a><br>
-              <a href="tel:+77783450000">+7 (778) 345-00-00</a><br>
-              <!-- External link with target and rel attributes requirement -->
-              <a href="https://2gis.kz/astana/firm/70000001053115037" target="_blank" rel="noopener" class="map-link">Открыть на карте 2GIS</a>
-            </td>
-          </tr>
-
-          <tr data-district="esil">
-            <th scope="row">Филиал на Асфендиярова<br><small>ул. Санжара Асфендиярова, 6 (НП 18)</small></th>
-            <td>р-н Есиль</td>
-            <td>Пн – Сб: 07:00 – 23:00<br>Вс: выходной</td>
-            <td>Тренажёрный зал, Групповые программы (стретчинг, пилатес, кроссфит, зумба, аэробика), Боевые искусства, Финская сауна / SPA-зона</td>
-            <td>
-              <a href="tel:+77086475383">+7 (708) 647-53-83</a><br>
-              <a href="tel:+77783450000">+7 (778) 345-00-00</a><br>
-              <a href="https://2gis.kz/astana/firm/70000001080758040" target="_blank" rel="noopener" class="map-link">Открыть на карте 2GIS</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section class="gallery-section" id="branch-gallery">
-      <h2>Интерьер залов Experience Fitness</h2>
-      
-      <p><a href="#locations-table-section">Перейти к таблице характеристик залов &darr;</a></p>
-
-      <figure class="location-photo-card">
-        <img src="../assets/images/gym-weights-area.jpg" alt="Зона свободных весов и гантельный ряд в фитнес-клубе Experience Fitness" width="600" height="400">
-        <figcaption>
-          <b>Фото 1:</b> <i>Зона свободных весов</i> в зале. <mark>Премиальное оборудование</mark> и прорезиненное покрытие. 
-          <small>Снято авторским составом Experience Fitness.</small>
-        </figcaption>
-      </figure>
-
-      <p>
-        Возникли вопросы по отделу аренды или сотрудничеству? Пишите на нашу почту: 
-        <a href="mailto:info@experiencefitness.kz">info@experiencefitness.kz</a>
-      </p>
-    </section>
-
-    <!-- Map Placeholder Section (Prepared for Interactive Maps JS API) -->
-    <section class="map-container-section" id="interactive-map">
-      <h2>Локации на интерактивной карте</h2>
-      <p>
-        <em>[Заготовка под виджет карт 2GIS / Google Maps в Assignment 3]</em>
-      </p>
-      <p>
-        Вы можете проложить маршрут до любого из филиалов Experience Fitness, воспользувшись мобильным приложением или перейдя по прямым ссылкам в таблице выше.
-      </p>
-    </section>
-
-    <!-- POSITIONING 4: FIXED element demonstrating persistent viewport anchoring -->
-    <a href="#locations-table-section" class="floating-quick-link" aria-label="Быстрый переход к таблице">К таблице &darr;</a>
-
-  </main>
-
-  <footer class="main-footer" id="site-footer">
-    
-    <section class="footer-brand">
-      <h2>О бренде</h2>
-      <a href="../index.html" class="logo">
-        <img src="../assets/images/logo-white.svg" alt="Experience Fitness Logo" width="160" height="35">
+    <!-- 1. Шапка сайта: логотип, меню, контакты -->
+    <!-- Bootstrap Navbar: меню сворачивается до 1200 px. Ссылки адаптированы под страницы клуба. https://getbootstrap.com/docs/5.3/components/navbar/ -->
+    <header
+      class="main-header navbar navbar-expand-xl bg-body-tertiary border-bottom py-3 container-fluid px-3 px-lg-4"
+    >
+      <a
+        href="../index.html"
+        class="logo navbar-brand me-3 d-inline-flex align-items-center gap-2"
+        aria-label="Experience Fitness — На главную"
+      >
+        <img
+          src="../assets/images/logo-white.svg"
+          alt="Experience Fitness Logo"
+          width="48"
+          height="48"
+          class="brand-logo"
+        />
+        Experience Fitness
       </a>
-      <p class="footer-tagline">Сеть фитнес-клубов Experience Fitness в Астане.</p>
-    </section>
-
-    <nav class="footer-nav" aria-label="Навигация в подвале">
-      <h2 class="footer-title">Навигация</h2>
-      <ul>
-        <li><a href="locations.html">Филиалы в Астане</a></li>
-        <li><a href="services.html">Услуги и SPA-зоны</a></li>
-        <li><a href="pricing.html">Безлимитные абонементы</a></li>
-        <li><a href="promotions.html">Партнерские скидки</a></li>
-      </ul>
-    </nav>
-
-    <section class="footer-contacts">
-      <h2 class="footer-title">Контакты</h2>
-      <p>Единый call-центр: <a href="tel:+77783450000">+7 (778) 345-00-00</a></p>
-      <p>График работы: Пн – Сб 07:00 – 23:00, Вс: выходной</p>
-      <p class="social-links">
-        <a href="https://wa.me/77783450000" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
-        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+      <button
+        type="button"
+        class="navbar-toggler"
+        id="mobile-menu-btn"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Открыть или закрыть меню"
+        data-bs-toggle="collapse"
+        data-bs-target="#primary-nav"
+      >
+        <!-- SPAN: декоративная иконка Bootstrap, без самостоятельного смыслового содержания. -->
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav class="collapse navbar-collapse" id="primary-nav" aria-label="Основная навигация">
+        <ul class="navbar-nav flex-wrap me-auto mb-3 mb-xl-0">
+          <li class="nav-item"><a href="../index.html" class="nav-link">Главная</a></li>
+          <li class="nav-item">
+            <a href="locations.html" class="nav-link active" aria-current="page">Филиалы</a>
+          </li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Услуги и Зоны</a></li>
+          <li class="nav-item"><a href="training.html" class="nav-link">Тренировки</a></li>
+          <li class="nav-item"><a href="pricing.html" class="nav-link">Абонементы</a></li>
+          <li class="nav-item"><a href="promotions.html" class="nav-link">Акции</a></li>
+          <li class="nav-item"><a href="contacts.html" class="nav-link">Контакты</a></li>
+        </ul>
+      </nav>
+      <p class="header-actions d-none d-xxl-flex align-items-center gap-3 mb-0">
+        <a
+          href="tel:+77783450000"
+          class="header-phone d-none d-md-inline text-body text-decoration-none small"
+          >+7 (778) 345-00-00</a>
+        <a href="contacts.html#contact-form" class="btn btn-primary btn-sm">Пробная тренировка</a>
       </p>
-    </section>
+    </header>
 
-    <section class="footer-bottom">
-      <h2>Правовая информация</h2>
-      <p>&copy; 2026 Experience Fitness. Все права защищены.</p>
-    </section>
-  </footer>
+    <!-- 2. Основное содержимое -->
+    <!-- container ограничивает ширину текста; container-fluid у шапки и подвала занимает всю ширину. -->
+    <main id="main-content" class="container flex-grow-1 py-4 py-md-5 text-break">
 
-</body>
+      <!-- 2.1. Филиалы фитнес-сети Experience Fitness в Астане -->
+      <section class="locations-intro-section mb-5" id="locations-intro">
+        <h1 class="display-5 fw-bold mb-4 text-center text-md-start">
+          Филиалы фитнес-сети Experience Fitness в Астане
+        </h1>
+        <p class="lead">
+          Сеть Experience Fitness включает современные фитнес-клубы в Астане. Каждый филиал оборудован
+          профессиональными тренажерами, залами для групповых программ и боевых искусств, а также финскими
+          саунами и SPA-зонами. Ознакомьтесь с информацией о наших площадках и выберите удобный зал.
+        </p>
+      </section>
+
+      <!-- 2.2. Быстрый подбор филиала -->
+      <section class="filter-section mb-5" id="branch-filters">
+        <h2 class="h3 fw-bold mb-3">Быстрый подбор филиала</h2>
+        <fieldset class="filter-group d-flex flex-wrap gap-3 border rounded-3 p-3 mb-4">
+          <legend class="float-none w-auto px-2 fs-6">Перейти к филиалу:</legend>
+          <a class="btn btn-outline-light btn-sm" href="#locations-table-section">Все районы</a>
+          <a class="btn btn-outline-light btn-sm" href="#branch-baikonur">р-н Байконур</a>
+          <a class="btn btn-outline-light btn-sm" href="#branch-esil">р-н Есиль</a>
+        </fieldset>
+      </section>
+
+      <!-- 2.3. Сравнительная таблица залов -->
+      <section class="table-section mb-5" id="locations-table-section">
+        <h2 class="h3 fw-bold mb-3">Сравнительная таблица залов</h2>
+        <p>Ниже представлены детальные параметры филиалов Experience Fitness:</p>
+        <!-- DIV: прокручивает только таблицу; заголовок и описание остаются в существующем section. -->
+        <div
+          class="table-responsive border rounded-3 mb-4"
+          role="region"
+          tabindex="0"
+          aria-labelledby="table-caption-0"
+        >
+          <!-- Bootstrap Table: оформление адаптировано к нашей таблице, её caption и заголовки сохранены. https://getbootstrap.com/docs/5.3/content/tables/ -->
+          <table class="branches-table table table-striped table-hover align-middle mb-0 text-nowrap">
+            <caption id="table-caption-0" class="px-3 small">
+              Характеристики и оснащение фитнес-клубов Experience Fitness
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Филиал / Адрес</th>
+                <th scope="col">Район</th>
+                <th scope="col">График работы</th>
+                <th scope="col">Оснащение и Услуги</th>
+                <th scope="col">Контакты и Навигация</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-district="baikonur" id="branch-baikonur">
+                <th scope="row">
+                  Филиал на Иманбаевой<br />
+                  <small class="small text-body-secondary"
+                    >ул. Шолпан Иманбаевой, 8, корп. 2 (4-й этаж)</small>
+                </th>
+                <td>р-н Байконур</td>
+                <td>Пн – Сб: 07:00 – 23:00<br />Вс: выходной</td>
+                <td>
+                  Тренажёрный зал, Групповые программы (стретчинг, пилатес, кроссфит, зумба, аэробика), Боевые
+                  искусства, Финская сауна / SPA-зона
+                </td>
+                <td>
+                  <a href="tel:+77072388000">+7 (707) 238-80-00</a> <br />
+                  <a href="tel:+77783450000">+7 (778) 345-00-00</a> <br />
+                  <a
+                    href="https://2gis.kz/astana/firm/70000001053115037"
+                    target="_blank"
+                    rel="noopener"
+                    class="map-link"
+                    >Открыть на карте 2GIS</a>
+                </td>
+              </tr>
+              <tr data-district="esil" id="branch-esil">
+                <th scope="row">
+                  Филиал на Асфендиярова<br />
+                  <small class="small text-body-secondary">ул. Санжара Асфендиярова, 6 (НП 18)</small>
+                </th>
+                <td>р-н Есиль</td>
+                <td>Пн – Сб: 07:00 – 23:00<br />Вс: выходной</td>
+                <td>
+                  Тренажёрный зал, Групповые программы (стретчинг, пилатес, кроссфит, зумба, аэробика), Боевые
+                  искусства, Финская сауна / SPA-зона
+                </td>
+                <td>
+                  <a href="tel:+77086475383">+7 (708) 647-53-83</a> <br />
+                  <a href="tel:+77783450000">+7 (778) 345-00-00</a> <br />
+                  <a
+                    href="https://2gis.kz/astana/firm/70000001080758040"
+                    target="_blank"
+                    rel="noopener"
+                    class="map-link"
+                    >Открыть на карте 2GIS</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 2.4. Интерьер залов Experience Fitness -->
+      <section class="gallery-section mb-5" id="branch-gallery">
+        <h2 class="h3 fw-bold mb-3">Интерьер залов Experience Fitness</h2>
+        <p><a href="#locations-table-section">Перейти к таблице характеристик залов ↓</a></p>
+        <figure class="location-photo-card mb-4">
+          <img
+            src="../assets/images/gym-weights-area.jpg"
+            alt="Зона свободных весов и гантельный ряд в фитнес-клубе Experience Fitness"
+            width="600"
+            height="400"
+            class="w-100 rounded-3 object-fit-cover img-fluid content-photo"
+          />
+          <figcaption class="small text-body-secondary pt-2">
+            <b>Фото 1:</b> <i>Зона свободных весов</i> в зале. <mark>Премиальное оборудование</mark> и
+            прорезиненное покрытие.
+            <small class="small text-body-secondary">Снято авторским составом Experience Fitness.</small>
+          </figcaption>
+        </figure>
+        <p>
+          Возникли вопросы по отделу аренды или сотрудничеству? Пишите на нашу почту:
+          <a href="mailto:info@experiencefitness.kz" class="text-break">info@experiencefitness.kz</a>
+        </p>
+      </section>
+
+      <!-- 2.5. Маршруты к филиалам -->
+      <section class="map-container-section mb-5" id="interactive-map">
+        <h2 class="h3 fw-bold mb-3">Маршруты к филиалам</h2>
+        <p>
+          <a href="#locations-table-section" class="btn btn-outline-light"
+            >Открыть адреса и ссылки на карты</a>
+        </p>
+        <p>
+          Вы можете проложить маршрут до любого из филиалов Experience Fitness, воспользувшись мобильным
+          приложением или перейдя по прямым ссылкам в таблице выше.
+        </p>
+      </section>
+      <a
+        href="#locations-table-section"
+        class="btn btn-outline-light btn-sm mb-4 align-self-center"
+        aria-label="Быстрый переход к таблице"
+        >К таблице ↓</a>
+    </main>
+
+    <!-- 3. Подвал сайта -->
+    <!-- footer сам служит container-fluid и row; его section и nav являются колонками. -->
+    <footer
+      class="main-footer border-top bg-body-tertiary mt-auto py-5 text-break container-fluid row g-4 mx-0 px-3 px-lg-5"
+      id="site-footer"
+    >
+      <section class="footer-brand col-12 col-md-6 col-lg-4">
+        <h2 class="h6 fw-bold mb-3">О бренде</h2>
+        <a href="../index.html" class="logo">
+          <img
+            src="../assets/images/logo-white.svg"
+            alt="Experience Fitness Logo"
+            width="48"
+            height="48"
+            class="brand-logo"
+          />
+        </a>
+        <p class="footer-tagline text-body-secondary small mt-3">
+          Сеть фитнес-клубов Experience Fitness в Астане.
+        </p>
+      </section>
+      <nav class="footer-nav col-12 col-md-6 col-lg-4" aria-label="Навигация в подвале">
+        <h2 class="footer-title h6 fw-bold mb-3">Навигация</h2>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="locations.html">Филиалы в Астане</a></li>
+          <li class="mb-2"><a href="services.html">Услуги и SPA-зоны</a></li>
+          <li class="mb-2"><a href="pricing.html">Безлимитные абонементы</a></li>
+          <li class="mb-2"><a href="promotions.html">Партнерские скидки</a></li>
+        </ul>
+      </nav>
+      <section class="footer-contacts col-12 col-md-6 col-lg-4">
+        <h2 class="footer-title h6 fw-bold mb-3">Контакты</h2>
+        <p>Единый call-центр: <a href="tel:+77783450000">+7 (778) 345-00-00</a></p>
+        <p>График работы: Пн – Сб 07:00 – 23:00, Вс: выходной</p>
+        <p class="social-links d-flex flex-wrap gap-3">
+          <a href="https://wa.me/77783450000" target="_blank" rel="noopener" aria-label="WhatsApp"
+            >WhatsApp</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        </p>
+      </section>
+      <section class="footer-bottom col-12 border-top pt-4 text-center small text-body-secondary">
+        <h2 class="h6 fw-bold mb-3">Правовая информация</h2>
+        <p>© 2026 Experience Fitness. Все права защищены.</p>
+      </section>
+    </footer>
+
+    <!-- 4. Bootstrap JS: работа меню и компонентов -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

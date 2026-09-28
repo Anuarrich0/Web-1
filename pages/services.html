@@ -1,252 +1,385 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="A. Maksat">
-  <meta name="description" content="Услуги, спортивные зоны и тренировочные программы фитнес-сети Experience Fitness в Астане. Тренажерный зал, групповые программы, боевые искусства и сауны / SPA.">
-  <title>Услуги и Зоны — Experience Fitness</title>
-  <!-- Author metadata comment: Written by A. Maksat -->
-  <link rel="stylesheet" href="../assets/css/base.css">
-  <link rel="stylesheet" href="../assets/css/maksat.css">
-  <link rel="icon" href="../assets/images/logo-white.svg" type="image/x-icon">
-</head>
-<body>
+<html lang="ru" data-bs-theme="dark">
 
-  <header class="main-header">
-    <a href="../index.html" class="logo" aria-label="Experience Fitness — На главную">
-    <img src="../assets/images/logo-white.svg" alt="Experience Fitness Logo" width="180" height="40">
-    </a>
+  <!-- 0. Настройки страницы и стили -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="A. Maksat" />
+    <!-- Author: A. Maksat -->
+    <meta
+      name="description"
+      content="Услуги, спортивные зоны и тренировочные программы фитнес-сети Experience Fitness в Астане. Тренажерный зал, групповые программы, боевые искусства и сауны / SPA."
+    />
+    <title>Услуги и Зоны — Experience Fitness</title>
+    <!-- Bootstrap 5.3.8 из CDN; свои стили подключены после него для корректной работы каскада. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/maksat.css" />
+    <link rel="icon" href="../assets/images/logo-white.svg" type="image/svg+xml" />
+  </head>
+  <body class="d-flex flex-column min-vh-100">
 
-    <!-- Mobile Navigation Toggle Button (Prepared for JavaScript in Assignment 3) -->
-    <button type="button" class="menu-toggle" id="mobile-menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
-      Menu
-    </button>
-
-    <nav class="main-nav" id="primary-nav" aria-label="Основная навигация">
-      <ul class="nav-list">
-        <li><a href="../index.html" class="nav-link">Главная</a></li>
-        <li><a href="locations.html" class="nav-link">Филиалы</a></li>
-        <li><a href="services.html" class="nav-link active" aria-current="page">Услуги и Зоны</a></li>
-        <li><a href="training.html" class="nav-link">Тренировки</a></li>
-        <li><a href="pricing.html" class="nav-link">Абонементы</a></li>
-        <li><a href="promotions.html" class="nav-link">Акции</a></li>
-        <li><a href="contacts.html" class="nav-link">Контакты</a></li>
-      </ul>
-    </nav>
-
-    <!-- SEMANTIC COMMENT: Used 'p' instead of 'div' to group action elements semantically without breaking structure -->
-    <p class="header-actions">
-      <button type="button" class="theme-toggle-btn" id="theme-switcher-btn" data-theme="dark" aria-label="Switch color theme">
-        Theme
-      </button>
-      <a href="tel:+77783450000" class="header-phone">+7 (778) 345-00-00</a>
-      <a href="#trial-modal" class="btn btn-primary">Пробная тренировка</a>
-    </p>
-  </header>
-
-  <main id="main-content">
-
-    <section class="services-intro-section" id="services-intro">
-      <h1>Фитнес-услуги и специализированные зоны залов</h1>
-      <p>
-        <!-- FLOAT & CLEAR DEMONSTRATION (Assignment 2 Requirement):
-             Floats the reception photograph inside descriptive text -->
-        <img src="../assets/images/reception.jpg" alt="Зона ресепшн фитнес-клуба Experience Fitness" class="float-intro-img">
-        В сети клубов <strong>Experience Fitness</strong> созданы все условия для эффективных и безопасных тренировок. 
-        Мы предлагаем просторные тренажёрные залы, широкий выбор групповых программ, секции боевых искусств 
-        и финские сауны / SPA-зоны для качественного восстановления после занятий.
-      </p>
-      <!-- CLEARFIX (Assignment 2 Requirement): Clears floated elements to prevent parent section collapse -->
-      <div class="clearfix"></div>
-    </section>
-
-    <!-- Interactive Category Filters (Hook for JS switching in Assignment 3) -->
-    <nav class="category-tabs-nav" aria-label="Фильтр категорий услуг">
-      <ul class="tabs-list">
-        <li><button type="button" aria-pressed="true" data-category="all">Все зоны</button></li>
-        <li><button type="button" aria-pressed="false" data-category="strength">Силовой тренинг</button></li>
-        <li><button type="button" aria-pressed="false" data-category="group">Групповые программы</button></li>
-        <li><button type="button" aria-pressed="false" data-category="martial">Боевые искусства</button></li>
-        <li><button type="button" aria-pressed="false" data-category="spa">Сауна и SPA</button></li>
-      </ul>
-    </nav>
-
-    <section class="services-list-section" id="services-articles">
-      <h2>Тренировочные зоны и направления</h2>
-
-      <article class="service-card" data-category="strength">
-        <h3>Тренажёрный зал и зона свободных весов</h3>
-        <p>
-          Профессиональные силовые рамы, помосты для тяжелоатлетов, гантельный ряд от 1 до 60 кг и современные блочные тренажеры. 
-          Пространство спроектировано с соблюдением стандартов эргономики и безопасности.
-        </p>
-
-        <figure class="service-zone-photo">
-          <img src="../assets/images/gym-floor-with-mirrors-and-benches.jpg" alt="Силовая зона Experience Fitness со скамьями, тренажёрами и зеркальной стеной" width="600" height="400">
-          <figcaption>Силовая зона со скамьями, тренажёрами и зеркальной стеной.</figcaption>
-        </figure>
-      </article>
-
-      <article class="service-card" data-category="group">
-        <h3>Групповые программы</h3>
-        <p>
-          Разнообразные групповые тренировки под руководством сертифицированных тренеров: стретчинг, пилатес, кроссфит, зумба и динамичная аэробика. 
-          Занятия подходят для любого уровня физической подготовки.
-        </p>
-        <figure class="service-zone-photo">
-          <img src="../assets/images/group-class.jpg" alt="Групповое занятие по функциональному тренингу в зале Experience Fitness" width="600" height="400">
-          <figcaption>Групповые тренировки и стретчинг в зале Experience Fitness.</figcaption>
-        </figure>
-      </article>
-
-      <article class="service-card" data-category="martial">
-        <h3>Боевые искусства и единоборства</h3>
-        <p>
-          Специально оборудованная зона для единоборств с боксёрскими мешками, татами и защитным покрытием. 
-          Постановка ударной техники, функциональная выносливость и спарринги с опытными наставниками.
-        </p>
-        <figure class="service-zone-photo">
-          <img src="../assets/images/strength-rack-and-boxing-bag.jpg" alt="Зона единоборств с боксёрской грушей и снарядами" width="600" height="400">
-          <figcaption>Зона боевых искусств с боксёрской грушей и функциональной рамой.</figcaption>
-        </figure>
-      </article>
-
-      <article class="service-card" data-category="spa">
-        <h3>Финская сауна / SPA-зона</h3>
-        <p>
-          Комфортабельная финская сауна и SPA-зона (в зависимости от филиала) для снятия мышечного напряжения, детоксикации и полного релакса после интенсивной тренировки.
-        </p>
-      </article>
-    </section>
-
-    <aside class="recommendations-sidebar" id="workout-tips">
-      <h2>Рекомендации для новичков</h2>
-      <p>
-        <strong>Что взять на первую тренировку:</strong> удобную спортивную форму, сменную обувь на жесткой подошве, 
-        личное полотенце и бутылку для воды. В каждом филиале установлены питьевые кулеры.
-      </p>
-    </aside>
-
-    <section class="form-section" id="newsletter-subscription">
-      <h2>Запись на консультацию и подбор программы</h2>
-      <p>Заполните форму ниже для бронирования персональной вводной тренировки:</p>
-
-      <!-- FORM COMMENT: This form uses standard HTML5 input validation. Server-side handling and backend submission will be implemented in later course assignments. -->
-      <form action="#" method="post" id="consultation-form">
-        <fieldset class="form-group-box">
-          <legend>Анкета клиента и параметры тренировки</legend>
-
-          <p class="form-field">
-            <label for="client-name">ФИО клиента:</label>
-            <input type="text" id="client-name" name="fullname" required placeholder="Иванов Иван Иванович">
-          </p>
-
-          <p class="form-field">
-            <label for="subscriber-email">Ваш Email адрес:</label>
-            <input type="email" id="subscriber-email" name="email" required placeholder="example@mail.kz">
-          </p>
-
-          <p class="form-field">
-            <label for="client-phone">Номер телефона:</label>
-            <input type="tel" id="client-phone" name="phone" required placeholder="+7 (700) 000-00-00">
-          </p>
-
-          <p class="form-field">
-            <label for="client-age">Ваш возраст (лет):</label>
-            <input type="number" id="client-age" name="age" min="14" max="90" required placeholder="18">
-          </p>
-
-          <p class="form-field">
-            <label for="visit-date">Желаемая дата визита:</label>
-            <input type="date" id="visit-date" name="preferred_date" required>
-          </p>
-
-          <p class="form-field">
-            <label for="branch-select">Выберите филиал:</label>
-            <select id="branch-select" name="branch" required>
-              <option value="">-- Выберите филиал --</option>
-              <option value="imanbayeva">ул. Шолпан Иманбаевой, 8, корп. 2 (4-й этаж)</option>
-              <option value="asfendiyarova">ул. Санжара Асфендиярова, 6 (НП 18)</option>
-            </select>
-          </p>
-
-          <fieldset class="radio-subgroup">
-            <legend>Предпочитаемый уровень нагрузки:</legend>
-            <label>
-              <input type="radio" name="fitness-level" value="beginner" checked> Новичок
-            </label>
-            <label>
-              <input type="radio" name="fitness-level" value="intermediate"> Опытный атлет
-            </label>
-          </fieldset>
-
-          <p class="form-field-checkbox">
-            <label>
-              <input type="checkbox" name="health_agree" value="yes" required> 
-              Подтверждаю отсутствие медицинских противопоказаний к занятиям спортом.
-            </label>
-          </p>
-
-          <p class="form-field">
-            <label for="client-goals">Ваши спортивные цели и пожелания:</label>
-            <textarea id="client-goals" name="goals" rows="4" placeholder="Расскажите о ваших целях (набор массы, похудение, реабилитация)..."></textarea>
-          </p>
-
-          <!-- Output Tag for JS -->
-          <p class="form-field">
-            <label for="calc-output">Статус формы:</label>
-            <output id="calc-output" name="calc-status">Заполните обязательные поля формы</output>
-          </p>
-
-          <p class="form-actions">
-            <button type="submit" class="btn btn-submit">Отправить заявку</button>
-            <button type="reset" class="btn btn-reset">Сбросить поля</button>
-          </p>
-        </fieldset>
-      </form>
-    </section>
-
-    <!-- POSITIONING 4: FIXED element demonstrating persistent viewport anchoring -->
-    <a href="#consultation-form" class="floating-quick-link" aria-label="Быстрая запись на тренировку">Записаться &darr;</a>
-
-  </main>
-
-  <footer class="main-footer" id="site-footer">
-    
-    <section class="footer-brand">
-      <h2>О бренде</h2>
-      <a href="../index.html" class="logo">
-        <img src="../assets/images/logo-white.svg" alt="Experience Fitness Logo" width="160" height="35">
+    <!-- 1. Шапка сайта: логотип, меню, контакты -->
+    <!-- Bootstrap Navbar: меню сворачивается до 1200 px. Ссылки адаптированы под страницы клуба. https://getbootstrap.com/docs/5.3/components/navbar/ -->
+    <header
+      class="main-header navbar navbar-expand-xl bg-body-tertiary border-bottom py-3 container-fluid px-3 px-lg-4"
+    >
+      <a
+        href="../index.html"
+        class="logo navbar-brand me-3 d-inline-flex align-items-center gap-2"
+        aria-label="Experience Fitness — На главную"
+      >
+        <img
+          src="../assets/images/logo-white.svg"
+          alt="Experience Fitness Logo"
+          width="48"
+          height="48"
+          class="brand-logo"
+        />
+        Experience Fitness
       </a>
-      <p class="footer-tagline">Сеть фитнес-клубов Experience Fitness в Астане.</p>
-    </section>
-
-    <nav class="footer-nav" aria-label="Навигация в подвале">
-      <h2 class="footer-title">Навигация</h2>
-      <ul>
-        <li><a href="locations.html">Филиалы в Астане</a></li>
-        <li><a href="services.html">Услуги и SPA-зоны</a></li>
-        <li><a href="pricing.html">Безлимитные абонементы</a></li>
-        <li><a href="promotions.html">Партнерские скидки</a></li>
-      </ul>
-    </nav>
-
-    <section class="footer-contacts">
-      <h2 class="footer-title">Контакты</h2>
-      <p>Единый call-центр: <a href="tel:+77783450000">+7 (778) 345-00-00</a></p>
-      <p>График работы: Пн – Сб 07:00 – 23:00, Вс: выходной</p>
-      <p class="social-links">
-        <a href="https://wa.me/77783450000" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
-        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+      <button
+        type="button"
+        class="navbar-toggler"
+        id="mobile-menu-btn"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Открыть или закрыть меню"
+        data-bs-toggle="collapse"
+        data-bs-target="#primary-nav"
+      >
+        <!-- SPAN: декоративная иконка Bootstrap, без самостоятельного смыслового содержания. -->
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav class="collapse navbar-collapse" id="primary-nav" aria-label="Основная навигация">
+        <ul class="navbar-nav flex-wrap me-auto mb-3 mb-xl-0">
+          <li class="nav-item"><a href="../index.html" class="nav-link">Главная</a></li>
+          <li class="nav-item"><a href="locations.html" class="nav-link">Филиалы</a></li>
+          <li class="nav-item">
+            <a href="services.html" class="nav-link active" aria-current="page">Услуги и Зоны</a>
+          </li>
+          <li class="nav-item"><a href="training.html" class="nav-link">Тренировки</a></li>
+          <li class="nav-item"><a href="pricing.html" class="nav-link">Абонементы</a></li>
+          <li class="nav-item"><a href="promotions.html" class="nav-link">Акции</a></li>
+          <li class="nav-item"><a href="contacts.html" class="nav-link">Контакты</a></li>
+        </ul>
+      </nav>
+      <p class="header-actions d-none d-xxl-flex align-items-center gap-3 mb-0">
+        <a
+          href="tel:+77783450000"
+          class="header-phone d-none d-md-inline text-body text-decoration-none small"
+          >+7 (778) 345-00-00</a>
+        <a href="contacts.html#contact-form" class="btn btn-primary btn-sm">Пробная тренировка</a>
       </p>
-    </section>
+    </header>
 
-    <section class="footer-bottom">
-      <h2>Правовая информация</h2>
-      <p>&copy; 2026 Experience Fitness. Все права защищены.</p>
-    </section>
-  </footer>
+    <!-- 2. Основное содержимое -->
+    <!-- container ограничивает ширину текста; container-fluid у шапки и подвала занимает всю ширину. -->
+    <main id="main-content" class="container flex-grow-1 py-4 py-md-5 text-break">
 
-</body>
+      <!-- 2.1. Фитнес-услуги и специализированные зоны залов -->
+      <section class="services-intro-section mb-5" id="services-intro">
+        <h1 class="display-5 fw-bold mb-4 text-center text-md-start">
+          Фитнес-услуги и специализированные зоны залов
+        </h1>
+        <!-- float-md-start обтекает фото текстом от 768 px; clearfix удерживает следующий раздел под фото. -->
+        <p class="lead clearfix mb-4">
+          <img
+            src="../assets/images/reception.jpg"
+            alt="Зона ресепшн фитнес-клуба Experience Fitness"
+            class="float-intro-img img-fluid content-photo object-fit-cover rounded-3 d-block float-md-start me-md-4 mb-3"
+            width="300"
+          />
+          В сети клубов <strong>Experience Fitness</strong> созданы все условия для эффективных и безопасных
+          тренировок. Мы предлагаем просторные тренажёрные залы, широкий выбор групповых программ, секции
+          боевых искусств и финские сауны / SPA-зоны для качественного восстановления после занятий.
+        </p>
+      </section>
+      <nav class="category-tabs-nav mb-4" aria-label="Навигация по категориям услуг">
+        <ul class="tabs-list list-unstyled d-flex flex-wrap gap-2">
+          <li><a href="#services-articles" class="btn btn-outline-light btn-sm">Все зоны</a></li>
+          <li><a href="#service-strength" class="btn btn-outline-light btn-sm">Силовой тренинг</a></li>
+          <li><a href="#service-group" class="btn btn-outline-light btn-sm">Групповые программы</a></li>
+          <li><a href="#service-martial" class="btn btn-outline-light btn-sm">Боевые искусства</a></li>
+          <li><a href="#service-spa" class="btn btn-outline-light btn-sm">Сауна и SPA</a></li>
+        </ul>
+      </nav>
+
+      <!-- 2.2. Тренировочные зоны и направления -->
+      <!-- Сетка без обёрток: section — row, заголовок — col-12, статьи — адаптивные col-*. -->
+      <section class="services-list-section mb-5 row g-4" id="services-articles">
+        <h2 class="h3 fw-bold mb-3 col-12">Тренировочные зоны и направления</h2>
+        <article class="service-card col-12 col-md-6 mb-3" data-category="strength" id="service-strength">
+          <h3 class="h4 fw-semibold mb-3 text-primary">Тренажёрный зал и зона свободных весов</h3>
+          <p>
+            Профессиональные силовые рамы, помосты для тяжелоатлетов, гантельный ряд от 1 до 60 кг и
+            современные блочные тренажеры. Пространство спроектировано с соблюдением стандартов эргономики и
+            безопасности.
+          </p>
+          <figure class="service-zone-photo mb-4">
+            <img
+              src="../assets/images/gym-floor-with-mirrors-and-benches.jpg"
+              alt="Силовая зона Experience Fitness со скамьями, тренажёрами и зеркальной стеной"
+              width="600"
+              height="400"
+              class="w-100 rounded-3 object-fit-cover img-fluid content-photo"
+            />
+            <figcaption class="small text-body-secondary pt-2">
+              Силовая зона со скамьями, тренажёрами и зеркальной стеной.
+            </figcaption>
+          </figure>
+        </article>
+        <article class="service-card col-12 col-md-6 mb-3" data-category="group" id="service-group">
+          <h3 class="h4 fw-semibold mb-3 text-primary">Групповые программы</h3>
+          <p>
+            Разнообразные групповые тренировки под руководством сертифицированных тренеров: стретчинг,
+            пилатес, кроссфит, зумба и динамичная аэробика. Занятия подходят для любого уровня физической
+            подготовки.
+          </p>
+          <figure class="service-zone-photo mb-4">
+            <img
+              src="../assets/images/group-class.jpg"
+              alt="Групповое занятие по функциональному тренингу в зале Experience Fitness"
+              width="600"
+              height="400"
+              class="w-100 rounded-3 object-fit-cover img-fluid content-photo"
+            />
+            <figcaption class="small text-body-secondary pt-2">
+              Групповые тренировки и стретчинг в зале Experience Fitness.
+            </figcaption>
+          </figure>
+        </article>
+        <article class="service-card col-12 col-md-6 mb-3" data-category="martial" id="service-martial">
+          <h3 class="h4 fw-semibold mb-3 text-primary">Боевые искусства и единоборства</h3>
+          <p>
+            Специально оборудованная зона для единоборств с боксёрскими мешками, татами и защитным покрытием.
+            Постановка ударной техники, функциональная выносливость и спарринги с опытными наставниками.
+          </p>
+          <figure class="service-zone-photo mb-4">
+            <img
+              src="../assets/images/strength-rack-and-boxing-bag.jpg"
+              alt="Зона единоборств с боксёрской грушей и снарядами"
+              width="600"
+              height="400"
+              class="w-100 rounded-3 object-fit-cover img-fluid content-photo"
+            />
+            <figcaption class="small text-body-secondary pt-2">
+              Зона боевых искусств с боксёрской грушей и функциональной рамой.
+            </figcaption>
+          </figure>
+        </article>
+        <article class="service-card col-12 col-md-6 mb-3" data-category="spa" id="service-spa">
+          <h3 class="h4 fw-semibold mb-3 text-primary">Финская сауна / SPA-зона</h3>
+          <p>
+            Комфортабельная финская сауна и SPA-зона (в зависимости от филиала) для снятия мышечного
+            напряжения, детоксикации и полного релакса после интенсивной тренировки.
+          </p>
+        </article>
+      </section>
+
+      <!-- 2.3. Рекомендации для новичков -->
+      <aside class="recommendations-sidebar bg-body-tertiary border rounded-3 p-4 mb-5" id="workout-tips">
+        <h2 class="h3 fw-bold mb-3">Рекомендации для новичков</h2>
+        <p>
+          <strong>Что взять на первую тренировку:</strong> удобную спортивную форму, сменную обувь на жесткой
+          подошве, личное полотенце и бутылку для воды. В каждом филиале установлены питьевые кулеры.
+        </p>
+      </aside>
+
+      <!-- 2.4. Запись на консультацию и подбор программы -->
+      <section class="form-section mb-5" id="newsletter-subscription">
+        <h2 class="h3 fw-bold mb-3">Запись на консультацию и подбор программы</h2>
+        <p>Заполните форму ниже для бронирования персональной вводной тренировки:</p>
+        <!-- fieldset объединяет связанные поля; row и col-* стоят на существующих элементах формы. -->
+        <form
+          action="#"
+          method="post"
+          id="consultation-form"
+          class="bg-body-tertiary border rounded-3 p-3 p-md-4 shadow-sm"
+        >
+          <!-- Серверного обработчика нет: submit отключён, поля и reset работают. -->
+          <p id="form-note-0" class="small text-body-secondary">
+            Учебная форма: отправка пока недоступна. Для записи свяжитесь с клубом по телефону.
+          </p>
+          <fieldset class="form-group-box row g-3 mx-0 border rounded-3 p-3 mb-4">
+            <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">
+              Анкета клиента и параметры тренировки
+            </legend>
+            <p class="form-field col-12 col-md-6">
+              <label for="client-name" class="form-label">ФИО клиента:</label>
+              <input
+                type="text"
+                id="client-name"
+                name="fullname"
+                required
+                placeholder="Иванов Иван Иванович"
+                class="form-control"
+              />
+            </p>
+            <p class="form-field col-12 col-md-6">
+              <label for="subscriber-email" class="form-label">Ваш Email адрес:</label>
+              <input
+                type="email"
+                id="subscriber-email"
+                name="email"
+                required
+                placeholder="example@mail.kz"
+                class="form-control"
+              />
+            </p>
+            <p class="form-field col-12 col-md-6">
+              <label for="client-phone" class="form-label">Номер телефона:</label>
+              <input
+                type="tel"
+                id="client-phone"
+                name="phone"
+                required
+                placeholder="+7 (700) 000-00-00"
+                class="form-control"
+              />
+            </p>
+            <p class="form-field col-12 col-md-6">
+              <label for="client-age" class="form-label">Ваш возраст (лет):</label>
+              <input
+                type="number"
+                id="client-age"
+                name="age"
+                min="14"
+                max="90"
+                required
+                placeholder="18"
+                class="form-control"
+              />
+            </p>
+            <p class="form-field col-12 col-md-6">
+              <label for="visit-date" class="form-label">Желаемая дата визита:</label>
+              <input type="date" id="visit-date" name="preferred_date" required class="form-control" />
+            </p>
+            <p class="form-field col-12 col-md-6">
+              <label for="branch-select" class="form-label">Выберите филиал:</label>
+              <select id="branch-select" name="branch" required class="form-select">
+                <option value="">-- Выберите филиал --</option>
+                <option value="imanbayeva">ул. Шолпан Иманбаевой, 8, корп. 2 (4-й этаж)</option>
+                <option value="asfendiyarova">ул. Санжара Асфендиярова, 6 (НП 18)</option>
+              </select>
+            </p>
+            <fieldset class="radio-subgroup col-12 row g-3 mx-0 border rounded-3 p-3 mb-4">
+              <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">
+                Предпочитаемый уровень нагрузки:
+              </legend>
+              <label class="col-12 form-label" for="field-0-6">
+                <input
+                  type="radio"
+                  name="fitness-level"
+                  value="beginner"
+                  checked
+                  id="field-0-6"
+                  class="form-check-input me-2"
+                />
+                Новичок
+              </label>
+              <label class="col-12 form-label" for="field-0-7">
+                <input
+                  type="radio"
+                  name="fitness-level"
+                  value="intermediate"
+                  id="field-0-7"
+                  class="form-check-input me-2"
+                />
+                Опытный атлет
+              </label>
+            </fieldset>
+            <p class="form-field-checkbox col-12">
+              <label for="field-0-8" class="form-label">
+                <input
+                  type="checkbox"
+                  name="health_agree"
+                  value="yes"
+                  required
+                  id="field-0-8"
+                  class="form-check-input me-2"
+                />
+                Подтверждаю отсутствие медицинских противопоказаний к занятиям спортом.
+              </label>
+            </p>
+            <p class="form-field col-12">
+              <label for="client-goals" class="form-label">Ваши спортивные цели и пожелания:</label>
+              <textarea
+                id="client-goals"
+                name="goals"
+                rows="4"
+                placeholder="Расскажите о ваших целях (набор массы, похудение, реабилитация)..."
+                class="form-control"
+              ></textarea>
+            </p>
+            <p class="form-field col-12">
+              <label for="calc-output" class="form-label">Статус формы:</label>
+              <output id="calc-output" name="calc-status">Заполните обязательные поля формы</output>
+            </p>
+            <p class="form-actions col-12 d-flex flex-wrap gap-2 align-items-center">
+              <button type="submit" class="btn btn-primary btn-lg" disabled aria-describedby="form-note-0">
+                Отправить заявку
+              </button>
+              <button type="reset" class="btn btn-outline-light">Сбросить поля</button>
+            </p>
+          </fieldset>
+        </form>
+      </section>
+      <a
+        href="#consultation-form"
+        class="btn btn-outline-light btn-sm mb-4 align-self-center"
+        aria-label="Быстрая запись на тренировку"
+        >Записаться ↓</a>
+    </main>
+
+    <!-- 3. Подвал сайта -->
+    <!-- footer сам служит container-fluid и row; его section и nav являются колонками. -->
+    <footer
+      class="main-footer border-top bg-body-tertiary mt-auto py-5 text-break container-fluid row g-4 mx-0 px-3 px-lg-5"
+      id="site-footer"
+    >
+      <section class="footer-brand col-12 col-md-6 col-lg-4">
+        <h2 class="h6 fw-bold mb-3">О бренде</h2>
+        <a href="../index.html" class="logo">
+          <img
+            src="../assets/images/logo-white.svg"
+            alt="Experience Fitness Logo"
+            width="48"
+            height="48"
+            class="brand-logo"
+          />
+        </a>
+        <p class="footer-tagline text-body-secondary small mt-3">
+          Сеть фитнес-клубов Experience Fitness в Астане.
+        </p>
+      </section>
+      <nav class="footer-nav col-12 col-md-6 col-lg-4" aria-label="Навигация в подвале">
+        <h2 class="footer-title h6 fw-bold mb-3">Навигация</h2>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="locations.html">Филиалы в Астане</a></li>
+          <li class="mb-2"><a href="services.html">Услуги и SPA-зоны</a></li>
+          <li class="mb-2"><a href="pricing.html">Безлимитные абонементы</a></li>
+          <li class="mb-2"><a href="promotions.html">Партнерские скидки</a></li>
+        </ul>
+      </nav>
+      <section class="footer-contacts col-12 col-md-6 col-lg-4">
+        <h2 class="footer-title h6 fw-bold mb-3">Контакты</h2>
+        <p>Единый call-центр: <a href="tel:+77783450000">+7 (778) 345-00-00</a></p>
+        <p>График работы: Пн – Сб 07:00 – 23:00, Вс: выходной</p>
+        <p class="social-links d-flex flex-wrap gap-3">
+          <a href="https://wa.me/77783450000" target="_blank" rel="noopener" aria-label="WhatsApp"
+            >WhatsApp</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        </p>
+      </section>
+      <section class="footer-bottom col-12 border-top pt-4 text-center small text-body-secondary">
+        <h2 class="h6 fw-bold mb-3">Правовая информация</h2>
+        <p>© 2026 Experience Fitness. Все права защищены.</p>
+      </section>
+    </footer>
+
+    <!-- 4. Bootstrap JS: работа меню и компонентов -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

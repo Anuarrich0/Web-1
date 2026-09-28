@@ -1,371 +1,457 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Z. Rysbek">
-  <meta name="description" content="Тренировочные программы и направления фитнес-клуба Experience Fitness в Астане. Кроссфит, тренажерный зал, сауны и групповые занятия.">
-  <title>Тренировки — Experience Fitness</title>
-  <!-- Author metadata comment: Written by Z. Rysbek -->
-  <link rel="stylesheet" href="../assets/css/base.css">
-  <link rel="stylesheet" href="../assets/css/roha.css">
-  <link rel="icon" href="../assets/images/logo-white.svg" type="image/x-icon">
-</head>
-<body>
+<html lang="ru" data-bs-theme="dark">
 
-  <header class="main-header">
-    <a href="../index.html" class="logo" aria-label="Experience Fitness — На главную">
-    <img src="../assets/images/logo-white.svg" alt="Experience Fitness Logo" width="180" height="40">
-    </a>
+  <!-- 0. Настройки страницы и стили -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Z. Rysbek" />
+    <!-- Author: Z. Rysbek -->
+    <meta
+      name="description"
+      content="Тренировочные программы и направления фитнес-клуба Experience Fitness в Астане. Кроссфит, тренажерный зал, сауны и групповые занятия."
+    />
+    <title>Тренировки — Experience Fitness</title>
+    <!-- Bootstrap 5.3.8 из CDN; свои стили подключены после него для корректной работы каскада. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/roha.css" />
+    <link rel="icon" href="../assets/images/logo-white.svg" type="image/svg+xml" />
+  </head>
+  <body class="d-flex flex-column min-vh-100">
 
-    <!-- Mobile Navigation Toggle Button (Prepared for JavaScript in Assignment 3) -->
-    <button type="button" class="menu-toggle" id="mobile-menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
-      Menu
-    </button>
-
-    <nav class="main-nav" id="primary-nav" aria-label="Основная навигация">
-      <ul class="nav-list">
-        <li><a href="../index.html" class="nav-link">Главная</a></li>
-        <li><a href="locations.html" class="nav-link">Филиалы</a></li>
-        <li><a href="services.html" class="nav-link">Услуги и Зоны</a></li>
-        <li><a href="training.html" class="nav-link active" aria-current="page">Тренировки</a></li>
-        <li><a href="pricing.html" class="nav-link">Абонементы</a></li>
-        <li><a href="promotions.html" class="nav-link">Акции</a></li>
-        <li><a href="contacts.html" class="nav-link">Контакты</a></li>
-      </ul>
-    </nav>
-
-    <!-- SEMANTIC COMMENT: Used 'p' instead of 'div' to group action elements semantically without breaking structure -->
-    <p class="header-actions">
-      <button type="button" class="theme-toggle-btn" id="theme-switcher-btn" data-theme="dark" aria-label="Switch color theme">
-        Theme
+    <!-- 1. Шапка сайта: логотип, меню, контакты -->
+    <!-- Bootstrap Navbar: меню сворачивается до 1200 px. Ссылки адаптированы под страницы клуба. https://getbootstrap.com/docs/5.3/components/navbar/ -->
+    <header
+      class="main-header navbar navbar-expand-xl bg-body-tertiary border-bottom py-3 container-fluid px-3 px-lg-4"
+    >
+      <a
+        href="../index.html"
+        class="logo navbar-brand me-3 d-inline-flex align-items-center gap-2"
+        aria-label="Experience Fitness — На главную"
+      >
+        <img
+          src="../assets/images/logo-white.svg"
+          alt="Experience Fitness Logo"
+          width="48"
+          height="48"
+          class="brand-logo"
+        />
+        Experience Fitness
+      </a>
+      <button
+        type="button"
+        class="navbar-toggler"
+        id="mobile-menu-btn"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Открыть или закрыть меню"
+        data-bs-toggle="collapse"
+        data-bs-target="#primary-nav"
+      >
+        <!-- SPAN: декоративная иконка Bootstrap, без самостоятельного смыслового содержания. -->
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <a href="tel:+7 (778) 345-74-05" class="header-phone">+7 (778) 345-74-05</a>
-      <a href="#trial-modal" class="btn btn-primary">Пробная тренировка</a>
-    </p>
-  </header>
-
-  <main id="main-content">
-
-    <nav class="page-toc" aria-label="Содержание страницы">
-      <ul>
-        <li><a href="#glossary">Словарь терминов</a></li>
-        <li><a href="#signup-form">Форма подписки</a></li>
-      </ul>
-    </nav>
-
-    <section>
-        <h1>Тренировки в Experience Fitness</h1>
-
-        <p>
-            <b>Experience Fitness&trade;</b> предлагает <strong>разнообразные тренировочные программы</strong>
-            для людей с разным уровнем подготовки и целями. Независимо от того,
-            хотите ли вы набрать мышечную массу, увеличить силу, улучшить
-            выносливость или просто поддерживать хорошую физическую форму,
-            в наших залах можно подобрать подходящий вариант тренировок.
-        </p>
-
-        <p>
-            Перед началом занятия важно выполнить разминку и подготовить мышцы
-            к нагрузке. Во время тренировки необходимо соблюдать <em>правильную
-            технику</em> выполнения упражнений и постепенно увеличивать нагрузку,
-            следуя принципу <i>progressive overload</i> (постепенной прогрессии нагрузки).
-            <!-- SEMANTIC COMMENT: span используется только для локального инлайн-акцента внутри абзаца, отдельного смыслового блока здесь нет -->
-            <span>Регулярность важнее слишком высокой нагрузки.</span>
-            После тренировки организму необходимо время для восстановления,
-            поэтому полноценный сон и отдых являются важной частью прогресса.
-        </p>
-
-        <blockquote cite="https://experiencefitness.kz">
-            <p><q>Лучшая тренировка — та, которую вы делаете регулярно</q>, — говорят тренеры <cite>Experience Fitness</cite>.</p>
-        </blockquote>
-    </section>
-
-    <hr>
-
-    <article>
-        <h2>Основные направления</h2>
-
-        <p>
-            Площадь основного тренажёрного зала составляет около 700 м<sup>2</sup>,
-            что позволяет комфортно тренироваться даже в часы пик.
-        </p>
-
-        <ul>
-            <li>Тренировки в тренажерном зале</li>
-            <li>Персональные тренировки</li>
-            <li>
-                Групповые занятия
-                <ul>
-                    <li>Йога</li>
-                    <li>Степ-аэробика</li>
-                    <li>Функциональный тренинг</li>
-                </ul>
-            </li>
-            <li>Кроссфит</li>
-            <li>Кардиотренировки</li>
+      <nav class="collapse navbar-collapse" id="primary-nav" aria-label="Основная навигация">
+        <ul class="navbar-nav flex-wrap me-auto mb-3 mb-xl-0">
+          <li class="nav-item"><a href="../index.html" class="nav-link">Главная</a></li>
+          <li class="nav-item"><a href="locations.html" class="nav-link">Филиалы</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Услуги и Зоны</a></li>
+          <li class="nav-item">
+            <a href="training.html" class="nav-link active" aria-current="page">Тренировки</a>
+          </li>
+          <li class="nav-item"><a href="pricing.html" class="nav-link">Абонементы</a></li>
+          <li class="nav-item"><a href="promotions.html" class="nav-link">Акции</a></li>
+          <li class="nav-item"><a href="contacts.html" class="nav-link">Контакты</a></li>
         </ul>
+      </nav>
+      <p class="header-actions d-none d-xxl-flex align-items-center gap-3 mb-0">
+        <a
+          href="tel:+77783457405"
+          class="header-phone d-none d-md-inline text-body text-decoration-none small"
+          >+7 (778) 345-74-05</a>
+        <a href="contacts.html#contact-form" class="btn btn-primary btn-sm">Пробная тренировка</a>
+      </p>
+    </header>
 
-        <figure>
-            <img src="../assets/images/training-hall.jpg" alt="Тренажёрный зал Experience Fitness с рядами силовых тренажёров" width="600" height="400">
-            <figcaption>Основной тренажёрный зал одного из филиалов Experience Fitness</figcaption>
-        </figure>
-    </article>
+    <!-- 2. Основное содержимое -->
+    <!-- container ограничивает ширину текста; container-fluid у шапки и подвала занимает всю ширину. -->
+    <main id="main-content" class="container flex-grow-1 py-4 py-md-5 text-break">
+      <nav class="page-toc mb-4" aria-label="Содержание страницы">
+        <ul class="list-unstyled d-flex flex-wrap gap-3">
+          <li><a href="#glossary">Словарь терминов</a></li>
+          <li><a href="#signup-form">Форма подписки</a></li>
+        </ul>
+      </nav>
 
-    <section>
-        <h2>Этапы одной тренировки</h2>
-
-        <ol reversed>
-            <li>Заминка и растяжка</li>
-            <li>Основной блок упражнений</li>
-            <li>Разминка</li>
-        </ol>
-
-        <figure>
-            <img src="../assets/images/warmup.jpg" alt="Разминка перед тренировкой в зале Experience Fitness" width="600" height="400">
-            <figcaption>Разминка — обязательный этап перед любой тренировкой</figcaption>
-        </figure>
-    </section>
-
-    <section>
-        <h2>Пример тренировочной недели</h2>
-
-        <table>
-            <caption>Пример расписания тренировок</caption>
-
-            <thead>
-                <tr>
-                    <th scope="col">День</th>
-                    <th scope="col">Направление</th>
-                    <th scope="col">Продолжительность</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td>Понедельник</td>
-                    <td>Силовая тренировка</td>
-                    <td>60 <abbr title="минут">мин.</abbr></td>
-                </tr>
-
-                <tr>
-                    <td>Среда</td>
-                    <td>Тренировка на всё тело</td>
-                    <td>60 <abbr title="минут">мин.</abbr></td>
-                </tr>
-
-                <tr>
-                    <td>Пятница</td>
-                    <td>Кроссфит</td>
-                    <td>50 <abbr title="минут">мин.</abbr></td>
-                </tr>
-
-                <tr>
-                    <td>Суббота</td>
-                    <td>Кардио</td>
-                    <td>30 <abbr title="минут">мин.</abbr></td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-    <section id="glossary">
-        <h2>Словарь терминов</h2>
-
-        <dl>
-            <dt>Кроссфит</dt>
-            <dd>Высокоинтенсивная тренировка, сочетающая элементы тяжёлой атлетики, гимнастики и кардио.</dd>
-
-            <dt>Кардиотренировка</dt>
-            <dd>Упражнения для укрепления сердечно-сосудистой системы &mdash; бег, велотренажёр, гребля.</dd>
-
-            <dt>Разминка</dt>
-            <dd>Комплекс лёгких упражнений перед основной тренировкой для подготовки мышц и суставов.</dd>
-        </dl>
-    </section>
-
-    <!-- div is used as a neutral container for one visual advice block; section and aside do not fit because this block is neither a standalone section nor supplementary content -->
-    <div class="tip-box">
-        <h2>Совет для начинающих</h2>
-
-        <p>
-            Если вы только начинаете тренироваться, не стоит сразу пытаться
-            использовать <mark>максимальные веса</mark>. Начните с освоения базовых
-            упражнений и правильной техники. Тренер поможет составить программу,
-            подходящую именно для вашего уровня подготовки.
+      <!-- 2.1. Тренировки в Experience Fitness -->
+      <section class="mb-5">
+        <h1 class="display-5 fw-bold mb-4 text-center text-md-start">Тренировки в Experience Fitness</h1>
+        <p class="lead">
+          <b>Experience Fitness™</b> предлагает <strong>разнообразные тренировочные программы</strong> для
+          людей с разным уровнем подготовки и целями. Независимо от того, хотите ли вы набрать мышечную массу,
+          увеличить силу, улучшить выносливость или просто поддерживать хорошую физическую форму, в наших
+          залах можно подобрать подходящий вариант тренировок.
         </p>
-
-        <p><small>Совет подготовлен тренерами Experience Fitness.</small></p>
-    </div>
-
-    <aside>
-        <h2>Полезно знать</h2>
         <p>
-            Первая пробная тренировка по любому направлению &laquo;Experience Fitness&raquo;
-            проводится бесплатно &mdash; запишитесь через форму ниже.
+          Перед началом занятия важно выполнить разминку и подготовить мышцы к нагрузке. Во время тренировки
+          необходимо соблюдать <em>правильную технику</em> выполнения упражнений и постепенно увеличивать
+          нагрузку, следуя принципу <i>progressive overload</i> (постепенной прогрессии нагрузки).
+          <!-- SPAN: выделяет часть текста внутри существующего элемента, без отдельного смыслового блока. -->
+          <span>Регулярность важнее слишком высокой нагрузки.</span> После тренировки организму необходимо
+          время для восстановления, поэтому полноценный сон и отдых являются важной частью прогресса.
+        </p>
+        <blockquote
+          cite="https://experiencefitness.kz"
+          class="blockquote border-start border-4 border-primary bg-body-tertiary p-4 rounded-end mb-4"
+        >
+          <p>
+            <q>Лучшая тренировка — та, которую вы делаете регулярно</q>, — говорят тренеры
+            <cite>Experience Fitness</cite>.
+          </p>
+        </blockquote>
+      </section>
+      <hr />
+
+      <!-- 2.2. Основные направления -->
+      <article class="mb-5">
+        <h2 class="h3 fw-bold mb-3">Основные направления</h2>
+        <p>
+          Площадь основного тренажёрного зала составляет около 700 м<sup>2</sup>, что позволяет комфортно
+          тренироваться даже в часы пик.
+        </p>
+        <ul>
+          <li>Тренировки в тренажерном зале</li>
+          <li>Персональные тренировки</li>
+          <li>
+            Групповые занятия
+            <ul>
+              <li>Йога</li>
+              <li>Степ-аэробика</li>
+              <li>Функциональный тренинг</li>
+            </ul>
+          </li>
+          <li>Кроссфит</li>
+          <li>Кардиотренировки</li>
+        </ul>
+        <figure class="mb-4">
+          <img
+            src="../assets/images/training-hall.jpg"
+            alt="Тренажёрный зал Experience Fitness с рядами силовых тренажёров"
+            width="600"
+            height="400"
+            class="w-100 rounded-3 object-fit-cover img-fluid content-photo"
+          />
+          <figcaption class="small text-body-secondary pt-2">
+            Основной тренажёрный зал одного из филиалов Experience Fitness
+          </figcaption>
+        </figure>
+      </article>
+
+      <!-- 2.3. Этапы одной тренировки -->
+      <section class="mb-5">
+        <h2 class="h3 fw-bold mb-3">Этапы одной тренировки</h2>
+        <ol reversed>
+          <li>Заминка и растяжка</li>
+          <li>Основной блок упражнений</li>
+          <li>Разминка</li>
+        </ol>
+        <figure class="mb-4">
+          <img
+            src="../assets/images/warmup.jpg"
+            alt="Разминка перед тренировкой в зале Experience Fitness"
+            width="600"
+            height="400"
+            class="w-100 rounded-3 object-fit-cover img-fluid content-photo"
+          />
+          <figcaption class="small text-body-secondary pt-2">
+            Разминка — обязательный этап перед любой тренировкой
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- 2.4. Пример тренировочной недели -->
+      <section class="mb-5">
+        <h2 class="h3 fw-bold mb-3">Пример тренировочной недели</h2>
+        <!-- DIV: прокручивает только таблицу; заголовок и описание остаются в существующем section. -->
+        <div
+          class="table-responsive border rounded-3 mb-4"
+          role="region"
+          tabindex="0"
+          aria-labelledby="table-caption-0"
+        >
+          <!-- Bootstrap Table: оформление адаптировано к нашей таблице, её caption и заголовки сохранены. https://getbootstrap.com/docs/5.3/content/tables/ -->
+          <table class="table table-striped table-hover align-middle mb-0 text-nowrap">
+            <caption id="table-caption-0" class="px-3 small">
+              Пример расписания тренировок
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">День</th>
+                <th scope="col">Направление</th>
+                <th scope="col">Продолжительность</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Понедельник</td>
+                <td>Силовая тренировка</td>
+                <td>60 <abbr title="минут">мин.</abbr></td>
+              </tr>
+              <tr>
+                <td>Среда</td>
+                <td>Тренировка на всё тело</td>
+                <td>60 <abbr title="минут">мин.</abbr></td>
+              </tr>
+              <tr>
+                <td>Пятница</td>
+                <td>Кроссфит</td>
+                <td>50 <abbr title="минут">мин.</abbr></td>
+              </tr>
+              <tr>
+                <td>Суббота</td>
+                <td>Кардио</td>
+                <td>30 <abbr title="минут">мин.</abbr></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 2.5. Словарь терминов -->
+      <section id="glossary" class="mb-5">
+        <h2 class="h3 fw-bold mb-3">Словарь терминов</h2>
+        <dl class="row g-3 mb-4">
+          <dt class="col-12 col-md-4 text-primary">Кроссфит</dt>
+          <dd class="col-12 col-md-8 text-body-secondary">
+            Высокоинтенсивная тренировка, сочетающая элементы тяжёлой атлетики, гимнастики и кардио.
+          </dd>
+          <dt class="col-12 col-md-4 text-primary">Кардиотренировка</dt>
+          <dd class="col-12 col-md-8 text-body-secondary">
+            Упражнения для укрепления сердечно-сосудистой системы — бег, велотренажёр, гребля.
+          </dd>
+          <dt class="col-12 col-md-4 text-primary">Разминка</dt>
+          <dd class="col-12 col-md-8 text-body-secondary">
+            Комплекс лёгких упражнений перед основной тренировкой для подготовки мышц и суставов.
+          </dd>
+        </dl>
+      </section>
+
+      <!-- 2.6. Совет для начинающих -->
+      <aside class="tip-box alert alert-info p-4 mb-4">
+        <h2 class="h3 fw-bold mb-3">Совет для начинающих</h2>
+        <p>
+          Если вы только начинаете тренироваться, не стоит сразу пытаться использовать
+          <mark>максимальные веса</mark>. Начните с освоения базовых упражнений и правильной техники. Тренер
+          поможет составить программу, подходящую именно для вашего уровня подготовки.
+        </p>
+        <p>
+          <small class="small text-body-secondary">Совет подготовлен тренерами Experience Fitness.</small>
+        </p>
+      </aside>
+
+      <!-- 2.7. Полезно знать -->
+      <aside class="bg-body-tertiary border rounded-3 p-4 mb-5">
+        <h2 class="h3 fw-bold mb-3">Полезно знать</h2>
+        <p>
+          Первая пробная тренировка по любому направлению «Experience Fitness» проводится бесплатно —
+          запишитесь через форму ниже.
         </p>
         <p>Ближайшая свободная запись доступна уже <time datetime="2026-09-14">14 сентября 2026</time>.</p>
-    </aside>
+      </aside>
+      <figure class="mb-4">
+        <img
+          src="../assets/images/group-class.jpg"
+          alt="Групповое занятие по функциональному тренингу в зале Experience Fitness"
+          width="600"
+          height="400"
+          class="w-100 rounded-3 object-fit-cover img-fluid content-photo"
+        />
+        <figcaption class="small text-body-secondary pt-2">
+          Групповые занятия проходят каждый день в разное время
+        </figcaption>
+      </figure>
 
-    <figure>
-        <img src="../assets/images/group-class.jpg" alt="Групповое занятие по функциональному тренингу в зале Experience Fitness" width="600" height="400">
-        <figcaption>Групповые занятия проходят каждый день в разное время</figcaption>
-    </figure>
-
-    <section>
-        <h2 id="signup-form">Подписка на тренировки и рассылку</h2>
-
-        <form action="#" method="post">
-            <!-- FORM COMMENT: This form uses standard HTML5 input validation. Server-side handling and backend submission will be implemented in later course assignments. -->
-
-            <fieldset>
-                <legend>Личные данные</legend>
-
-                <!-- div: группирует подпись и поле ввода имени -->
-                <div>
-                    <label for="full-name">Ваше имя:</label><br>
-                    <input type="text" id="full-name" name="full-name" required>
-                </div>
-
-                <br>
-
-                <!-- div: группирует подпись и поле ввода email -->
-                <div>
-                    <label for="train-email">Ваш email:</label><br>
-                    <input type="email" id="train-email" name="train-email" required>
-                </div>
-
-                <br>
-
-                <!-- div: группирует подпись и поле ввода телефона -->
-                <div>
-                    <label for="train-phone">Телефон:</label><br>
-                    <input type="tel" id="train-phone" name="train-phone" placeholder="+7 (700) 000-00-00">
-                </div>
-
-                <br>
-
-                <!-- div: группирует подпись и числовое поле возраста -->
-                <div>
-                    <label for="train-age">Возраст:</label><br>
-                    <input type="number" id="train-age" name="train-age" min="12" max="99">
-                </div>
-
-                <br>
-
-                <!-- div: группирует подпись и поле выбора желаемой даты -->
-                <div>
-                    <label for="preferred-date">Желаемая дата пробной тренировки:</label><br>
-                    <input type="date" id="preferred-date" name="preferred-date">
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <legend>Интересующее направление</legend>
-
-                <!-- div: группирует один radio-вариант "Тренажёрный зал" -->
-                <div>
-                    <input type="radio" id="direction-gym" name="direction" value="gym" checked>
-                    <label for="direction-gym">Тренажёрный зал</label>
-                </div>
-
-                <!-- div: группирует один radio-вариант "Кроссфит" -->
-                <div>
-                    <input type="radio" id="direction-crossfit" name="direction" value="crossfit">
-                    <label for="direction-crossfit">Кроссфит</label>
-                </div>
-
-                <!-- div: группирует один radio-вариант "Групповые занятия" -->
-                <div>
-                    <input type="radio" id="direction-group" name="direction" value="group">
-                    <label for="direction-group">Групповые занятия</label>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <legend>Дополнительно</legend>
-
-                <!-- div: группирует подпись и выпадающий список уровня подготовки -->
-                <div>
-                    <label for="train-level">Уровень подготовки:</label><br>
-                    <select id="train-level" name="train-level">
-                        <option value="beginner">Начинающий</option>
-                        <option value="intermediate">Средний</option>
-                        <option value="advanced">Продвинутый</option>
-                    </select>
-                </div>
-
-                <br>
-
-                <!-- div: группирует чекбокс согласия на рассылку -->
-                <div>
-                    <input type="checkbox" id="newsletter" name="newsletter" value="yes" checked>
-                    <label for="newsletter">Хочу получать рассылку с советами по тренировкам</label>
-                </div>
-
-                <br>
-
-                <!-- div: группирует обязательный чекбокс согласия на обработку данных -->
-                <div>
-                    <input type="checkbox" id="agree" name="agree" required>
-                    <label for="agree">Согласен(на) с условиями обработки данных</label>
-                </div>
-
-                <br>
-
-                <!-- div: группирует подпись и текстовое поле комментария -->
-                <div>
-                    <label for="train-comment">Комментарий:</label><br>
-                    <textarea id="train-comment" name="train-comment" rows="4" cols="40" placeholder="Например, удобное время для звонка"></textarea>
-                </div>
-            </fieldset>
-
-            <!-- div: группирует кнопки отправки и сброса формы -->
-            <div>
-                <button type="submit">Подписаться и записаться</button>
-                <button type="reset">Очистить форму</button>
+      <!-- 2.8. Подписка на тренировки и рассылку -->
+      <section class="mb-5">
+        <h2 id="signup-form" class="h3 fw-bold mb-3">Подписка на тренировки и рассылку</h2>
+        <!-- fieldset объединяет связанные поля; row и col-* стоят на существующих элементах формы. -->
+        <form action="#" method="post" class="bg-body-tertiary border rounded-3 p-3 p-md-4 shadow-sm">
+          <!-- Серверного обработчика нет: submit отключён, поля и reset работают. -->
+          <p id="form-note-0" class="small text-body-secondary">
+            Учебная форма: отправка пока недоступна. Для записи свяжитесь с клубом по телефону.
+          </p>
+          <fieldset class="row g-3 mx-0 border rounded-3 p-3 mb-4">
+            <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">Личные данные</legend>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12 col-md-6">
+              <label for="full-name" class="form-label">Ваше имя:</label> <br />
+              <input type="text" id="full-name" name="full-name" required class="form-control" />
             </div>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12 col-md-6">
+              <label for="train-email" class="form-label">Ваш email:</label> <br />
+              <input type="email" id="train-email" name="train-email" required class="form-control" />
+            </div>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12 col-md-6">
+              <label for="train-phone" class="form-label">Телефон:</label> <br />
+              <input
+                type="tel"
+                id="train-phone"
+                name="train-phone"
+                placeholder="+7 (700) 000-00-00"
+                class="form-control"
+              />
+            </div>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12 col-md-6">
+              <label for="train-age" class="form-label">Возраст:</label> <br />
+              <input type="number" id="train-age" name="train-age" min="12" max="99" class="form-control" />
+            </div>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12 col-md-6">
+              <label for="preferred-date" class="form-label">Желаемая дата пробной тренировки:</label> <br />
+              <input type="date" id="preferred-date" name="preferred-date" class="form-control" />
+            </div>
+          </fieldset>
+          <fieldset class="row g-3 mx-0 border rounded-3 p-3 mb-4">
+            <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">
+              Интересующее направление
+            </legend>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12">
+              <input
+                type="radio"
+                id="direction-gym"
+                name="direction"
+                value="gym"
+                checked
+                class="form-check-input me-2"
+              />
+              <label for="direction-gym" class="form-label">Тренажёрный зал</label>
+            </div>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12">
+              <input
+                type="radio"
+                id="direction-crossfit"
+                name="direction"
+                value="crossfit"
+                class="form-check-input me-2"
+              />
+              <label for="direction-crossfit" class="form-label">Кроссфит</label>
+            </div>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12">
+              <input
+                type="radio"
+                id="direction-group"
+                name="direction"
+                value="group"
+                class="form-check-input me-2"
+              />
+              <label for="direction-group" class="form-label">Групповые занятия</label>
+            </div>
+          </fieldset>
+          <fieldset class="row g-3 mx-0 border rounded-3 p-3 mb-4">
+            <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">Дополнительно</legend>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12 col-md-6">
+              <label for="train-level" class="form-label">Уровень подготовки:</label> <br />
+              <select id="train-level" name="train-level" class="form-select">
+                <option value="beginner">Начинающий</option>
+                <option value="intermediate">Средний</option>
+                <option value="advanced">Продвинутый</option>
+              </select>
+            </div>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12">
+              <input
+                type="checkbox"
+                id="newsletter"
+                name="newsletter"
+                value="yes"
+                checked
+                class="form-check-input me-2"
+              />
+              <label for="newsletter" class="form-label"
+                >Хочу получать рассылку с советами по тренировкам</label>
+            </div>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12">
+              <input type="checkbox" id="agree" name="agree" required class="form-check-input me-2" />
+              <label for="agree" class="form-label">Согласен(на) с условиями обработки данных</label>
+            </div>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12">
+              <label for="train-comment" class="form-label">Комментарий:</label> <br />
+              <textarea
+                id="train-comment"
+                name="train-comment"
+                rows="4"
+                cols="40"
+                placeholder="Например, удобное время для звонка"
+                class="form-control"
+              ></textarea>
+            </div>
+          </fieldset>
+          <!-- DIV: группа кнопок формы, не навигация и не самостоятельный раздел. -->
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <button type="submit" class="btn btn-primary btn-lg" disabled aria-describedby="form-note-0">
+              Подписаться и записаться
+            </button>
+            <button type="reset" class="btn btn-outline-light">Очистить форму</button>
+          </div>
         </form>
-    </section>
+      </section>
+    </main>
 
-  </main>
+    <!-- 3. Подвал сайта -->
+    <!-- footer сам служит container-fluid и row; его section и nav являются колонками. -->
+    <footer
+      class="main-footer border-top bg-body-tertiary mt-auto py-5 text-break container-fluid row g-4 mx-0 px-3 px-lg-5"
+      id="site-footer"
+    >
+      <section class="footer-brand col-12 col-md-6 col-lg-4">
+        <h2 class="h6 fw-bold mb-3">О бренде</h2>
+        <a href="../index.html" class="logo">
+          <img
+            src="../assets/images/logo-white.svg"
+            alt="Experience Fitness Logo"
+            width="48"
+            height="48"
+            class="brand-logo"
+          />
+        </a>
+        <p class="footer-tagline text-body-secondary small mt-3">Крупнейшая сеть фитнес-центров в Астане.</p>
+      </section>
+      <nav class="footer-nav col-12 col-md-6 col-lg-4" aria-label="Навигация в подвале">
+        <h2 class="footer-title h6 fw-bold mb-3">Навигация</h2>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="locations.html">11 филиалов в Астане</a></li>
+          <li class="mb-2"><a href="services.html">Финские сауны и залы</a></li>
+          <li class="mb-2"><a href="pricing.html">Безлимитные абонементы</a></li>
+          <li class="mb-2"><a href="promotions.html">Партнерские скидки</a></li>
+        </ul>
+      </nav>
+      <section class="footer-contacts col-12 col-md-6 col-lg-4">
+        <h2 class="footer-title h6 fw-bold mb-3">Контакты</h2>
+        <p>Единый call-центр: <a href="tel:+77783457405">+7 (778) 345-74-05</a></p>
+        <p>График работы: Пн-Вс 07:00 – 23:00</p>
+        <p class="social-links d-flex flex-wrap gap-3">
+          <a href="https://wa.me/77783457405" target="_blank" rel="noopener" aria-label="WhatsApp"
+            >WhatsApp</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        </p>
+      </section>
+      <section class="footer-bottom col-12 border-top pt-4 text-center small text-body-secondary">
+        <h2 class="h6 fw-bold mb-3">Правовая информация</h2>
+        <p>© 2026 Experience Fitness. Все права защищены.</p>
+      </section>
+    </footer>
 
-
-  <footer class="main-footer" id="site-footer">
-    
-    <section class="footer-brand">
-      <h2>О бренде</h2>
-      <a href="../index.html" class="logo">
-        <img src="../assets/images/logo-white.svg" alt="Experience Fitness Logo" width="160" height="35">
-      </a>
-      <p class="footer-tagline">Крупнейшая сеть фитнес-центров в Астане.</p>
-    </section>
-
-    <nav class="footer-nav" aria-label="Навигация в подвале">
-      <h2 class="footer-title">Навигация</h2>
-      <ul>
-        <li><a href="locations.html">11 филиалов в Астане</a></li>
-        <li><a href="services.html">Финские сауны и залы</a></li>
-        <li><a href="pricing.html">Безлимитные абонементы</a></li>
-        <li><a href="promotions.html">Партнерские скидки</a></li>
-      </ul>
-    </nav>
-
-    <section class="footer-contacts">
-      <h2 class="footer-title">Контакты</h2>
-      <p>Единый call-центр: <a href="tel:+7 (778) 345-74-05">+7 (778) 345-74-05</a></p>
-      <p>График работы: Пн-Вс 07:00 – 23:00</p>
-      <p class="social-links">
-        <a href="https://wa.me/+7 (778) 345-74-05" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
-        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-      </p>
-    </section>
-
-    <section class="footer-bottom">
-      <h2>Правовая информация</h2>
-      <p>&copy; 2026 Experience Fitness. Все права защищены.</p>
-    </section>
-  </footer>
-
-</body>
+    <!-- 4. Bootstrap JS: работа меню и компонентов -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

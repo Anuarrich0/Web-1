@@ -1,331 +1,401 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Z. Rysbek">
-  <meta name="description" content="Контактная информация фитнес-клуба Experience Fitness в Астане. Телефон, адреса и график работы.">
-  <title>Контакты — Experience Fitness</title>
-  <!-- Author metadata comment: Written by Z. Rysbek -->
-  <link rel="stylesheet" href="../assets/css/base.css">
-  <link rel="stylesheet" href="../assets/css/roha.css">
-  <link rel="icon" href="../assets/images/logo-white.svg" type="image/x-icon">
-</head>
-<body>
+<html lang="ru" data-bs-theme="dark">
 
-  <header class="main-header">
-    <a href="../index.html" class="logo" aria-label="Experience Fitness — На главную">
-      <img src="../assets/images/logo-white.svg" alt="Experience Fitness Logo" width="180" height="40">
-    </a>
+  <!-- 0. Настройки страницы и стили -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Z. Rysbek" />
+    <!-- Author: Z. Rysbek -->
+    <meta
+      name="description"
+      content="Контактная информация фитнес-клуба Experience Fitness в Астане. Телефон, адреса и график работы."
+    />
+    <title>Контакты — Experience Fitness</title>
+    <!-- Bootstrap 5.3.8 из CDN; свои стили подключены после него для корректной работы каскада. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/roha.css" />
+    <link rel="icon" href="../assets/images/logo-white.svg" type="image/svg+xml" />
+  </head>
+  <body class="d-flex flex-column min-vh-100">
 
-    <!-- Mobile Navigation Toggle Button (Prepared for JavaScript in Assignment 3) -->
-    <button type="button" class="menu-toggle" id="mobile-menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
-      Menu
-    </button>
-
-    <nav class="main-nav" id="primary-nav" aria-label="Основная навигация">
-      <ul class="nav-list">
-        <li><a href="../index.html" class="nav-link">Главная</a></li>
-        <li><a href="locations.html" class="nav-link">Филиалы</a></li>
-        <li><a href="services.html" class="nav-link">Услуги и Зоны</a></li>
-        <li><a href="training.html" class="nav-link">Тренировки</a></li>
-        <li><a href="pricing.html" class="nav-link">Абонементы</a></li>
-        <li><a href="promotions.html" class="nav-link">Акции</a></li>
-        <li><a href="contacts.html" class="nav-link active" aria-current="page">Контакты</a></li>
-      </ul>
-    </nav>
-
-    <!-- SEMANTIC COMMENT: Used 'p' instead of 'div' to group action elements semantically without breaking structure -->
-    <p class="header-actions">
-      <button type="button" class="theme-toggle-btn" id="theme-switcher-btn" data-theme="dark" aria-label="Switch color theme">
-        Theme
-      </button>
-      <a href="tel:+77783457405" class="header-phone">+7 (778) 345-74-05</a>
-      <a href="#trial-modal" class="btn btn-primary">Пробная тренировка</a>
-    </p>
-  </header>
-
-  <main id="main-content">
-
-    <nav class="page-toc" aria-label="Содержание страницы">
-      <ul>
-        <li><a href="#working-hours">График работы</a></li>
-        <li><a href="#contact-form">Форма обратной связи</a></li>
-      </ul>
-    </nav>
-
-    <article>
-        <h1>Контакты Experience Fitness</h1>
-
-        <p>
-            Если у вас есть вопросы о тренировках, филиалах, услугах или
-            абонементах <b>Experience Fitness</b>, вы можете связаться с нами удобным
-            способом. Наша фитнес-сеть работает в <strong>Астане</strong> и предлагает
-            современные тренажерные залы, групповые занятия, персональные
-            тренировки и зоны для восстановления. Мы стараемся сделать
-            посещение фитнес-центра удобным как для начинающих, так и для
-            <em>опытных спортсменов</em>.
-        </p>
-
-        <p>
-            Вы можете позвонить в наш единый <i>call-центр</i> или воспользоваться
-            контактной формой ниже. В сообщении укажите свое имя, электронную
-            почту и тему обращения. Это поможет нам быстрее понять ваш вопрос
-            и предоставить необходимую информацию.
-            <!-- SEMANTIC COMMENT: span используется только для локального инлайн-акцента внутри абзаца, отдельного смыслового блока здесь нет -->
-            <span>Мы будем рады помочь вам выбрать подходящий формат тренировок.</span>
-        </p>
-
-        <blockquote cite="https://experiencefitness.kz">
-            <p><q>Мы всегда на связи, чтобы тренировки были удобными</q> &mdash; команда поддержки <cite>Experience Fitness</cite>.</p>
-        </blockquote>
-
-        <figure>
-            <img src="../assets/images/reception.jpg" alt="Стойка ресепшн одного из филиалов Experience Fitness" width="600" height="400">
-            <figcaption>Ресепшн встретит вас в любом из 11 филиалов Астаны</figcaption>
-        </figure>
-    </article>
-
-    <hr>
-
-    <section>
-        <h2>Контактная информация</h2>
-
-        <address>
-            &laquo;Experience Fitness&raquo;<br>
-            Астана, Казахстан<br>
-            Телефон:
-            <a href="tel:+77000000000">+7 (700) 000-00-00</a><br>
-            Email:
-            <a href="mailto:info@experiencefitness.kz">info@experiencefitness.kz</a>
-        </address>
-
-        <h3>Способы связи</h3>
-        <ul>
-            <li>
-                Телефон<sup>1</sup>
-                <ul>
-                    <li>Call-центр: +7 (700) 000-00-00</li>
-                    <li>WhatsApp: +7 (700) 000-00-00</li>
-                </ul>
-            </li>
-            <li>Email: info@experiencefitness.kz</li>
-            <li>Контактная форма на этой странице</li>
-        </ul>
-
-        <p><small><sup>1</sup> Звонки по Казахстану &ndash; бесплатные.</small></p>
-
-        <figure>
-            <img src="../assets/images/map-preview.png" alt="Превью карты с расположением филиалов Experience Fitness в Астане" width="600" height="400">
-            <figcaption>Филиалы расположены в разных районах города</figcaption>
-        </figure>
-    </section>
-
-    <section id="working-hours">
-        <h2>График работы</h2>
-
-        <table>
-            <caption>Режим работы Experience Fitness</caption>
-
-            <thead>
-                <tr>
-                    <th scope="col">День</th>
-                    <th scope="col">Время работы</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td>Понедельник — Суббота</td>
-                    <td>07:00 – 23:00</td>
-                </tr>
-
-                <tr>
-                    <td>Воскресенье</td>
-                    <td>10:00 – 20:00</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <p><small>Расписание актуально на 2026 год и может отличаться в отдельных филиалах.</small></p>
-
-        <h3>Как быстрее всего к нам добраться</h3>
-        <ol start="1">
-            <li>Определите ближайший филиал на карте</li>
-            <li>Позвоните на ресепшн, чтобы уточнить загруженность зала</li>
-            <li>Возьмите с собой спортивную форму и воду</li>
-        </ol>
-    </section>
-
-    <section>
-        <h2>Термины и сокращения</h2>
-
-        <dl>
-            <dt><abbr title="Часто задаваемые вопросы">FAQ</abbr></dt>
-            <dd>Раздел с ответами на самые частые вопросы клиентов.</dd>
-
-            <dt>Call-центр</dt>
-            <dd>Единая служба поддержки, принимающая звонки от всех филиалов сети.</dd>
-        </dl>
-    </section>
-
-    <aside>
-        <h2>Полезно знать</h2>
-        <p>
-            Лучшее время для звонка в call-центр &mdash; с <time datetime="10:00">10:00</time>
-            до <time datetime="19:00">19:00</time>: <mark>в этот промежуток операторы отвечают быстрее всего</mark>.
-        </p>
-        <p>Актуальный список филиалов смотрите на странице &laquo;Филиалы&raquo;.</p>
-    </aside>
-
-    <section>
-        <h2 id="contact-form">Напишите нам</h2>
-
-        <form action="#" method="post">
-            <!-- FORM COMMENT: This form uses standard HTML5 input validation. Server-side handling and backend submission will be implemented in later course assignments. -->
-
-            <fieldset>
-                <legend>Контактные данные</legend>
-
-                <!-- div: группирует подпись и поле ввода имени -->
-                <div>
-                    <label for="name">Ваше имя:</label><br>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <br>
-
-                <!-- div: группирует подпись и поле ввода email -->
-                <div>
-                    <label for="email">Ваш email:</label><br>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <br>
-
-                <!-- div: группирует подпись и поле ввода телефона -->
-                <div>
-                    <label for="phone">Телефон:</label><br>
-                    <input type="tel" id="phone" name="phone" placeholder="+7 (700) 000-00-00">
-                </div>
-
-                <br>
-
-                <!-- div: группирует подпись и числовое поле возраста (новое поле number) -->
-                <div>
-                    <label for="client-age">Возраст:</label><br>
-                    <input type="number" id="client-age" name="client-age" min="12" max="99">
-                </div>
-
-                <br>
-
-                <!-- div: группирует подпись и поле выбора удобной даты звонка -->
-                <div>
-                    <label for="callback-date">Удобная дата звонка:</label><br>
-                    <input type="date" id="callback-date" name="callback-date">
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <legend>Тема обращения</legend>
-
-                <!-- div: группирует подпись и выпадающий список темы обращения -->
-                <div>
-                    <label for="topic">Тема обращения:</label><br>
-
-                    <select id="topic" name="topic">
-                        <option value="training">Тренировки</option>
-                        <option value="membership">Абонементы</option>
-                        <option value="locations">Филиалы</option>
-                        <option value="services">Услуги</option>
-                        <option value="other">Другое</option>
-                    </select>
-                </div>
-
-                <br>
-
-                <!-- div: группирует radio-варианты предпочитаемого способа ответа -->
-                <div>
-                    <!-- span: подпись-заголовок для группы radio-кнопок, отдельного смыслового блока не образует -->
-                    <span>Предпочитаемый способ ответа:</span><br>
-                    <input type="radio" id="reply-phone" name="reply-method" value="phone" checked>
-                    <label for="reply-phone">По телефону</label>
-
-                    <input type="radio" id="reply-email" name="reply-method" value="email">
-                    <label for="reply-email">По email</label>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <legend>Сообщение</legend>
-
-                <!-- div: группирует подпись и текстовое поле сообщения -->
-                <div>
-                    <label for="message">Ваше сообщение:</label><br>
-
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="6"
-                        cols="40"
-                        placeholder="Введите ваш вопрос..."
-                        required></textarea>
-                </div>
-
-                <br>
-
-                <!-- div: группирует обязательный чекбокс согласия на обработку данных -->
-                <div>
-                    <input type="checkbox" id="agree-contact" name="agree-contact" required>
-                    <label for="agree-contact">Согласен(на) с условиями обработки данных</label>
-                </div>
-            </fieldset>
-
-            <!-- div: группирует кнопки отправки и сброса формы -->
-            <div>
-                <button type="submit">Отправить сообщение</button>
-                <button type="reset">Очистить форму</button>
-            </div>
-        </form>
-    </section>
-
-  </main>
-
-  <footer class="main-footer" id="site-footer">
-    
-    <section class="footer-brand">
-      <h2>О бренде</h2>
-      <a href="../index.html" class="logo">
-        <img src="../assets/images/logo-white.svg" alt="Experience Fitness Logo" width="160" height="35">
+    <!-- 1. Шапка сайта: логотип, меню, контакты -->
+    <!-- Bootstrap Navbar: меню сворачивается до 1200 px. Ссылки адаптированы под страницы клуба. https://getbootstrap.com/docs/5.3/components/navbar/ -->
+    <header
+      class="main-header navbar navbar-expand-xl bg-body-tertiary border-bottom py-3 container-fluid px-3 px-lg-4"
+    >
+      <a
+        href="../index.html"
+        class="logo navbar-brand me-3 d-inline-flex align-items-center gap-2"
+        aria-label="Experience Fitness — На главную"
+      >
+        <img
+          src="../assets/images/logo-white.svg"
+          alt="Experience Fitness Logo"
+          width="48"
+          height="48"
+          class="brand-logo"
+        />
+        Experience Fitness
       </a>
-      <p class="footer-tagline">Крупнейшая сеть фитнес-центров в Астане.</p>
-    </section>
-
-    <nav class="footer-nav" aria-label="Навигация в подвале">
-      <h2 class="footer-title">Навигация</h2>
-      <ul>
-        <li><a href="locations.html">11 филиалов в Астане</a></li>
-        <li><a href="services.html">Финские сауны и залы</a></li>
-        <li><a href="pricing.html">Безлимитные абонементы</a></li>
-        <li><a href="promotions.html">Партнерские скидки</a></li>
-      </ul>
-    </nav>
-
-    <section class="footer-contacts">
-      <h2 class="footer-title">Контакты</h2>
-      <p>Единый call-центр: <a href="tel:+77000000000">+7 (778) 345-74-05</a></p>
-      <p>График работы: Пн-Вс 07:00 – 23:00</p>
-      <p class="social-links">
-        <a href="https://wa.me/+77783457405" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
-        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+      <button
+        type="button"
+        class="navbar-toggler"
+        id="mobile-menu-btn"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Открыть или закрыть меню"
+        data-bs-toggle="collapse"
+        data-bs-target="#primary-nav"
+      >
+        <!-- SPAN: декоративная иконка Bootstrap, без самостоятельного смыслового содержания. -->
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav class="collapse navbar-collapse" id="primary-nav" aria-label="Основная навигация">
+        <ul class="navbar-nav flex-wrap me-auto mb-3 mb-xl-0">
+          <li class="nav-item"><a href="../index.html" class="nav-link">Главная</a></li>
+          <li class="nav-item"><a href="locations.html" class="nav-link">Филиалы</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Услуги и Зоны</a></li>
+          <li class="nav-item"><a href="training.html" class="nav-link">Тренировки</a></li>
+          <li class="nav-item"><a href="pricing.html" class="nav-link">Абонементы</a></li>
+          <li class="nav-item"><a href="promotions.html" class="nav-link">Акции</a></li>
+          <li class="nav-item">
+            <a href="contacts.html" class="nav-link active" aria-current="page">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+      <p class="header-actions d-none d-xxl-flex align-items-center gap-3 mb-0">
+        <a
+          href="tel:+77783457405"
+          class="header-phone d-none d-md-inline text-body text-decoration-none small"
+          >+7 (778) 345-74-05</a>
+        <a href="contacts.html#contact-form" class="btn btn-primary btn-sm">Пробная тренировка</a>
       </p>
-    </section>
+    </header>
 
-    <section class="footer-bottom">
-      <h2>Правовая информация</h2>
-      <p>&copy; 2026 Experience Fitness. Все права защищены.</p>
-    </section>
-  </footer>
+    <!-- 2. Основное содержимое -->
+    <!-- container ограничивает ширину текста; container-fluid у шапки и подвала занимает всю ширину. -->
+    <main id="main-content" class="container flex-grow-1 py-4 py-md-5 text-break">
+      <nav class="page-toc mb-4" aria-label="Содержание страницы">
+        <ul class="list-unstyled d-flex flex-wrap gap-3">
+          <li><a href="#working-hours">График работы</a></li>
+          <li><a href="#contact-form">Форма обратной связи</a></li>
+        </ul>
+      </nav>
 
-</body>
+      <!-- 2.1. Контакты Experience Fitness -->
+      <article class="mb-5">
+        <h1 class="display-5 fw-bold mb-4 text-center text-md-start">Контакты Experience Fitness</h1>
+        <p class="lead">
+          Если у вас есть вопросы о тренировках, филиалах, услугах или абонементах <b>Experience Fitness</b>,
+          вы можете связаться с нами удобным способом. Наша фитнес-сеть работает в <strong>Астане</strong> и
+          предлагает современные тренажерные залы, групповые занятия, персональные тренировки и зоны для
+          восстановления. Мы стараемся сделать посещение фитнес-центра удобным как для начинающих, так и для
+          <em>опытных спортсменов</em>.
+        </p>
+        <p>
+          Вы можете позвонить в наш единый <i>call-центр</i> или воспользоваться контактной формой ниже. В
+          сообщении укажите свое имя, электронную почту и тему обращения. Это поможет нам быстрее понять ваш
+          вопрос и предоставить необходимую информацию.
+          <!-- SPAN: выделяет часть текста внутри существующего элемента, без отдельного смыслового блока. -->
+          <span>Мы будем рады помочь вам выбрать подходящий формат тренировок.</span>
+        </p>
+        <blockquote
+          cite="https://experiencefitness.kz"
+          class="blockquote border-start border-4 border-primary bg-body-tertiary p-4 rounded-end mb-4"
+        >
+          <p>
+            <q>Мы всегда на связи, чтобы тренировки были удобными</q> — команда поддержки
+            <cite>Experience Fitness</cite>.
+          </p>
+        </blockquote>
+        <figure class="mb-4">
+          <img
+            src="../assets/images/reception.jpg"
+            alt="Стойка ресепшн одного из филиалов Experience Fitness"
+            width="600"
+            height="400"
+            class="w-100 rounded-3 object-fit-cover img-fluid content-photo"
+          />
+          <figcaption class="small text-body-secondary pt-2">
+            Ресепшн встретит вас в любом из 11 филиалов Астаны
+          </figcaption>
+        </figure>
+      </article>
+      <hr />
+
+      <!-- 2.2. Контактная информация -->
+      <section class="mb-5">
+        <h2 class="h3 fw-bold mb-3">Контактная информация</h2>
+        <address>
+          «Experience Fitness»<br />
+          Астана, Казахстан<br />
+          Телефон: <a href="tel:+77000000000">+7 (700) 000-00-00</a> <br />
+          Email: <a href="mailto:info@experiencefitness.kz" class="text-break">info@experiencefitness.kz</a>
+        </address>
+        <h3 class="h4 fw-semibold mb-3">Способы связи</h3>
+        <ul>
+          <li>
+            Телефон<sup>1</sup>
+            <ul>
+              <li>Call-центр: +7 (700) 000-00-00</li>
+              <li>WhatsApp: +7 (700) 000-00-00</li>
+            </ul>
+          </li>
+          <li>Email: info@experiencefitness.kz</li>
+          <li>Контактная форма на этой странице</li>
+        </ul>
+        <p>
+          <small class="small text-body-secondary"> <sup>1</sup> Звонки по Казахстану – бесплатные.</small>
+        </p>
+        <figure class="mb-4">
+          <img
+            src="../assets/images/map-preview.png"
+            alt="Превью карты с расположением филиалов Experience Fitness в Астане"
+            width="600"
+            height="400"
+            class="w-100 rounded-3 object-fit-contain img-fluid content-photo"
+          />
+          <figcaption class="small text-body-secondary pt-2">
+            Филиалы расположены в разных районах города
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- 2.3. График работы -->
+      <section id="working-hours" class="mb-5">
+        <h2 class="h3 fw-bold mb-3">График работы</h2>
+        <!-- DIV: прокручивает только таблицу; заголовок и описание остаются в существующем section. -->
+        <div
+          class="table-responsive border rounded-3 mb-4"
+          role="region"
+          tabindex="0"
+          aria-labelledby="table-caption-0"
+        >
+          <!-- Bootstrap Table: оформление адаптировано к нашей таблице, её caption и заголовки сохранены. https://getbootstrap.com/docs/5.3/content/tables/ -->
+          <table class="table table-striped table-hover align-middle mb-0 text-nowrap">
+            <caption id="table-caption-0" class="px-3 small">
+              Режим работы Experience Fitness
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">День</th>
+                <th scope="col">Время работы</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Понедельник — Суббота</td>
+                <td>07:00 – 23:00</td>
+              </tr>
+              <tr>
+                <td>Воскресенье</td>
+                <td>10:00 – 20:00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          <small class="small text-body-secondary"
+            >Расписание актуально на 2026 год и может отличаться в отдельных филиалах.</small>
+        </p>
+        <h3 class="h4 fw-semibold mb-3">Как быстрее всего к нам добраться</h3>
+        <ol start="1">
+          <li>Определите ближайший филиал на карте</li>
+          <li>Позвоните на ресепшн, чтобы уточнить загруженность зала</li>
+          <li>Возьмите с собой спортивную форму и воду</li>
+        </ol>
+      </section>
+
+      <!-- 2.4. Термины и сокращения -->
+      <section class="mb-5">
+        <h2 class="h3 fw-bold mb-3">Термины и сокращения</h2>
+        <dl class="row g-3 mb-4">
+          <dt class="col-12 col-md-4 text-primary"><abbr title="Часто задаваемые вопросы">FAQ</abbr></dt>
+          <dd class="col-12 col-md-8 text-body-secondary">
+            Раздел с ответами на самые частые вопросы клиентов.
+          </dd>
+          <dt class="col-12 col-md-4 text-primary">Call-центр</dt>
+          <dd class="col-12 col-md-8 text-body-secondary">
+            Единая служба поддержки, принимающая звонки от всех филиалов сети.
+          </dd>
+        </dl>
+      </section>
+
+      <!-- 2.5. Полезно знать -->
+      <aside class="bg-body-tertiary border rounded-3 p-4 mb-5">
+        <h2 class="h3 fw-bold mb-3">Полезно знать</h2>
+        <p>
+          Лучшее время для звонка в call-центр — с <time datetime="10:00">10:00</time> до
+          <time datetime="19:00">19:00</time>:
+          <mark>в этот промежуток операторы отвечают быстрее всего</mark>.
+        </p>
+        <p>Актуальный список филиалов смотрите на странице «Филиалы».</p>
+      </aside>
+
+      <!-- 2.6. Напишите нам -->
+      <section class="mb-5">
+        <h2 id="contact-form" class="h3 fw-bold mb-3">Напишите нам</h2>
+        <!-- fieldset объединяет связанные поля; row и col-* стоят на существующих элементах формы. -->
+        <form action="#" method="post" class="bg-body-tertiary border rounded-3 p-3 p-md-4 shadow-sm">
+          <!-- Серверного обработчика нет: submit отключён, поля и reset работают. -->
+          <p id="form-note-0" class="small text-body-secondary">
+            Учебная форма: отправка пока недоступна. Для записи свяжитесь с клубом по телефону.
+          </p>
+          <fieldset class="row g-3 mx-0 border rounded-3 p-3 mb-4">
+            <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">Контактные данные</legend>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12 col-md-6">
+              <label for="name" class="form-label">Ваше имя:</label> <br />
+              <input type="text" id="name" name="name" required class="form-control" />
+            </div>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12 col-md-6">
+              <label for="email" class="form-label">Ваш email:</label> <br />
+              <input type="email" id="email" name="email" required class="form-control" />
+            </div>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12 col-md-6">
+              <label for="phone" class="form-label">Телефон:</label> <br />
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+7 (700) 000-00-00"
+                class="form-control"
+              />
+            </div>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12 col-md-6">
+              <label for="client-age" class="form-label">Возраст:</label> <br />
+              <input type="number" id="client-age" name="client-age" min="12" max="99" class="form-control" />
+            </div>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12 col-md-6">
+              <label for="callback-date" class="form-label">Удобная дата звонка:</label> <br />
+              <input type="date" id="callback-date" name="callback-date" class="form-control" />
+            </div>
+          </fieldset>
+          <fieldset class="row g-3 mx-0 border rounded-3 p-3 mb-4">
+            <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">Тема обращения</legend>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12 col-md-6">
+              <label for="topic" class="form-label">Тема обращения:</label> <br />
+              <select id="topic" name="topic" class="form-select">
+                <option value="training">Тренировки</option>
+                <option value="membership">Абонементы</option>
+                <option value="locations">Филиалы</option>
+                <option value="services">Услуги</option>
+                <option value="other">Другое</option>
+              </select>
+            </div>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12">
+              <!-- SPAN: подпись вариантов ответа внутри группы полей, не отдельный раздел. -->
+              <span>Предпочитаемый способ ответа:</span> <br />
+              <input
+                type="radio"
+                id="reply-phone"
+                name="reply-method"
+                value="phone"
+                checked
+                class="form-check-input me-2"
+              />
+              <label for="reply-phone" class="form-label">По телефону</label>
+              <input
+                type="radio"
+                id="reply-email"
+                name="reply-method"
+                value="email"
+                class="form-check-input me-2"
+              />
+              <label for="reply-email" class="form-label">По email</label>
+            </div>
+          </fieldset>
+          <fieldset class="row g-3 mx-0 border rounded-3 p-3 mb-4">
+            <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">Сообщение</legend>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12">
+              <label for="message" class="form-label">Ваше сообщение:</label> <br />
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                cols="40"
+                placeholder="Введите ваш вопрос..."
+                required
+                class="form-control"
+              ></textarea>
+            </div>
+            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+            <div class="col-12">
+              <input
+                type="checkbox"
+                id="agree-contact"
+                name="agree-contact"
+                required
+                class="form-check-input me-2"
+              />
+              <label for="agree-contact" class="form-label">Согласен(на) с условиями обработки данных</label>
+            </div>
+          </fieldset>
+          <!-- DIV: группа кнопок формы, не навигация и не самостоятельный раздел. -->
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <button type="submit" class="btn btn-primary btn-lg" disabled aria-describedby="form-note-0">
+              Отправить сообщение
+            </button>
+            <button type="reset" class="btn btn-outline-light">Очистить форму</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- 3. Подвал сайта -->
+    <!-- footer сам служит container-fluid и row; его section и nav являются колонками. -->
+    <footer
+      class="main-footer border-top bg-body-tertiary mt-auto py-5 text-break container-fluid row g-4 mx-0 px-3 px-lg-5"
+      id="site-footer"
+    >
+      <section class="footer-brand col-12 col-md-6 col-lg-4">
+        <h2 class="h6 fw-bold mb-3">О бренде</h2>
+        <a href="../index.html" class="logo">
+          <img
+            src="../assets/images/logo-white.svg"
+            alt="Experience Fitness Logo"
+            width="48"
+            height="48"
+            class="brand-logo"
+          />
+        </a>
+        <p class="footer-tagline text-body-secondary small mt-3">Крупнейшая сеть фитнес-центров в Астане.</p>
+      </section>
+      <nav class="footer-nav col-12 col-md-6 col-lg-4" aria-label="Навигация в подвале">
+        <h2 class="footer-title h6 fw-bold mb-3">Навигация</h2>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="locations.html">11 филиалов в Астане</a></li>
+          <li class="mb-2"><a href="services.html">Финские сауны и залы</a></li>
+          <li class="mb-2"><a href="pricing.html">Безлимитные абонементы</a></li>
+          <li class="mb-2"><a href="promotions.html">Партнерские скидки</a></li>
+        </ul>
+      </nav>
+      <section class="footer-contacts col-12 col-md-6 col-lg-4">
+        <h2 class="footer-title h6 fw-bold mb-3">Контакты</h2>
+        <p>Единый call-центр: <a href="tel:+77000000000">+7 (778) 345-74-05</a></p>
+        <p>График работы: Пн-Вс 07:00 – 23:00</p>
+        <p class="social-links d-flex flex-wrap gap-3">
+          <a href="https://wa.me/77783457405" target="_blank" rel="noopener" aria-label="WhatsApp"
+            >WhatsApp</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        </p>
+      </section>
+      <section class="footer-bottom col-12 border-top pt-4 text-center small text-body-secondary">
+        <h2 class="h6 fw-bold mb-3">Правовая информация</h2>
+        <p>© 2026 Experience Fitness. Все права защищены.</p>
+      </section>
+    </footer>
+
+    <!-- 4. Bootstrap JS: работа меню и компонентов -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

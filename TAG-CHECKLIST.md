@@ -1,179 +1,100 @@
-# Underground Gym — HTML tag checklist
+# Semantic HTML and Bootstrap checklist
 
-This checklist uses the current line numbers in the HTML files.
+Проверено по Assignment 1, Assignment 2 и текущему Assignment 3. Номера строк относятся к текущим HTML-файлам.
 
-## Page ownership
+Bootstrap-сетка назначена существующим семантическим элементам. В header/footer, вокруг article и форм нет добавленных layout-div.
 
-| Student | Owned pages |
-| :--- | :--- |
-| A. Maksat | `index.html`, `pages/locations.html`, `pages/services.html` |
-| N. Anuar | `pages/pricing.html`, `pages/promotions.html`, `pages/colophon.html` |
-| Z. Rysbek | `pages/contacts.html`, `pages/training.html` |
+## Страницы
 
-## Required on every page
+| Файл | Автор | header | main | footer | div | span |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| `index.html` | A. Maksat | 27 | 79 | 237 | 1 | 2 |
+| `pages/contacts.html` | Z. Rysbek | 27 | 79 | 359 | 11 | 3 |
+| `pages/locations.html` | A. Maksat | 27 | 79 | 228 | 1 | 1 |
+| `pages/pricing.html` | N. Anuar | 27 | 79 | 429 | 1 | 28 |
+| `pages/promotions.html` | N. Anuar | 27 | 79 | 238 | 1 | 2 |
+| `pages/services.html` | A. Maksat | 27 | 79 | 341 | 0 | 1 |
+| `pages/training.html` | Z. Rysbek | 27 | 79 | 415 | 14 | 2 |
 
-### Author metadata and author comment
+## Обязательные теги: фактические примеры
 
-| File | Meta author line | Author comment line | Student |
-| :--- | ---: | ---: | :--- |
-| `index.html` | 6 | 9 | A. Maksat |
-| `pages/locations.html` | 6 | 9 | A. Maksat |
-| `pages/services.html` | 6 | 8 | A. Maksat |
-| `pages/pricing.html` | 6 | 9 | N. Anuar |
-| `pages/promotions.html` | 6 | 9 | N. Anuar |
-| `pages/colophon.html` | 6 | 9 | N. Anuar |
-| `pages/contacts.html` | 6 | 9 | Z. Rysbek |
-| `pages/training.html` | 6 | 9 | Z. Rysbek |
+| Тег | Файл | Строка | Автор |
+| --- | --- | ---: | --- |
+| `html` | `index.html` | 2 | A. Maksat |
+| `head` | `index.html` | 5 | A. Maksat |
+| `meta` | `index.html` | 6 | A. Maksat |
+| `title` | `index.html` | 14 | A. Maksat |
+| `header` | `index.html` | 27 | A. Maksat |
+| `nav` | `index.html` | 55 | A. Maksat |
+| `main` | `index.html` | 79 | A. Maksat |
+| `footer` | `index.html` | 237 | A. Maksat |
+| `h1` | `index.html` | 83 | A. Maksat |
+| `h2` | `index.html` | 112 | A. Maksat |
+| `h3` | `index.html` | 121 | A. Maksat |
+| `section` | `index.html` | 82 | A. Maksat |
+| `article` | `index.html` | 120 | A. Maksat |
+| `aside` | `pages/contacts.html` | 227 | Z. Rysbek |
+| `figure` | `index.html` | 96 | A. Maksat |
+| `figcaption` | `index.html` | 104 | A. Maksat |
+| `table` | `pages/contacts.html` | 177 | Z. Rysbek |
+| `caption` | `pages/contacts.html` | 178 | Z. Rysbek |
+| `thead` | `pages/contacts.html` | 181 | Z. Rysbek |
+| `tbody` | `pages/contacts.html` | 187 | Z. Rysbek |
+| `th` | `pages/contacts.html` | 183 | Z. Rysbek |
+| `ul` | `index.html` | 56 | A. Maksat |
+| `ol` | `index.html` | 114 | A. Maksat |
+| `dl` | `index.html` | 182 | A. Maksat |
+| `dt` | `index.html` | 183 | A. Maksat |
+| `dd` | `index.html` | 184 | A. Maksat |
+| `a` | `index.html` | 32 | A. Maksat |
+| `img` | `index.html` | 39 | A. Maksat |
+| `strong` | `index.html` | 87 | A. Maksat |
+| `em` | `pages/contacts.html` | 95 | Z. Rysbek |
+| `b` | `pages/contacts.html` | 91 | Z. Rysbek |
+| `i` | `pages/contacts.html` | 98 | Z. Rysbek |
+| `mark` | `pages/contacts.html` | 232 | Z. Rysbek |
+| `small` | `pages/contacts.html` | 150 | Z. Rysbek |
+| `sup` | `pages/contacts.html` | 140 | Z. Rysbek |
+| `abbr` | `pages/contacts.html` | 215 | Z. Rysbek |
+| `blockquote` | `index.html` | 196 | A. Maksat |
+| `q` | `index.html` | 199 | A. Maksat |
+| `cite` | `index.html` | 202 | A. Maksat |
+| `hr` | `index.html` | 192 | A. Maksat |
+| `br` | `pages/contacts.html` | 132 | Z. Rysbek |
+| `div` | `index.html` | 119 | A. Maksat |
+| `span` | `index.html` | 53 | A. Maksat |
+| `form` | `pages/contacts.html` | 241 | Z. Rysbek |
+| `fieldset` | `pages/contacts.html` | 246 | Z. Rysbek |
+| `legend` | `pages/contacts.html` | 247 | Z. Rysbek |
+| `label` | `pages/contacts.html` | 250 | Z. Rysbek |
+| `input` | `pages/contacts.html` | 251 | Z. Rysbek |
+| `select` | `pages/contacts.html` | 285 | Z. Rysbek |
+| `option` | `pages/contacts.html` | 286 | Z. Rysbek |
+| `textarea` | `pages/contacts.html` | 329 | Z. Rysbek |
+| `button` | `index.html` | 51 | A. Maksat |
 
-| Requirement | File | Line | Student |
-| :--- | :--- | ---: | :--- |
-| `<!DOCTYPE html>` | `index.html` | 1 | A. Maksat |
-| `<html lang="ru">` | `index.html` | 2 | A. Maksat |
-| `<meta charset="UTF-8">` | `index.html` | 4 | A. Maksat |
-| viewport meta | `index.html` | 5 | A. Maksat |
-| description meta | `index.html` | 7 | A. Maksat |
-| author meta | `index.html` | 6 | A. Maksat |
-| unique `<title>` | `index.html` | 8 | A. Maksat |
-| `<header>` / `<nav>` / navigation list | `index.html` | 16, 26-35 | A. Maksat |
-| relative links to all pages | `index.html` | 27-33 | A. Maksat |
-| `<main>` / exactly one `<h1>` | `index.html` | 48, 51 | A. Maksat |
-| `<footer>` / `tel:` / `&copy;` | `index.html` | 175, 43, 207 | A. Maksat |
-| two explanatory comments | `index.html` | 9, 38 | A. Maksat |
-| `<!DOCTYPE html>` | `pages/locations.html` | 1 | A. Maksat |
-| `<html lang="ru">` | `pages/locations.html` | 2 | A. Maksat |
-| charset / viewport / description / author / title | `pages/locations.html` | 4-8 | A. Maksat |
-| `<header>` / `<nav>` / navigation list | `pages/locations.html` | 24, 34-43 | A. Maksat |
-| relative links to all pages | `pages/locations.html` | 35-41 | A. Maksat |
-| `<main>` / exactly one `<h1>` | `pages/locations.html` | 56, 59 | A. Maksat |
-| `<footer>` / `tel:` / `&copy;` | `pages/locations.html` | 175, 51, 206 | A. Maksat |
-| two explanatory comments | `pages/locations.html` | 9, 46 | A. Maksat |
-| `<!DOCTYPE html>` | `pages/services.html` | 1 | A. Maksat |
-| `<html lang="ru">` | `pages/services.html` | 2 | A. Maksat |
-| charset / viewport / description / author / title | `pages/services.html` | 4-7 | A. Maksat |
-| `<header>` / `<nav>` / navigation list | `pages/services.html` | 15, 25-34 | A. Maksat |
-| relative links to all pages | `pages/services.html` | 26-32 | A. Maksat |
-| `<main>` / exactly one `<h1>` | `pages/services.html` | 47, 50 | A. Maksat |
-| `<footer>` / `tel:` / `&copy;` | `pages/services.html` | 206, 42, 237 | A. Maksat |
-| two explanatory comments | `pages/services.html` | 8, 37 | A. Maksat |
-| `<!DOCTYPE html>` | `pages/pricing.html` | 1 | N. Anuar |
-| `<html lang="ru">` | `pages/pricing.html` | 2 | N. Anuar |
-| charset / viewport / description / author / title | `pages/pricing.html` | 4-8 | N. Anuar |
-| `<header>` / `<nav>` / navigation list | `pages/pricing.html` | 13, 23-33 | N. Anuar |
-| relative links to all 8 pages | `pages/pricing.html` | 25-32 | N. Anuar |
-| `<main>` / exactly one `<h1>` | `pages/pricing.html` | 46, 48 | N. Anuar |
-| `<footer>` / `tel:` / `&copy;` | `pages/pricing.html` | 260, 41, 292 | N. Anuar |
-| two explanatory comments | `pages/pricing.html` | 10, 20 | N. Anuar |
-| `<!DOCTYPE html>` | `pages/promotions.html` | 1 | N. Anuar |
-| `<html lang="ru">` | `pages/promotions.html` | 2 | N. Anuar |
-| charset / viewport / description / author / title | `pages/promotions.html` | 4-8 | N. Anuar |
-| `<header>` / `<nav>` / navigation list | `pages/promotions.html` | 13, 23-33 | N. Anuar |
-| relative links to all 8 pages | `pages/promotions.html` | 25-32 | N. Anuar |
-| `<main>` / exactly one `<h1>` | `pages/promotions.html` | 45, 47 | N. Anuar |
-| `<footer>` / `tel:` / `&copy;` | `pages/promotions.html` | 178, 41, 210 | N. Anuar |
-| two explanatory comments | `pages/promotions.html` | 9, 20 | N. Anuar |
-| `<!DOCTYPE html>` | `pages/colophon.html` | 1 | N. Anuar |
-| `<html lang="ru">` | `pages/colophon.html` | 2 | N. Anuar |
-| charset / viewport / description / author / title | `pages/colophon.html` | 4-8 | N. Anuar |
-| `<header>` / `<nav>` / navigation list | `pages/colophon.html` | 13, 23-33 | N. Anuar |
-| relative links to all 8 pages | `pages/colophon.html` | 25-32 | N. Anuar |
-| `<main>` / exactly one `<h1>` | `pages/colophon.html` | 46, 49 | N. Anuar |
-| `<footer>` / `tel:` / `&copy;` | `pages/colophon.html` | 166, 41, 197 | N. Anuar |
-| two explanatory comments | `pages/colophon.html` | 10, 20 | N. Anuar |
-| `<!DOCTYPE html>` | `pages/contacts.html` | 1 | Z. Rysbek |
-| `<html lang="ru">` | `pages/contacts.html` | 2 | Z. Rysbek |
-| charset / viewport / description / author / title | `pages/contacts.html` | 4-8 | Z. Rysbek |
-| `<header>` / `<nav>` / navigation list | `pages/contacts.html` | 13, 23-33 | Z. Rysbek |
-| relative links to all 8 pages | `pages/contacts.html` | 25-32 | Z. Rysbek |
-| `<main>` / exactly one `<h1>` | `pages/contacts.html` | 46, 56 | Z. Rysbek |
-| `<footer>` / `tel:` / `&copy;` | `pages/contacts.html` | 292, 41, 324 | Z. Rysbek |
-| two explanatory comments | `pages/contacts.html` | 10, 20 | Z. Rysbek |
-| `<!DOCTYPE html>` | `pages/training.html` | 1 | Z. Rysbek |
-| `<html lang="ru">` | `pages/training.html` | 2 | Z. Rysbek |
-| charset / viewport / description / author / title | `pages/training.html` | 4-8 | Z. Rysbek |
-| `<header>` / `<nav>` / navigation list | `pages/training.html` | 13, 23-33 | Z. Rysbek |
-| relative links to all 8 pages | `pages/training.html` | 25-32 | Z. Rysbek |
-| `<main>` / exactly one `<h1>` | `pages/training.html` | 46, 56 | Z. Rysbek |
-| `<footer>` / `tel:` / `&copy;` | `pages/training.html` | 292, 41, 324 | Z. Rysbek |
-| two explanatory comments | `pages/training.html` | 10, 20 | Z. Rysbek |
+Теги, отсутствующие в текущих семи страницах: `sub`, `code`, `pre`, `kbd`, `samp`.
+В исходном наборе отсутствует colophon.html; по Assignment 3 новые страницы не добавлялись. Этот checklist не подтверждает выполнение отсутствующих материалов прошлых недель.
 
-## Requirements across each student's own pages
+## Обоснованные div/span
 
-### A. Maksat
+| Файл | div: строки | span: строки |
+| --- | --- | --- |
+| `index.html` | 119 | 53, 146 |
+| `pages/contacts.html` | 175, 249, 254, 259, 270, 275, 283, 294, 319, 332, 344 | 53, 102, 296 |
+| `pages/locations.html` | 114 | 53 |
+| `pages/pricing.html` | 226 | 53, 107, 108, 112, 113, 117, 118, 122, 123, 134, 135, 139, 140, 144, 145, 149, 150, 161, 162, 166, 167, 171, 172, 176, 177, 262, 469, 471 |
+| `pages/promotions.html` | 216 | 53, 120 |
+| `pages/services.html` | нет | 53 |
+| `pages/training.html` | 182, 287, 292, 297, 308, 313, 323, 335, 346, 360, 369, 382, 387, 400 | 53, 101 |
 
-| Requirement | File | Line |
-| :--- | :--- | ---: |
-| `<section>` | `index.html` | 50 |
-| `<article>` | `index.html` | 82 |
-| `<aside>` | `pages/services.html` | 113 |
-| `<figure>` / `<figcaption>` | `pages/services.html` | 82-85 |
-| `<table>` / `<caption>` / `<thead>` / `<tbody>` | `pages/locations.html` | 89-100 |
-| `<th scope>` / `<td>` | `pages/locations.html` | 93, 102, 103 |
-| ordered list with attribute | `index.html` | 75 |
-| definition list `<dl>`, `<dt>`, `<dd>` | `index.html` | 121-127 |
-| external link with `target` and `rel` | `pages/locations.html` | 110 |
-| `mailto:` link | `pages/locations.html` | 154 |
-| two same-page ID links | `index.html`, `pages/locations.html` | 167, 142 |
-| three meaningful images with `alt` | `index.html`, `pages/locations.html`, `pages/services.html` | 65, 145, 54 |
-| `<strong>`, `<em>`, `<b>`, `<i>`, `<mark>`, `<small>` | `index.html`, `pages/locations.html` | 53, 163, 147, 147, 147, 148 |
-| `<sup>` and two `<abbr title>` | `pages/locations.html` | 105, 106, 129 |
-| `<br>` | `pages/locations.html` | 108 |
-| four different entities | `index.html` | 51, 118, 135, 167 |
-| nested list | `index.html` | 139-154 |
-| `<blockquote>`, `<q>`, `<cite>` | `index.html` | 131, 133, 135 |
-| `<hr>` | `index.html` | 129, 156 |
-| form with all required controls | `pages/services.html` | 126-199 |
-| `<div>` and `<span>` with justification | `index.html` | 81, 95 |
+У каждого div/span есть соседний комментарий с причиной выбора; для пары «срок и цена» используется одно общее пояснение перед парой.
 
-### N. Anuar
+## Bootstrap и проверка
 
-| Requirement | File | Line |
-| :--- | :--- | ---: |
-| `<section>`, `<article>`, `<aside>` | `pages/pricing.html` | 56, 59, 151 |
-| `<figure>` / `<figcaption>` | `pages/pricing.html` | 96-103 |
-| `<table>` / `<caption>` / `<thead>` / `<tbody>` | `pages/pricing.html` | 114-125 |
-| `<th scope>` / `<td>` | `pages/pricing.html` | 118, 127-145 |
-| ordered list with attribute | `pages/promotions.html` | 91 |
-| definition list `<dl>`, `<dt>`, `<dd>` | `pages/promotions.html` | 109-114 |
-| external link with `target` and `rel` | `pages/pricing.html` | 285 |
-| `mailto:` link | `pages/promotions.html` | 169 |
-| two same-page ID links | `pages/promotions.html` | 51-52 |
-| three meaningful images with `alt` | `pages/pricing.html`, `pages/promotions.html` | 97, 102, 86 |
-| `<strong>`, `<em>`, `<b>`, `<i>`, `<mark>`, `<small>` | `pages/pricing.html`, `pages/promotions.html` | 155, 121, 155, 155, 129, 162 |
-| `<sup>` and two `<abbr title>` | `pages/pricing.html`, `pages/promotions.html` | 160, 148 |
-| `<br>` | `pages/promotions.html` | 139 |
-| four different entities | `pages/pricing.html`, `pages/promotions.html` | 115, 160, 162, 173 |
-| nested list | `pages/promotions.html` | 58-70 |
-| `<blockquote>`, `<q>`, `<cite>` | `pages/promotions.html` | 154, 156, 159 |
-| `<hr>` | `pages/promotions.html` | 98 |
-| form with all required controls | `pages/pricing.html` | 179-254 |
-| `<div>` and `<span>` with justification | `pages/promotions.html`, `pages/pricing.html` | 163, 142 |
-| `<code>` | `pages/colophon.html` | 62-64 |
-| `<pre>`, `<kbd>`, `<samp>` | `pages/colophon.html` | MISSING |
-
-### Z. Rysbek
-
-| Requirement | File | Line |
-| :--- | :--- | ---: |
-| `<section>`, `<article>`, `<aside>` | `pages/contacts.html`, `pages/training.html` | 89, 55, 170, 200 |
-| `<figure>` / `<figcaption>` | `pages/contacts.html` | 81-83 |
-| `<table>` / `<caption>` / `<thead>` / `<tbody>` | `pages/contacts.html` | 125-135 |
-| `<th scope>` / `<td>` | `pages/contacts.html` | 130, 137 |
-| ordered list with attribute | `pages/contacts.html` | 151 |
-| definition list `<dl>`, `<dt>`, `<dd>` | `pages/contacts.html` | 161-166 |
-| external link with `target` and `rel` | `pages/contacts.html` | 317 |
-| `mailto:` link | `pages/contacts.html` | 98 |
-| two same-page ID links | `pages/contacts.html` | 50-51 |
-| three meaningful images with `alt` | `pages/contacts.html`, `pages/training.html` | 82, 117, 109 |
-| `<strong>`, `<em>`, `<b>`, `<i>`, `<mark>`, `<small>` | `pages/contacts.html`, `pages/training.html` | 61, 65, 69, 69, 174, 114 |
-| `<sup>` and two `<abbr title>` | `pages/contacts.html`, `pages/training.html` | 104, 162, 147 |
-| `<br>` | `pages/contacts.html` | 93 |
-| four different entities | `pages/contacts.html`, `pages/training.html` | 93, 114, 59, 181 |
-| nested list | `pages/contacts.html` | 104-111 |
-| `<blockquote>`, `<q>`, `<cite>` | `pages/contacts.html` | 77-78 |
-| `<hr>` | `pages/contacts.html` | 87 |
-| form with all required controls | `pages/contacts.html` | 182-285 |
-| `<div>` and `<span>` with justification | `pages/contacts.html`, `pages/training.html` | 189, 74 |
-
-## Current gaps to fix before submission
-
-1. `pages/colophon.html` still needs natural examples of `<pre>`, `<kbd>` and `<samp>`.
+- Вложенная сетка: `pricing.html`, `article.col-*` содержит строки цен `li.row` с `span.col-*`.
+- Три адаптивных блока: тарифы, услуги, галерея (дополнительно преимущества и footer).
+- Текущие HTML-файлы: Nu HTML Checker 26.9.27, 0 ошибок и предупреждений.
+- Исходные поля форм, их порядок и action/method сверены с Git-версией до миграции.
+- Локальные ссылки и якоря проверены; 375/768/1440 px — без горизонтального переполнения страницы.
+- Старые CSS-приёмы и их Bootstrap-замены описаны в CSS-REMOVALS.md.

@@ -1,212 +1,281 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="A. Maksat">
-  <meta name="description" content="Сеть фитнес-клубов Experience Fitness в Астане. 2 филиала, тренажерные залы, групповые программы, боевые искусства, финские сауны и SPA-зоны.">
-  <title>Сеть фитнес-клубов Experience Fitness в Астане</title>
-  <!-- Author metadata comment: Written by A. Maksat -->
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/maksat.css">
-  <link rel="icon" href="assets/images/logo-white.svg" type="image/x-icon">
-</head>
-<body>
+<html lang="ru" data-bs-theme="dark">
 
-  <header class="main-header">
-    <a href="index.html" class="logo" aria-label="Experience Fitness — На главную">
-      <img src="assets/images/logo-white.svg" alt="Experience Fitness Logo" width="180" height="40">
-    </a>
+  <!-- 0. Настройки страницы и стили -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="A. Maksat" />
+    <!-- Author: A. Maksat -->
+    <meta
+      name="description"
+      content="Сеть фитнес-клубов Experience Fitness в Астане. 2 филиала, тренажерные залы, групповые программы, боевые искусства, финские сауны и SPA-зоны."
+    />
+    <title>Сеть фитнес-клубов Experience Fitness в Астане</title>
+    <!-- Bootstrap 5.3.8 из CDN; свои стили подключены после него для корректной работы каскада. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/maksat.css" />
+    <link rel="icon" href="assets/images/logo-white.svg" type="image/svg+xml" />
+  </head>
+  <body class="d-flex flex-column min-vh-100">
 
-    <!-- Mobile Navigation Toggle Button (Prepared for JavaScript in Assignment 3) -->
-    <button type="button" class="menu-toggle" id="mobile-menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
-      Menu
-    </button>
-
-    <nav class="main-nav" id="primary-nav" aria-label="Основная навигация">
-      <ul class="nav-list">
-        <li><a href="index.html" class="nav-link active" aria-current="page">Главная</a></li>
-        <li><a href="pages/locations.html" class="nav-link">Филиалы</a></li>
-        <li><a href="pages/services.html" class="nav-link">Услуги и Зоны</a></li>
-        <li><a href="pages/training.html" class="nav-link">Тренировки</a></li>
-        <li><a href="pages/pricing.html" class="nav-link">Абонементы</a></li>
-        <li><a href="pages/promotions.html" class="nav-link">Акции</a></li>
-        <li><a href="pages/contacts.html" class="nav-link">Контакты</a></li>
-      </ul>
-    </nav>
-
-    <!-- SEMANTIC COMMENT: Used 'p' instead of 'div' to group action elements semantically without breaking structure -->
-    <p class="header-actions">
-      <button type="button" class="theme-toggle-btn" id="theme-switcher-btn" data-theme="dark" aria-label="Switch color theme">
-        Theme
-      </button>
-      <a href="tel:+77783450000" class="header-phone">+7 (778) 345-00-00</a>
-      <a href="#trial-modal" class="btn btn-primary">Пробная тренировка</a>
-    </p>
-  </header>
-
-  <main id="main-content">
-
-    <section class="hero-section" id="hero-banner">
-      <h1>Experience Fitness &mdash; Сеть фитнес-клубов в Астане</h1>
-      <p>
-        Добро пожаловать в <strong>Experience Fitness</strong>! Мы предлагаем современное оборудование, 
-        профессиональное сопровождение тренеров, групповые программы и зоны отдыха. 
-        Достигайте своих спортивных целей в атмосфере единомышленников.
-      </p>
-      
-      <p class="hero-cta-buttons">
-        <a href="pages/pricing.html" class="btn btn-accent">Выбрать абонемент</a>
-        <a href="pages/locations.html" class="btn btn-outline">Найти ближайший филиал</a>
-      </p>
-    </section>
-
-    <figure class="hero-gallery-photo">
-      <img src="assets/images/training-hall-with-logo.jpg" alt="Тренажёрный зал Experience Fitness с зоной гантелей и силовыми тренажёрами" width="600" height="400">
-      <figcaption>Зона гантелей и силовых тренажёров в фитнес-клубе Experience Fitness.</figcaption>
-    </figure>
-
-    <!-- Promotional Carousel Section (Hook for JS Slider in Assignment 3) -->
-    <section class="promo-carousel-section" id="promotions-slider" data-autoplay="true" data-speed="4000">
-      <h2>Акции и специальные предложения</h2>
-      
-      <!-- Required: Ordered List with Attribute (ol start) for promo steps -->
-      <p><strong>Порядок получения первичной скидки:</strong></p>
-      <ol start="1" class="promo-steps-list">
-        <li>Выберите интересующий филиал на странице навигации.</li>
-        <li>Забронируйте визит через форму обратной связи.</li>
-      </ol>
-
-      <!-- Strict div justification: this wrapper exists only as a neutral JavaScript slider track; section, article, nav, main, and footer would add incorrect document semantics because the wrapper has no independent content or navigation purpose. -->
-      <div class="carousel-track-wrapper" id="carousel-track">
-        <article class="promo-card slide-item active" data-slide-id="1">
-          <!-- CASCADE DEMONSTRATION 1 (Inline Style Attribute — Assignment 2 Requirement):
-               This inline style demonstrates the highest specificity (1,0,0,0) by deliberately 
-               overriding the default text-transform and letter-spacing for this key promotion heading. -->
-          <h3 style="letter-spacing: 0.05em; text-transform: uppercase;">Персональная тренировка в подарок</h3>
-          <p>При покупке любого годового абонемента вы получаете вводное занятие с топ-тренером бесплатно.</p>
-        </article>
-
-        <article class="promo-card slide-item" data-slide-id="2">
-          <h3>Скидка при оформлении абонемента до 17 сентября</h3>
-          <p>При оформлении абонемента до указанной даты вы получаете дополнительную скидку на абонемент.</p>
-        </article>
-      </div>
-
-      <nav class="slider-controls" aria-label="Управление акциями">
-        <button type="button" class="slider-btn prev-btn" id="slider-prev-btn" aria-label="Previous promo">&larr; Назад</button>
-        <span class="slider-counter" id="slider-page-indicator">1 / 2</span>
-        <button type="button" class="slider-btn next-btn" id="slider-next-btn" aria-label="Next promo">Вперед &rarr;</button>
-      </nav>
-    </section>
-
-    <section class="features-section" id="key-advantages">
-      <h2>Преимущества фитнес-сети Experience Fitness</h2>
-      <ul class="features-grid-list">
-        <li class="feature-card" data-feature="locations">
-          <strong>2 филиала в городе:</strong> Удобное расположение в Астане (ул. Шолпан Иманбаевой, 8 и ул. Санжара Асфендиярова, 6).
-        </li>
-        <li class="feature-card" data-feature="schedule">
-          <strong>Удобный график:</strong> Пн – Сб с 07:00 до 23:00 (Вс: выходной).
-        </li>
-        <li class="feature-card" data-feature="amenities">
-          <strong>Финская сауна и SPA-зона:</strong> Качественный восстановительный комплекс после тренировок.
-        </li>
-      </ul>
-    </section>
-
-    <section class="overview-section" id="club-overview">
-      <h2>Инфраструктура и спецификация зон</h2>
-      <p>
-        Каждый клуб сети оснащен зонированием по мировым стандартам &bull; Подробные термины сервисов:
-      </p>
-
-      <dl class="gym-zones-def">
-        <dt><strong>Тренажёрный зал</strong></dt>
-        <dd>Зона тяжелой атлетики, свободных весов, блочных и силовых тренажёров.</dd>
-
-        <dt><strong>Финская сауна / SPA-зона</strong></dt>
-        <dd>Финские сауны и зоны отдыха для качественного восстановления после нагрузок.</dd>
-      </dl>
-
-      <hr>
-
-      <blockquote cite="https://2gis.kz/astana/inside/70030076195249679/firm/70000001085622713/71.374618%2C51.143032/tab/reviews?m=71.375363%2C51.142471%2F15">
-        <p>
-          <q>Отличный фитнес-клуб! Чисто, современное оборудование, дружелюбный персонал и профессиональные тренеры. Особенна на вахте Диляраа</q>
-        </p>
-        <p>&mdash; <cite>Nurdaulet</cite>, отзыв в 2GIS от 2 сентября 2026 г.</p>
-      </blockquote>
-
-      <h3>Популярные направления тренировок:</h3>
-      <ul class="nested-programs-list">
-        <li>
-          <strong>Тренажёрный зал и силовой тренинг</strong>
-          <ul>
-            <li>Тяжелая атлетика</li>
-            <li>Бодибилдинг</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Групповые программы и единоборства</strong>
-          <ul>
-            <li>Стретчинг, пилатес, кроссфит, зумба, аэробика</li>
-            <li>Боевые искусства</li>
-          </ul>
-        </li>
-      </ul>
-
-      <hr>
-
-      <p>
-        <a href="pages/services.html" class="more-info-link">Узнать больше об услугах и зонах &rarr;</a>
-      </p>
-
-      <p class="back-to-top">
-        <a href="#hero-banner">Наверх страницы &uarr;</a>
-      </p>
-    </section>
-
-    <!-- POSITIONING 4: FIXED element demonstrating persistent viewport anchoring -->
-    <a href="#hero-banner" class="floating-quick-link" aria-label="Быстрый переход наверх">Наверх &uarr;</a>
-
-  </main>
-
-  <footer class="main-footer" id="site-footer">
-    
-    <section class="footer-brand">
-      <h2>О бренде</h2>
-      <a href="index.html" class="logo">
-        <img src="assets/images/logo-white.svg" alt="Experience Fitness Logo" width="160" height="35">
+    <!-- 1. Шапка сайта: логотип, меню, контакты -->
+    <!-- Bootstrap Navbar: меню сворачивается до 1200 px. Ссылки адаптированы под страницы клуба. https://getbootstrap.com/docs/5.3/components/navbar/ -->
+    <header
+      class="main-header navbar navbar-expand-xl bg-body-tertiary border-bottom py-3 container-fluid px-3 px-lg-4"
+    >
+      <a
+        href="index.html"
+        class="logo navbar-brand me-3 d-inline-flex align-items-center gap-2"
+        aria-label="Experience Fitness — На главную"
+      >
+        <img
+          src="assets/images/logo-white.svg"
+          alt="Experience Fitness Logo"
+          width="48"
+          height="48"
+          class="brand-logo"
+        />
+        Experience Fitness
       </a>
-      <p class="footer-tagline">Сеть фитнес-клубов Experience Fitness в Астане.</p>
-    </section>
-
-    <nav class="footer-nav" aria-label="Навигация в подвале">
-      <h2 class="footer-title">Навигация</h2>
-      <ul>
-        <li><a href="pages/locations.html">Филиалы в Астане</a></li>
-        <li><a href="pages/services.html">Услуги и SPA-зоны</a></li>
-        <li><a href="pages/pricing.html">Безлимитные абонементы</a></li>
-        <li><a href="pages/promotions.html">Партнерские скидки</a></li>
-      </ul>
-    </nav>
-
-    <section class="footer-contacts">
-      <h2 class="footer-title">Контакты</h2>
-      <p>Единый call-центр: <a href="tel:+77783450000">+7 (778) 345-00-00</a></p>
-      <p>График работы: Пн – Сб 07:00 – 23:00, Вс: выходной</p>
-      <p class="social-links">
-        <a href="https://wa.me/77783450000" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
-        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+      <button
+        type="button"
+        class="navbar-toggler"
+        id="mobile-menu-btn"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Открыть или закрыть меню"
+        data-bs-toggle="collapse"
+        data-bs-target="#primary-nav"
+      >
+        <!-- SPAN: декоративная иконка Bootstrap, без самостоятельного смыслового содержания. -->
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav class="collapse navbar-collapse" id="primary-nav" aria-label="Основная навигация">
+        <ul class="navbar-nav flex-wrap me-auto mb-3 mb-xl-0">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link active" aria-current="page">Главная</a>
+          </li>
+          <li class="nav-item"><a href="pages/locations.html" class="nav-link">Филиалы</a></li>
+          <li class="nav-item"><a href="pages/services.html" class="nav-link">Услуги и Зоны</a></li>
+          <li class="nav-item"><a href="pages/training.html" class="nav-link">Тренировки</a></li>
+          <li class="nav-item"><a href="pages/pricing.html" class="nav-link">Абонементы</a></li>
+          <li class="nav-item"><a href="pages/promotions.html" class="nav-link">Акции</a></li>
+          <li class="nav-item"><a href="pages/contacts.html" class="nav-link">Контакты</a></li>
+        </ul>
+      </nav>
+      <p class="header-actions d-none d-xxl-flex align-items-center gap-3 mb-0">
+        <a
+          href="tel:+77783450000"
+          class="header-phone d-none d-md-inline text-body text-decoration-none small"
+          >+7 (778) 345-00-00</a>
+        <a href="pages/contacts.html#contact-form" class="btn btn-primary btn-sm">Пробная тренировка</a>
       </p>
-    </section>
+    </header>
 
-    <section class="footer-bottom">
-      <h2>Правовая информация</h2>
-      <p>&copy; 2026 Experience Fitness. Все права защищены.</p>
-    </section>
-  </footer>
+    <!-- 2. Основное содержимое -->
+    <!-- container ограничивает ширину текста; container-fluid у шапки и подвала занимает всю ширину. -->
+    <main id="main-content" class="container flex-grow-1 py-4 py-md-5 text-break">
 
-</body>
+      <!-- 2.1. Experience Fitness — Сеть фитнес-клубов в Астане -->
+      <section class="hero-section mb-5" id="hero-banner">
+        <h1 class="display-5 fw-bold mb-4 text-center text-md-start">
+          Experience Fitness — Сеть фитнес-клубов в Астане
+        </h1>
+        <p class="lead">
+          Добро пожаловать в <strong>Experience Fitness</strong>! Мы предлагаем современное оборудование,
+          профессиональное сопровождение тренеров, групповые программы и зоны отдыха. Достигайте своих
+          спортивных целей в атмосфере единомышленников.
+        </p>
+        <p class="hero-cta-buttons d-flex flex-wrap gap-3 mt-4">
+          <a href="pages/pricing.html" class="btn btn-primary btn-lg">Выбрать абонемент</a>
+          <a href="pages/locations.html" class="btn btn-outline-light btn-lg">Найти ближайший филиал</a>
+        </p>
+      </section>
+      <figure class="hero-gallery-photo mb-4">
+        <img
+          src="assets/images/training-hall-with-logo.jpg"
+          alt="Тренажёрный зал Experience Fitness с зоной гантелей и силовыми тренажёрами"
+          width="600"
+          height="400"
+          class="w-100 rounded-3 object-fit-cover img-fluid content-photo"
+        />
+        <figcaption class="small text-body-secondary pt-2">
+          Зона гантелей и силовых тренажёров в фитнес-клубе Experience Fitness.
+        </figcaption>
+      </figure>
+
+      <!-- 2.2. Акции и специальные предложения -->
+      <!-- Bootstrap Carousel: существующие акции переключаются через data-bs-slide без своего JS. -->
+      <section class="promo-carousel-section mb-5 carousel slide" id="promotions-slider">
+        <h2 class="h3 fw-bold mb-3">Акции и специальные предложения</h2>
+        <p><strong>Порядок получения первичной скидки:</strong></p>
+        <ol start="1" class="promo-steps-list">
+          <li>Выберите интересующий филиал на странице навигации.</li>
+          <li>Забронируйте визит через форму обратной связи.</li>
+        </ol>
+        <!-- DIV: техническая область слайдов carousel-inner внутри раздела акций, не отдельный смысловой раздел. -->
+        <div class="carousel-inner border rounded-3 bg-body-tertiary mb-3" id="carousel-track">
+          <article class="carousel-item active p-4 p-md-5" data-slide-id="1">
+            <h3 class="h4 fw-semibold mb-3">Персональная тренировка в подарок</h3>
+            <p>
+              При покупке любого годового абонемента вы получаете вводное занятие с топ-тренером бесплатно.
+            </p>
+          </article>
+          <article class="carousel-item p-4 p-md-5" data-slide-id="2">
+            <h3 class="h4 fw-semibold mb-3">Скидка при оформлении абонемента до 17 сентября</h3>
+            <p>
+              При оформлении абонемента до указанной даты вы получаете дополнительную скидку на абонемент.
+            </p>
+          </article>
+        </div>
+        <nav class="slider-controls d-flex align-items-center gap-3" aria-label="Управление акциями">
+          <button
+            type="button"
+            class="btn btn-outline-light"
+            id="slider-prev-btn"
+            aria-label="Previous promo"
+            data-bs-target="#promotions-slider"
+            data-bs-slide="prev"
+          >
+            ← Назад
+          </button>
+          <!-- SPAN: выделяет часть текста внутри существующего элемента, без отдельного смыслового блока. -->
+          <span class="slider-counter small text-body-secondary" id="slider-page-indicator"
+            >2 предложения</span>
+          <button
+            type="button"
+            class="btn btn-outline-light"
+            id="slider-next-btn"
+            aria-label="Next promo"
+            data-bs-target="#promotions-slider"
+            data-bs-slide="next"
+          >
+            Вперед →
+          </button>
+        </nav>
+      </section>
+
+      <!-- 2.3. Преимущества фитнес-сети Experience Fitness -->
+      <section class="features-section mb-5" id="key-advantages">
+        <h2 class="h3 fw-bold mb-3">Преимущества фитнес-сети Experience Fitness</h2>
+        <ul class="features-grid-list row g-3 list-unstyled">
+          <li class="feature-card col-12 col-md-6 col-lg-4 py-3" data-feature="locations">
+            <strong>2 филиала в городе:</strong> Удобное расположение в Астане (ул. Шолпан Иманбаевой, 8 и ул.
+            Санжара Асфендиярова, 6).
+          </li>
+          <li class="feature-card col-12 col-md-6 col-lg-4 py-3" data-feature="schedule">
+            <strong>Удобный график:</strong> Пн – Сб с 07:00 до 23:00 (Вс: выходной).
+          </li>
+          <li class="feature-card col-12 col-md-6 col-lg-4 py-3" data-feature="amenities">
+            <strong>Финская сауна и SPA-зона:</strong> Качественный восстановительный комплекс после
+            тренировок.
+          </li>
+        </ul>
+      </section>
+
+      <!-- 2.4. Инфраструктура и спецификация зон -->
+      <section class="overview-section mb-5" id="club-overview">
+        <h2 class="h3 fw-bold mb-3">Инфраструктура и спецификация зон</h2>
+        <p>Каждый клуб сети оснащен зонированием по мировым стандартам • Подробные термины сервисов:</p>
+        <dl class="gym-zones-def row g-3 mb-4">
+          <dt class="col-12 col-md-4 text-primary"><strong>Тренажёрный зал</strong></dt>
+          <dd class="col-12 col-md-8 text-body-secondary">
+            Зона тяжелой атлетики, свободных весов, блочных и силовых тренажёров.
+          </dd>
+          <dt class="col-12 col-md-4 text-primary"><strong>Финская сауна / SPA-зона</strong></dt>
+          <dd class="col-12 col-md-8 text-body-secondary">
+            Финские сауны и зоны отдыха для качественного восстановления после нагрузок.
+          </dd>
+        </dl>
+        <hr />
+        <blockquote
+          cite="https://2gis.kz/astana/inside/70030076195249679/firm/70000001085622713/71.374618%2C51.143032/tab/reviews?m=71.375363%2C51.142471%2F15"
+          class="blockquote border-start border-4 border-primary bg-body-tertiary p-4 rounded-end mb-4"
+        >
+          <p>
+            <q
+              >Отличный фитнес-клуб! Чисто, современное оборудование, дружелюбный персонал и профессиональные
+              тренеры. Особенна на вахте Диляраа</q>
+          </p>
+          <p>— <cite>Nurdaulet</cite>, отзыв в 2GIS от 2 сентября 2026 г.</p>
+        </blockquote>
+        <h3 class="h4 fw-semibold mb-3">Популярные направления тренировок:</h3>
+        <ul class="nested-programs-list">
+          <li>
+            <strong>Тренажёрный зал и силовой тренинг</strong>
+            <ul>
+              <li>Тяжелая атлетика</li>
+              <li>Бодибилдинг</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Групповые программы и единоборства</strong>
+            <ul>
+              <li>Стретчинг, пилатес, кроссфит, зумба, аэробика</li>
+              <li>Боевые искусства</li>
+            </ul>
+          </li>
+        </ul>
+        <hr />
+        <p><a href="pages/services.html" class="more-info-link">Узнать больше об услугах и зонах →</a></p>
+        <p class="back-to-top text-center text-md-end mt-4"><a href="#hero-banner">Наверх страницы ↑</a></p>
+      </section>
+      <a
+        href="#hero-banner"
+        class="btn btn-outline-light btn-sm mb-4 align-self-center"
+        aria-label="Быстрый переход наверх"
+        >Наверх ↑</a>
+    </main>
+
+    <!-- 3. Подвал сайта -->
+    <!-- footer сам служит container-fluid и row; его section и nav являются колонками. -->
+    <footer
+      class="main-footer border-top bg-body-tertiary mt-auto py-5 text-break container-fluid row g-4 mx-0 px-3 px-lg-5"
+      id="site-footer"
+    >
+      <section class="footer-brand col-12 col-md-6 col-lg-4">
+        <h2 class="h6 fw-bold mb-3">О бренде</h2>
+        <a href="index.html" class="logo">
+          <img
+            src="assets/images/logo-white.svg"
+            alt="Experience Fitness Logo"
+            width="48"
+            height="48"
+            class="brand-logo"
+          />
+        </a>
+        <p class="footer-tagline text-body-secondary small mt-3">
+          Сеть фитнес-клубов Experience Fitness в Астане.
+        </p>
+      </section>
+      <nav class="footer-nav col-12 col-md-6 col-lg-4" aria-label="Навигация в подвале">
+        <h2 class="footer-title h6 fw-bold mb-3">Навигация</h2>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="pages/locations.html">Филиалы в Астане</a></li>
+          <li class="mb-2"><a href="pages/services.html">Услуги и SPA-зоны</a></li>
+          <li class="mb-2"><a href="pages/pricing.html">Безлимитные абонементы</a></li>
+          <li class="mb-2"><a href="pages/promotions.html">Партнерские скидки</a></li>
+        </ul>
+      </nav>
+      <section class="footer-contacts col-12 col-md-6 col-lg-4">
+        <h2 class="footer-title h6 fw-bold mb-3">Контакты</h2>
+        <p>Единый call-центр: <a href="tel:+77783450000">+7 (778) 345-00-00</a></p>
+        <p>График работы: Пн – Сб 07:00 – 23:00, Вс: выходной</p>
+        <p class="social-links d-flex flex-wrap gap-3">
+          <a href="https://wa.me/77783450000" target="_blank" rel="noopener" aria-label="WhatsApp"
+            >WhatsApp</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        </p>
+      </section>
+      <section class="footer-bottom col-12 border-top pt-4 text-center small text-body-secondary">
+        <h2 class="h6 fw-bold mb-3">Правовая информация</h2>
+        <p>© 2026 Experience Fitness. Все права защищены.</p>
+      </section>
+    </footer>
+
+    <!-- 4. Bootstrap JS: работа меню и компонентов -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

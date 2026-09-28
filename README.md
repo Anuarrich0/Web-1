@@ -1,72 +1,90 @@
-# Underground Gym — Fitness Club Network Website
+# Experience Fitness — Assignment 3
 
-An educational HTML5 website for **Underground Gym**, a fitness club network in Astana. This Assignment 1 version contains eight interconnected, unstyled local pages built with semantic HTML5. Styling, JavaScript and server-side form handling are intentionally reserved for later assignments.
+Существующий учебный сайт о фитнес-клубах, переведённый на Bootstrap 5.3.8.
+Семь страниц, исходные тексты, таблицы, формы и изображения сохранены.
 
----
+## Запуск
 
-## 📁 Project Structure
+Откройте `index.html` в браузере. Установка пакетов, сервер и хостинг не нужны.
+Для загрузки Bootstrap из CDN нужен интернет. Собственные CSS-файлы подключены после Bootstrap.
+Файлы в `css/` и `js/` — оригинальная локальная копия Bootstrap; страницы используют CDN, как требует задание.
+Своего JavaScript нет.
 
-* `index.html` — **Home Page** — written by **A. Maksat**
-  * Promotional banner, general statistics, gym-zone overview and partner discounts.
+## Страницы и авторство
 
-* `pages/locations.html` — **Branches and Map** — written by **A. Maksat**
-  * Branch comparison table with branch areas, amenities, phone numbers, and external map links.
-
-* `pages/services.html` — **Services and Zones** — written by **A. Maksat**
-  * Detailed descriptions of strength, functional, and group-training areas.
-
-* `pages/training.html` — **Training Programs** — written by **Z. Rysbek**
-  * Training-zone information and a newsletter subscription form with interest selection.
-
-* `pages/pricing.html` — **Memberships and Pricing** — written by **N. Anuar**
-  * Membership plans, pricing comparison table, gym photos and a membership request form.
-
-* `pages/promotions.html` — **Promotions and Partners** — written by **N. Anuar**
-  * Current offers, student discounts, club rules, partner information and an ordered promotion list.
-
-* `pages/colophon.html` — **About the Project and FAQ** — written by **N. Anuar**
-  * Project structure, development workflow, team information and frequently asked questions.
-
-* `pages/contacts.html` — **Contacts** — written by **Z. Rysbek**
-  * Branch contact details, opening hours, map preview and a feedback form.
-
----
-
-## 🛠 Tech Stack
-
-* **HTML5** — Semantic page layout, accessible forms, tables, lists and media.
-* **CSS3** — Not used in Assignment 1; styling is planned for a later assignment.
-* **JavaScript** — Not used in Assignment 1; interactive behavior is planned for a later assignment.
-* **Git and GitHub** — Version control and collaboration.
-
----
-
-## 🚀 How to Run
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Anuarrich0/Web-1.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd Web-1
-   ```
-3. Open `index.html` directly in a browser. Live Server in VS Code may also be used for convenience, but the assignment is designed to work as local files and does not require hosting.
-
-Pages are located in the `pages/` directory. Shared image assets are stored in `assets/images/`.
-
-## 👥 Team ownership
-
-| Student | Pages |
-| :--- | :--- |
+| Автор исходных страниц | Файлы |
+| --- | --- |
 | A. Maksat | `index.html`, `pages/locations.html`, `pages/services.html` |
-| N. Anuar | `pages/pricing.html`, `pages/promotions.html`, `pages/colophon.html` |
-| Z. Rysbek | `pages/contacts.html`, `pages/training.html` |
+| N. Anuar | `pages/pricing.html`, `pages/promotions.html` |
+| Z. Rysbek | `pages/training.html`, `pages/contacts.html` |
 
-`index.html` and `colophon.html` are included in the project's eight-page site. The two pages assigned to each student are the student's own content pages.
+AI-помощь при переходе на Bootstrap записана в `AI-LOG.md`.
 
-## ✅ Assignment documentation
+## Реализация требований
 
-`TAG-CHECKLIST.md` records the required HTML elements, responsible student and current source-file line numbers. Update the line numbers whenever the HTML structure changes.
+- `container`: основной текст с ограниченной шириной; `container-fluid`: широкие header и footer. Выбор объяснён в HTML.
+- Тарифы и преимущества: `col-12 col-md-6 col-lg-4` — одна колонка на телефоне, две от 768 px, три от 992 px.
+- Услуги, галерея и формы используют дополнительные адаптивные сетки. `row` и `col-*` стоят прямо на исходных `section`, `article`, `figure`, `fieldset` и группах полей.
+- Вложенная сетка: `li.row` со сроком и ценой находится внутри `article.col-12.col-md-6.col-lg-4`; `span` внутри строки являются колонками. Дополнительных div для этого нет.
+- Навигация: `navbar-expand-xl`, меню сворачивается ниже 1200 px. Toggler использует Bootstrap Collapse.
+- Responsive utilities: блок контактов шапки `d-none d-xxl-flex`; заголовки `text-center text-md-start`; ссылки наверх `text-center text-md-end`.
+- Типографика: `display-5`, `lead`, `h3`, `h4`, `fw-bold`, `small`, `text-body-secondary`.
+- Кнопки: `btn`, `btn-primary`, `btn-outline-light`, `btn-lg`, `btn-sm`; настоящее `disabled` на недоступной отправке формы.
+- Utilities: `py-4`, `py-md-5`, `mb-4`, `gap-3`, `g-4`, `text-primary`, `bg-body-tertiary`, `border`, `rounded-3`, `shadow-sm`, `d-flex`, `flex-wrap` и другие.
+- Компоненты: Bootstrap Table с исходными caption/thead/tbody, Navbar/Collapse на каждой странице, ручная Carousel на главной. Источники и адаптации указаны в комментариях.
+- Широкие таблицы прокручиваются внутри `table-responsive`, без переполнения страницы.
+- Собственный CSS: 43 строки суммарно, только цвета и небольшая коррекция контраста логотипа. Список замен: `CSS-REMOVALS.md`.
 
-The forms currently use `action="#"` and do not send data to a server. Server-side processing will be added in a later assignment.
+## Формы и элементы управления
+
+Формы учебные: серверного обработчика нет, поэтому отправка отключена и подписана.
+Поля доступны для заполнения, стандартные radio/select/checkbox и сброс работают.
+Запись доступна через существующие телефонные ссылки.
+«Пробная тренировка» ведёт к контактной форме. Категории услуг и выбор филиала ведут к соответствующим разделам.
+Неработающий переключатель темы удалён; сайт использует постоянную тёмную тему.
+
+## Проверка и сдача
+
+- Все семь страниц проверены локальным Nu HTML Checker 26.9.27: 0 ошибок, 0 предупреждений.
+- Проверены локальные ссылки, якоря и изображения.
+- Проверены ширины 375, 768 и 1440 px: страница не прокручивается горизонтально.
+- Четыре скриншота одной страницы находятся в `screenshots/`: `pricing-375.jpg`, `pricing-768.jpg`, `pricing-1440.jpg`, `menu-collapsed-375.jpg`.
+- `TAG-CHECKLIST.md` указывает актуальные места в коде; отдельный письменный отчёт не требуется.
+
+Перед сдачей каждый участник должен самостоятельно изучить свои изменения и сделать реальные коммиты со своего аккаунта:
+не менее четырёх коммитов за три разных дня (шесть при одиночной работе).
+История и даты коммитов в рамках этой доработки не менялись. Защита обязательна.
+На защите нужно объяснить breakpoints, `container`/`container-fluid`, выбранные классы и удалённый CSS.
+
+## Официальные источники компонентов
+
+- https://getbootstrap.com/docs/5.3/content/tables/
+- https://getbootstrap.com/docs/5.3/components/navbar/
+- https://getbootstrap.com/docs/5.3/components/carousel/
+
+## Семантическая структура недель 1–3
+
+Assignment 1 требует применять div/span только когда семантический тег не подходит и объяснять выбор рядом.
+Assignment 2 запрещает добавлять div исключительно ради раскладки. Assignment 3 разрешает необходимые
+обёртки сетки, однако здесь сетка в основном назначена существующим семантическим элементам.
+Убраны добавленные оболочки header/footer, card-body, row/col вокруг статей и форм, ratio вокруг фотографий.
+Фотография снова находится в исходном абзаце и обтекается текстом через Bootstrap float-md-start/clearfix.
+Все исходные поля форм, их порядок и method/action восстановлены. У каждого оставшегося div/span есть объяснение.
+Оставшиеся div: исходные группы полей/кнопок, дорожка карусели, примечание и изолированная прокрутка таблиц.
+Актуальные числа и расположение тегов указаны в TAG-CHECKLIST.md.
+Требования второй недели о ручном CSS, inline style и !important заменены требованиями третьей недели о Bootstrap.
+
+## Как ориентироваться в HTML
+
+Во всех семи файлах одинаковый порядок блоков и короткие комментарии-разделители:
+
+0. Настройки страницы и стили.
+1. Шапка: логотип, меню, контакты.
+2. Основное содержимое; подразделы пронумерованы `2.1`, `2.2` и далее по заголовкам.
+3. Подвал: бренд, ссылки, контакты, авторские права.
+4. Подключение Bootstrap JS.
+
+В редакторе ищите `2.1.` или название раздела через Ctrl+F; блоки section/article/fieldset можно сворачивать.
+Используются отступы в два пробела. Длинные атрибуты перенесены на отдельные строки.
+Пояснения div/span и Bootstrap оставлены рядом с соответствующими элементами, кратко и на русском.
+При этой доработке порядок элементов, атрибуты и тексты страниц не изменялись.
