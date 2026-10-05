@@ -32,3 +32,11 @@
 .brand-logo { filter: invert(1); }
 /* Image proportions are a small correction: avoid adding Bootstrap ratio divs around semantic figures. */
 .content-photo { aspect-ratio: 3 / 2; }
+
+/* JavaScript State Classes for future dynamic features */
+.is-hidden { display: none !important; }
+.is-active { opacity: 1; pointer-events: auto; }
+.is-selected { border-color: var(--bs-link-color) !important; box-shadow: 0 0 10px rgba(204, 255, 0, 0.35); }
+.is-error { border-color: #dc3545 !important; }
+.is-success { border-color: #198754 !important; }
+.form-feedback-container { min-height: 1.5rem; transition: all 0.2s ease-in-out; }

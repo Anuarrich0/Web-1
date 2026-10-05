@@ -79,6 +79,8 @@
     <main id="main-content" class="container flex-grow-1 py-4 py-md-5 text-break">
       <nav class="page-toc mb-4" aria-label="Содержание страницы">
         <ul class="list-unstyled d-flex flex-wrap gap-3">
+          <li><a href="#training-schedule">Пример расписания</a></li>
+          <li><a href="#fitness-calculator">Калькулятор калорий и графика</a></li>
           <li><a href="#glossary">Словарь терминов</a></li>
           <li><a href="#signup-form">Форма подписки</a></li>
         </ul>
@@ -132,7 +134,7 @@
             </ul>
           </li>
           <li>Кроссфит</li>
-          <li>Кардиотренировки</li>
+          <li>Кардио тренировки</li>
         </ul>
         <figure class="mb-4">
           <img
@@ -171,8 +173,15 @@
       </section>
 
       <!-- 2.4. Пример тренировочной недели -->
-      <section class="mb-5">
+      <section class="mb-5" id="training-schedule">
         <h2 class="h3 fw-bold mb-3">Пример тренировочной недели</h2>
+        <!-- DIV: группа кнопок фильтрации расписания по направлениям для будущего JS-модуля. -->
+        <div class="d-flex flex-wrap gap-2 mb-3" role="group" aria-label="Фильтр расписания тренировок">
+          <button type="button" class="btn btn-sm btn-outline-light active" data-schedule-filter="all">Все направления</button>
+          <button type="button" class="btn btn-sm btn-outline-light" data-schedule-filter="gym">Тренажерный зал</button>
+          <button type="button" class="btn btn-sm btn-outline-light" data-schedule-filter="crossfit">Кроссфит</button>
+          <button type="button" class="btn btn-sm btn-outline-light" data-schedule-filter="cardio">Кардио</button>
+        </div>
         <!-- DIV: прокручивает только таблицу; заголовок и описание остаются в существующем section. -->
         <div
           class="table-responsive border rounded-3 mb-4"
@@ -193,22 +202,22 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr data-day="monday" data-category="gym">
                 <td>Понедельник</td>
                 <td>Силовая тренировка</td>
                 <td>60 <abbr title="минут">мин.</abbr></td>
               </tr>
-              <tr>
+              <tr data-day="wednesday" data-category="gym">
                 <td>Среда</td>
                 <td>Тренировка на всё тело</td>
                 <td>60 <abbr title="минут">мин.</abbr></td>
               </tr>
-              <tr>
+              <tr data-day="friday" data-category="crossfit">
                 <td>Пятница</td>
                 <td>Кроссфит</td>
                 <td>50 <abbr title="минут">мин.</abbr></td>
               </tr>
-              <tr>
+              <tr data-day="saturday" data-category="cardio">
                 <td>Суббота</td>
                 <td>Кардио</td>
                 <td>30 <abbr title="минут">мин.</abbr></td>
@@ -218,7 +227,104 @@
         </div>
       </section>
 
-      <!-- 2.5. Словарь терминов -->
+      <!-- 2.5. Фитнес-калькулятор калорий и графика тренировок -->
+      <section class="mb-5" id="fitness-calculator">
+        <h2 class="h3 fw-bold mb-3">Калькулятор калорий и графика тренировок</h2>
+        <p class="text-body-secondary mb-4">
+          Рассчитайте персональную суточную норму калорий (BMR / TDEE) и получите рекомендации по частоте
+          тренировок в неделю для достижения вашей цели.
+        </p>
+        <!-- form с полями ввода параметров для последующей математической обработки в JS. -->
+        <form id="calculator-form" class="bg-body-tertiary border rounded-3 p-3 p-md-4 shadow-sm" action="#" method="post">
+          <fieldset class="row g-3 mx-0 border rounded-3 p-3 mb-3">
+            <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">Параметры тела и цель</legend>
+            <!-- DIV: колонка с полем выбора пола внутри сетки fieldset. -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <label for="calc-gender" class="form-label">Пол:</label>
+              <select id="calc-gender" name="calc-gender" class="form-select">
+                <option value="male" selected>Мужской</option>
+                <option value="female">Женский</option>
+              </select>
+            </div>
+            <!-- DIV: колонка с полем ввода возраста внутри сетки fieldset. -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <label for="calc-age" class="form-label">Возраст (лет):</label>
+              <input type="number" id="calc-age" name="calc-age" min="14" max="90" value="25" required class="form-control" />
+            </div>
+            <!-- DIV: колонка с полем ввода роста внутри сетки fieldset. -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <label for="calc-height" class="form-label">Рост (см):</label>
+              <input type="number" id="calc-height" name="calc-height" min="120" max="230" value="175" required class="form-control" />
+            </div>
+            <!-- DIV: колонка с полем ввода веса внутри сетки fieldset. -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <label for="calc-weight" class="form-label">Вес (кг):</label>
+              <input type="number" id="calc-weight" name="calc-weight" min="35" max="250" value="70" required class="form-control" />
+            </div>
+            <!-- DIV: колонка с полем выбора активности внутри сетки fieldset. -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <label for="calc-activity" class="form-label">Уровень активности:</label>
+              <select id="calc-activity" name="calc-activity" class="form-select">
+                <option value="sedentary">Сидячий образ жизни (минимум нагрузок)</option>
+                <option value="light">Легкая активность (1–2 тренировки в неделю)</option>
+                <option value="moderate" selected>Умеренная активность (3–4 тренировки в неделю)</option>
+                <option value="high">Высокая активность (5+ тренировок в неделю)</option>
+              </select>
+            </div>
+            <!-- DIV: колонка с полем выбора цели внутри сетки fieldset. -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <label for="calc-goal" class="form-label">Главная цель:</label>
+              <select id="calc-goal" name="calc-goal" class="form-select">
+                <option value="lose">Похудение (дефицит ккал)</option>
+                <option value="maintain" selected>Поддержание формы и тонуса</option>
+                <option value="gain">Набор мышечной массы (профицит ккал)</option>
+              </select>
+            </div>
+          </fieldset>
+          <!-- DIV: группа кнопок формы калькулятора. -->
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <button type="button" id="calc-submit-btn" class="btn btn-primary">Рассчитать план</button>
+            <button type="reset" id="calc-reset-btn" class="btn btn-outline-light">Сбросить</button>
+          </div>
+        </form>
+
+        <!-- DIV: контейнер вывода результатов расчета (исходно скрыт через класс is-hidden). -->
+        <div id="calculator-results" class="is-hidden bg-body-tertiary border rounded-3 p-4 mt-4" aria-live="polite">
+          <h3 class="h4 fw-bold mb-3 text-primary">Результаты персонального расчета</h3>
+          <!-- DIV: сетка карточек с рассчитанными показателями. -->
+          <div class="row g-3 mb-3">
+            <div class="col-12 col-md-4">
+              <div class="border rounded-3 p-3 bg-body">
+                <p class="small text-body-secondary mb-1">Базовый метаболизм (BMR):</p>
+                <p class="h5 fw-bold mb-0"><span id="result-bmr">0</span> ккал/день</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="border rounded-3 p-3 bg-body">
+                <p class="small text-body-secondary mb-1">Расход с активностью (TDEE):</p>
+                <p class="h5 fw-bold mb-0"><span id="result-tdee">0</span> ккал/день</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="border rounded-3 p-3 bg-body border-primary">
+                <p class="small text-body-secondary mb-1">Рекомендуемая норма калорий:</p>
+                <p class="h5 fw-bold text-primary mb-0"><span id="result-target-calories">0</span> ккал/день</p>
+              </div>
+            </div>
+          </div>
+          <!-- DIV: блок рекомендаций по графику тренировок. -->
+          <div class="border rounded-3 p-3 bg-body mb-3">
+            <h4 class="h6 fw-bold mb-2">Рекомендуемый график и направления:</h4>
+            <p class="mb-2"><strong>Частота тренировок:</strong> <span id="result-workout-freq">—</span></p>
+            <p class="mb-0 text-body-secondary"><strong>Программа:</strong> <span id="result-program-recommendation">—</span></p>
+          </div>
+          <p class="mb-0">
+            <a href="#signup-form" class="btn btn-primary btn-sm">Записаться на подходящую тренировку →</a>
+          </p>
+        </div>
+      </section>
+
+      <!-- 2.6. Словарь терминов -->
       <section id="glossary" class="mb-5">
         <h2 class="h3 fw-bold mb-3">Словарь терминов</h2>
         <dl class="row g-3 mb-4">
@@ -272,7 +378,7 @@
         </figcaption>
       </figure>
 
-      <!-- 2.8. Подписка на тренировки и рассылку -->
+      <!-- 2.9. Подписка на тренировки и рассылку -->
       <section class="mb-5">
         <h2 id="signup-form" class="h3 fw-bold mb-3">Подписка на тренировки и рассылку</h2>
         <!-- fieldset объединяет связанные поля; row и col-* стоят на существующих элементах формы. -->
@@ -403,6 +509,8 @@
             </button>
             <button type="reset" class="btn btn-outline-light">Очистить форму</button>
           </div>
+          <!-- DIV: контейнер динамического вывода статусов отправки формы для будущего JS-модуля. -->
+          <div id="signup-form-feedback" class="form-feedback-container mt-3" aria-live="polite"></div>
         </form>
       </section>
     </main>

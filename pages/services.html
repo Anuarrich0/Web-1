@@ -268,36 +268,36 @@
               <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">
                 Предпочитаемый уровень нагрузки:
               </legend>
-              <label class="col-12 form-label" for="field-0-6">
+              <label class="col-12 form-label" for="level-beginner">
                 <input
                   type="radio"
                   name="fitness-level"
                   value="beginner"
                   checked
-                  id="field-0-6"
+                  id="level-beginner"
                   class="form-check-input me-2"
                 />
                 Новичок
               </label>
-              <label class="col-12 form-label" for="field-0-7">
+              <label class="col-12 form-label" for="level-intermediate">
                 <input
                   type="radio"
                   name="fitness-level"
                   value="intermediate"
-                  id="field-0-7"
+                  id="level-intermediate"
                   class="form-check-input me-2"
                 />
                 Опытный атлет
               </label>
             </fieldset>
             <p class="form-field-checkbox col-12">
-              <label for="field-0-8" class="form-label">
+              <label for="health-agree" class="form-label">
                 <input
                   type="checkbox"
                   name="health_agree"
                   value="yes"
                   required
-                  id="field-0-8"
+                  id="health-agree"
                   class="form-check-input me-2"
                 />
                 Подтверждаю отсутствие медицинских противопоказаний к занятиям спортом.
@@ -317,12 +317,14 @@
               <label for="calc-output" class="form-label">Статус формы:</label>
               <output id="calc-output" name="calc-status">Заполните обязательные поля формы</output>
             </p>
-            <p class="form-actions col-12 d-flex flex-wrap gap-2 align-items-center">
+            <p class="form-actions col-12 d-flex flex-wrap gap-2 align-items-center mb-0">
               <button type="submit" class="btn btn-primary btn-lg" disabled aria-describedby="form-note-0">
                 Отправить заявку
               </button>
               <button type="reset" class="btn btn-outline-light">Сбросить поля</button>
             </p>
+            <!-- DIV: контейнер динамического вывода статусов бронирования для будущего JS-модуля. -->
+            <div id="booking-form-feedback" class="form-feedback-container col-12 mt-3" aria-live="polite"></div>
           </fieldset>
         </form>
       </section>
