@@ -155,3 +155,246 @@
     };
   };
 })(window.EF);
+
+/* ===== Интерактив страницы «Тренировки»: фильтр расписания, калькулятор и форма записи. ===== */
+
+(function (EF) {
+  'use strict';
+
+  /* --- Фильтр расписания тренировочной недели. --- */
+  const scheduleSection = document.getElementById('training-schedule');
+  if (scheduleSection) {
+    const buttons = scheduleSection.querySelectorAll('[data-schedule-filter]');
+    const rows = scheduleSection.querySelectorAll('tbody tr[data-category]');
+    const status = document.createElement('p');
+    status.className = 'small text-body-secondary mb-0';
+    status.setAttribute('role', 'status');
+    scheduleSection.querySelector('.table-responsive').after(status);
+
+    /* Показывает только занятия выбранного направления. */
+    function applyScheduleFilter(category) {
+      let visible = 0;
+      for (let i = 0; i < rows.length; i++) {
+        const row = rows[i];
+        const show = category === 'all' || row.dataset.category === category;
+        row.classList.toggle('is-hidden', !show);
+        if (show) {
+          visible = visible + 1;
+        }
+      }
+      for (let j = 0; j < buttons.length; j++) {
+        const active = buttons[j].dataset.scheduleFilter === category;
+        buttons[j].classList.toggle('is-selected', active);
+        buttons[j].classList.toggle('active', active);
+      }
+      status.textContent = 'Показано занятий: ' + visible + ' из ' + rows.length;
+    }
+
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener('click', function () {
+        applyScheduleFilter(this.dataset.scheduleFilter);
+      });
+    }
+    applyScheduleFilter('all');
+  }
+
+  /* --- Калькулятор калорий и графика тренировок (#calculator-form). --- */
+  const calcForm = document.getElementById('calculator-form');
+  if (calcForm) {
+    const results = document.getElementById('calculator-results');
+    const submitButton = document.getElementById('calc-submit-btn');
+    const fields = {
+      gender: document.getElementById('calc-gender'),
+      age: document.getElementById('calc-age'),
+      height: document.getElementById('calc-height'),
+      weight: document.getElementById('calc-weight'),
+      activity: document.getElementById('calc-activity'),
+      goal: document.getElementById('calc-goal')
+    };
+    const outputs = {
+      bmr: document.getElementById('result-bmr'),
+      tdee: document.getElementById('result-tdee'),
+      target: document.getElementById('result-target-calories'),
+      frequency: document.getElementById('result-workout-freq'),
+      program: document.getElementById('result-program-recommendation')
+    };
+    calcForm.noValidate = true;
+
+    /* Текст частоты тренировок с правильным окончанием. */
+    function frequencyText(count) {
+      if (count === 1) {
+        return '1 тренировка в неделю';
+      }
+      if (count >= 2 && count <= 4) {
+        return count + ' тренировки в неделю';
+      }
+      return count + ' тренировок в неделю';
+    }
+
+    /* Проверяет числовые поля калькулятора; возвращает первое неверное поле или null. */
+    function validateCalculator() {
+      let firstInvalid = null;
+      const ranges = [
+        [fields.age, 14, 90],
+        [fields.height, 120, 230],
+        [fields.weight, 35, 250]
+      ];
+      for (let i = 0; i < ranges.length; i++) {
+        const field = ranges[i][0];
+        const min = ranges[i][1];
+        const max = ranges[i][2];
+        const isOk = EF.validateField(field, [
+          function () { return EF.rules.numberRange(field.value, min, max); }
+        ]);
+        if (!isOk && !firstInvalid) {
+          firstInvalid = field;
+        }
+      }
+      return firstInvalid;
+    }
+
+    /* Считает план и выводит результаты в заготовленный контейнер. */
+    function calculatePlan() {
+      const firstInvalid = validateCalculator();
+      if (firstInvalid) {
+        results.classList.add('is-hidden');
+        firstInvalid.focus();
+        return;
+      }
+      const plan = EF.buildFitnessPlan({
+        gender: fields.gender.value === 'female' ? 'female' : 'male',
+        age: Number(fields.age.value),
+        height: Number(fields.height.value),
+        weight: Number(fields.weight.value),
+        activity: fields.activity.value,
+        goal: fields.goal.value
+      });
+      outputs.bmr.textContent = String(plan.bmr);
+      outputs.tdee.textContent = String(plan.tdee);
+      outputs.target.textContent = String(plan.targetCalories);
+      outputs.frequency.textContent = frequencyText(plan.workoutFrequency);
+      outputs.program.textContent = plan.program;
+      results.classList.remove('is-hidden');
+    }
+
+    submitButton.addEventListener('click', calculatePlan);
+    calcForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      calculatePlan();
+    });
+    calcForm.addEventListener('reset', function () {
+      EF.clearFormErrors(calcForm);
+      results.classList.add('is-hidden');
+    });
+  }
+
+  /* --- Валидация формы подписки (#signup-form-feedback). --- */
+  const signupFeedback = document.getElementById('signup-form-feedback');
+  if (signupFeedback) {
+    const form = signupFeedback.closest('form');
+    const fields = {
+      name: document.getElementById('full-name'),
+      email: document.getElementById('train-email'),
+      phone: document.getElementById('train-phone'),
+      age: document.getElementById('train-age'),
+      date: document.getElementById('preferred-date'),
+      agree: document.getElementById('agree')
+    };
+    form.noValidate = true;
+    EF.enableSubmitButtons(form);
+
+    /* Читаемое название выбранного направления тренировки. */
+    function describeDirection(value) {
+      if (value === 'crossfit') {
+        return 'Кроссфит';
+      }
+      if (value === 'group') {
+        return 'Групповые занятия';
+      }
+      return 'Тренажёрный зал';
+    }
+
+    /* Проверяет поля формы; возвращает первое неверное поле или null. */
+    function validateSignup() {
+      let firstInvalid = null;
+      function check(field, checks, container) {
+        const isOk = EF.validateField(field, checks, container);
+        if (!isOk && !firstInvalid) {
+          firstInvalid = field;
+        }
+      }
+      check(fields.name, [
+        function () { return EF.rules.required(fields.name.value); },
+        function () { return EF.rules.minLength(fields.name.value, 2); }
+      ]);
+      check(fields.email, [
+        function () { return EF.rules.required(fields.email.value); },
+        function () { return EF.rules.email(fields.email.value); }
+      ]);
+      check(fields.phone, [
+        function () {
+          return fields.phone.value.trim() === '' ? '' : EF.rules.phone(fields.phone.value);
+        }
+      ]);
+      check(fields.age, [
+        function () {
+          return fields.age.value.trim() === '' ? '' : EF.rules.numberRange(fields.age.value, 12, 99);
+        }
+      ]);
+      check(fields.date, [
+        function () {
+          return fields.date.value === '' ? '' : EF.rules.notPastDate(fields.date.value);
+        }
+      ]);
+      check(fields.agree, [
+        function () { return EF.rules.checked(fields.agree.checked); }
+      ], fields.agree.closest('.col-12'));
+      return firstInvalid;
+    }
+
+    /* Собирает тексты ошибок, показанные рядом с полями. */
+    function collectErrors() {
+      const notes = form.querySelectorAll('.field-error');
+      const messages = [];
+      for (let i = 0; i < notes.length; i++) {
+        if (notes[i].textContent !== '') {
+          messages.push(notes[i].textContent);
+        }
+      }
+      return messages;
+    }
+
+    function clearOnEdit(event) {
+      if (event.target && event.target.classList) {
+        EF.clearFieldError(event.target, event.target.closest('.col-12, p'));
+      }
+    }
+    form.addEventListener('input', clearOnEdit);
+    form.addEventListener('change', clearOnEdit);
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const firstInvalid = validateSignup();
+      if (firstInvalid) {
+        EF.showFormFeedback(signupFeedback, 'error', 'Форма заполнена неверно', collectErrors());
+        firstInvalid.focus();
+        return;
+      }
+      const direction = form.querySelector('[name="direction"]:checked');
+      const reference = EF.generateReference('TR');
+      EF.showFormFeedback(signupFeedback, 'success', 'Запись ' + reference + ' принята', [
+        'Имя: ' + fields.name.value.trim(),
+        'Контакт: ' + fields.email.value.trim() +
+          (fields.phone.value.trim() === '' ? '' : ', ' + fields.phone.value.trim()),
+        'Направление: ' + describeDirection(direction ? direction.value : ''),
+        'Пробная тренировка: ' + (fields.date.value === '' ? 'дата не выбрана' : EF.formatDateRu(fields.date.value)),
+        'Демонстрационная форма: данные не отправлены на сервер, запись на тренировку не создана.'
+      ]);
+    });
+
+    form.addEventListener('reset', function () {
+      EF.clearFormErrors(form);
+      EF.clearFormFeedback(signupFeedback);
+    });
+  }
+})(window.EF);

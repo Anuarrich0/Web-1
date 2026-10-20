@@ -74,3 +74,121 @@
     });
   };
 })(window.EF);
+
+/* ===== Интерактив страницы «Контакты»: валидация формы обратной связи. ===== */
+
+(function (EF) {
+  'use strict';
+
+  const feedback = document.getElementById('contact-form-feedback');
+  if (!feedback) {
+    return;
+  }
+
+  const form = feedback.closest('form');
+  const fields = {
+    name: document.getElementById('name'),
+    email: document.getElementById('email'),
+    phone: document.getElementById('phone'),
+    age: document.getElementById('client-age'),
+    date: document.getElementById('callback-date'),
+    topic: document.getElementById('topic'),
+    replyPhone: document.getElementById('reply-phone'),
+    replyEmail: document.getElementById('reply-email'),
+    message: document.getElementById('message'),
+    agree: document.getElementById('agree-contact')
+  };
+  form.noValidate = true;
+  EF.enableSubmitButtons(form);
+
+  /* Составное правило: телефон обязателен, если выбран ответ звонком. */
+  function phoneCheck() {
+    if (fields.replyPhone.checked && fields.phone.value.trim() === '') {
+      return 'Укажите телефон для ответа звонком';
+    }
+    return fields.phone.value.trim() === '' ? '' : EF.rules.phone(fields.phone.value);
+  }
+
+  /* Проверяет поля формы; возвращает первое неверное поле или null. */
+  function validateContact() {
+    let firstInvalid = null;
+    function check(field, checks, container) {
+      const isOk = EF.validateField(field, checks, container);
+      if (!isOk && !firstInvalid) {
+        firstInvalid = field;
+      }
+    }
+    check(fields.name, [
+      function () { return EF.rules.required(fields.name.value); },
+      function () { return EF.rules.minLength(fields.name.value, 2); }
+    ]);
+    check(fields.email, [
+      function () { return EF.rules.required(fields.email.value); },
+      function () { return EF.rules.email(fields.email.value); }
+    ]);
+    check(fields.phone, [phoneCheck]);
+    check(fields.age, [
+      function () {
+        return fields.age.value.trim() === '' ? '' : EF.rules.numberRange(fields.age.value, 12, 99);
+      }
+    ]);
+    check(fields.date, [
+      function () {
+        return fields.date.value === '' ? '' : EF.rules.notPastDate(fields.date.value);
+      }
+    ]);
+    check(fields.message, [
+      function () { return EF.rules.required(fields.message.value); },
+      function () { return EF.rules.minLength(fields.message.value, 10); }
+    ]);
+    check(fields.agree, [
+      function () { return EF.rules.checked(fields.agree.checked); }
+    ], fields.agree.closest('.col-12'));
+    return firstInvalid;
+  }
+
+  /* Собирает тексты ошибок, показанные рядом с полями. */
+  function collectErrors() {
+    const notes = form.querySelectorAll('.field-error');
+    const messages = [];
+    for (let i = 0; i < notes.length; i++) {
+      if (notes[i].textContent !== '') {
+        messages.push(notes[i].textContent);
+      }
+    }
+    return messages;
+  }
+
+  function clearOnEdit(event) {
+    if (event.target && event.target.classList) {
+      EF.clearFieldError(event.target, event.target.closest('.col-12, p'));
+    }
+  }
+  form.addEventListener('input', clearOnEdit);
+  form.addEventListener('change', clearOnEdit);
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const firstInvalid = validateContact();
+    if (firstInvalid) {
+      EF.showFormFeedback(feedback, 'error', 'Форма заполнена неверно', collectErrors());
+      firstInvalid.focus();
+      return;
+    }
+    const method = fields.replyEmail.checked ? 'по электронной почте' : 'по телефону';
+    const reference = EF.generateReference('MSG');
+    EF.showFormFeedback(feedback, 'success', 'Сообщение ' + reference + ' принято', [
+      'Имя: ' + fields.name.value.trim(),
+      'Тема: ' + EF.describeTopic(fields.topic.value),
+      'Способ ответа: ' + method,
+      'Контакт: ' + fields.email.value.trim() +
+        (fields.phone.value.trim() === '' ? '' : ', ' + fields.phone.value.trim()),
+      'Демонстрационная форма: сообщение не отправлено на сервер и не создаёт реальное обращение.'
+    ]);
+  });
+
+  form.addEventListener('reset', function () {
+    EF.clearFormErrors(form);
+    EF.clearFormFeedback(feedback);
+  });
+})(window.EF);

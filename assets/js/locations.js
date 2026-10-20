@@ -78,3 +78,61 @@
     return 'В сети ' + count + ' филиала с общей вместимостью ' + capacity + ' гостей';
   };
 })(window.EF);
+
+/* ===== Интерактив страницы «Филиалы»: фильтр таблицы залов по району. ===== */
+
+(function (EF) {
+  'use strict';
+
+  const filters = document.getElementById('branch-filters');
+  const tableSection = document.getElementById('locations-table-section');
+  if (!filters || !tableSection) {
+    return;
+  }
+
+  const links = filters.querySelectorAll('a');
+  const rows = tableSection.querySelectorAll('tbody tr[data-district]');
+  /* Район определяется по ссылке-фильтру: id строки или вся таблица. */
+  const DISTRICT_BY_HREF = {
+    '#locations-table-section': 'all',
+    '#branch-baikonur': 'baikonur',
+    '#branch-esil': 'esil'
+  };
+
+  /* Счётчик результата фильтрации (создаётся через DOM). */
+  const status = document.createElement('p');
+  status.className = 'small text-body-secondary mb-0';
+  status.setAttribute('role', 'status');
+  filters.appendChild(status);
+
+  /* Показывает строки выбранного района и подсвечивает активную ссылку. */
+  function applyDistrictFilter(district) {
+    let visible = 0;
+    for (let i = 0; i < rows.length; i++) {
+      const row = rows[i];
+      const show = district === 'all' || row.dataset.district === district;
+      row.classList.toggle('is-hidden', !show);
+      if (show) {
+        visible = visible + 1;
+      }
+    }
+    for (let j = 0; j < links.length; j++) {
+      const linkDistrict = DISTRICT_BY_HREF[links[j].getAttribute('href')] || 'all';
+      links[j].classList.toggle('is-selected', linkDistrict === district);
+    }
+    status.textContent = 'Показано филиалов: ' + visible + ' из ' + EF.BRANCHES.length;
+  }
+
+  for (let i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', function (event) {
+      const district = DISTRICT_BY_HREF[this.getAttribute('href')];
+      if (district === undefined) {
+        return;
+      }
+      event.preventDefault();
+      applyDistrictFilter(district);
+    });
+  }
+
+  applyDistrictFilter('all');
+})(window.EF);
