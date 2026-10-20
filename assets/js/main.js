@@ -94,7 +94,7 @@ function membershipErrors(data, today = new Date()) {
   return errors;
 }
 
-// Small dependency-free check: node js/main.js. Does not run in the browser.
+// Small dependency-free check: node assets/js/main.js. Does not run in the browser.
 if (typeof module !== 'undefined' && require.main === module) {
   const assert = require('node:assert/strict');
   const today = new Date(2026, 9, 21);
