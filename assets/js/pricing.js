@@ -1,8 +1,9 @@
 'use strict';
 
-(() => {
+(function () {
+  // Находим блок тарифов и карточки, создаём поиск и фильтр срока.
   const section = document.querySelector('#pricing-plans');
-  const cards = [...section.querySelectorAll('[data-tariff]')];
+  const cards = section.querySelectorAll('[data-tariff]');
   const controls = element('div', '', 'col-12');
   const label = element('label', 'Поиск тарифа', 'form-label');
   label.htmlFor = 'tariff-search';
@@ -22,6 +23,7 @@
   const empty = element('p', 'Ничего не найдено. Измените запрос или сбросьте фильтры.', 'col-12 is-hidden');
   section.append(empty);
 
+  // Создаёт одну строку срока и цены внутри карточки.
   function priceRow(item) {
     const row = element('li', '', 'row g-2 border-bottom py-2');
     row.append(element('span', `${item.months} мес.`, 'col-5 text-body-secondary small'),
@@ -29,35 +31,51 @@
     return row;
   }
 
+  // Совмещает поиск и срок, обновляет цены, видимость и число тарифов.
   function filterTariffs() {
     const query = search.value.trim().toLocaleLowerCase('ru-RU');
     let visible = 0;
-    for (const card of cards) {
-      const items = memberships.filter(item => item.tariff === card.dataset.tariff &&
-        item.name.toLocaleLowerCase('ru-RU').includes(query) &&
-        (duration.value === '' || item.months === Number(duration.value)));
+    for (let i = 0; i < cards.length; i++) {
+      const card = cards[i];
+      const items = memberships.filter(function (item) {
+        const matchesCard = item.tariff === card.dataset.tariff;
+        const matchesSearch = item.name.toLocaleLowerCase('ru-RU').includes(query);
+        const matchesDuration = duration.value === '' || item.months === Number(duration.value);
+        return matchesCard && matchesSearch && matchesDuration;
+      });
       card.classList.toggle('is-hidden', items.length === 0);
       renderList(card.querySelector('.price-list'), items, priceRow);
-      if (items.length > 0) visible += 1;
+      if (items.length > 0) {
+        visible += 1;
+      }
     }
     count.textContent = `Найдено тарифов: ${visible}`;
     empty.classList.toggle('is-hidden', visible !== 0);
   }
+  // Ввод и выбор запускают фильтрацию; сброс очищает оба фильтра.
   search.addEventListener('input', filterTariffs);
   duration.addEventListener('change', filterTariffs);
-  reset.addEventListener('click', () => {
+  reset.addEventListener('click', function () {
     search.value = '';
     duration.value = '';
     filterTariffs();
   });
 
+  // Подготовка формы: возраст вычисляется по обязательной дате рождения.
   const form = document.querySelector('#order-form form');
   const tariff = document.querySelector('#tariff-select');
   const feedback = document.querySelector('#pricing-order-feedback');
-  const fields = [...form.querySelectorAll('fieldset')];
+  const fields = form.querySelectorAll('fieldset');
+  document.querySelector('#client-age').parentElement.remove();
+  const birth = document.querySelector('#client-dob');
+  birth.required = true;
+  const ageOutput = element('span', '', 'small d-block');
+  ageOutput.setAttribute('aria-live', 'polite');
+  birth.after(ageOutput);
   form.noValidate = true;
   form.querySelector('[type="submit"]').disabled = false;
   document.querySelector('#form-note-0').textContent = 'Учебная заявка: данные не отправляются на сервер, реальный заказ, оплата и бронирование не создаются.';
+  // Дополнительные согласия, скидка и блок текущего расчёта.
   const student = checkboxField(fields[1], 'student-discount', 'Студенческий билет: предварительная скидка 15% (проверяется менеджером)');
   const guardian = checkboxField(fields[2], 'guardian-agree', 'Есть согласие законного представителя (до 18 лет)');
   const accompanied = checkboxField(fields[2], 'accompanied-agree', 'Буду заниматься с представителем или тренером (до 15 лет)');
@@ -67,31 +85,46 @@
   const comment = document.querySelector('#client-comment');
   const counter = element('span', '', 'small d-block');
   comment.after(counter);
+  // До первой отправки не показываем ошибки незаполненной формы.
   let attempted = false;
-  let confirmed = false;
 
+  // Собирает текущие значения формы в один объект.
   function readOrder() {
+    const selectedTerm = form.querySelector('[name="term"]:checked');
+    let months = '';
+    if (selectedTerm) {
+      months = selectedTerm.value;
+    }
     return {
       name: document.querySelector('#client-name').value,
       email: document.querySelector('#client-email').value,
       phone: document.querySelector('#client-phone').value,
-      age: document.querySelector('#client-age').value,
-      birth: document.querySelector('#client-dob').value,
-      tariff: tariff.value, months: form.querySelector('[name="term"]:checked')?.value || '',
+      age: birthAge(birth.value),
+      birth: birth.value,
+      tariff: tariff.value,
+      months: months,
       agree: document.querySelector('#client-agree').checked,
-      guardian: guardian.checked, accompanied: accompanied.checked, comment: comment.value
+      guardian: guardian.checked,
+      accompanied: accompanied.checked,
+      comment: comment.value
     };
   }
 
+  // Удаляет старые ошибки и показывает актуальные рядом с полями.
   function showErrors(errors) {
-    for (const message of form.querySelectorAll('[data-field-error]')) {
+    const oldMessages = form.querySelectorAll('[data-field-error]');
+    for (let i = 0; i < oldMessages.length; i++) {
+      const message = oldMessages[i];
       const input = document.getElementById(message.dataset.fieldError);
       input.classList.remove('is-error');
       input.removeAttribute('aria-invalid');
       input.removeAttribute('aria-describedby');
       message.remove();
     }
-    for (const [id, text] of Object.entries(errors)) {
+    const errorIds = Object.keys(errors);
+    for (let i = 0; i < errorIds.length; i++) {
+      const id = errorIds[i];
+      const text = errors[id];
       const input = document.getElementById(id);
       const message = element('span', text, 'd-block text-danger small');
       message.id = `${id}-error`;
@@ -103,22 +136,35 @@
     }
   }
 
+  // Обновляет цену, возраст, подсветку карточек и проверки формы.
   function updateOrder() {
     const data = readOrder();
     const item = findMembership(data.tariff, data.months);
     if (item) {
       const price = membershipPrice(item, student.checked);
-      summary.textContent = `${item.name}, ${item.months} мес. Цена: ${money(item.price)}. Скидка: ${money(price.discount)}. Итого: ${money(price.total)} (≈ ${money(price.monthly)}/мес.).${student.checked ? ' Студенческий билет проверяется в клубе.' : ''}`;
-    } else summary.textContent = 'Выберите тариф и срок для расчёта стоимости.';
-    for (const card of cards) card.classList.toggle('is-selected', card.dataset.tariff === data.tariff);
-    guardian.parentElement.classList.toggle('is-hidden', !data.age || Number(data.age) >= 18);
-    accompanied.parentElement.classList.toggle('is-hidden', !data.age || Number(data.age) >= 15);
-    counter.textContent = `${comment.value.length} / 500 символов`;
-    if (confirmed) {
-      feedback.textContent = 'Данные изменены. Отправьте заявку снова для нового демонстрационного подтверждения.';
-      feedback.classList.remove('is-success');
-      confirmed = false;
+      summary.textContent = `${item.name}, ${item.months} мес. Цена: ${money(item.price)}. Скидка: ${money(price.discount)}. Итого: ${money(price.total)} (≈ ${money(price.monthly)}/мес.).`;
+      if (student.checked) {
+        summary.textContent += ' Студенческий билет проверяется в клубе.';
+      }
+    } else {
+      summary.textContent = 'Выберите тариф и срок для расчёта стоимости.';
     }
+    for (let i = 0; i < cards.length; i++) {
+      const card = cards[i];
+      if (card.dataset.tariff === data.tariff) {
+        card.classList.add('is-selected');
+      } else {
+        card.classList.remove('is-selected');
+      }
+    }
+    if (Number.isInteger(data.age)) {
+      ageOutput.textContent = `Возраст: ${data.age} (рассчитан автоматически)`;
+    } else {
+      ageOutput.textContent = '';
+    }
+    guardian.parentElement.classList.toggle('is-hidden', !(data.age >= 14 && data.age < 18));
+    accompanied.parentElement.classList.toggle('is-hidden', !(data.age >= 14 && data.age < 15));
+    counter.textContent = `${comment.value.length} / 500 символов`;
     if (attempted) {
       const errors = membershipErrors(data);
       showErrors(errors);
@@ -129,17 +175,23 @@
     }
   }
 
-  for (const card of cards) card.querySelector('a').addEventListener('click', event => {
-    event.preventDefault();
-    tariff.value = card.dataset.tariff;
-    const months = duration.value || readOrder().months || '1';
-    document.getElementById(`term-${months}`).checked = true;
-    updateOrder();
-    tariff.focus();
-  });
+  // Кнопка карточки выбирает тариф и срок в форме.
+  for (let i = 0; i < cards.length; i++) {
+    const card = cards[i];
+    card.querySelector('a').addEventListener('click', function (event) {
+      event.preventDefault();
+      tariff.value = card.dataset.tariff;
+      const months = duration.value || readOrder().months || '1';
+      document.getElementById(`term-${months}`).checked = true;
+      updateOrder();
+      tariff.focus();
+    });
+  }
+  // Изменения полей сразу обновляют расчёт.
   form.addEventListener('input', updateOrder);
   form.addEventListener('change', updateOrder);
-  form.addEventListener('submit', event => {
+  // Останавливаем отправку на сервер, проверяем поля и фокусируем ошибку.
+  form.addEventListener('submit', function (event) {
     event.preventDefault();
     attempted = true;
     const data = readOrder();
@@ -152,28 +204,18 @@
       document.getElementById(Object.keys(errors)[0]).focus();
       return;
     }
-    const item = findMembership(data.tariff, data.months);
-    const price = membershipPrice(item, student.checked);
-    const reference = `DEMO-${Math.floor(Math.random() * 900000) + 100000}`;
-    feedback.replaceChildren(
-      element('h3', `Демонстрационная заявка ${reference}`, 'h5'),
-      element('p', `${data.name.trim()}, ${item.name}, ${item.months} мес. Итого: ${money(price.total)}. Email: ${data.email.trim()}. Телефон: ${data.phone.trim()}.`),
-      element('p', data.comment.trim() ? `Комментарий: ${data.comment.trim()}` : 'Без комментария.'),
-      element('p', 'Данные не отправлены на сервер. Реальный заказ, оплата или бронирование не созданы.'),
-      element('p', student.checked ? 'Скидка предварительная: менеджер проверит студенческий билет.' : 'Расчёт без студенческой скидки.')
-    );
-    feedback.classList.add('is-success');
-    confirmed = true;
+    feedback.replaceChildren();
   });
-  form.addEventListener('reset', () => {
+  // Сброс очищает ошибки; пересчёт идёт после стандартного сброса полей.
+  form.addEventListener('reset', function () {
     attempted = false;
-    confirmed = false;
     showErrors({});
     feedback.replaceChildren();
     feedback.classList.remove('is-error', 'is-success');
     // Native fields are reset after this event finishes.
     setTimeout(updateOrder, 0);
   });
+  // Читаем тариф, срок и скидку из ссылки со страницы акций.
   const params = new URLSearchParams(window.location.search);
   const requested = findMembership(params.get('tariff'), params.get('months'));
   if (requested) {
@@ -181,6 +223,23 @@
     document.getElementById(`term-${requested.months}`).checked = true;
     student.checked = params.get('student') === '1';
   }
+  // Первый вывод при открытии страницы.
   filterTariffs();
   updateOrder();
 })();
+
+/* ШПАРГАЛКА
+section — блок тарифов; cards — карточки; controls — контейнер фильтров.
+search — текстовый поиск; duration — срок; reset — сброс; count — число результатов.
+priceRow — одна строка цены; filterTariffs — поиск и вывод подходящих тарифов.
+form — форма; tariff — выбранный тариф; birth — дата рождения; ageOutput — возраст.
+student — скидка; guardian/accompanied — согласие и сопровождение несовершеннолетних.
+summary — расчёт цены; comment/counter — комментарий и счётчик; feedback — сообщения.
+readOrder — прочитать поля; showErrors — показать ошибки; updateOrder — обновить экран.
+attempted — была ли попытка отправки; value — значение поля; checked — галочка.
+querySelector — найти элемент; querySelectorAll — найти все; dataset — data-атрибуты.
+input — ввод; change — смена выбора; click — нажатие; submit — отправка; reset — сброс.
+preventDefault — отменить обычное действие; focus — перевести курсор в поле.
+URLSearchParams — параметры ссылки; is-hidden — скрыть; is-selected — подсветить.
+Путь: изменение поля → updateOrder → readOrder → поиск тарифа → расчёт → вывод.
+*/
