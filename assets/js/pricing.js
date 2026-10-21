@@ -228,7 +228,7 @@
   updateOrder();
 })();
 
-/* ШПАРГАЛКА
+/*
 section — блок тарифов; cards — карточки; controls — контейнер фильтров.
 search — текстовый поиск; duration — срок; reset — сброс; count — число результатов.
 priceRow — одна строка цены; filterTariffs — поиск и вывод подходящих тарифов.
