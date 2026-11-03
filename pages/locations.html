@@ -268,8 +268,12 @@
 
     <!-- 4. Bootstrap JS: работа меню и компонентов -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- 5. Свои скрипты: общий модуль данных и логика страницы «Филиалы» -->
+    <!-- 5. jQuery 3.7.1 из CDN (Assignment 6). defer: подключается до своих скриптов,
+         порядок выполнения сохраняется, DOM к моменту запуска готов. -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" defer></script>
+    <!-- 6. Свои скрипты: общий модуль данных, справочные данные филиалов и jQuery-логика -->
     <script src="../assets/js/main.js" defer></script>
     <script src="../assets/js/locations.js" defer></script>
+    <script src="../assets/js/locations-jquery.js" defer></script>
   </body>
 </html>
