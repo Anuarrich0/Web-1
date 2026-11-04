@@ -20,7 +20,7 @@
 3. **Сценарий 3: Фитнес-диагностика, расчет калорий и подбор расписания (Diagnostic & Schedule)**
    - *Точка входа*: `index.html` (ссылка «Рассчитать персональную норму калорий и график тренировок») или меню навигации → `pages/training.html`.
    - *Навигация*: Ввод персональных параметров (пол, возраст, рост, вес, активность, цель) в блоке `#fitness-calculator` → отображение результатов в контейнере `#calculator-results` (BMR, TDEE, целевые ккал, частота тренировок) → выбор удобного времени в фильтруемой таблице `#training-schedule`.
-   - *Целевое действие*: Переход к форме записи `#signup-form` с выводом статуса в `#signup-form-feedback`.
+   - *Целевое действие*: Переход к форме на странице контактов `pages/contacts.html#contact-form` с выводом статуса в `#contact-form-feedback`.
 
 ## Подготовка к JavaScript («Заморозка структуры» / Freeze State)
 
@@ -43,7 +43,6 @@
   - `pages/contacts.html`: `#contact-form-feedback`.
   - `pages/pricing.html`: `#pricing-order-feedback`.
   - `pages/services.html`: `#booking-form-feedback`.
-  - `pages/training.html`: `#signup-form-feedback`.
   - Все контейнеры снабжены атрибутом доступности `aria-live="polite"`.
 
 ### Правки разметки после заморозки
@@ -75,7 +74,7 @@ Assignment 6 переписывает интерактив Assignment 5 на **j
 | Валидация формы «Контакты» | `assets/js/contacts-jquery.js` | `old-js-version.js` (данные — `assets/js/contacts.js`) |
 | Фильтр каталога услуг и поиск + валидация формы консультации | `assets/js/services-jquery.js` | `old-js-version.js` (данные — `assets/js/services.js`) |
 | Фильтр филиалов по районам | `assets/js/locations-jquery.js` | `old-js-version.js` (данные — `assets/js/locations.js`) |
-| Фильтр расписания + калькулятор калорий + валидация формы подписки | `assets/js/training-jquery.js` | `old-js-version.js` (данные — `assets/js/training.js`) |
+| Фильтр расписания + калькулятор калорий | `assets/js/training-jquery.js` | `old-js-version.js` (данные — `assets/js/training.js`) |
 
 Старые Vanilla-версии сохранены для сравнения в `assets/js/old-js-version.js`, который **не подключён ни к одной странице**. Над каждой переписанной функцией в новом файле стоит комментарий: какие методы jQuery заменили какие строки Vanilla JS и стал ли код короче и понятнее.
 

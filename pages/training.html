@@ -82,7 +82,6 @@
           <li><a href="#training-schedule">Пример расписания</a></li>
           <li><a href="#fitness-calculator">Калькулятор калорий и графика</a></li>
           <li><a href="#glossary">Словарь терминов</a></li>
-          <li><a href="#signup-form">Форма подписки</a></li>
         </ul>
       </nav>
 
@@ -319,7 +318,7 @@
             <p class="mb-0 text-body-secondary"><strong>Программа:</strong> <span id="result-program-recommendation">—</span></p>
           </div>
           <p class="mb-0">
-            <a href="#signup-form" class="btn btn-primary btn-sm">Записаться на подходящую тренировку →</a>
+            <a href="contacts.html#contact-form" class="btn btn-primary btn-sm">Записаться на подходящую тренировку →</a>
           </p>
         </div>
       </section>
@@ -361,7 +360,7 @@
         <h2 class="h3 fw-bold mb-3">Полезно знать</h2>
         <p>
           Первая пробная тренировка по любому направлению «Experience Fitness» проводится бесплатно —
-          запишитесь через форму ниже.
+          запишитесь через <a href="contacts.html#contact-form">форму на странице контактов</a>.
         </p>
         <p>Ближайшая свободная запись доступна уже <time datetime="2026-09-14">14 сентября 2026</time>.</p>
       </aside>
@@ -378,141 +377,6 @@
         </figcaption>
       </figure>
 
-      <!-- 2.9. Подписка на тренировки и рассылку -->
-      <section class="mb-5">
-        <h2 id="signup-form" class="h3 fw-bold mb-3">Подписка на тренировки и рассылку</h2>
-        <!-- fieldset объединяет связанные поля; row и col-* стоят на существующих элементах формы. -->
-        <form action="#" method="post" class="bg-body-tertiary border rounded-3 p-3 p-md-4 shadow-sm">
-          <!-- Серверного обработчика нет: submit отключён, поля и reset работают. -->
-          <p id="form-note-0" class="small text-body-secondary">
-            Учебная форма: отправка пока недоступна. Для записи свяжитесь с клубом по телефону.
-          </p>
-          <fieldset class="row g-3 mx-0 border rounded-3 p-3 mb-4">
-            <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">Личные данные</legend>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
-            <div class="col-12 col-md-6">
-              <label for="full-name" class="form-label">Ваше имя:</label> <br />
-              <input type="text" id="full-name" name="full-name" required class="form-control" />
-            </div>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
-            <div class="col-12 col-md-6">
-              <label for="train-email" class="form-label">Ваш email:</label> <br />
-              <input type="email" id="train-email" name="train-email" required class="form-control" />
-            </div>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
-            <div class="col-12 col-md-6">
-              <label for="train-phone" class="form-label">Телефон:</label> <br />
-              <input
-                type="tel"
-                id="train-phone"
-                name="train-phone"
-                placeholder="+7 (700) 000-00-00"
-                class="form-control"
-              />
-            </div>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
-            <div class="col-12 col-md-6">
-              <label for="train-age" class="form-label">Возраст:</label> <br />
-              <input type="number" id="train-age" name="train-age" min="12" max="99" class="form-control" />
-            </div>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
-            <div class="col-12 col-md-6">
-              <label for="preferred-date" class="form-label">Желаемая дата пробной тренировки:</label> <br />
-              <input type="date" id="preferred-date" name="preferred-date" class="form-control" />
-            </div>
-          </fieldset>
-          <fieldset class="row g-3 mx-0 border rounded-3 p-3 mb-4">
-            <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">
-              Интересующее направление
-            </legend>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
-            <div class="col-12">
-              <input
-                type="radio"
-                id="direction-gym"
-                name="direction"
-                value="gym"
-                checked
-                class="form-check-input me-2"
-              />
-              <label for="direction-gym" class="form-label">Тренажёрный зал</label>
-            </div>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
-            <div class="col-12">
-              <input
-                type="radio"
-                id="direction-crossfit"
-                name="direction"
-                value="crossfit"
-                class="form-check-input me-2"
-              />
-              <label for="direction-crossfit" class="form-label">Кроссфит</label>
-            </div>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
-            <div class="col-12">
-              <input
-                type="radio"
-                id="direction-group"
-                name="direction"
-                value="group"
-                class="form-check-input me-2"
-              />
-              <label for="direction-group" class="form-label">Групповые занятия</label>
-            </div>
-          </fieldset>
-          <fieldset class="row g-3 mx-0 border rounded-3 p-3 mb-4">
-            <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">Дополнительно</legend>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
-            <div class="col-12 col-md-6">
-              <label for="train-level" class="form-label">Уровень подготовки:</label> <br />
-              <select id="train-level" name="train-level" class="form-select">
-                <option value="beginner">Начинающий</option>
-                <option value="intermediate">Средний</option>
-                <option value="advanced">Продвинутый</option>
-              </select>
-            </div>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
-            <div class="col-12">
-              <input
-                type="checkbox"
-                id="newsletter"
-                name="newsletter"
-                value="yes"
-                checked
-                class="form-check-input me-2"
-              />
-              <label for="newsletter" class="form-label"
-                >Хочу получать рассылку с советами по тренировкам</label>
-            </div>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
-            <div class="col-12">
-              <input type="checkbox" id="agree" name="agree" required class="form-check-input me-2" />
-              <label for="agree" class="form-label">Согласен(на) с условиями обработки данных</label>
-            </div>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
-            <div class="col-12">
-              <label for="train-comment" class="form-label">Комментарий:</label> <br />
-              <textarea
-                id="train-comment"
-                name="train-comment"
-                rows="4"
-                cols="40"
-                placeholder="Например, удобное время для звонка"
-                class="form-control"
-              ></textarea>
-            </div>
-          </fieldset>
-          <!-- DIV: группа кнопок формы, не навигация и не самостоятельный раздел. -->
-          <div class="d-flex flex-wrap gap-2 align-items-center">
-            <button type="submit" class="btn btn-primary btn-lg" disabled aria-describedby="form-note-0">
-              Подписаться и записаться
-            </button>
-            <button type="reset" class="btn btn-outline-light">Очистить форму</button>
-          </div>
-          <!-- DIV: контейнер динамического вывода статусов отправки формы для будущего JS-модуля. -->
-          <div id="signup-form-feedback" class="form-feedback-container mt-3" aria-live="polite"></div>
-        </form>
-      </section>
     </main>
 
     <!-- 3. Подвал сайта -->
@@ -567,8 +431,6 @@
     <!-- 6. Свои скрипты: общий модуль данных, справочные данные и jQuery-логика страницы -->
     <script src="../assets/js/main.js" defer></script>
     <script src="../assets/js/training.js" defer></script>
-    <!-- Общий попап оформления (jQuery): банковские данные, согласия, оферта. -->
-    <script src="../assets/js/checkout-jquery.js" defer></script>
     <script src="../assets/js/training-jquery.js" defer></script>
   </body>
 </html>

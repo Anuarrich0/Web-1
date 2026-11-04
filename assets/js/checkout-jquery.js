@@ -12,7 +12,7 @@
 
    HTML и CSS страниц заморожены (Midterm), поэтому разметка попапа целиком
    собирается кодом и вставляется в <body> через .append().
-   Используется на страницах pricing.html и training.html.
+   Используется на странице pricing.html.
 
    Что заменяет Vanilla-подход:
      document.createElement + appendChild  ->  $('<div>') + .append() / .appendTo()
