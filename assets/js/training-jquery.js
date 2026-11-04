@@ -314,14 +314,27 @@ $(function () {
     const direction = $form.find('input[name="direction"]:checked').val();
     const reference = EF.generateReference('TR');
     const visitDate = $('#preferred-date').val();
-    showFeedback('success', 'Запись ' + reference + ' принята', [
+    const details = [
       'Имя: ' + $('#full-name').val().trim(),
       'Контакт: ' + $('#train-email').val().trim() +
         ($('#train-phone').val().trim() === '' ? '' : ', ' + $('#train-phone').val().trim()),
       'Направление: ' + describeDirection(direction),
-      'Пробная тренировка: ' + (visitDate === '' ? 'дата не выбрана' : EF.formatDateRu(visitDate)),
-      'Демонстрационная форма: данные не отправлены на сервер, запись на тренировку не создана.'
-    ]);
+      'Пробная тренировка: ' + (visitDate === '' ? 'дата не выбрана' : EF.formatDateRu(visitDate))
+    ];
+
+    /* Открываем попап оформления (checkout-jquery.js): путь «форма → оплата → подтверждение»
+       заканчивается на сайте, без перехода на внешний платёж. Итоговое сообщение формы
+       показываем после подтверждения оплаты. */
+    window.EFCheckout.open({
+      title: 'Оформление подписки',
+      reference: reference,
+      summary: details,
+      onSuccess: function (confirmedReference) {
+        showFeedback('success', 'Запись ' + confirmedReference + ' принята', details.concat([
+          'Демонстрационная форма: данные не отправлены на сервер, запись на тренировку не создана.'
+        ]));
+      }
+    });
   });
 
   $form.on('reset', function () {
