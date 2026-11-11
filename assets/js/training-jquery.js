@@ -224,8 +224,10 @@ $(function () {
     $trainersBlock.append($slots);
     $wrap.append($trainersBlock);
 
-    /* 3.2. Групповые занятия на этой неделе. */
-    const $classesBlock = make('div', 'border rounded-3 p-3 p-md-4 bg-body-tertiary mb-4');
+    /* 3.2. Групповые занятия на этой неделе. Идентификатор нужен, чтобы ссылка из блока
+       калькулятора могла прокрутить страницу именно к выбору группового занятия. */
+    const $classesBlock = make('div', 'border rounded-3 p-3 p-md-4 bg-body-tertiary mb-4')
+      .attr('id', 'group-classes');
     $classesBlock.append(make('h3', 'h4 fw-bold mb-3', 'Групповые занятия на этой неделе'));
     const $classSummary = make('p', 'text-body-secondary mb-3', '');
     $classesBlock.append($classSummary);
@@ -472,6 +474,22 @@ $(function () {
       // preventDefault(): запись подтверждается на клиенте, серверу отправлять нечего.
       event.preventDefault();
       submitBooking();
+    });
+
+    /* Ссылка «Записаться на подходящую тренировку →» в блоке результатов калькулятора
+       в HTML ведёт на страницу контактов (разметку менять нельзя). Перехватываем клик и
+       переводим пользователя прямо к выбору группового занятия на этой же странице. */
+    $('#calculator-results').on('click', 'a[href$="#contact-form"]', function (event) {
+      event.preventDefault();
+      /* Эффект: плавная прокрутка к блоку занятий, после неё — фокус для скринридера. */
+      $('html, body').animate({ scrollTop: $classesBlock.offset().top - 16 }, 400, function () {
+        $classesBlock.attr('tabindex', '-1').trigger('focus');
+      });
+      /* Кратко подсвечиваем блок, чтобы было понятно, куда произошёл переход. */
+      $classesBlock.addClass('is-selected');
+      window.setTimeout(function () {
+        $classesBlock.removeClass('is-selected');
+      }, 1500);
     });
 
     /* Первичная отрисовка списка занятий недели. */
