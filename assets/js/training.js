@@ -28,6 +28,77 @@
     { id: 'cardio', label: 'Кардио' }
   ];
 
+  /* Тренеры и их свободные окна на неделе (для самостоятельной записи по времени).
+     Имена совпадают с полем trainer в EF.SCHEDULE. */
+  EF.TRAINERS = [
+    {
+      id: 'arman',
+      name: 'Арман С.',
+      specialty: 'Силовой тренинг и тренажёрный зал',
+      experienceYears: 8,
+      slots: [
+        { day: 'monday', dayLabel: 'Понедельник', time: '19:00' },
+        { day: 'wednesday', dayLabel: 'Среда', time: '19:00' },
+        { day: 'friday', dayLabel: 'Пятница', time: '11:00' }
+      ]
+    },
+    {
+      id: 'dina',
+      name: 'Дина К.',
+      specialty: 'Кардио, растяжка и зумба',
+      experienceYears: 6,
+      slots: [
+        { day: 'tuesday', dayLabel: 'Вторник', time: '08:00' },
+        { day: 'saturday', dayLabel: 'Суббота', time: '10:00' },
+        { day: 'sunday', dayLabel: 'Воскресенье', time: '12:00' }
+      ]
+    },
+    {
+      id: 'erzhan',
+      name: 'Ержан Т.',
+      specialty: 'Кроссфит и функциональный тренинг',
+      experienceYears: 10,
+      slots: [
+        { day: 'thursday', dayLabel: 'Четверг', time: '20:00' },
+        { day: 'friday', dayLabel: 'Пятница', time: '19:30' },
+        { day: 'sunday', dayLabel: 'Воскресенье', time: '10:00' }
+      ]
+    }
+  ];
+
+  /* Находит тренера по идентификатору (строгое сравнение ===). */
+  EF.findTrainerById = function (id) {
+    const found = EF.TRAINERS.filter(function (trainer) {
+      return trainer.id === id;
+    });
+    return found.length > 0 ? found[0] : null;
+  };
+
+  /* Групповые занятия недели: то, что доступно на этой неделе без обращения к менеджеру. */
+  EF.GROUP_CLASSES = [
+    { id: 'yoga', title: 'Йога', category: 'gym', day: 'monday', dayLabel: 'Понедельник', time: '18:00', trainer: 'Арман С.', spotsLeft: 6 },
+    { id: 'step', title: 'Степ-аэробика', category: 'cardio', day: 'tuesday', dayLabel: 'Вторник', time: '10:00', trainer: 'Дина К.', spotsLeft: 4 },
+    { id: 'functional', title: 'Функциональный тренинг', category: 'gym', day: 'wednesday', dayLabel: 'Среда', time: '19:00', trainer: 'Ержан Т.', spotsLeft: 8 },
+    { id: 'zumba', title: 'Зумба', category: 'cardio', day: 'thursday', dayLabel: 'Четверг', time: '18:30', trainer: 'Дина К.', spotsLeft: 10 },
+    { id: 'crossfit-wod', title: 'Кроссфит WOD', category: 'crossfit', day: 'friday', dayLabel: 'Пятница', time: '20:00', trainer: 'Ержан Т.', spotsLeft: 3 },
+    { id: 'stretch', title: 'Стретчинг', category: 'gym', day: 'saturday', dayLabel: 'Суббота', time: '11:00', trainer: 'Арман С.', spotsLeft: 0 }
+  ];
+
+  /* Находит групповое занятие по идентификатору. */
+  EF.findGroupClassById = function (id) {
+    const found = EF.GROUP_CLASSES.filter(function (item) {
+      return item.id === id;
+    });
+    return found.length > 0 ? found[0] : null;
+  };
+
+  /* Количество групповых занятий со свободными местами (доступно на этой неделе). */
+  EF.countAvailableClasses = function () {
+    return EF.GROUP_CLASSES.filter(function (item) {
+      return item.spotsLeft > 0;
+    }).length;
+  };
+
   /* Возвращает занятия выбранного направления (=== для сравнения категорий). */
   EF.getScheduleByCategory = function (category) {
     if (category === 'all' || !category) {
