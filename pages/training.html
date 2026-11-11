@@ -77,103 +77,17 @@
     <!-- 2. Основное содержимое -->
     <!-- container ограничивает ширину текста; container-fluid у шапки и подвала занимает всю ширину. -->
     <main id="main-content" class="container flex-grow-1 py-4 py-md-5 text-break">
-      <nav class="page-toc mb-4" aria-label="Содержание страницы">
-        <ul class="list-unstyled d-flex flex-wrap gap-3">
-          <li><a href="#training-schedule">Пример расписания</a></li>
-          <li><a href="#fitness-calculator">Калькулятор калорий и графика</a></li>
-          <li><a href="#glossary">Словарь терминов</a></li>
-        </ul>
-      </nav>
-
-      <!-- 2.1. Тренировки в Experience Fitness -->
-      <section class="mb-5">
-        <h1 class="display-5 fw-bold mb-4 text-center text-md-start">Тренировки в Experience Fitness</h1>
-        <p class="lead">
-          <b>Experience Fitness™</b> предлагает <strong>разнообразные тренировочные программы</strong> для
-          людей с разным уровнем подготовки и целями. Независимо от того, хотите ли вы набрать мышечную массу,
-          увеличить силу, улучшить выносливость или просто поддерживать хорошую физическую форму, в наших
-          залах можно подобрать подходящий вариант тренировок.
-        </p>
-        <p>
-          Перед началом занятия важно выполнить разминку и подготовить мышцы к нагрузке. Во время тренировки
-          необходимо соблюдать <em>правильную технику</em> выполнения упражнений и постепенно увеличивать
-          нагрузку, следуя принципу <i>progressive overload</i> (постепенной прогрессии нагрузки).
-          <!-- SPAN: выделяет часть текста внутри существующего элемента, без отдельного смыслового блока. -->
-          <span>Регулярность важнее слишком высокой нагрузки.</span> После тренировки организму необходимо
-          время для восстановления, поэтому полноценный сон и отдых являются важной частью прогресса.
-        </p>
-        <blockquote
-          cite="https://experiencefitness.kz"
-          class="blockquote border-start border-4 border-primary bg-body-tertiary p-4 rounded-end mb-4"
-        >
-          <p>
-            <q>Лучшая тренировка — та, которую вы делаете регулярно</q>, — говорят тренеры
-            <cite>Experience Fitness</cite>.
-          </p>
-        </blockquote>
-      </section>
-      <hr />
-
-      <!-- 2.2. Основные направления -->
-      <article class="mb-5">
-        <h2 class="h3 fw-bold mb-3">Основные направления</h2>
-        <p>
-          Площадь основного тренажёрного зала составляет около 700 м<sup>2</sup>, что позволяет комфортно
-          тренироваться даже в часы пик.
-        </p>
-        <ul>
-          <li>Тренировки в тренажерном зале</li>
-          <li>Персональные тренировки</li>
-          <li>
-            Групповые занятия
-            <ul>
-              <li>Йога</li>
-              <li>Степ-аэробика</li>
-              <li>Функциональный тренинг</li>
-            </ul>
-          </li>
-          <li>Кроссфит</li>
-          <li>Кардио тренировки</li>
-        </ul>
-        <figure class="mb-4">
-          <img
-            src="../assets/images/training-hall.jpg"
-            alt="Тренажёрный зал Experience Fitness с рядами силовых тренажёров"
-            width="600"
-            height="400"
-            class="w-100 rounded-3 object-fit-cover img-fluid content-photo"
-          />
-          <figcaption class="small text-body-secondary pt-2">
-            Основной тренажёрный зал одного из филиалов Experience Fitness
-          </figcaption>
-        </figure>
-      </article>
-
-      <!-- 2.3. Этапы одной тренировки -->
-      <section class="mb-5">
-        <h2 class="h3 fw-bold mb-3">Этапы одной тренировки</h2>
-        <ol reversed>
-          <li>Заминка и растяжка</li>
-          <li>Основной блок упражнений</li>
-          <li>Разминка</li>
-        </ol>
-        <figure class="mb-4">
-          <img
-            src="../assets/images/warmup.jpg"
-            alt="Разминка перед тренировкой в зале Experience Fitness"
-            width="600"
-            height="400"
-            class="w-100 rounded-3 object-fit-cover img-fluid content-photo"
-          />
-          <figcaption class="small text-body-secondary pt-2">
-            Разминка — обязательный этап перед любой тренировкой
-          </figcaption>
-        </figure>
-      </section>
-
-      <!-- 2.4. Пример тренировочной недели -->
-      <section class="mb-5" id="training-schedule">
-        <h2 class="h3 fw-bold mb-3">Пример тренировочной недели</h2>
+<section class="training-hero mb-5" aria-labelledby="training-title">
+ <div><p class="training-eyebrow">EXPERIENCE FITNESS / ТРЕНИРОВКИ</p><h1 id="training-title">Сильнее.<br>С каждым<br><span>занятием.</span></h1><p class="lead text-body-secondary mt-4">Ваш темп. Ваша цель. Зал, групповые программы и персональные тренировки — найдите формат, к которому захочется возвращаться.</p><div class="d-flex flex-wrap gap-3 mt-4"><a class="btn btn-primary btn-lg" href="#training-booking">Выбрать тренировку ↗</a><a class="btn btn-outline-light btn-lg" href="pricing.html">Абонементы</a></div><p class="small text-body-secondary mt-4 mb-0">Впервые в зале? Начните со знакомства с тренером.</p></div>
+ <figure class="training-hero-photo mb-0"><img src="../assets/images/training-hall.jpg" width="600" height="400" alt="Тренажёрный зал Experience Fitness" fetchpriority="high"><figcaption>Место, где начинается ваша новая привычка.</figcaption></figure>
+</section>
+<nav class="training-nav mb-5" aria-label="Разделы тренировок"><a href="#directions">Направления</a><a href="#training-booking">Тренеры и занятия</a><a href="#first-visit">Первый визит</a><a href="#training-plan">Мой план</a></nav>
+<section id="directions" class="mb-5"><p class="training-eyebrow">01 / НАЙДИТЕ СВОЙ ФОРМАТ</p><div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4"><h2 class="display-6 fw-bold mb-0">Тренируйтесь по-своему</h2><p class="text-body-secondary mb-0">От первого повторения до новой личной цели.</p></div><div class="row g-4"><div class="col-12 col-md-4"><article class="training-card h-100"><img src="../assets/images/gym-weights-area.jpg" alt="Тренажёрный зал в Experience Fitness" width="600" height="400" loading="lazy"><div class="p-4"><p class="training-eyebrow">01 / Сила и тонус</p><h3 class="h4 fw-bold">Тренажёрный зал</h3><p class="text-body-secondary">Свободные веса и тренажёры для работы в своём темпе. Выбирайте нагрузку под свой уровень.</p><a href="#training-booking">Выбрать занятие ↗</a></div></article></div>
+<div class="col-12 col-md-4"><article class="training-card h-100"><img src="../assets/images/trainer-in-mirror-strength-gym.jpg" alt="Персональный тренинг в Experience Fitness" width="600" height="400" loading="lazy"><div class="p-4"><p class="training-eyebrow">02 / Ваш личный план</p><h3 class="h4 fw-bold">Персональный тренинг</h3><p class="text-body-secondary">Один на один с тренером: разберите технику и двигайтесь к цели по понятной программе.</p><a href="#training-booking">Выбрать занятие ↗</a></div></article></div>
+<div class="col-12 col-md-4"><article class="training-card h-100"><img src="../assets/images/group-class.jpg" alt="Групповые программы в Experience Fitness" width="600" height="400" loading="lazy"><div class="p-4"><p class="training-eyebrow">03 / Энергия команды</p><h3 class="h4 fw-bold">Групповые программы</h3><p class="text-body-secondary">Функциональный тренинг, кардио и растяжка. Найдите занятие под настроение и тренируйтесь вместе.</p><a href="#training-booking">Выбрать занятие ↗</a></div></article></div></div></section>
+<section id="first-visit" class="training-first mb-5 p-4 p-md-5"><div class="row g-4 align-items-center"><div class="col-lg-5"><p class="training-eyebrow">ПЕРВЫЙ ШАГ</p><h2 class="display-6 fw-bold">Первый раз?<br>Вы на своём месте.</h2><p class="text-body-secondary">Не нужно приходить в идеальной форме. Достаточно прийти — с остальным поможем разобраться.</p><a class="btn btn-primary" href="contacts.html#contact-form">Обсудить первый визит ↗</a></div><div class="col-lg-7"><ol class="training-steps"><li><strong>Выберите формат</strong><span>Самостоятельно, с тренером или в группе — начните с того, что вам ближе.</span></li><li><strong>Подготовьтесь к занятию</strong><span>Возьмите спортивную форму, чистую сменную обувь, полотенце и воду.</span></li><li><strong>Начните спокойно</strong><span>Приходите немного заранее. Познакомьтесь с залом и обсудите нагрузку с тренером.</span></li></ol></div></div></section>
+<section class="mb-5" id="training-schedule">
+        <h2 class="h3 fw-bold mb-3">Ваш тренировочный ритм</h2>
         <!-- DIV: группа кнопок фильтрации расписания по направлениям для будущего JS-модуля. -->
         <div class="d-flex flex-wrap gap-2 mb-3" role="group" aria-label="Фильтр расписания тренировок">
           <button type="button" class="btn btn-sm btn-outline-light active" data-schedule-filter="all">Все направления</button>
@@ -191,7 +105,7 @@
           <!-- Bootstrap Table: оформление адаптировано к нашей таблице, её caption и заголовки сохранены. https://getbootstrap.com/docs/5.3/content/tables/ -->
           <table class="table table-striped table-hover align-middle mb-0 text-nowrap">
             <caption id="table-caption-0" class="px-3 small">
-              Пример расписания тренировок
+              Пример недельного плана · время занятий уточняйте в клубе
             </caption>
             <thead>
               <tr>
@@ -225,9 +139,7 @@
           </table>
         </div>
       </section>
-
-      <!-- 2.5. Фитнес-калькулятор калорий и графика тренировок -->
-      <section class="mb-5" id="fitness-calculator">
+<details id="training-plan" class="training-plan mb-5"><summary>Рассчитать калории и частоту тренировок</summary><p class="text-body-secondary pt-3">Расчёт ориентировочный и не заменяет индивидуальную консультацию.</p><section class="mb-5" id="fitness-calculator">
         <h2 class="h3 fw-bold mb-3">Калькулятор калорий и графика тренировок</h2>
         <p class="text-body-secondary mb-4">
           Рассчитайте персональную суточную норму калорий (BMR / TDEE) и получите рекомендации по частоте
@@ -321,63 +233,13 @@
             <a href="contacts.html#contact-form" class="btn btn-primary btn-sm">Записаться на подходящую тренировку →</a>
           </p>
         </div>
-      </section>
-
-      <!-- 2.6. Словарь терминов -->
-      <section id="glossary" class="mb-5">
-        <h2 class="h3 fw-bold mb-3">Словарь терминов</h2>
-        <dl class="row g-3 mb-4">
-          <dt class="col-12 col-md-4 text-primary">Кроссфит</dt>
-          <dd class="col-12 col-md-8 text-body-secondary">
-            Высокоинтенсивная тренировка, сочетающая элементы тяжёлой атлетики, гимнастики и кардио.
-          </dd>
-          <dt class="col-12 col-md-4 text-primary">Кардиотренировка</dt>
-          <dd class="col-12 col-md-8 text-body-secondary">
-            Упражнения для укрепления сердечно-сосудистой системы — бег, велотренажёр, гребля.
-          </dd>
-          <dt class="col-12 col-md-4 text-primary">Разминка</dt>
-          <dd class="col-12 col-md-8 text-body-secondary">
-            Комплекс лёгких упражнений перед основной тренировкой для подготовки мышц и суставов.
-          </dd>
-        </dl>
-      </section>
-
-      <!-- 2.6. Совет для начинающих -->
-      <aside class="tip-box alert alert-info p-4 mb-4">
-        <h2 class="h3 fw-bold mb-3">Совет для начинающих</h2>
-        <p>
-          Если вы только начинаете тренироваться, не стоит сразу пытаться использовать
-          <mark>максимальные веса</mark>. Начните с освоения базовых упражнений и правильной техники. Тренер
-          поможет составить программу, подходящую именно для вашего уровня подготовки.
-        </p>
-        <p>
-          <small class="small text-body-secondary">Совет подготовлен тренерами Experience Fitness.</small>
-        </p>
-      </aside>
-
-      <!-- 2.7. Полезно знать -->
-      <aside class="bg-body-tertiary border rounded-3 p-4 mb-5">
-        <h2 class="h3 fw-bold mb-3">Полезно знать</h2>
-        <p>
-          Первая пробная тренировка по любому направлению «Experience Fitness» проводится бесплатно —
-          запишитесь через <a href="contacts.html#contact-form">форму на странице контактов</a>.
-        </p>
-        <p>Ближайшая свободная запись доступна уже <time datetime="2026-09-14">14 сентября 2026</time>.</p>
-      </aside>
-      <figure class="mb-4">
-        <img
-          src="../assets/images/group-class.jpg"
-          alt="Групповое занятие по функциональному тренингу в зале Experience Fitness"
-          width="600"
-          height="400"
-          class="w-100 rounded-3 object-fit-cover img-fluid content-photo"
-        />
-        <figcaption class="small text-body-secondary pt-2">
-          Групповые занятия проходят каждый день в разное время
-        </figcaption>
-      </figure>
-
-    </main>
+      </section></details>
+<section class="mb-5" aria-labelledby="faq-title"><p class="training-eyebrow">ЕЩЁ ПАРА ВОПРОСОВ</p><h2 id="faq-title" class="h2 fw-bold mb-4">Перед первой тренировкой</h2>
+ <details class="training-faq"><summary>Можно ли начать без опыта?</summary><p>Да. Расскажите тренеру о своём опыте и цели, чтобы подобрать стартовую нагрузку и разобрать технику.</p></details>
+ <details class="training-faq"><summary>Как выбрать занятие?</summary><p>Для работы с весами подойдёт тренажёрный зал, для индивидуального плана — персональный тренинг. Если нравится заниматься вместе, попробуйте групповую программу.</p></details>
+ <details class="training-faq"><summary>Входит ли тренер в абонемент?</summary><p>Условия зависят от тарифа и формата тренировки. Посмотрите <a href="pricing.html">абонементы</a> или уточните детали в клубе перед записью.</p></details>
+</section>
+<section class="training-cta p-4 p-md-5 mb-4"><div><p class="training-eyebrow">УВИДИМСЯ В ЗАЛЕ</p><h2 class="h1 fw-bold">Ваша следующая цель<br>начинается здесь.</h2><p class="text-body-secondary mb-0">Выберите клуб и сделайте первый шаг.</p></div><a class="btn btn-primary btn-lg" href="locations.html">Найти свой клуб ↗</a></section></main>
 
     <!-- 3. Подвал сайта -->
     <!-- footer сам служит container-fluid и row; его section и nav являются колонками. -->

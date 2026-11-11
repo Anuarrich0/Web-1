@@ -1,2 +1,31 @@
-/* Assignment 3: former page layout rules replaced by Bootstrap classes.
-   Shared brand colour corrections live in base.css. */
+﻿/* Training page: retain the shared club colours and Bootstrap layout. */
+.training-hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem; padding-block: 2rem; }
+.training-eyebrow { color: var(--bs-link-color); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.training-hero h1 { font-size: clamp(3rem, 6vw, 5.6rem); line-height: .98; font-weight: 800; letter-spacing: -.055em; }
+.training-hero h1 span { color: var(--bs-link-color); }
+.training-hero .lead { max-width: 34rem; }
+.training-hero-photo { position: relative; max-width: 600px; }
+.training-hero-photo img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 1rem; }
+.training-hero-photo figcaption { border-left: 3px solid var(--bs-link-color); padding: .8rem 1rem; margin-top: 1rem; color: var(--bs-secondary-color); font-size: .85rem; }
+.training-nav { display: flex; flex-wrap: wrap; gap: 1rem 2rem; padding-block: 1.3rem; border-block: 1px solid var(--bs-border-color); }
+.training-nav a { color: var(--bs-body-color); text-decoration: none; font-size: .9rem; }
+.training-nav a:hover { color: var(--bs-link-color); }
+.training-card { overflow: hidden; border: 1px solid var(--bs-border-color); border-radius: 1rem; background: var(--bs-tertiary-bg); }
+.training-card img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.training-card a { text-decoration: none; font-weight: 600; }
+.training-first, .training-cta { background: var(--bs-tertiary-bg); border: 1px solid var(--bs-border-color); border-radius: 1rem; }
+.training-steps { list-style: decimal-leading-zero; margin: 0; padding-left: 2.4rem; }
+.training-steps li { padding: 1rem 0 1rem .8rem; border-bottom: 1px solid var(--bs-border-color); }
+.training-steps li:last-child { border: 0; }
+.training-steps li::marker { color: var(--bs-link-color); font-weight: 700; }
+.training-steps strong, .training-steps span { display: block; }
+.training-steps span { color: var(--bs-secondary-color); margin-top: .4rem; }
+.training-plan, .training-faq { border-block-end: 1px solid var(--bs-border-color); padding: 1.3rem 0; }
+.training-plan summary, .training-faq summary { cursor: pointer; font-weight: 600; }
+.training-faq p { max-width: 52rem; color: var(--bs-secondary-color); padding-top: 1rem; margin-bottom: 0; }
+.training-cta { display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+#main-content section, #fitness-calculator { scroll-margin-top: 2rem; }
+@media (max-width: 767px) {
+  .training-hero { grid-template-columns: 1fr; gap: 2rem; padding-block: 1rem; }
+  .training-cta { align-items: flex-start; flex-direction: column; }
+}

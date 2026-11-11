@@ -1,8 +1,8 @@
 'use strict';
 
 /* ============================================================================
-   Assignment 6, фича 4: фильтр расписания и калькулятор калорий
-   (страница «Тренировки»). Подключён jQuery 3.7.1.
+   Assignment 6, фича 4: фильтр расписания, калькулятор калорий и выбор
+   тренировки (страница «Тренировки»). Подключён jQuery 3.7.1.
 
    Что заменили (сравнение со старой Vanilla-версией из old-js-version.js):
      document.getElementById('id')        ->  $('#id')
@@ -38,17 +38,12 @@ $(function () {
       $scheduleSection.find('[data-schedule-filter]').each(function () {
         const $button = $(this);
         const active = $button.attr('data-schedule-filter') === category;
-        $button.toggleClass('is-selected', active).toggleClass('active', active);
+        $button.toggleClass('is-selected', active).toggleClass('active', active).attr('aria-pressed', String(active));
       });
 
       const visible = $rows.filter(':not(.is-hidden)').length;
       $status.text('Показано занятий: ' + visible + ' из ' + $rows.length);
     }
-
-    /* Делегированный обработчик на секции: реагируем на клик по кнопке фильтра.
-       Прямая привязка к каждой кнопке требовала бы перебора; делегирование через
-       второй аргумент .on() обслуживает все кнопки одним обработчиком и работает,
-       даже если кнопки появятся позже. */
     $scheduleSection.on('click', '[data-schedule-filter]', function () {
       applyScheduleFilter($(this).attr('data-schedule-filter')); // $(this) — нажатая кнопка
     });
@@ -56,7 +51,6 @@ $(function () {
     applyScheduleFilter('all');
   }
 
-  /* --- Часть 2. Калькулятор калорий и графика тренировок. --- */
   const $calcForm = $('#calculator-form');
   if ($calcForm.length > 0) {
     const $results = $('#calculator-results');
@@ -192,11 +186,11 @@ $(function () {
 
     /* Контейнер самостоятельной записи целиком создаётся кодом и вставляется после
        секции расписания (#training-schedule). */
-    const $wrap = make('section', 'mb-5').attr('aria-label', 'Онлайн-запись к тренерам и на групповые занятия');
-    $wrap.append(make('h2', 'h3 fw-bold mb-3', 'Онлайн-запись без менеджера'));
+    const $wrap = make('section', 'mb-5').attr('id', 'training-booking').attr('aria-label', 'Онлайн-запись к тренерам и на групповые занятия');
+    $wrap.append(make('h2', 'h3 fw-bold mb-3', 'Тренеры и групповые занятия'));
     $wrap.append(make('p', 'text-body-secondary mb-4',
-      'Выберите тренера и удобное время или групповое занятие этой недели и запишитесь сами — ' +
-      'уточнять расписание у менеджера не нужно.'));
+      'Выберите тренера и удобное время или групповую программу. ' +
+      'Доступность времени уточняйте в клубе. Форма работает в демонстрационном режиме.'));
 
     /* 3.1. Тренеры и свободное время на неделе. */
     const $trainersBlock = make('div', 'border rounded-3 p-3 p-md-4 bg-body-tertiary mb-4');
@@ -236,13 +230,13 @@ $(function () {
     /* 3.3. Всплывающее окно (Bootstrap modal) подтверждения записи. Разметка попапа
        целиком собирается кодом и вставляется в <body>, поэтому HTML страницы не меняется.
        Формой служит сам .modal-content — так работает родное событие submit с preventDefault(). */
-    const $bookingModal = make('div', 'modal fade').attr('tabindex', '-1').attr('aria-hidden', 'true');
+    const $bookingModal = make('div', 'modal fade').attr('tabindex', '-1').attr('aria-hidden', 'true').attr('aria-labelledby', 'booking-title');
     const $bookingDialog = make('div', 'modal-dialog modal-dialog-centered').appendTo($bookingModal);
     const $bookingForm = make('form', 'modal-content').attr('action', '#').attr('method', 'post');
     $bookingDialog.append($bookingForm);
 
     const $bookingHeader = make('div', 'modal-header');
-    $bookingHeader.append(make('h3', 'modal-title h5', 'Подтверждение записи'));
+    $bookingHeader.append(make('h3', 'modal-title h5', 'Выбранная тренировка').attr('id', 'booking-title'));
     $bookingHeader.append(
       make('button', 'btn-close').attr('type', 'button').attr('data-bs-dismiss', 'modal').attr('aria-label', 'Закрыть')
     );
@@ -251,7 +245,7 @@ $(function () {
     const $bookingBody = make('div', 'modal-body');
     const $target = make('p', 'fw-bold mb-3', 'Цель записи не выбрана.');
     $bookingBody.append($target);
-    $bookingBody.append(make('p', 'text-body-secondary mb-3', 'Укажите имя и телефон — запись подтвердится автоматически, менеджер не нужен.'));
+    $bookingBody.append(make('p', 'text-body-secondary mb-3', 'Данные не отправляются в клуб. Для записи позвоните +7 (778) 345-74-05.'));
 
     const $nameGroup = make('div', 'mb-3');
     $nameGroup.append(make('label', 'form-label', 'Ваше имя:').attr('for', 'booking-name'));
@@ -419,8 +413,8 @@ $(function () {
 
       clearFeedback();
       const $alert = make('div', 'alert alert-success mb-0');
-      $alert.append(make('p', 'fw-bold mb-2', 'Готово! Вы записаны. Номер записи: ' + EF.generateReference('EF')));
-      $alert.append(make('p', 'mb-0', selected.confirmation + ' Мы ждём вас в Experience Fitness.'));
+      $alert.append(make('p', 'fw-bold mb-2', 'Демонстрационная заявка: ' + EF.generateReference('EF')));
+      $alert.append(make('p', 'mb-0', 'Запись в клуб не создана. Подтвердите время по телефону +7 (778) 345-74-05.'));
       $bookingFeedback.append($alert).addClass('is-success');
 
       /* Для группового занятия уменьшаем число свободных мест и перерисовываем список. */
@@ -476,5 +470,6 @@ $(function () {
 
     /* Первичная отрисовка списка занятий недели. */
     renderClasses();
+    renderTrainer(EF.TRAINERS[0].id);
   }
 });
