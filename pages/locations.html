@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru" data-bs-theme="dark">
 
-  <!-- 0. Настройки страницы и стили -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="A. Maksat" />
-    <!-- Author: A. Maksat -->
+
     <meta
       name="description"
       content="Филиалы сети фитнес-клубов Experience Fitness в Астане: ул. Шолпан Иманбаевой и ул. Санжара Асфендиярова. График работы, контакты и оснащение залов."
     />
     <title>Филиалы — Experience Fitness</title>
-    <!-- Bootstrap 5.3.8 из CDN; свои стили подключены после него для корректной работы каскада. -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/css/base.css" />
     <link rel="stylesheet" href="../assets/css/maksat.css" />
     <link rel="icon" href="../assets/images/logo-white.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../assets/css/site.css" />
   </head>
   <body class="d-flex flex-column min-vh-100">
 
-    <!-- 1. Шапка сайта: логотип, меню, контакты -->
-    <!-- Bootstrap Navbar: меню сворачивается до 1200 px. Ссылки адаптированы под страницы клуба. https://getbootstrap.com/docs/5.3/components/navbar/ -->
     <header
       class="main-header navbar navbar-expand-xl bg-body-tertiary border-bottom py-3 container-fluid px-3 px-lg-4"
     >
@@ -49,7 +47,7 @@
         data-bs-toggle="collapse"
         data-bs-target="#primary-nav"
       >
-        <!-- SPAN: декоративная иконка Bootstrap, без самостоятельного смыслового содержания. -->
+
         <span class="navbar-toggler-icon"></span>
       </button>
       <nav class="collapse navbar-collapse" id="primary-nav" aria-label="Основная навигация">
@@ -74,45 +72,26 @@
       </p>
     </header>
 
-    <!-- 2. Основное содержимое -->
-    <!-- container ограничивает ширину текста; container-fluid у шапки и подвала занимает всю ширину. -->
     <main id="main-content" class="container flex-grow-1 py-4 py-md-5 text-break">
-
-      <!-- 2.1. Филиалы фитнес-сети Experience Fitness в Астане -->
-      <section class="locations-intro-section mb-5" id="locations-intro">
-        <h1 class="display-5 fw-bold mb-4 text-center text-md-start">
-          Филиалы фитнес-сети Experience Fitness в Астане
-        </h1>
-        <p class="lead">
-          Сеть Experience Fitness включает современные фитнес-клубы в Астане. Каждый филиал оборудован
-          профессиональными тренажерами, залами для групповых программ и боевых искусств, а также финскими
-          саунами и SPA-зонами. Ознакомьтесь с информацией о наших площадках и выберите удобный зал.
-        </p>
-      </section>
-
-      <!-- 2.2. Быстрый подбор филиала -->
-      <section class="filter-section mb-5" id="branch-filters">
+<section id="locations-intro" class="site-hero mb-5"><div><p class="site-eyebrow">EXPERIENCE FITNESS / КЛУБЫ</p><h1>Ближе к дому.<br><span>Ближе к цели.</span></h1><p class="lead text-body-secondary mt-4">Выбирайте зал по пути домой или рядом с работой. Посмотрите адреса, часы работы и тренировочные зоны перед первым визитом.</p><div class="d-flex flex-wrap gap-3 mt-4"><a class="btn btn-primary btn-lg" href="#branch-filters">Найти свой клуб ↗</a><a class="btn btn-outline-light btn-lg" href="pricing.html">Посмотреть тарифы</a></div></div><figure class="mb-0"><img src="../assets/images/gym-floor-with-mirrors-and-benches.jpg" alt="КЛУБЫ — Experience Fitness" width="600" height="400" fetchpriority="high"><figcaption>Ваш темп. Ваше пространство. Ваш результат.</figcaption></figure></section><nav class="site-nav mb-5" aria-label="Разделы страницы"><a href="#branch-filters">Выбор района</a><a href="#locations-table-section">Адреса и контакты</a><a href="#interactive-map">Маршруты</a></nav><section class="filter-section mb-5" id="branch-filters">
         <h2 class="h3 fw-bold mb-3">Быстрый подбор филиала</h2>
         <fieldset class="filter-group d-flex flex-wrap gap-3 border rounded-3 p-3 mb-4">
-          <legend class="float-none w-auto px-2 fs-6">Перейти к филиалу:</legend>
+          <legend class="float-none w-auto px-2 fs-6">Выберите район:</legend>
           <a class="btn btn-outline-light btn-sm" href="#locations-table-section">Все районы</a>
           <a class="btn btn-outline-light btn-sm" href="#branch-baikonur">р-н Байконур</a>
           <a class="btn btn-outline-light btn-sm" href="#branch-esil">р-н Есиль</a>
         </fieldset>
-      </section>
+      </section><section class="table-section mb-5" id="locations-table-section">
+        <h2 class="h3 fw-bold mb-3">Клубы и адреса</h2>
+        <p>Сравните расположение, время работы и оснащение. Здесь представлены два филиала с подробной информацией.</p>
 
-      <!-- 2.3. Сравнительная таблица залов -->
-      <section class="table-section mb-5" id="locations-table-section">
-        <h2 class="h3 fw-bold mb-3">Сравнительная таблица залов</h2>
-        <p>Ниже представлены детальные параметры филиалов Experience Fitness:</p>
-        <!-- DIV: прокручивает только таблицу; заголовок и описание остаются в существующем section. -->
         <div
           class="table-responsive border rounded-3 mb-4"
           role="region"
           tabindex="0"
           aria-labelledby="table-caption-0"
         >
-          <!-- Bootstrap Table: оформление адаптировано к нашей таблице, её caption и заголовки сохранены. https://getbootstrap.com/docs/5.3/content/tables/ -->
+
           <table class="branches-table table table-striped table-hover align-middle mb-0 text-nowrap">
             <caption id="table-caption-0" class="px-3 small">
               Характеристики и оснащение фитнес-клубов Experience Fitness
@@ -175,53 +154,9 @@
             </tbody>
           </table>
         </div>
-      </section>
+      </section><section id="branch-gallery" class="site-panel p-4 p-md-5 mb-5"><p class="site-eyebrow">ПРОСТРАНСТВО ДЛЯ ВАШИХ ЦЕЛЕЙ</p><h2 class="h2 fw-bold">Начните со знакомства с залом</h2><p class="text-body-secondary">Выберите удобный филиал и уточните интересующие зоны, расписание и условия первого визита по телефону клуба.</p><a class="btn btn-outline-light" href="services.html">Посмотреть зоны и услуги ↗</a></section><section id="interactive-map" class="mb-5"><p class="site-eyebrow">БЕЗ ЛИШНИХ ПОВОРОТОВ</p><h2 class="h2 fw-bold">Постройте маршрут</h2><p class="text-body-secondary">Откройте нужный филиал на карте. Адреса и ссылки 2GIS доступны в таблице выше.</p><a href="#locations-table-section" class="btn btn-primary">К адресам и картам ↗</a></section><section class="site-cta site-panel p-4 p-md-5 mb-5"><div><p class="site-eyebrow">ВАШ СЛЕДУЮЩИЙ ШАГ</p><h2 class="h2 fw-bold">Нашли удобный клуб?</h2><p class="text-body-secondary mb-0">Выберите карту для одного филиала или всей сети.</p></div><a class="btn btn-primary btn-lg" href="pricing.html">Выбрать абонемент ↗</a></section>
+</main>
 
-      <!-- 2.4. Интерьер залов Experience Fitness -->
-      <section class="gallery-section mb-5" id="branch-gallery">
-        <h2 class="h3 fw-bold mb-3">Интерьер залов Experience Fitness</h2>
-        <p><a href="#locations-table-section">Перейти к таблице характеристик залов ↓</a></p>
-        <figure class="location-photo-card mb-4">
-          <img
-            src="../assets/images/gym-weights-area.jpg"
-            alt="Зона свободных весов и гантельный ряд в фитнес-клубе Experience Fitness"
-            width="600"
-            height="400"
-            class="w-100 rounded-3 object-fit-cover img-fluid content-photo"
-          />
-          <figcaption class="small text-body-secondary pt-2">
-            <b>Фото 1:</b> <i>Зона свободных весов</i> в зале. <mark>Премиальное оборудование</mark> и
-            прорезиненное покрытие.
-            <small class="small text-body-secondary">Снято авторским составом Experience Fitness.</small>
-          </figcaption>
-        </figure>
-        <p>
-          Возникли вопросы по отделу аренды или сотрудничеству? Пишите на нашу почту:
-          <a href="mailto:info@experiencefitness.kz" class="text-break">info@experiencefitness.kz</a>
-        </p>
-      </section>
-
-      <!-- 2.5. Маршруты к филиалам -->
-      <section class="map-container-section mb-5" id="interactive-map">
-        <h2 class="h3 fw-bold mb-3">Маршруты к филиалам</h2>
-        <p>
-          <a href="#locations-table-section" class="btn btn-outline-light"
-            >Открыть адреса и ссылки на карты</a>
-        </p>
-        <p>
-          Вы можете проложить маршрут до любого из филиалов Experience Fitness, воспользувшись мобильным
-          приложением или перейдя по прямым ссылкам в таблице выше.
-        </p>
-      </section>
-      <a
-        href="#locations-table-section"
-        class="btn btn-outline-light btn-sm mb-4 align-self-center"
-        aria-label="Быстрый переход к таблице"
-        >К таблице ↓</a>
-    </main>
-
-    <!-- 3. Подвал сайта -->
-    <!-- footer сам служит container-fluid и row; его section и nav являются колонками. -->
     <footer
       class="main-footer border-top bg-body-tertiary mt-auto py-5 text-break container-fluid row g-4 mx-0 px-3 px-lg-5"
       id="site-footer"
@@ -266,12 +201,10 @@
       </section>
     </footer>
 
-    <!-- 4. Bootstrap JS: работа меню и компонентов -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- 5. jQuery 3.7.1 из CDN (Assignment 6). defer: подключается до своих скриптов,
-         порядок выполнения сохраняется, DOM к моменту запуска готов. -->
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" defer></script>
-    <!-- 6. Свои скрипты: общий модуль данных, справочные данные филиалов и jQuery-логика -->
+
     <script src="../assets/js/main.js" defer></script>
     <script src="../assets/js/locations.js" defer></script>
     <script src="../assets/js/locations-jquery.js" defer></script>

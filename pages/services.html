@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru" data-bs-theme="dark">
 
-  <!-- 0. Настройки страницы и стили -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="A. Maksat" />
-    <!-- Author: A. Maksat -->
+
     <meta
       name="description"
       content="Услуги, спортивные зоны и тренировочные программы фитнес-сети Experience Fitness в Астане. Тренажерный зал, групповые программы, боевые искусства и сауны / SPA."
     />
     <title>Услуги и Зоны — Experience Fitness</title>
-    <!-- Bootstrap 5.3.8 из CDN; свои стили подключены после него для корректной работы каскада. -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/css/base.css" />
     <link rel="stylesheet" href="../assets/css/maksat.css" />
     <link rel="icon" href="../assets/images/logo-white.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../assets/css/site.css" />
   </head>
   <body class="d-flex flex-column min-vh-100">
 
-    <!-- 1. Шапка сайта: логотип, меню, контакты -->
-    <!-- Bootstrap Navbar: меню сворачивается до 1200 px. Ссылки адаптированы под страницы клуба. https://getbootstrap.com/docs/5.3/components/navbar/ -->
     <header
       class="main-header navbar navbar-expand-xl bg-body-tertiary border-bottom py-3 container-fluid px-3 px-lg-4"
     >
@@ -49,7 +47,7 @@
         data-bs-toggle="collapse"
         data-bs-target="#primary-nav"
       >
-        <!-- SPAN: декоративная иконка Bootstrap, без самостоятельного смыслового содержания. -->
+
         <span class="navbar-toggler-icon"></span>
       </button>
       <nav class="collapse navbar-collapse" id="primary-nav" aria-label="Основная навигация">
@@ -74,40 +72,15 @@
       </p>
     </header>
 
-    <!-- 2. Основное содержимое -->
-    <!-- container ограничивает ширину текста; container-fluid у шапки и подвала занимает всю ширину. -->
     <main id="main-content" class="container flex-grow-1 py-4 py-md-5 text-break">
-
-      <!-- 2.1. Фитнес-услуги и специализированные зоны залов -->
-      <section class="services-intro-section mb-5" id="services-intro">
-        <h1 class="display-5 fw-bold mb-4 text-center text-md-start">
-          Фитнес-услуги и специализированные зоны залов
-        </h1>
-        <!-- float-md-start обтекает фото текстом от 768 px; clearfix удерживает следующий раздел под фото. -->
-        <p class="lead clearfix mb-4">
-          <img
-            src="../assets/images/reception.jpg"
-            alt="Зона ресепшн фитнес-клуба Experience Fitness"
-            class="float-intro-img img-fluid content-photo object-fit-cover rounded-3 d-block float-md-start me-md-4 mb-3"
-            width="300"
-          />
-          В сети клубов <strong>Experience Fitness</strong> созданы все условия для эффективных и безопасных
-          тренировок. Мы предлагаем просторные тренажёрные залы, широкий выбор групповых программ, секции
-          боевых искусств и финские сауны / SPA-зоны для качественного восстановления после занятий.
-        </p>
-      </section>
-      <nav class="category-tabs-nav mb-4" aria-label="Навигация по категориям услуг">
+<section id="services-intro" class="site-hero mb-5"><div><p class="site-eyebrow">EXPERIENCE FITNESS / ЗОНЫ И УСЛУГИ</p><h1>Больше, чем<br><span>просто зал.</span></h1><p class="lead text-body-secondary mt-4">Силовые тренировки, энергия групповых занятий и отдых после нагрузки. Соберите свой привычный маршрут в клубе.</p><div class="d-flex flex-wrap gap-3 mt-4"><a class="btn btn-primary btn-lg" href="#services-articles">Выбрать направление ↗</a><a class="btn btn-outline-light btn-lg" href="locations.html">Найти клуб</a></div></div><figure class="mb-0"><img src="../assets/images/strength-rack-and-boxing-bag.jpg" alt="ЗОНЫ И УСЛУГИ — Experience Fitness" width="600" height="400" fetchpriority="high"><figcaption>Ваш темп. Ваше пространство. Ваш результат.</figcaption></figure></section><nav class="category-tabs-nav mb-4" aria-label="Навигация по категориям услуг">
         <ul class="tabs-list list-unstyled d-flex flex-wrap gap-2">
           <li><a href="#services-articles" class="btn btn-outline-light btn-sm">Все зоны</a></li>
           <li><a href="#service-strength" class="btn btn-outline-light btn-sm">Силовой тренинг</a></li>
           <li><a href="#service-group" class="btn btn-outline-light btn-sm">Групповые программы</a></li>
           <li><a href="#service-spa" class="btn btn-outline-light btn-sm">Сауна и SPA</a></li>
         </ul>
-      </nav>
-
-      <!-- 2.2. Тренировочные зоны и направления -->
-      <!-- Сетка без обёрток: section — row, заголовок — col-12, статьи — адаптивные col-*. -->
-      <section class="services-list-section mb-5 row g-4" id="services-articles">
+      </nav><section class="services-list-section mb-5 row g-4" id="services-articles">
         <h2 class="h3 fw-bold mb-3 col-12">Тренировочные зоны и направления</h2>
         <article class="service-card col-12 col-md-6 mb-3" data-category="strength" id="service-strength">
           <h3 class="h4 fw-semibold mb-3 text-primary">Тренажёрный зал и зона свободных весов</h3>
@@ -172,12 +145,12 @@
           <h3 class="h4 fw-semibold mb-3 text-primary">Финская сауна / SPA-зона</h3>
           <p>
             Комфортабельная финская сауна и SPA-зона (в зависимости от филиала) для снятия мышечного
-            напряжения, детоксикации и полного релакса после интенсивной тренировки.
+            напряжения и отдыха после тренировки. Наличие зоны и условия посещения уточняйте в клубе.
           </p>
           <figure class="service-zone-photo mb-4">
             <img
                     src="../assets/images/sauna.jpg"
-                    alt="Зона единоборств с боксёрской грушей и снарядами"
+                    alt="Финская сауна Experience Fitness"
                     width="600"
                     height="400"
                     class="w-100 rounded-3 object-fit-cover img-fluid content-photo"
@@ -187,31 +160,19 @@
             </figcaption>
           </figure>
         </article>
-      </section>
-
-      <!-- 2.3. Рекомендации для новичков -->
-      <aside class="recommendations-sidebar bg-body-tertiary border rounded-3 p-4 mb-5" id="workout-tips">
-        <h2 class="h3 fw-bold mb-3">Рекомендации для новичков</h2>
-        <p>
-          <strong>Что взять на первую тренировку:</strong> удобную спортивную форму, сменную обувь на жесткой
-          подошве, личное полотенце и бутылку для воды. В каждом филиале установлены питьевые кулеры.
-        </p>
-      </aside>
-
-      <!-- 2.4. Запись на консультацию и подбор программы -->
-      <section class="form-section mb-5" id="newsletter-subscription">
+      </section><aside id="workout-tips" class="site-panel p-4 p-md-5 mb-5"><p class="site-eyebrow">ПЕРВЫЙ ВИЗИТ</p><h2 class="h2 fw-bold">Начните с комфортной нагрузки</h2><p class="text-body-secondary">Возьмите спортивную форму, чистую сменную обувь, полотенце и воду. Если вы впервые в зале, попросите тренера показать оборудование и помочь с техникой.</p><a href="training.html" class="btn btn-outline-light">Посмотреть тренировки ↗</a></aside><section class="form-section mb-5" id="newsletter-subscription">
         <h2 class="h3 fw-bold mb-3">Запись на консультацию и подбор программы</h2>
         <p>Заполните форму ниже для бронирования персональной вводной тренировки:</p>
-        <!-- fieldset объединяет связанные поля; row и col-* стоят на существующих элементах формы. -->
+
         <form
           action="#"
           method="post"
           id="consultation-form"
           class="bg-body-tertiary border rounded-3 p-3 p-md-4 shadow-sm"
         >
-          <!-- Серверного обработчика нет: submit отключён, поля и reset работают. -->
+
           <p id="form-note-0" class="small text-body-secondary">
-            Учебная форма: отправка пока недоступна. Для записи свяжитесь с клубом по телефону.
+            Демонстрационная форма: данные не отправляются в клуб. Для записи позвоните +7 (778) 345-74-05.
           </p>
           <fieldset class="form-group-box row g-3 mx-0 border rounded-3 p-3 mb-4">
             <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">
@@ -334,20 +295,13 @@
               </button>
               <button type="reset" class="btn btn-outline-light">Сбросить поля</button>
             </p>
-            <!-- DIV: контейнер динамического вывода статусов бронирования для будущего JS-модуля. -->
+
             <div id="booking-form-feedback" class="form-feedback-container col-12 mt-3" aria-live="polite"></div>
           </fieldset>
         </form>
       </section>
-      <a
-        href="#consultation-form"
-        class="btn btn-outline-light btn-sm mb-4 align-self-center"
-        aria-label="Быстрая запись на тренировку"
-        >Записаться ↓</a>
-    </main>
+</main>
 
-    <!-- 3. Подвал сайта -->
-    <!-- footer сам служит container-fluid и row; его section и nav являются колонками. -->
     <footer
       class="main-footer border-top bg-body-tertiary mt-auto py-5 text-break container-fluid row g-4 mx-0 px-3 px-lg-5"
       id="site-footer"
@@ -392,12 +346,10 @@
       </section>
     </footer>
 
-    <!-- 4. Bootstrap JS: работа меню и компонентов -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- 5. jQuery 3.7.1 из CDN (Assignment 6). defer: подключается до своих скриптов,
-         порядок выполнения сохраняется, DOM к моменту запуска готов. -->
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" defer></script>
-    <!-- 6. Свои скрипты: общий модуль данных, справочные данные каталога и jQuery-логика -->
+
     <script src="../assets/js/main.js" defer></script>
     <script src="../assets/js/services.js" defer></script>
     <script src="../assets/js/services-jquery.js" defer></script>
