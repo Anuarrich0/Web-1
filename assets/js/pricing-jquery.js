@@ -1,4 +1,4 @@
-'use strict';
+  'use strict';
 
 /* ============================================================================
    Assignment 6 (продолжение), страница «Абонементы» на jQuery 3.7.1.
@@ -30,7 +30,7 @@ $(function () {
   const $cards = $section.find('[data-tariff]');
 
   /* Панель фильтров собирается кодом (разметку руками не меняем). */
-  const $controls = $('<div class="col-12"></div>');
+  const $controls = $('<div class="col-12 pricing-controls"></div>');
   $('<label class="form-label" for="tariff-search"></label>').text('Поиск тарифа').appendTo($controls);
   const $search = $('<input type="search" id="tariff-search" class="form-control mb-3" />').appendTo($controls);
 
@@ -115,7 +115,7 @@ $(function () {
 
   $form.prop('novalidate', true);
   $form.find('button[type="submit"]').prop('disabled', false);
-  $('#form-note-0').text('Учебная заявка: данные не отправляются на сервер, реальный заказ, оплата и бронирование не создаются.');
+  $('#form-note-0').text('Демонстрационное оформление: данные не отправляются в клуб, деньги не списываются, абонемент не активируется.');
 
   /* Дополнительные галочки, скидка и блок текущего расчёта. */
   function createCheckbox($parent, id, title) {
@@ -125,7 +125,7 @@ $(function () {
     return $input;
   }
 
-  const $summary = $('<p class="col-12"></p>').attr('aria-live', 'polite');
+  const $summary = $('<p class="col-12 pricing-summary"></p>').attr('aria-live', 'polite');
   $fieldsets.eq(1).append($summary);
   const $student = createCheckbox($fieldsets.eq(1), 'student-discount', 'Студенческий билет: предварительная скидка 15% (проверяется менеджером)');
   const $guardian = createCheckbox($fieldsets.eq(2), 'guardian-agree', 'Есть согласие законного представителя (до 18 лет)');
@@ -270,9 +270,9 @@ $(function () {
       ],
       onSuccess: function (reference) {
         const $box = $('<div class="alert alert-success mb-0"></div>');
-        $('<p class="fw-bold mb-2"></p>').text('Заявка ' + reference + ' оформлена').appendTo($box);
+        $('<p class="fw-bold mb-2"></p>').text('Демонстрационная заявка ' + reference).appendTo($box);
         $('<p class="mb-0"></p>')
-          .text('Оплата подтверждена (демонстрация). Абонемент активируется после проверки менеджером.')
+          .text('Проверка формы завершена. Оплата не проводилась. Для покупки и активации абонемента свяжитесь с клубом.')
           .appendTo($box);
         $feedback.empty().removeClass('is-error').addClass('is-success').append($box);
       }

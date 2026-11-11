@@ -1,5 +1,49 @@
-/* Original semantic article elements carry Bootstrap columns directly.
-   Premium title keeps its gold brand accent without a card-body wrapper. */
-.pricing-card[data-tariff="big-plus"] > h3 { color: gold; }
-/* Referral emphasis is inline content, not a new section. */
+﻿.pricing-eyebrow { color: var(--bs-link-color); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.pricing-hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center; padding-block: 2rem; }
+.pricing-hero h1 { font-size: clamp(3rem, 5.5vw, 5.4rem); font-weight: 800; line-height: 1.02; letter-spacing: -.05em; }
+.pricing-hero h1 span { color: var(--bs-link-color); }
+.pricing-hero img { width: 100%; max-width: 600px; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 1rem; }
+.pricing-hero figcaption { margin-top: 1rem; padding: .8rem 1rem; border-left: 3px solid var(--bs-link-color); color: var(--bs-secondary-color); font-size: .85rem; }
+.pricing-nav { display: flex; flex-wrap: wrap; gap: 1rem 2rem; padding-block: 1.3rem; border-block: 1px solid var(--bs-border-color); }
+.pricing-nav a { color: var(--bs-body-color); text-decoration: none; font-size: .9rem; }
+.pricing-nav a:hover { color: var(--bs-link-color); }
+#pricing-plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-inline: 0; }
+#pricing-plans > * { width: auto; margin-top: 0; }
+#pricing-plans > h2, #pricing-plans > .pricing-controls, #pricing-plans > p { grid-column: 1 / -1; }
+.pricing-card { border: 1px solid var(--bs-border-color); border-radius: 1rem; padding: 1.7rem; background: var(--bs-tertiary-bg); }
+.pricing-card[data-tariff="exp-plus"] { border-color: var(--bs-link-color); }
+.pricing-card[data-tariff="big-plus"] h3 { color: #edce80; }
+.pricing-description { min-height: 4.5rem; }
+.pricing-start { margin-block: 1rem 1.5rem; }
+.pricing-start strong { display: block; font-size: clamp(1.8rem, 3vw, 2.4rem); letter-spacing: -.04em; }
+.pricing-start span { color: var(--bs-secondary-color); font-size: .85rem; }
+.pricing-controls { display: grid; grid-template-columns: 1fr 1fr auto; gap: .5rem 1rem; align-items: end; padding: 1.3rem; background: var(--bs-tertiary-bg); border-radius: 1rem; }
+.pricing-controls > label { grid-column: 1; margin: 0; }
+.pricing-controls > input { grid-column: 1; grid-row: 2; }
+.pricing-controls > div { grid-column: 2; grid-row: 1 / 3; }
+.pricing-controls > button { grid-column: 3; grid-row: 2; }
+.pricing-controls > p { grid-column: 1 / -1; margin-bottom: 0; font-size: .8rem; color: var(--bs-secondary-color); }
+.pricing-panel { background: var(--bs-tertiary-bg); border: 1px solid var(--bs-border-color); border-radius: 1rem; }
+.pricing-steps { list-style: decimal-leading-zero; padding-left: 1.8rem; margin-bottom: 0; }
+.pricing-steps li::marker { color: var(--bs-link-color); font-weight: 700; }
+.pricing-steps strong { display: block; margin-bottom: .7rem; }
+.pricing-steps p { color: var(--bs-secondary-color); margin-bottom: 0; }
+.pricing-summary { background: var(--bs-body-bg); padding: 1rem; border-left: 3px solid var(--bs-link-color); border-radius: .3rem; }
+#order-form { scroll-margin-top: 2rem; }
+#order-form > h2 { font-size: 1.3rem; }
+#order-form form { border-radius: 1rem !important; }
+.pricing-faq { border-bottom: 1px solid var(--bs-border-color); padding: 1.3rem 0; }
+.pricing-faq summary { cursor: pointer; font-weight: 600; }
+.pricing-faq p { color: var(--bs-secondary-color); padding-top: 1rem; margin-bottom: 0; max-width: 52rem; }
+.pricing-contact { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
 .highlight-term { color: var(--bs-link-color); }
+@media (max-width: 991px) {
+  .pricing-hero { grid-template-columns: 1fr; gap: 2rem; }
+  #pricing-plans { grid-template-columns: 1fr; }
+  .pricing-description { min-height: 0; }
+}
+@media (max-width: 575px) {
+  .pricing-controls { display: block; }
+  .pricing-controls > label { margin-bottom: .5rem; }
+  .pricing-contact { flex-direction: column; align-items: flex-start; }
+}

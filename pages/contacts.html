@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru" data-bs-theme="dark">
 
-  <!-- 0. Настройки страницы и стили -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Z. Rysbek" />
-    <!-- Author: Z. Rysbek -->
+
     <meta
       name="description"
       content="Контактная информация фитнес-клуба Experience Fitness в Астане. Телефон, адреса и график работы."
     />
     <title>Контакты — Experience Fitness</title>
-    <!-- Bootstrap 5.3.8 из CDN; свои стили подключены после него для корректной работы каскада. -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/css/base.css" />
     <link rel="stylesheet" href="../assets/css/roha.css" />
     <link rel="icon" href="../assets/images/logo-white.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../assets/css/site.css" />
   </head>
   <body class="d-flex flex-column min-vh-100">
 
-    <!-- 1. Шапка сайта: логотип, меню, контакты -->
-    <!-- Bootstrap Navbar: меню сворачивается до 1200 px. Ссылки адаптированы под страницы клуба. https://getbootstrap.com/docs/5.3/components/navbar/ -->
     <header
       class="main-header navbar navbar-expand-xl bg-body-tertiary border-bottom py-3 container-fluid px-3 px-lg-4"
     >
@@ -49,7 +47,7 @@
         data-bs-toggle="collapse"
         data-bs-target="#primary-nav"
       >
-        <!-- SPAN: декоративная иконка Bootstrap, без самостоятельного смыслового содержания. -->
+
         <span class="navbar-toggler-icon"></span>
       </button>
       <nav class="collapse navbar-collapse" id="primary-nav" aria-label="Основная навигация">
@@ -74,188 +72,28 @@
       </p>
     </header>
 
-    <!-- 2. Основное содержимое -->
-    <!-- container ограничивает ширину текста; container-fluid у шапки и подвала занимает всю ширину. -->
     <main id="main-content" class="container flex-grow-1 py-4 py-md-5 text-break">
-      <nav class="page-toc mb-4" aria-label="Содержание страницы">
-        <ul class="list-unstyled d-flex flex-wrap gap-3">
-          <li><a href="#working-hours">График работы</a></li>
-          <li><a href="#contact-form">Форма обратной связи</a></li>
-        </ul>
-      </nav>
-
-      <!-- 2.1. Контакты Experience Fitness -->
-      <article class="mb-5">
-        <h1 class="display-5 fw-bold mb-4 text-center text-md-start">Контакты Experience Fitness</h1>
-        <p class="lead">
-          Если у вас есть вопросы о тренировках, филиалах, услугах или абонементах <b>Experience Fitness</b>,
-          вы можете связаться с нами удобным способом. Наша фитнес-сеть работает в <strong>Астане</strong> и
-          предлагает современные тренажерные залы, групповые занятия, персональные тренировки и зоны для
-          восстановления. Мы стараемся сделать посещение фитнес-центра удобным как для начинающих, так и для
-          <em>опытных спортсменов</em>.
-        </p>
-        <p>
-          Вы можете позвонить в наш единый <i>call-центр</i> или воспользоваться контактной формой ниже. В
-          сообщении укажите свое имя, электронную почту и тему обращения. Это поможет нам быстрее понять ваш
-          вопрос и предоставить необходимую информацию.
-          <!-- SPAN: выделяет часть текста внутри существующего элемента, без отдельного смыслового блока. -->
-          <span>Мы будем рады помочь вам выбрать подходящий формат тренировок.</span>
-        </p>
-        <blockquote
-          cite="https://experiencefitness.kz"
-          class="blockquote border-start border-4 border-primary bg-body-tertiary p-4 rounded-end mb-4"
-        >
-          <p>
-            <q>Мы всегда на связи, чтобы тренировки были удобными</q> — команда поддержки
-            <cite>Experience Fitness</cite>.
-          </p>
-        </blockquote>
-        <figure class="mb-4">
-          <img
-            src="../assets/images/reception.jpg"
-            alt="Стойка ресепшн одного из филиалов Experience Fitness"
-            width="600"
-            height="400"
-            class="w-100 rounded-3 object-fit-cover img-fluid content-photo"
-          />
-          <figcaption class="small text-body-secondary pt-2">
-            Ресепшн встретит вас в любом из 11 филиалов Астаны
-          </figcaption>
-        </figure>
-      </article>
-      <hr />
-
-      <!-- 2.2. Контактная информация -->
-      <section class="mb-5">
-        <h2 class="h3 fw-bold mb-3">Контактная информация</h2>
-        <address>
-          «Experience Fitness»<br />
-          Астана, Казахстан<br />
-          Телефон: <a href="tel:+77000000000">+7 (700) 000-00-00</a> <br />
-          Email: <a href="mailto:info@experiencefitness.kz" class="text-break">info@experiencefitness.kz</a>
-        </address>
-        <h3 class="h4 fw-semibold mb-3">Способы связи</h3>
-        <ul>
-          <li>
-            Телефон<sup>1</sup>
-            <ul>
-              <li>Call-центр: +7 (700) 000-00-00</li>
-              <li>WhatsApp: +7 (700) 000-00-00</li>
-            </ul>
-          </li>
-          <li>Email: info@experiencefitness.kz</li>
-          <li>Контактная форма на этой странице</li>
-        </ul>
-        <p>
-          <small class="small text-body-secondary"> <sup>1</sup> Звонки по Казахстану – бесплатные.</small>
-        </p>
-        <figure class="mb-4">
-          <img
-            src="../assets/images/map-preview.png"
-            alt="Превью карты с расположением филиалов Experience Fitness в Астане"
-            width="600"
-            height="400"
-            class="w-100 rounded-3 object-fit-contain img-fluid content-photo"
-          />
-          <figcaption class="small text-body-secondary pt-2">
-            Филиалы расположены в разных районах города
-          </figcaption>
-        </figure>
-      </section>
-
-      <!-- 2.3. График работы -->
-      <section id="working-hours" class="mb-5">
-        <h2 class="h3 fw-bold mb-3">График работы</h2>
-        <!-- DIV: прокручивает только таблицу; заголовок и описание остаются в существующем section. -->
-        <div
-          class="table-responsive border rounded-3 mb-4"
-          role="region"
-          tabindex="0"
-          aria-labelledby="table-caption-0"
-        >
-          <!-- Bootstrap Table: оформление адаптировано к нашей таблице, её caption и заголовки сохранены. https://getbootstrap.com/docs/5.3/content/tables/ -->
-          <table class="table table-striped table-hover align-middle mb-0 text-nowrap">
-            <caption id="table-caption-0" class="px-3 small">
-              Режим работы Experience Fitness
-            </caption>
-            <thead>
-              <tr>
-                <th scope="col">День</th>
-                <th scope="col">Время работы</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Понедельник — Суббота</td>
-                <td>07:00 – 23:00</td>
-              </tr>
-              <tr>
-                <td>Воскресенье</td>
-                <td>10:00 – 20:00</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p>
-          <small class="small text-body-secondary"
-            >Расписание актуально на 2026 год и может отличаться в отдельных филиалах.</small>
-        </p>
-        <h3 class="h4 fw-semibold mb-3">Как быстрее всего к нам добраться</h3>
-        <ol start="1">
-          <li>Определите ближайший филиал на карте</li>
-          <li>Позвоните на ресепшн, чтобы уточнить загруженность зала</li>
-          <li>Возьмите с собой спортивную форму и воду</li>
-        </ol>
-      </section>
-
-      <!-- 2.4. Термины и сокращения -->
-      <section class="mb-5">
-        <h2 class="h3 fw-bold mb-3">Термины и сокращения</h2>
-        <dl class="row g-3 mb-4">
-          <dt class="col-12 col-md-4 text-primary"><abbr title="Часто задаваемые вопросы">FAQ</abbr></dt>
-          <dd class="col-12 col-md-8 text-body-secondary">
-            Раздел с ответами на самые частые вопросы клиентов.
-          </dd>
-          <dt class="col-12 col-md-4 text-primary">Call-центр</dt>
-          <dd class="col-12 col-md-8 text-body-secondary">
-            Единая служба поддержки, принимающая звонки от всех филиалов сети.
-          </dd>
-        </dl>
-      </section>
-
-      <!-- 2.5. Полезно знать -->
-      <aside class="bg-body-tertiary border rounded-3 p-4 mb-5">
-        <h2 class="h3 fw-bold mb-3">Полезно знать</h2>
-        <p>
-          Лучшее время для звонка в call-центр — с <time datetime="10:00">10:00</time> до
-          <time datetime="19:00">19:00</time>:
-          <mark>в этот промежуток операторы отвечают быстрее всего</mark>.
-        </p>
-        <p>Актуальный список филиалов смотрите на странице «Филиалы».</p>
-      </aside>
-
-      <!-- 2.6. Напишите нам -->
-      <section class="mb-5">
+<section id="contacts-intro" class="site-hero mb-5"><div><p class="site-eyebrow">EXPERIENCE FITNESS / КОНТАКТЫ</p><h1>Давайте<br><span>знакомиться.</span></h1><p class="lead text-body-secondary mt-4">Поможем выбрать клуб, разобраться в тарифах и подготовиться к первому занятию. Свяжитесь удобным способом.</p><div class="d-flex flex-wrap gap-3 mt-4"><a class="btn btn-primary btn-lg" href="tel:+77783457405">Позвонить ↗</a><a class="btn btn-outline-light btn-lg" href="#contact-form">Написать нам</a></div></div><figure class="mb-0"><img src="../assets/images/reception.jpg" alt="КОНТАКТЫ — Experience Fitness" width="600" height="400" fetchpriority="high"><figcaption>Ваш темп. Ваше пространство. Ваш результат.</figcaption></figure></section><section class="mb-5" aria-labelledby="contact-options"><p class="site-eyebrow">МЫ НА СВЯЗИ</p><h2 id="contact-options" class="display-6 fw-bold mb-4">Как вам удобнее?</h2><div class="site-grid"><article class="site-panel p-4"><p class="site-eyebrow">01 / ЗВОНОК</p><h3 class="h4 fw-bold">Обсудим лично</h3><p class="text-body-secondary">Тарифы, условия и первый визит.</p><a href="tel:+77783457405">+7 (778) 345-74-05 ↗</a></article><article class="site-panel p-4"><p class="site-eyebrow">02 / WHATSAPP</p><h3 class="h4 fw-bold">Напишите в чат</h3><p class="text-body-secondary">Задайте вопрос в удобное время.</p><a href="https://wa.me/77783457405" target="_blank" rel="noopener">Открыть WhatsApp ↗</a></article><article class="site-panel p-4"><p class="site-eyebrow">03 / КЛУБЫ</p><h3 class="h4 fw-bold">Приходите в гости</h3><p class="text-body-secondary">Адреса, телефоны и график каждого филиала.</p><a href="locations.html">Выбрать клуб ↗</a></article></div></section><section id="working-hours" class="site-panel p-4 p-md-5 mb-5"><p class="site-eyebrow">ПЛАНИРУЙТЕ ВИЗИТ</p><h2 class="h2 fw-bold">График вашего клуба</h2><p class="text-body-secondary">Часы работы и выходные зависят от филиала. Проверьте расписание на странице клубов или позвоните перед первым визитом.</p><a href="locations.html#locations-table-section" class="btn btn-outline-light">Адреса и часы работы ↗</a></section><section class="mb-5">
         <h2 id="contact-form" class="h3 fw-bold mb-3">Напишите нам</h2>
-        <!-- fieldset объединяет связанные поля; row и col-* стоят на существующих элементах формы. -->
+
         <form action="#" method="post" class="bg-body-tertiary border rounded-3 p-3 p-md-4 shadow-sm">
-          <!-- Серверного обработчика нет: submit отключён, поля и reset работают. -->
+
           <p id="form-note-0" class="small text-body-secondary">
-            Учебная форма: отправка пока недоступна. Для записи свяжитесь с клубом по телефону.
+            Демонстрационная форма: данные не отправляются в клуб. Для связи позвоните или напишите в WhatsApp.
           </p>
           <fieldset class="row g-3 mx-0 border rounded-3 p-3 mb-4">
             <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">Контактные данные</legend>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+
             <div class="col-12 col-md-6">
               <label for="name" class="form-label">Ваше имя:</label> <br />
               <input type="text" id="name" name="name" required class="form-control" />
             </div>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+
             <div class="col-12 col-md-6">
               <label for="email" class="form-label">Ваш email:</label> <br />
               <input type="email" id="email" name="email" required class="form-control" />
             </div>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+
             <div class="col-12 col-md-6">
               <label for="phone" class="form-label">Телефон:</label> <br />
               <input
@@ -266,12 +104,12 @@
                 class="form-control"
               />
             </div>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+
             <div class="col-12 col-md-6">
               <label for="client-age" class="form-label">Возраст:</label> <br />
               <input type="number" id="client-age" name="client-age" min="12" max="99" class="form-control" />
             </div>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+
             <div class="col-12 col-md-6">
               <label for="callback-date" class="form-label">Удобная дата звонка:</label> <br />
               <input type="date" id="callback-date" name="callback-date" class="form-control" />
@@ -279,7 +117,7 @@
           </fieldset>
           <fieldset class="row g-3 mx-0 border rounded-3 p-3 mb-4">
             <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">Тема обращения</legend>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+
             <div class="col-12 col-md-6">
               <label for="topic" class="form-label">Тема обращения:</label> <br />
               <select id="topic" name="topic" class="form-select">
@@ -290,9 +128,9 @@
                 <option value="other">Другое</option>
               </select>
             </div>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+
             <div class="col-12">
-              <!-- SPAN: подпись вариантов ответа внутри группы полей, не отдельный раздел. -->
+
               <span>Предпочитаемый способ ответа:</span> <br />
               <input
                 type="radio"
@@ -315,7 +153,7 @@
           </fieldset>
           <fieldset class="row g-3 mx-0 border rounded-3 p-3 mb-4">
             <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">Сообщение</legend>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+
             <div class="col-12">
               <label for="message" class="form-label">Ваше сообщение:</label> <br />
               <textarea
@@ -328,7 +166,7 @@
                 class="form-control"
               ></textarea>
             </div>
-            <!-- DIV: объединяет подпись и поле внутри fieldset; одно поле не является отдельным section. -->
+
             <div class="col-12">
               <input
                 type="checkbox"
@@ -340,21 +178,19 @@
               <label for="agree-contact" class="form-label">Согласен(на) с условиями обработки данных</label>
             </div>
           </fieldset>
-          <!-- DIV: группа кнопок формы, не навигация и не самостоятельный раздел. -->
+
           <div class="d-flex flex-wrap gap-2 align-items-center">
             <button type="submit" class="btn btn-primary btn-lg" disabled aria-describedby="form-note-0">
               Отправить сообщение
             </button>
             <button type="reset" class="btn btn-outline-light">Очистить форму</button>
           </div>
-          <!-- DIV: контейнер динамического вывода статусов отправки формы для будущего JS-модуля. -->
+
           <div id="contact-form-feedback" class="form-feedback-container mt-3" aria-live="polite"></div>
         </form>
       </section>
-    </main>
+</main>
 
-    <!-- 3. Подвал сайта -->
-    <!-- footer сам служит container-fluid и row; его section и nav являются колонками. -->
     <footer
       class="main-footer border-top bg-body-tertiary mt-auto py-5 text-break container-fluid row g-4 mx-0 px-3 px-lg-5"
       id="site-footer"
@@ -397,12 +233,10 @@
       </section>
     </footer>
 
-    <!-- 4. Bootstrap JS: работа меню и компонентов -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- 5. jQuery 3.7.1 из CDN (Assignment 6). defer: подключается до своих скриптов,
-         порядок выполнения сохраняется, DOM к моменту запуска готов. -->
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" defer></script>
-    <!-- 6. Свои скрипты: общий модуль данных, справочные данные и jQuery-логика страницы -->
+
     <script src="../assets/js/main.js" defer></script>
     <script src="../assets/js/contacts.js" defer></script>
     <script src="../assets/js/contacts-jquery.js" defer></script>
