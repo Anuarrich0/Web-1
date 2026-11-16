@@ -41,3 +41,5 @@ User requested removing the online-payment-unavailable notice. Codex removed the
 User requested simple membership cards without the search interface. Codex removed the tariff search, duration filter, reset control and their unused code/styles. The existing three cards retain all term prices, hover effects and click selection; duration remains selectable in the order form.
 
 User requested a quick consultation redesign distinct from membership purchase. Codex replaced the long booking questionnaire with goal and experience choices, name/phone and optional notes, added a two-column responsive layout, and updated validation and the prepared-request summary for the new fields.
+
+User requested prominently visible trainer characteristics in the trainer selector. Codex replaced name-only buttons with three profile cards showing each existing name, specialty and experience, retained click selection and updating time slots, and added responsive styles. No new trainer facts were invented.

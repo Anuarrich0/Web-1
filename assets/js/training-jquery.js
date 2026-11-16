@@ -202,21 +202,27 @@ $(function () {
     $trainersBlock.append(make('h3', 'h4 fw-bold mb-3', 'Тренеры и свободное время'));
     $trainersBlock.append(make('p', 'text-body-secondary mb-3', 'Нажмите на тренера, чтобы увидеть его свободные окна на неделе.'));
 
-    const $trainerButtons = make('div', 'd-flex flex-wrap gap-2 mb-3')
+    const $trainerButtons = make('div', 'trainer-profiles mb-3')
       .attr('role', 'group')
       .attr('aria-label', 'Выбор тренера');
     $(EF.TRAINERS).each(function () {
       const trainer = this;
       $trainerButtons.append(
-        make('button', 'btn btn-sm btn-outline-light', trainer.name)
+        make('button', 'trainer-profile')
           .attr('type', 'button')
           .attr('data-trainer', trainer.id)
           .attr('aria-pressed', 'false')
+          .append(
+            make('span', 'trainer-profile-name', trainer.name),
+            make('span', 'trainer-profile-label', 'Специализация'),
+            make('span', 'trainer-profile-specialty', trainer.specialty),
+            make('span', 'trainer-profile-experience', trainer.experienceYears + ' лет опыта')
+          )
       );
     });
     $trainersBlock.append($trainerButtons);
 
-    const $trainerInfo = make('p', 'text-body-secondary mb-3', 'Выберите тренера, чтобы увидеть свободное время.');
+    const $trainerInfo = make('p', 'text-body-secondary mb-3').attr('role', 'status');
     $trainersBlock.append($trainerInfo);
 
     const $slots = make('div', 'row g-3');
@@ -308,7 +314,7 @@ $(function () {
           .attr('aria-pressed', active ? 'true' : 'false');
       });
 
-      $trainerInfo.text(trainer.specialty + '. Опыт: ' + trainer.experienceYears + ' лет.');
+      $trainerInfo.text('Свободное время · ' + trainer.name);
 
       $slots.empty();
       $(trainer.slots).each(function () {
