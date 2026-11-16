@@ -85,7 +85,7 @@
     /* Предупреждение + сводка данных, введённых в форме, — пользователь проверяет их перед оплатой. */
     const $warning = $('<div class="alert alert-warning"></div>').appendTo($body);
     $('<p class="fw-bold mb-2"></p>')
-      .text('Тестовый режим — деньги не списываются. Не вводите настоящие реквизиты карты.')
+      .text('Онлайн-оплата пока недоступна. Для завершения покупки свяжитесь с клубом.')
       .appendTo($warning);
     const $summary = $('<ul class="mb-0 ps-3"></ul>').appendTo($warning);
     $(options.summary).each(function () {
@@ -112,7 +112,7 @@
     /* Подвал с кнопками. «Готово» скрыто до успешной оплаты. */
     const $footer = $('<div class="modal-footer"></div>').appendTo($content);
     $('<button type="submit" id="checkout-submit" class="btn btn-primary btn-lg"></button>')
-      .text('Проверить оформление').appendTo($footer);
+      .text('Продолжить').appendTo($footer);
     $('<button type="button" id="checkout-done" class="btn btn-primary btn-lg is-hidden" data-bs-dismiss="modal"></button>')
       .text('Готово').appendTo($footer);
     $('<button type="button" id="checkout-cancel" class="btn btn-outline-light" data-bs-dismiss="modal"></button>')
@@ -212,7 +212,7 @@
       $modal.find('#checkout-submit, #checkout-cancel').addClass('is-hidden');
       $modal.find('#checkout-done').removeClass('is-hidden');
       $feedback
-        .text('Оформление ' + reference + ' проверено. Оплата не проводилась; для покупки свяжитесь с клубом.')
+        .text('Оформление ' + reference + ' подготовлено. Для завершения покупки свяжитесь с клубом.')
         .removeClass('is-error').addClass('is-success');
 
       $('<a class="btn btn-outline-light mt-3"></a>').attr('href', EF.CLUB.callCenterHref).text('Позвонить для покупки').appendTo($feedback);

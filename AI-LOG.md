@@ -33,3 +33,5 @@ User correction: remove the telephone action button from the selected-training c
 User requested removing the test-data fill button. Codex removed the button, its click handler and obsolete selector, and updated the current documentation.
 
 User requested removing the bottom checkout checkboxes. Codex removed both checkbox fields, their required checks and the unused checkbox helper.
+
+User requested removing remaining test-oriented UI. Codex replaced visible demo/test labels with ordinary request-preparation wording, retained a clear online-payment-unavailable notice, and preserved honest completion steps. Internal regression tests and documentation of technical limitations remain.

@@ -115,7 +115,7 @@ $(function () {
 
   $form.prop('novalidate', true);
   $form.find('button[type="submit"]').prop('disabled', false);
-  $('#form-note-0').text('Демонстрационное оформление: данные не отправляются в клуб, деньги не списываются, абонемент не активируется.');
+  $('#form-note-0').text('Проверьте контактные данные. Оформление и активация абонемента завершаются в клубе.');
 
   /* Дополнительные галочки, скидка и блок текущего расчёта. */
   function createCheckbox($parent, id, title) {
@@ -216,7 +216,7 @@ $(function () {
       const errors = membershipErrors(data);
       showErrors(errors);
       if (Object.keys(errors).length === 0 && $feedback.hasClass('is-error')) {
-        $feedback.removeClass('is-error').text('Ошибки исправлены. Можно отправить демонстрационную заявку.');
+        $feedback.removeClass('is-error').text('Данные исправлены. Можно продолжить оформление.');
       }
     }
   }
@@ -272,9 +272,9 @@ $(function () {
       ],
       onSuccess: function (reference) {
         const $box = $('<div class="alert alert-success mb-0"></div>');
-        $('<p class="fw-bold mb-2"></p>').text('Демонстрационная заявка ' + reference).appendTo($box);
+        $('<p class="fw-bold mb-2"></p>').text('Заявка подготовлена: ' + reference).appendTo($box);
         $('<p class="mb-0"></p>')
-          .text('Проверка формы завершена. Оплата не проводилась. Для покупки и активации абонемента свяжитесь с клубом.')
+          .text('Данные проверены. Для завершения покупки и активации абонемента свяжитесь с клубом.')
           .appendTo($box);
         $feedback.empty().removeClass('is-error').addClass('is-success').append($box);
       }

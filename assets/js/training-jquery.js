@@ -192,10 +192,10 @@ $(function () {
        секции расписания (#training-schedule). */
     const $wrap = make('section', 'mb-5').attr('id', 'training-booking').attr('aria-label', 'Онлайн-запись к тренерам и на групповые занятия');
     $wrap.append(make('h2', 'h3 fw-bold mb-3', 'Тренеры и групповые занятия'));
-    $wrap.append(make('p', 'text-body-secondary', 'Пример расписания. Актуальное время и наличие мест подтвердит администратор клуба.'));
+    $wrap.append(make('p', 'text-body-secondary', 'Актуальное время и наличие мест подтвердит администратор клуба.'));
     $wrap.append(make('p', 'text-body-secondary mb-4',
       'Выберите тренера и удобное время или групповую программу. ' +
-      'Доступность времени уточняйте в клубе. Форма работает в демонстрационном режиме.'));
+      'Выберите тренера и удобное время занятия.'));
 
     /* 3.1. Тренеры и свободное время на неделе. */
     const $trainersBlock = make('div', 'border rounded-3 p-3 p-md-4 bg-body-tertiary mb-4');
@@ -250,7 +250,7 @@ $(function () {
     const $bookingBody = make('div', 'modal-body');
     const $target = make('p', 'fw-bold mb-3', 'Цель записи не выбрана.');
     $bookingBody.append($target);
-    $bookingBody.append(make('p', 'text-body-secondary mb-3', 'Заявка формируется на этом устройстве. Для подтверждения времени свяжитесь с клубом.'));
+    $bookingBody.append(make('p', 'text-body-secondary mb-3', 'Проверьте выбранное занятие и заполните контактные данные.'));
 
     const $nameGroup = make('div', 'mb-3');
     $nameGroup.append(make('label', 'form-label', 'Имя и фамилия:').attr('for', 'booking-name'));
@@ -421,8 +421,8 @@ $(function () {
       clearFeedback();
       const $alert = make('div', 'alert alert-success mb-0');
       $alert.append(make('p', 'mb-2', selected.label));
-      $alert.append(make('p', 'fw-bold mb-2', 'Демонстрационная заявка: ' + EF.generateReference('EF')));
-      $alert.append(make('p', 'mb-0', 'Запись в клуб не создана. Подтвердите время по телефону +7 (778) 345-74-05.'));
+      $alert.append(make('p', 'fw-bold mb-2', 'Заявка подготовлена: ' + EF.generateReference('EF')));
+      $alert.append(make('p', 'mb-0', 'Подтвердите время занятия у администратора: +7 (778) 345-74-05.'));
       $bookingFeedback.append($alert).addClass('is-success').attr('tabindex', '-1').trigger('focus');
       selected = null;
       $bookingForm.find('button[type="submit"]').prop('disabled', true);
