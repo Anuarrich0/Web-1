@@ -20,12 +20,38 @@
 .training-steps li::marker { color: var(--bs-link-color); font-weight: 700; }
 .training-steps strong, .training-steps span { display: block; }
 .training-steps span { color: var(--bs-secondary-color); margin-top: .4rem; }
-.training-plan, .training-faq { border-block-end: 1px solid var(--bs-border-color); padding: 1.3rem 0; }
-.training-plan summary, .training-faq summary { cursor: pointer; font-weight: 600; }
+.training-faq { border-block-end: 1px solid var(--bs-border-color); padding: 1.3rem 0; }
+.training-faq summary { cursor: pointer; font-weight: 600; }
 .training-faq p { max-width: 52rem; color: var(--bs-secondary-color); padding-top: 1rem; margin-bottom: 0; }
 .training-cta { display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
 #main-content section, #fitness-calculator { scroll-margin-top: 2rem; }
 @media (max-width: 767px) {
   .training-hero { grid-template-columns: 1fr; gap: 2rem; padding-block: 1rem; }
   .training-cta { align-items: flex-start; flex-direction: column; }
+}
+
+/* Standalone calculator: always visible, with results revealed after calculation. */
+.training-calculator { padding: clamp(1.25rem, 4vw, 3rem); border: 1px solid var(--bs-border-color); border-radius: 1.5rem; background: radial-gradient(ellipse at 0 0, rgba(204,255,0,.08), transparent 55%), var(--bs-tertiary-bg); }
+#fitness-calculator { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.3fr); gap: 2rem 3rem; align-items: start; }
+.calculator-intro h2 { font-size: clamp(2.2rem, 3.5vw, 3.4rem); font-weight: 800; line-height: 1.08; letter-spacing: -.04em; margin-bottom: 1.5rem; }
+.calculator-intro h2 span { color: var(--bs-link-color); }
+.calculator-intro > p { max-width: 30rem; }
+.calculator-benefits { margin-block: 2rem; }
+.calculator-benefits li { display: flex; align-items: center; gap: 1rem; padding-block: .85rem; border-bottom: 1px solid var(--bs-border-color); font-size: .9rem; }
+.calculator-benefits span { color: var(--bs-link-color); font-size: .75rem; font-weight: 700; }
+.calculator-note { border-left: 2px solid var(--bs-link-color); padding-left: 1rem; font-size: .8rem; color: var(--bs-secondary-color); }
+#calculator-form { background: var(--bs-body-bg) !important; box-shadow: 0 16px 40px rgba(0,0,0,.18) !important; }
+#calculator-form fieldset { border: 0 !important; padding: 0 !important; }
+#calculator-form legend { padding: 0 0 1rem !important; font-size: 1.1rem !important; }
+#calculator-form fieldset > div { width: 50%; }
+#calculator-form .form-label { font-size: .85rem; color: var(--bs-secondary-color); }
+#calculator-form .form-control, #calculator-form .form-select { min-height: 3rem; }
+#calc-submit-btn { flex: 1; padding: .85rem 1.2rem; font-weight: 700; }
+#calculator-results { grid-column: 1 / -1; margin-top: 0 !important; border-color: var(--bs-link-color) !important; background: var(--bs-body-bg) !important; }
+#calculator-results .h5 { font-size: clamp(1.2rem, 2vw, 1.65rem); }
+@media (max-width: 991px) {
+  #fitness-calculator { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 575px) {
+  #calculator-form fieldset > div { width: 100%; }
 }

@@ -82,7 +82,7 @@
  <div><p class="training-eyebrow">EXPERIENCE FITNESS / ТРЕНИРОВКИ</p><h1 id="training-title">Сильнее.<br>С каждым<br><span>занятием.</span></h1><p class="lead text-body-secondary mt-4">Ваш темп. Ваша цель. Зал, групповые программы и персональные тренировки — найдите формат, к которому захочется возвращаться.</p><div class="d-flex flex-wrap gap-3 mt-4"><a class="btn btn-primary btn-lg" href="#training-booking">Выбрать тренировку ↗</a><a class="btn btn-outline-light btn-lg" href="pricing.html">Абонементы</a></div><p class="small text-body-secondary mt-4 mb-0">Впервые в зале? Начните со знакомства с тренером.</p></div>
  <figure class="training-hero-photo mb-0"><img src="../assets/images/training-hall.jpg" width="600" height="400" alt="Тренажёрный зал Experience Fitness" fetchpriority="high"><figcaption>Место, где начинается ваша новая привычка.</figcaption></figure>
 </section>
-<nav class="training-nav mb-5" aria-label="Разделы тренировок"><a href="#directions">Направления</a><a href="#training-booking">Тренеры и занятия</a><a href="#first-visit">Первый визит</a><a href="#training-plan">Мой план</a></nav>
+<nav class="training-nav mb-5" aria-label="Разделы тренировок"><a href="#directions">Направления</a><a href="#training-booking">Тренеры и занятия</a><a href="#first-visit">Первый визит</a><a href="#training-plan">Калькулятор</a></nav>
 <section id="directions" class="mb-5"><p class="training-eyebrow">01 / НАЙДИТЕ СВОЙ ФОРМАТ</p><div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4"><h2 class="display-6 fw-bold mb-0">Тренируйтесь по-своему</h2><p class="text-body-secondary mb-0">От первого повторения до новой личной цели.</p></div><div class="row g-4"><div class="col-12 col-md-4"><article class="training-card h-100"><img src="../assets/images/gym-weights-area.jpg" alt="Тренажёрный зал в Experience Fitness" width="600" height="400" loading="lazy"><div class="p-4"><p class="training-eyebrow">01 / Сила и тонус</p><h3 class="h4 fw-bold">Тренажёрный зал</h3><p class="text-body-secondary">Свободные веса и тренажёры для работы в своём темпе. Выбирайте нагрузку под свой уровень.</p><a href="#training-booking">Выбрать занятие ↗</a></div></article></div>
 <div class="col-12 col-md-4"><article class="training-card h-100"><img src="../assets/images/trainer-in-mirror-strength-gym.jpg" alt="Персональный тренинг в Experience Fitness" width="600" height="400" loading="lazy"><div class="p-4"><p class="training-eyebrow">02 / Ваш личный план</p><h3 class="h4 fw-bold">Персональный тренинг</h3><p class="text-body-secondary">Один на один с тренером: разберите технику и двигайтесь к цели по понятной программе.</p><a href="#training-booking">Выбрать занятие ↗</a></div></article></div>
 <div class="col-12 col-md-4"><article class="training-card h-100"><img src="../assets/images/group-class.jpg" alt="Групповые программы в Experience Fitness" width="600" height="400" loading="lazy"><div class="p-4"><p class="training-eyebrow">03 / Энергия команды</p><h3 class="h4 fw-bold">Групповые программы</h3><p class="text-body-secondary">Функциональный тренинг, кардио и растяжка. Найдите занятие под настроение и тренируйтесь вместе.</p><a href="#training-booking">Выбрать занятие ↗</a></div></article></div></div></section>
@@ -140,12 +140,19 @@
           </table>
         </div>
       </section>
-<details id="training-plan" class="training-plan mb-5"><summary>Рассчитать калории и частоту тренировок</summary><p class="text-body-secondary pt-3">Расчёт ориентировочный и не заменяет индивидуальную консультацию.</p><section class="mb-5" id="fitness-calculator">
-        <h2 class="h3 fw-bold mb-3">Калькулятор калорий и графика тренировок</h2>
-        <p class="text-body-secondary mb-4">
-          Рассчитайте персональную суточную норму калорий (BMR / TDEE) и получите рекомендации по частоте
-          тренировок в неделю для достижения вашей цели.
-        </p>
+<section id="training-plan" class="training-calculator mb-5" aria-labelledby="calculator-title">
+      <div id="fitness-calculator">
+        <div class="calculator-intro">
+          <p class="training-eyebrow">ВАШИ ДАННЫЕ / ВАША ЦЕЛЬ</p>
+          <h2 id="calculator-title">Начните<br>с <span>своего плана.</span></h2>
+          <p class="text-body-secondary">Укажите параметры и цель — рассчитайте суточную норму калорий и ориентир по частоте тренировок.</p>
+          <ul class="calculator-benefits list-unstyled">
+            <li><span>01</span> Базовый обмен веществ</li>
+            <li><span>02</span> Калории с учётом активности</li>
+            <li><span>03</span> График под вашу цель</li>
+          </ul>
+          <p class="calculator-note">Расчёт ориентировочный и не заменяет индивидуальную консультацию.</p>
+        </div>
         <!-- form с полями ввода параметров для последующей математической обработки в JS. -->
         <form id="calculator-form" class="bg-body-tertiary border rounded-3 p-3 p-md-4 shadow-sm" action="#" method="post">
           <fieldset class="row g-3 mx-0 border rounded-3 p-3 mb-3">
@@ -234,7 +241,8 @@
             <a href="contacts.html#contact-form" class="btn btn-primary btn-sm">Записаться на подходящую тренировку →</a>
           </p>
         </div>
-      </section></details>
+      </div>
+    </section>
 <section class="mb-5" aria-labelledby="faq-title"><p class="training-eyebrow">ЕЩЁ ПАРА ВОПРОСОВ</p><h2 id="faq-title" class="h2 fw-bold mb-4">Перед первой тренировкой</h2>
  <details class="training-faq"><summary>Можно ли начать без опыта?</summary><p>Да. Расскажите тренеру о своём опыте и цели, чтобы подобрать стартовую нагрузку и разобрать технику.</p></details>
  <details class="training-faq"><summary>Как выбрать занятие?</summary><p>Для работы с весами подойдёт тренажёрный зал, для индивидуального плана — персональный тренинг. Если нравится заниматься вместе, попробуйте групповую программу.</p></details>
