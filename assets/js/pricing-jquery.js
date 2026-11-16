@@ -195,7 +195,9 @@ $(function () {
     /* Подсветить карточку выбранного тарифа, у остальных — снять выделение. */
     $cards.each(function () {
       const $card = $(this);
-      $card.toggleClass('is-selected', $card.attr('data-tariff') === data.tariff);
+      const selected = $card.attr('data-tariff') === data.tariff;
+      $card.toggleClass('is-selected', selected);
+      $card.find('a').toggleClass('btn-primary', selected).toggleClass('btn-outline-light', !selected);
     });
 
     if (Number.isInteger(data.age)) {
@@ -219,10 +221,10 @@ $(function () {
     }
   }
 
-  /* Клик по «Оформить абонемент» в карточке выбирает тариф и срок в форме. */
+  /* Клик по любой части карточки выбирает тариф; ссылка доступна с клавиатуры. */
   $cards.each(function () {
     const $card = $(this);
-    $card.find('a').on('click', function (event) {
+    $card.on('click', function (event) {
       // Ссылка ведёт к форме на этой же странице, а не на другой ресурс: preventDefault()
       // отменяет прыжок к якорю, чтобы страница не «улетала» и фильтр снова не прокручивал экран.
       event.preventDefault();
