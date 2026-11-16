@@ -15,3 +15,5 @@ Follow-up correction: use a subtle hover lift and highlight without scaling. Cod
 Follow-up request: make the card effect more prominent and polished. Codex added a 12px lift, gentle scaling, a gradient glow, layered shadows, price and button highlighting, pressed feedback and reduced-motion support using CSS.
 
 Follow-up request: take the training calculator out of the collapsible section and make it permanently visible with a polished appearance. Codex replaced the details wrapper with a section, preserved form/result IDs and calculation logic, and added responsive styling for the introduction, inputs and results.
+
+Follow-up request: add a subtle background instead of flat grey. Codex reused the existing gym photograph behind the training calculator with a dark overlay and retained the lime gradient and opaque form for readability.
