@@ -17,3 +17,5 @@ Follow-up request: make the card effect more prominent and polished. Codex added
 Follow-up request: take the training calculator out of the collapsible section and make it permanently visible with a polished appearance. Codex replaced the details wrapper with a section, preserved form/result IDs and calculation logic, and added responsive styling for the introduction, inputs and results.
 
 Follow-up request: add a subtle background instead of flat grey. Codex reused the existing gym photograph behind the training calculator with a dark overlay and retained the lime gradient and opaque form for readability.
+
+Correction: the background request applies to every page, not the calculator. Codex moved the subdued gym photo into the shared site stylesheet as a fixed decorative backdrop and restored the calculator panel background.

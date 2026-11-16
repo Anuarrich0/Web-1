@@ -1,5 +1,12 @@
 /* Shared visual language for all club pages. */
-body { -webkit-font-smoothing: antialiased; }
+body { -webkit-font-smoothing: antialiased; position: relative; isolation: isolate; }
+/* A single quiet gym backdrop shared by every page. */
+body::before {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(ellipse at 10% 10%, rgba(204,255,0,.045), transparent 55%),
+    linear-gradient(120deg, rgba(13,15,18,.93), rgba(13,15,18,.86) 55%, rgba(13,15,18,.95)),
+    url('../images/training-hall.jpg') center / cover no-repeat;
+}
 .main-header { background: #111318 !important; }
 .main-header .navbar-brand { font-size: 1rem; font-weight: 700; }
 .main-header .nav-link { font-size: .88rem; }
