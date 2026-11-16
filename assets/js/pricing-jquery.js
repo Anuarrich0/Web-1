@@ -21,84 +21,13 @@
 $(function () {
   'use strict';
 
-  /* --- Часть 1. Фильтр тарифов: поиск по названию + выбор срока. --- */
+  /* Карточки тарифов и форма оформления. */
   const $section = $('#pricing-plans');
   if ($section.length === 0) {
     return;
   }
 
   const $cards = $section.find('[data-tariff]');
-
-  /* Панель фильтров собирается кодом (разметку руками не меняем). */
-  const $controls = $('<div class="col-12 pricing-controls"></div>');
-  $('<label class="form-label" for="tariff-search"></label>').text('Поиск тарифа').appendTo($controls);
-  const $search = $('<input type="search" id="tariff-search" class="form-control mb-3" />').appendTo($controls);
-
-  const $durationWrap = $('<div class="mb-3"></div>').appendTo($controls);
-  $('<label class="form-label" for="duration-filter"></label>').text('Показать цены на срок').appendTo($durationWrap);
-  const $duration = $('<select id="duration-filter" class="form-select"></select>').appendTo($durationWrap);
-  $.each([['', 'Все сроки'], ['1', '1 месяц'], ['3', '3 месяца'], ['6', '6 месяцев'], ['12', '12 месяцев']], function (index, pair) {
-    $('<option></option>').attr('value', pair[0]).text(pair[1]).appendTo($duration);
-  });
-
-  const $reset = $('<button type="button" class="btn btn-outline-light mb-3"></button>').text('Сбросить фильтры').appendTo($controls);
-  const $count = $('<p role="status"></p>').appendTo($controls);
-  $section.find('h2').after($controls);
-
-  const $empty = $('<p class="col-12 is-hidden"></p>')
-    .text('Ничего не найдено. Измените запрос или сбросьте фильтры.')
-    .appendTo($section);
-
-  /* Одна строка цены внутри карточки: срок и стоимость. */
-  function priceRow(item) {
-    const $row = $('<li class="row g-2 border-bottom py-2"></li>');
-    $('<span class="col-5 text-body-secondary small"></span>').text(item.months + ' мес.').appendTo($row);
-    $('<span class="col-7 fw-bold text-end"></span>').text(money(item.price)).appendTo($row);
-    return $row;
-  }
-
-  /* Совмещает поиск и срок: обновляет список цен, видимость карточек и счётчик. */
-  function filterTariffs() {
-    const query = String($search.val()).trim().toLocaleLowerCase('ru-RU');
-    const pickedDuration = $duration.val();
-    let visible = 0;
-
-    $cards.each(function () {
-      const $card = $(this);
-      const tariff = $card.attr('data-tariff');
-      const items = memberships.filter(function (item) {
-        const matchesCard = item.tariff === tariff;
-        const matchesSearch = item.name.toLocaleLowerCase('ru-RU').indexOf(query) !== -1;
-        const matchesDuration = pickedDuration === '' || item.months === Number(pickedDuration);
-        return matchesCard && matchesSearch && matchesDuration;
-      });
-
-      $card.toggleClass('is-hidden', items.length === 0);
-
-      const $list = $card.find('.price-list').empty();
-      if (items.length === 0) {
-        $('<li></li>').text('Ничего не найдено. Измените условия или сбросьте фильтры.').appendTo($list);
-      } else {
-        $(items).each(function () {
-          $list.append(priceRow(this));
-        });
-      }
-      if (items.length > 0) {
-        visible += 1;
-      }
-    });
-
-    $count.text('Найдено тарифов: ' + visible);
-    $empty.toggleClass('is-hidden', visible !== 0);
-  }
-
-  $search.on('input', filterTariffs);
-  $duration.on('change', filterTariffs);
-  $reset.on('click', function () {
-    $search.val('');
-    $duration.val('');
-    filterTariffs();
-  });
 
   /* --- Часть 2. Форма оформления абонемента. --- */
   const $form = $('#order-form form');
@@ -115,7 +44,7 @@ $(function () {
 
   $form.prop('novalidate', true);
   $form.find('button[type="submit"]').prop('disabled', false);
-  $('#form-note-0').text('Демонстрационное оформление: данные не отправляются в клуб, деньги не списываются, абонемент не активируется.');
+  $('#form-note-0').text('Проверьте контактные данные. Оформление и активация абонемента завершаются в клубе.');
 
   /* Дополнительные галочки, скидка и блок текущего расчёта. */
   function createCheckbox($parent, id, title) {
@@ -216,7 +145,7 @@ $(function () {
       const errors = membershipErrors(data);
       showErrors(errors);
       if (Object.keys(errors).length === 0 && $feedback.hasClass('is-error')) {
-        $feedback.removeClass('is-error').text('Ошибки исправлены. Можно отправить демонстрационную заявку.');
+        $feedback.removeClass('is-error').text('Данные исправлены. Можно продолжить оформление.');
       }
     }
   }
@@ -229,7 +158,7 @@ $(function () {
       // отменяет прыжок к якорю, чтобы страница не «улетала» и фильтр снова не прокручивал экран.
       event.preventDefault();
       $tariff.val($card.attr('data-tariff'));
-      const months = $duration.val() || readOrder().months || '1';
+      const months = readOrder().months || '1';
       $('#term-' + months).prop('checked', true);
       updateOrder();
       $tariff.trigger('focus');
@@ -272,9 +201,9 @@ $(function () {
       ],
       onSuccess: function (reference) {
         const $box = $('<div class="alert alert-success mb-0"></div>');
-        $('<p class="fw-bold mb-2"></p>').text('Демонстрационная заявка ' + reference).appendTo($box);
+        $('<p class="fw-bold mb-2"></p>').text('Заявка подготовлена: ' + reference).appendTo($box);
         $('<p class="mb-0"></p>')
-          .text('Проверка формы завершена. Оплата не проводилась. Для покупки и активации абонемента свяжитесь с клубом.')
+          .text('Данные проверены. Для завершения покупки и активации абонемента свяжитесь с клубом.')
           .appendTo($box);
         $feedback.empty().removeClass('is-error').addClass('is-success').append($box);
       }
@@ -300,6 +229,5 @@ $(function () {
   }
 
   /* Первый вывод при открытии страницы. */
-  filterTariffs();
   updateOrder();
 });

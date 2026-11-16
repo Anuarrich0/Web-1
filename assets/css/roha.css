@@ -55,3 +55,12 @@
 @media (max-width: 575px) {
   #calculator-form fieldset > div { width: 100%; }
 }
+
+.trainer-profiles { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
+.trainer-profile { display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: .65rem; padding: 1.4rem; color: var(--bs-body-color); background: var(--bs-body-bg); border: 1px solid var(--bs-border-color); border-radius: 1rem; cursor: pointer; transition: border-color .2s ease, background-color .2s ease, box-shadow .2s ease; }
+.trainer-profile:hover, .trainer-profile.is-selected { border-color: var(--bs-link-color); background: linear-gradient(135deg,rgba(204,255,0,.08),transparent),var(--bs-body-bg); }
+.trainer-profile-name { font-size: 1.3rem; font-weight: 700; }
+.trainer-profile-label { margin-top: .3rem; font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--bs-secondary-color); }
+.trainer-profile-specialty { font-size: .95rem; font-weight: 600; line-height: 1.5; margin-bottom: .6rem; }
+.trainer-profile-experience { margin-top: auto; padding: .4rem .75rem; border-radius: 2rem; background: rgba(204,255,0,.12); color: var(--bs-link-color); font-size: .8rem; font-weight: 700; }
+@media (max-width: 767px) { .trainer-profiles { grid-template-columns: minmax(0,1fr); } }

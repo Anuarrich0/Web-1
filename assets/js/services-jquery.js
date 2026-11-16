@@ -170,12 +170,9 @@ $(function () {
   const $form = $feedback.closest('form');
   const $selection = $('<p id="selected-service" class="alert alert-info" role="status"></p>').text('Услуга: вводная консультация. Можно выбрать другую в каталоге выше.');
   $form.prepend($selection);
-  const $output = $('#calc-output');
   /* Кнопка submit отключена в разметке midterm — включаем её через .prop(). */
   $form.find('button[type="submit"]').prop('disabled', false);
 
-  /* Соответствие option филиала и id района из общей модели данных. */
-  const BRANCH_BY_OPTION = { imanbayeva: 'baikonur', asfendiyarova: 'esil' };
 
   /* Куда класть текст ошибки: ближайший <p>, а если его нет — прямой родитель. */
   function errorTarget($field) {
@@ -210,29 +207,13 @@ $(function () {
         function (value) { return EF.rules.required(value); },
         function (value) { return EF.rules.fullName(value); }
       ] },
-      { $field: $('#subscriber-email'), checks: [
-        function (value) { return EF.rules.required(value); },
-        function (value) { return EF.rules.email(value); }
-      ] },
       { $field: $('#client-phone'), checks: [
         function (value) { return EF.rules.required(value); },
         function (value) { return EF.rules.phone(value); }
       ] },
-      { $field: $('#client-age'), checks: [
-        function (value) { return value.trim() === '' ? '' : EF.rules.numberRange(value, 14, 90, true); }
-      ] },
-      { $field: $('#visit-date'), checks: [
-        function (value) { return value === '' ? '' : EF.rules.withinDays(value, 30); }
-      ] },
-      { $field: $('#branch-select'), checks: [
-        function (value) { return EF.rules.required(value); }
-      ] },
       { $field: $('#client-goals'), checks: [
         function (value) { return EF.rules.maxLength(value, 500); }
       ] },
-      { $field: $('#health-agree'), checks: [
-        function () { return EF.rules.checked($('#health-agree').prop('checked')); }
-      ] }
     ];
 
     /* .each() проходит по плану; внутри this — очередной пункт плана. */
@@ -309,27 +290,20 @@ $(function () {
     const $firstInvalid = validateConsultation();
     if ($firstInvalid.length > 0) {
       showFeedback('error', 'Форма заполнена неверно', collectErrors());
-      if ($output.length > 0) {
-        $output.text('Проверьте выделенные поля формы');
-      }
       $firstInvalid.trigger('focus');
       return;
     }
 
-    const branch = EF.findBranchById(BRANCH_BY_OPTION[$('#branch-select').val()]);
     const reference = EF.generateReference('EF');
-    showFeedback('success', 'Заявка ' + reference + ' подготовлена', [
+    showFeedback('success', 'Запрос на подбор программы ' + reference + ' подготовлен', [
       'Клиент: ' + $('#client-name').val().trim(),
       'Услуга: ' + (selectedService || 'Вводная консультация'),
-      'Филиал: ' + EF.describeBranch(branch),
-      'Дата визита: ' + EF.formatDateRu($('#visit-date').val()),
-      'Возраст: ' + ($('#client-age').val() ? $('#client-age').val() + ' лет' : 'не указан'),
-      'Контакт: ' + $('#client-phone').val().trim() + ', ' + $('#subscriber-email').val().trim(),
-      'Демонстрационная заявка: данные не отправлены на сервер, реальная запись не создана.'
+      'Цель: ' + $form.find('input[name="consultation-goal"]:checked').val(),
+      'Опыт: ' + ($form.find('input[name="fitness-level"]:checked').val() === 'beginner' ? 'Начинаю с нуля' : 'Уже тренируюсь'),
+      'Пожелания: ' + ($('#client-goals').val().trim() || 'Обсудим с тренером'),
+      'Телефон: ' + $('#client-phone').val().trim(),
+      'Для обсуждения программы свяжитесь с клубом.'
     ]);
-    if ($output.length > 0) {
-      $output.text('Заявка ' + reference + ' сформирована (демонстрация)');
-    }
   });
 
   $form.on('reset', function () {
@@ -340,8 +314,5 @@ $(function () {
     $selection.text('Услуга: вводная консультация. Можно выбрать другую в каталоге выше.');
     $list.find('.service-result-card').removeClass('is-selected').attr('aria-pressed', 'false');
     $feedback.html('').removeClass('is-error is-success');
-    if ($output.length > 0) {
-      $output.text('Заполните обязательные поля формы');
-    }
   });
 });

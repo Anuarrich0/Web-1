@@ -31,3 +31,15 @@ Validation performed: Node source/logic checks, static label/ARIA checks, photo 
 User correction: remove the telephone action button from the selected-training confirmation. Codex removed that button; the confirmation still states that a real booking was not created.
 
 User requested removing the test-data fill button. Codex removed the button, its click handler and obsolete selector, and updated the current documentation.
+
+User requested removing the bottom checkout checkboxes. Codex removed both checkbox fields, their required checks and the unused checkbox helper.
+
+User requested removing remaining test-oriented UI. Codex replaced visible demo/test labels with ordinary request-preparation wording, retained a clear online-payment-unavailable notice, and preserved honest completion steps. Internal regression tests and documentation of technical limitations remain.
+
+User requested removing the online-payment-unavailable notice. Codex removed the notice paragraph, restyled the retained order summary as a neutral panel and updated current documentation. Completion wording still describes preparation rather than a completed payment.
+
+User requested simple membership cards without the search interface. Codex removed the tariff search, duration filter, reset control and their unused code/styles. The existing three cards retain all term prices, hover effects and click selection; duration remains selectable in the order form.
+
+User requested a quick consultation redesign distinct from membership purchase. Codex replaced the long booking questionnaire with goal and experience choices, name/phone and optional notes, added a two-column responsive layout, and updated validation and the prepared-request summary for the new fields.
+
+User requested prominently visible trainer characteristics in the trainer selector. Codex replaced name-only buttons with three profile cards showing each existing name, specialty and experience, retained click selection and updating time slots, and added responsive styles. No new trainer facts were invented.

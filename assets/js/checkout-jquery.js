@@ -5,8 +5,7 @@
 
    Зачем: пользователь должен пройти путь «форма → оплата → подтверждение» целиком
    на сайте, без перехода на внешний платёжный сервис. Внутри попапа — ввод
-   банковских данных, согласие на обработку персональных данных и согласие с
-   офертой, предупреждение «проверьте, правильно ли заполнена форма» и кнопка
+   банковских данных, предупреждение о тестовом режиме и кнопка
    «Оформить». Оплата демонстрационная: страница не перезагружается и никуда
    не переходит — сценарий заканчивается на сайте.
 
@@ -49,14 +48,6 @@
     return $wrap;
   }
 
-  /* Галочка согласия с подписью (классы как у штатных чекбоксов Bootstrap). */
-  function checkField(id, label) {
-    const $wrap = $('<p class="form-check col-12 mb-3"></p>');
-    $('<input type="checkbox" class="form-check-input me-2" />').attr('id', id).attr('name', id).appendTo($wrap);
-    $('<label class="form-check-label"></label>').attr('for', id).text(label).appendTo($wrap);
-    return $wrap;
-  }
-
   /* Помечает поле ошибочным и выводит текст рядом.
      Цепочка из 3 методов: подсветить ошибку, снять «успех», пометить для скринридера. */
   function setFieldError($field, message) {
@@ -91,12 +82,9 @@
 
     const $body = $('<div class="modal-body"></div>').appendTo($content);
 
-    /* Предупреждение + сводка данных, введённых в форме, — пользователь проверяет их перед оплатой. */
-    const $warning = $('<div class="alert alert-warning"></div>').appendTo($body);
-    $('<p class="fw-bold mb-2"></p>')
-      .text('Тестовый режим — деньги не списываются. Не вводите настоящие реквизиты карты.')
-      .appendTo($warning);
-    const $summary = $('<ul class="mb-0 ps-3"></ul>').appendTo($warning);
+    /* Сводка выбранного абонемента и контактных данных. */
+    const $summaryBox = $('<div class="border rounded-3 p-3 mb-3"></div>').appendTo($body);
+    const $summary = $('<ul class="mb-0 ps-3"></ul>').appendTo($summaryBox);
     $(options.summary).each(function () {
       $('<li></li>').text(this).appendTo($summary);
     });
@@ -115,20 +103,13 @@
     $cardFields.find('#checkout-card-expiry').attr({ autocomplete: 'cc-exp', inputmode: 'numeric', maxlength: 5 });
     $cardFields.find('#checkout-card-cvv').attr({ autocomplete: 'cc-csc', inputmode: 'numeric', maxlength: CARD_CVV_DIGITS });
 
-    /* Согласия: обработка персональных данных и оферта. */
-    const $consents = $('<div class="row g-2" id="checkout-consents"></div>').appendTo($body);
-    $consents.append(
-      checkField('checkout-consent-data', 'Ввожу только тестовые данные'),
-      checkField('checkout-consent-offer', 'Понимаю, что реальная оплата не проводится')
-    );
-
     /* Контейнер итогового сообщения. */
     $('<div class="form-feedback-container mt-3" aria-live="polite"></div>').appendTo($body);
 
     /* Подвал с кнопками. «Готово» скрыто до успешной оплаты. */
     const $footer = $('<div class="modal-footer"></div>').appendTo($content);
     $('<button type="submit" id="checkout-submit" class="btn btn-primary btn-lg"></button>')
-      .text('Проверить оформление').appendTo($footer);
+      .text('Продолжить').appendTo($footer);
     $('<button type="button" id="checkout-done" class="btn btn-primary btn-lg is-hidden" data-bs-dismiss="modal"></button>')
       .text('Готово').appendTo($footer);
     $('<button type="button" id="checkout-cancel" class="btn btn-outline-light" data-bs-dismiss="modal"></button>')
@@ -137,7 +118,7 @@
     return $modal;
   }
 
-  /* Проверяет банковские поля и оба согласия. Возвращает первое неверное поле. */
+  /* Проверяет банковские поля. Возвращает первое неверное поле. */
   function validateCheckout($modal) {
     let $firstInvalid = $();
 
@@ -145,16 +126,12 @@
     const $name = $modal.find('#checkout-card-name');
     const $expiry = $modal.find('#checkout-card-expiry');
     const $cvv = $modal.find('#checkout-card-cvv');
-    const $consentData = $modal.find('#checkout-consent-data');
-    const $consentOffer = $modal.find('#checkout-consent-offer');
 
     const checks = [
       { $field: $number, message: cardNumberError($number.val()) },
       { $field: $name, message: EF.rules.fullName($name.val()) },
       { $field: $expiry, message: cardExpiryError($expiry.val().trim()) },
       { $field: $cvv, message: new RegExp('^\\d{' + CARD_CVV_DIGITS + '}$').test($cvv.val().trim()) ? '' : 'Введите 3 цифры CVV' },
-      { $field: $consentData, message: $consentData.prop('checked') ? '' : 'Подтвердите использование тестовых данных' },
-      { $field: $consentOffer, message: $consentOffer.prop('checked') ? '' : 'Подтвердите тестовый режим' }
     ];
 
     /* .each() проходит по плану проверок; this — очередной пункт. */
@@ -211,7 +188,7 @@
       $field.closest('p').find('.field-error').text('');
     });
 
-    /* Кнопка «Оформить»: проверяем карту и согласия; при ошибке ничего не оплачиваем. */
+    /* Кнопка «Оформить»: проверяем карту; при ошибке ничего не оплачиваем. */
     $modal.on('submit', 'form', function (event) {
       event.preventDefault();
       if (completed) return;
@@ -228,11 +205,11 @@
       completed = true;
       /* Успех: сообщение показывается внутри попапа, страница не перезагружается. */
       $modal.find('#checkout-card-fields input').val('');
-      $modal.find('#checkout-card-fields, #checkout-consents').addClass('is-hidden');
+      $modal.find('#checkout-card-fields').addClass('is-hidden');
       $modal.find('#checkout-submit, #checkout-cancel').addClass('is-hidden');
       $modal.find('#checkout-done').removeClass('is-hidden');
       $feedback
-        .text('Оформление ' + reference + ' проверено. Оплата не проводилась; для покупки свяжитесь с клубом.')
+        .text('Оформление ' + reference + ' подготовлено. Для завершения покупки свяжитесь с клубом.')
         .removeClass('is-error').addClass('is-success');
 
       $('<a class="btn btn-outline-light mt-3"></a>').attr('href', EF.CLUB.callCenterHref).text('Позвонить для покупки').appendTo($feedback);
