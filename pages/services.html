@@ -161,144 +161,40 @@
             </figcaption>
           </figure>
         </article>
-      </section><aside id="workout-tips" class="site-panel p-4 p-md-5 mb-5"><p class="site-eyebrow">ПЕРВЫЙ ВИЗИТ</p><h2 class="h2 fw-bold">Начните с комфортной нагрузки</h2><p class="text-body-secondary">Возьмите спортивную форму, чистую сменную обувь, полотенце и воду. Если вы впервые в зале, попросите тренера показать оборудование и помочь с техникой.</p><a href="training.html" class="btn btn-outline-light">Посмотреть тренировки ↗</a></aside><section class="form-section mb-5" id="newsletter-subscription">
-        <h2 class="h3 fw-bold mb-3">Запись на консультацию и подбор программы</h2>
-        <p>Заполните форму ниже для бронирования персональной вводной тренировки:</p>
-
-        <form
-          action="#"
-          method="post"
-          id="consultation-form"
-          class="bg-body-tertiary border rounded-3 p-3 p-md-4 shadow-sm"
-        >
-
-          <p id="form-note-0" class="small text-body-secondary">
-            Выберите услугу и подготовьте заявку. Время визита подтвердит администратор.
-          </p>
-          <fieldset class="form-group-box row g-3 mx-0 border rounded-3 p-3 mb-4">
-            <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">
-              Анкета клиента и параметры тренировки
-            </legend>
-            <p class="form-field col-12 col-md-6">
-              <label for="client-name" class="form-label">ФИО клиента:</label>
-              <input maxlength="80"
-                type="text"
-                id="client-name"
-                name="fullname"
-                required
-                placeholder="Иванов Иван Иванович"
-                class="form-control"
-              />
-            </p>
-            <p class="form-field col-12 col-md-6">
-              <label for="subscriber-email" class="form-label">Ваш Email адрес:</label>
-              <input maxlength="254"
-                type="email"
-                id="subscriber-email"
-                name="email"
-                required
-                placeholder="example@mail.kz"
-                class="form-control"
-              />
-            </p>
-            <p class="form-field col-12 col-md-6">
-              <label for="client-phone" class="form-label">Номер телефона:</label>
-              <input maxlength="18"
-                type="tel"
-                id="client-phone"
-                name="phone"
-                required
-                placeholder="+7 (700) 000-00-00"
-                class="form-control"
-              />
-            </p>
-            <p class="form-field col-12 col-md-6">
-              <label for="client-age" class="form-label">Ваш возраст (лет):</label>
-              <input
-                type="number"
-                id="client-age"
-                name="age"
-                min="14"
-                max="90"
-                required
-                placeholder="18"
-                class="form-control"
-              />
-            </p>
-            <p class="form-field col-12 col-md-6">
-              <label for="visit-date" class="form-label">Желаемая дата визита:</label>
-              <input type="date" id="visit-date" name="preferred_date" required class="form-control" />
-            </p>
-            <p class="form-field col-12 col-md-6">
-              <label for="branch-select" class="form-label">Выберите филиал:</label>
-              <select id="branch-select" name="branch" required class="form-select">
-                <option value="">-- Выберите филиал --</option>
-                <option value="imanbayeva">ул. Шолпан Иманбаевой, 8, корп. 2 (4-й этаж)</option>
-                <option value="asfendiyarova">ул. Санжара Асфендиярова, 6 (НП 18)</option>
-              </select>
-            </p>
-            <fieldset class="radio-subgroup col-12 row g-3 mx-0 border rounded-3 p-3 mb-4">
-              <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">
-                Предпочитаемый уровень нагрузки:
-              </legend>
-              <label class="col-12 form-label" for="level-beginner">
-                <input
-                  type="radio"
-                  name="fitness-level"
-                  value="beginner"
-                  checked
-                  id="level-beginner"
-                  class="form-check-input me-2"
-                />
-                Новичок
-              </label>
-              <label class="col-12 form-label" for="level-intermediate">
-                <input
-                  type="radio"
-                  name="fitness-level"
-                  value="intermediate"
-                  id="level-intermediate"
-                  class="form-check-input me-2"
-                />
-                Опытный атлет
-              </label>
-            </fieldset>
-            <p class="form-field-checkbox col-12">
-              <label for="health-agree" class="form-label">
-                <input
-                  type="checkbox"
-                  name="health_agree"
-                  value="yes"
-                  required
-                  id="health-agree"
-                  class="form-check-input me-2"
-                />
-                Подтверждаю отсутствие медицинских противопоказаний к занятиям спортом.
-              </label>
-            </p>
-            <p class="form-field col-12">
-              <label for="client-goals" class="form-label">Ваши спортивные цели и пожелания:</label>
-              <textarea
-                maxlength="500" id="client-goals"
-                name="goals"
-                rows="4"
-                placeholder="Расскажите о ваших целях (набор массы, похудение, реабилитация)..."
-                class="form-control"
-              ></textarea>
-            </p>
-            <p class="form-field col-12">
-              <label for="calc-output" class="form-label">Статус формы:</label>
-              <output id="calc-output" name="calc-status">Заполните обязательные поля формы</output>
-            </p>
-            <p class="form-actions col-12 d-flex flex-wrap gap-2 align-items-center mb-0">
-              <button type="submit" class="btn btn-primary btn-lg" disabled aria-describedby="form-note-0">
-                Сформировать заявку
-              </button>
-              <button type="reset" class="btn btn-outline-light">Сбросить поля</button>
-            </p>
-
-            <div id="booking-form-feedback" class="form-feedback-container col-12 mt-3" aria-live="polite"></div>
+      </section><aside id="workout-tips" class="site-panel p-4 p-md-5 mb-5"><p class="site-eyebrow">ПЕРВЫЙ ВИЗИТ</p><h2 class="h2 fw-bold">Начните с комфортной нагрузки</h2><p class="text-body-secondary">Возьмите спортивную форму, чистую сменную обувь, полотенце и воду. Если вы впервые в зале, попросите тренера показать оборудование и помочь с техникой.</p><a href="training.html" class="btn btn-outline-light">Посмотреть тренировки ↗</a></aside><section class="consultation-section mb-5" id="newsletter-subscription" aria-labelledby="consultation-title">
+        <div class="consultation-intro">
+          <p class="site-eyebrow">ПРОГРАММА ПОД ВАС</p>
+          <h2 id="consultation-title">С чего начнём<br><span>ваши тренировки?</span></h2>
+          <p class="text-body-secondary">Расскажите о цели и опыте. Вместе с тренером обсудите подходящий формат, нагрузку и первые шаги.</p>
+          <p class="consultation-note">Никаких тарифов и оплаты — только ваши задачи и подбор программы.</p>
+        </div>
+        <form action="#" method="post" id="consultation-form">
+          <fieldset class="consultation-step">
+            <legend><span>01</span> Ваша цель</legend>
+            <div class="consultation-choices">
+              <label for="goal-strength"><input type="radio" id="goal-strength" name="consultation-goal" value="Сила и мышцы" checked required> Сила и мышцы</label>
+              <label for="goal-lose"><input type="radio" id="goal-lose" name="consultation-goal" value="Снижение веса" required> Снижение веса</label>
+              <label for="goal-maintain"><input type="radio" id="goal-maintain" name="consultation-goal" value="Поддержание формы" required> Поддержание формы</label>
+            </div>
           </fieldset>
+          <fieldset class="consultation-step">
+            <legend><span>02</span> Опыт тренировок</legend>
+            <div class="consultation-choices">
+              <label for="level-beginner"><input type="radio" id="level-beginner" name="fitness-level" value="beginner" checked required> Начинаю с нуля</label>
+              <label for="level-intermediate"><input type="radio" id="level-intermediate" name="fitness-level" value="intermediate" required> Уже тренируюсь</label>
+            </div>
+          </fieldset>
+          <fieldset class="consultation-step">
+            <legend><span>03</span> Как с вами связаться</legend>
+            <div class="row g-3">
+              <p class="col-12 col-md-6 mb-0"><label for="client-name" class="form-label">Имя и фамилия</label><input type="text" id="client-name" name="fullname" maxlength="80" autocomplete="name" placeholder="Имя Фамилия" required class="form-control"></p>
+              <p class="col-12 col-md-6 mb-0"><label for="client-phone" class="form-label">Телефон</label><input type="tel" id="client-phone" name="phone" maxlength="18" autocomplete="tel" placeholder="+7 700 123 45 67" required class="form-control"></p>
+              <p class="col-12 mb-0"><label for="client-goals" class="form-label">Что ещё учесть? <span class="text-body-secondary">Необязательно</span></label><textarea id="client-goals" name="goals" maxlength="500" rows="2" placeholder="Например: хочу вернуться к тренировкам после перерыва" class="form-control"></textarea></p>
+            </div>
+          </fieldset>
+          <p id="form-note-0" class="small text-body-secondary">Подготовьте запрос, затем свяжитесь с клубом для консультации с тренером.</p>
+          <div class="d-flex flex-wrap gap-2"><button type="submit" class="btn btn-primary btn-lg" aria-describedby="form-note-0">Обсудить программу ↗</button><button type="reset" class="btn btn-outline-light">Сбросить</button></div>
+          <div id="booking-form-feedback" class="form-feedback-container mt-3" aria-live="polite"></div>
         </form>
       </section>
 <noscript><p class="alert alert-info">Для расчётов и форм включите JavaScript. Связаться с отделом продаж можно по телефону <a href="tel:+77783457405">+7 (778) 345-74-05</a>.</p></noscript>

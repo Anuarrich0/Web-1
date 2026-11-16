@@ -39,3 +39,5 @@ User requested removing remaining test-oriented UI. Codex replaced visible demo/
 User requested removing the online-payment-unavailable notice. Codex removed the notice paragraph, restyled the retained order summary as a neutral panel and updated current documentation. Completion wording still describes preparation rather than a completed payment.
 
 User requested simple membership cards without the search interface. Codex removed the tariff search, duration filter, reset control and their unused code/styles. The existing three cards retain all term prices, hover effects and click selection; duration remains selectable in the order form.
+
+User requested a quick consultation redesign distinct from membership purchase. Codex replaced the long booking questionnaire with goal and experience choices, name/phone and optional notes, added a two-column responsive layout, and updated validation and the prepared-request summary for the new fields.
