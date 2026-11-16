@@ -119,18 +119,49 @@ function birthAge(value, today = new Date()) {
   return age;
 }
 
+// Общие проверки и форматирование используются всеми формами.
+function fullNameError(value) {
+  const name = String(value || '').trim();
+  return name.length <= 80 && /^[\p{L}\p{M}]+(?:[-'’][\p{L}\p{M}]+)*(?:\s+[\p{L}\p{M}]+(?:[-'’][\p{L}\p{M}]+)*)+$/u.test(name)
+    ? '' : 'Введите имя и фамилию буквами через пробел (до 80 символов).';
+}
+
+function phoneError(value) {
+  return /^(?:\+7|7|8)[\d ()-]*$/.test(value) && /^[78]\d{10}$/.test(value.replace(/\D/g, ''))
+    ? '' : 'Введите полный номер +7 (700) 123-45-67.';
+}
+
+function formatPhone(value) {
+  let digits = String(value).replace(/\D/g, '');
+  if (!digits) return '';
+  if (/^\+7/.test(String(value)) || digits.length === 11 && /^[78]/.test(digits)) digits = digits.slice(1);
+  digits = digits.slice(0, 10);
+  return '+7' + (digits ? ' ' + [digits.slice(0, 3), digits.slice(3, 6), digits.slice(6, 8), digits.slice(8, 10)].filter(Boolean).join(' ') : '');
+}
+
+function formatExpiry(value) {
+  const digits = String(value).replace(/\D/g, '').slice(0, 4);
+  return digits.slice(0, 2) + (digits.length > 2 ? '/' + digits.slice(2) : '');
+}
+
+function cardExpiryError(value, today = new Date()) {
+  if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(value)) return 'Укажите срок в формате ММ/ГГ';
+  return new Date(2000 + Number(value.slice(3)), Number(value.slice(0, 2)), 1) > today
+    ? '' : 'Срок действия карты истёк';
+}
+
 // Возвращает ошибки вида id поля → сообщение; пустой объект означает успех.
 function membershipErrors(data, today = new Date()) {
   const errors = {};
   const age = birthAge(data.birth, today);
-  if (data.name.trim().length < 2 || data.name.trim().length > 80) {
-    errors['client-name'] = 'Введите имя от 2 до 80 символов.';
+  if (fullNameError(data.name)) {
+    errors['client-name'] = fullNameError(data.name);
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim())) {
     errors['client-email'] = 'Введите корректный email, например name@example.com.';
   }
-  if (!/^[+\d\s()-]+$/.test(data.phone) || !/^[78]\d{10}$/.test(data.phone.replace(/\D/g, ''))) {
-    errors['client-phone'] = 'Введите 11 цифр, начиная с +7 или 8.';
+  if (phoneError(data.phone)) {
+    errors['client-phone'] = phoneError(data.phone);
   }
   if (!Number.isInteger(age) || age < 14 || age > 99) {
     errors['client-dob'] = 'Укажите корректную дату рождения: возраст должен быть от 14 до 99 лет.';
@@ -157,7 +188,7 @@ function membershipErrors(data, today = new Date()) {
 if (typeof module !== 'undefined' && require.main === module) {
   const assert = require('node:assert/strict');
   const today = new Date(2026, 9, 21);
-  const valid = { name: 'Анна', email: 'anna@example.com', phone: '+7 (700) 123-45-67', birth: '2008-10-21', tariff: 'exp', months: '3', agree: true, guardian: false, accompanied: false, comment: '' };
+  const valid = { name: 'Анна Иванова', email: 'anna@example.com', phone: '+7 (700) 123-45-67', birth: '2008-10-21', tariff: 'exp', months: '3', agree: true, guardian: false, accompanied: false, comment: '' };
   assert.equal(memberships.length, 12);
   for (const item of memberships) {
     assert.equal(membershipPrice(item, false).total, item.price);
@@ -183,6 +214,23 @@ if (typeof module !== 'undefined' && require.main === module) {
   assert.ok(membershipErrors(minor, today)['guardian-agree']);
   assert.ok(membershipErrors(minor, today)['accompanied-agree']);
   assert.deepEqual(membershipErrors({ ...minor, guardian: true, accompanied: true }, today), {});
+  for (const name of ['Анна Иванова', 'Әлия Нұрланқызы', "Jean-Luc O’Neill"]) assert.equal(fullNameError(name), '');
+  for (const name of ['Анна', 'Анна 123', 'Анна @Иванова']) assert.ok(fullNameError(name));
+  assert.equal(formatPhone('87001234567'), '+7 700 123 45 67');
+  assert.equal(formatPhone('7001234567'), '+7 700 123 45 67');
+  assert.equal(formatPhone('+7 700 123 45'), '+7 700 123 45');
+  assert.equal(formatPhone(''), '');
+  let typed = '+7 ';
+  for (const digit of '7001234567') typed = formatPhone(typed + digit);
+  assert.equal(typed, '+7 700 123 45 67');
+  assert.equal(phoneError(typed), '');
+  for (const phone of ['1234567890', '+1 7001234567', '+7 BAD 7001234567', '+7']) assert.ok(phoneError(phone));
+  assert.equal(formatExpiry('1228'), '12/28');
+  assert.equal(formatExpiry('12/28'), '12/28');
+  assert.equal(formatExpiry('abc1'), '1');
+  assert.equal(cardExpiryError('10/26', today), '');
+  assert.ok(cardExpiryError('09/26', today));
+  assert.ok(cardExpiryError('13/28', today));
   console.log('PASS: membership prices, discounts, validation and age boundaries.');
 }
 
@@ -343,6 +391,7 @@ if (typeof window !== 'undefined') {
 
     /* Набор правил проверки полей: возвращают текст ошибки или пустую строку. */
     EF.rules = {
+      fullName: fullNameError,
       required: function (value) {
         return String(value || '').trim() === '' ? 'Поле обязательно для заполнения' : '';
       },
@@ -356,8 +405,7 @@ if (typeof window !== 'undefined') {
         return pattern.test(String(value || '').trim()) ? '' : 'Укажите e-mail, например name@mail.kz';
       },
       phone: function (value) {
-        const digits = EF.normalizeDigits(value);
-        return digits.length >= 10 && digits.length <= 11 ? '' : 'Укажите телефон из 10–11 цифр';
+        return phoneError(value);
       },
       numberRange: function (value, min, max) {
         if (String(value || '').trim() === '') {
@@ -526,4 +574,47 @@ if (typeof window !== 'undefined') {
       container.classList.remove('is-success', 'is-error');
     };
   })(window.EF);
+}
+
+// Capture: маска обновляет значение до обработчиков проверки jQuery.
+if (typeof document !== 'undefined') {
+  function prepareInput(field) {
+    if (!field.matches('input')) return;
+    const id = field.id;
+    if (field.type === 'tel') {
+      field.autocomplete = 'tel';
+      field.inputMode = 'tel';
+      field.placeholder = '+7 700 123 45 67';
+    } else if (field.type === 'email') {
+      field.autocomplete = 'email';
+    } else if (['name', 'client-name', 'booking-name'].includes(id)) {
+      field.autocomplete = 'name';
+      field.placeholder = 'Имя Фамилия';
+    }
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('input').forEach(prepareInput);
+  });
+  document.addEventListener('focus', function (event) {
+    const field = event.target;
+    prepareInput(field);
+    if (field.matches('input[type="tel"]') && !field.value) field.value = '+7 ';
+  }, true);
+  document.addEventListener('blur', function (event) {
+    if (event.target.matches('input[type="tel"]') && event.target.value.trim() === '+7') event.target.value = '';
+  }, true);
+  document.addEventListener('input', function (event) {
+    const field = event.target;
+    if (event.isComposing || !field.matches('input[type="tel"]')) return;
+    const oldValue = field.value;
+    const position = field.selectionStart;
+    const digitsAfter = oldValue.slice(position).replace(/\D/g, '').length;
+    field.value = formatPhone(oldValue);
+    if (position !== null && position < oldValue.length) {
+      let caret = field.value.length;
+      let remaining = digitsAfter;
+      while (caret > 0 && remaining > 0) if (/\d/.test(field.value[--caret])) remaining--;
+      field.setSelectionRange(caret, caret);
+    }
+  }, true);
 }

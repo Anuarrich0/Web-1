@@ -68,7 +68,7 @@ $(function () {
     const plan = [
       { $field: $('#name'), checks: [
         function (value) { return EF.rules.required(value); },
-        function (value) { return EF.rules.minLength(value, 2); }
+        function (value) { return EF.rules.fullName(value); }
       ] },
       { $field: $('#email'), checks: [
         function (value) { return EF.rules.required(value); },

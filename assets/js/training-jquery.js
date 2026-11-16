@@ -248,7 +248,7 @@ $(function () {
     $bookingBody.append(make('p', 'text-body-secondary mb-3', 'Данные не отправляются в клуб. Для записи позвоните +7 (778) 345-74-05.'));
 
     const $nameGroup = make('div', 'mb-3');
-    $nameGroup.append(make('label', 'form-label', 'Ваше имя:').attr('for', 'booking-name'));
+    $nameGroup.append(make('label', 'form-label', 'Имя и фамилия:').attr('for', 'booking-name'));
     const $name = make('input', 'form-control')
       .attr('type', 'text')
       .attr('id', 'booking-name')
@@ -372,7 +372,7 @@ $(function () {
     function validateBooking() {
       let $firstInvalid = $();
       const checks = [
-        { $field: $name, message: EF.rules.required($name.val()) || EF.rules.minLength($name.val(), 2) },
+        { $field: $name, message: EF.rules.required($name.val()) || EF.rules.fullName($name.val()) },
         { $field: $phone, message: EF.rules.required($phone.val()) || EF.rules.phone($phone.val()) }
       ];
 

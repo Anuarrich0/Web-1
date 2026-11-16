@@ -108,6 +108,11 @@
       textField('checkout-card-cvv', 'CVV', 'password', '•••')
     );
 
+    $cardFields.find('#checkout-card-number').attr({ autocomplete: 'cc-number', inputmode: 'numeric', maxlength: 19 });
+    $cardFields.find('#checkout-card-name').attr({ autocomplete: 'cc-name', maxlength: 80 });
+    $cardFields.find('#checkout-card-expiry').attr({ autocomplete: 'cc-exp', inputmode: 'numeric', maxlength: 5 });
+    $cardFields.find('#checkout-card-cvv').attr({ autocomplete: 'cc-csc', inputmode: 'numeric', maxlength: CARD_CVV_DIGITS });
+
     /* Согласия: обработка персональных данных и оферта. */
     const $consents = $('<div class="row g-2" id="checkout-consents"></div>').appendTo($body);
     $consents.append(
@@ -143,8 +148,8 @@
 
     const checks = [
       { $field: $number, message: onlyDigits($number.val()).length === CARD_NUMBER_DIGITS ? '' : 'Введите 16 цифр номера карты' },
-      { $field: $name, message: $name.val().trim().length >= 2 ? '' : 'Укажите имя и фамилию как на карте' },
-      { $field: $expiry, message: /^(0[1-9]|1[0-2])\/\d{2}$/.test($expiry.val().trim()) ? '' : 'Укажите срок в формате ММ/ГГ' },
+      { $field: $name, message: EF.rules.fullName($name.val()) },
+      { $field: $expiry, message: cardExpiryError($expiry.val().trim()) },
       { $field: $cvv, message: new RegExp('^\\d{' + CARD_CVV_DIGITS + '}$').test($cvv.val().trim()) ? '' : 'Введите 3 цифры CVV' },
       { $field: $consentData, message: $consentData.prop('checked') ? '' : 'Отметьте согласие на обработку персональных данных' },
       { $field: $consentOffer, message: $consentOffer.prop('checked') ? '' : 'Отметьте согласие с офертой' }
@@ -184,6 +189,22 @@
       $(this).val(groups ? groups.join(' ') : '');
     });
 
+    $modal.on('input', '#checkout-card-expiry', function () {
+      this.value = formatExpiry(this.value);
+    });
+    $modal.on('input', '#checkout-card-cvv', function () {
+      this.value = onlyDigits(this.value).slice(0, CARD_CVV_DIGITS);
+    });
+    $modal.on('input', '#checkout-card-name', function () {
+      this.value = this.value.toUpperCase();
+    });
+    $modal.on('keydown', 'input', function (event) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        $modal.find('#checkout-submit').trigger('click');
+      }
+    });
+
     /* Делегированный обработчик: пока пользователь правит любое поле, снимаем с него ошибку.
        Прямая привязка к каждому полю не нужна — .on() со вторым аргументом ловит все поля. */
     $modal.on('input change', 'input', function () {
@@ -205,6 +226,7 @@
       }
 
       /* Успех: сообщение показывается внутри попапа, страница не перезагружается. */
+      $modal.find('#checkout-card-fields input').val('');
       $modal.find('#checkout-card-fields, #checkout-consents').addClass('is-hidden');
       $modal.find('#checkout-submit, #checkout-cancel').addClass('is-hidden');
       $modal.find('#checkout-done').removeClass('is-hidden');
