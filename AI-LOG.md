@@ -31,3 +31,5 @@ Validation performed: Node source/logic checks, static label/ARIA checks, photo 
 User correction: remove the telephone action button from the selected-training confirmation. Codex removed that button; the confirmation still states that a real booking was not created.
 
 User requested removing the test-data fill button. Codex removed the button, its click handler and obsolete selector, and updated the current documentation.
+
+User requested removing the bottom checkout checkboxes. Codex removed both checkbox fields, their required checks and the unused checkbox helper.
