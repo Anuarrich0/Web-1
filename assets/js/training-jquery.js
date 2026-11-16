@@ -4,7 +4,7 @@
    Assignment 6, фича 4: фильтр расписания, калькулятор калорий и выбор
    тренировки (страница «Тренировки»). Подключён jQuery 3.7.1.
 
-   Что заменили (сравнение со старой Vanilla-версией из old-js-version.js):
+   Что заменили (сравнение со старой Vanilla-версией из Git history (Vanilla version)):
      document.getElementById('id')        ->  $('#id')
      querySelectorAll('[data-...]')       ->  $('[data-...]')
      addEventListener('click'/'input')    ->  .on('click') / .on('input')
@@ -75,7 +75,7 @@ $(function () {
 
     /* Показать результаты эффектом: снимаем is-hidden, затем .slideDown() с callback. */
     function revealResults() {
-      $results.removeClass('is-hidden').hide().slideDown(300, function () {
+      $results.stop(true, true).removeClass('is-hidden').hide().slideDown(300, function () {
         // callback после анимации: переводим фокус на блок результатов для скринридера.
         $(this).attr('tabindex', '-1').trigger('focus');
       });
@@ -103,14 +103,14 @@ $(function () {
     function validateCalculator() {
       let $firstInvalid = $();
       const ranges = [
-        { $field: $('#calc-age'), min: 14, max: 90 },
+        { $field: $('#calc-age'), min: 14, max: 90, integer: true },
         { $field: $('#calc-height'), min: 120, max: 230 },
         { $field: $('#calc-weight'), min: 35, max: 250 }
       ];
 
       $(ranges).each(function () {
         const range = this;
-        const message = EF.rules.numberRange(range.$field.val(), range.min, range.max);
+        const message = EF.rules.numberRange(range.$field.val(), range.min, range.max, range.integer);
         if (message === '') {
           range.$field.removeClass('is-error').addClass('is-success').removeAttr('aria-invalid');
           range.$field.closest('div').find('.field-error').text('');
@@ -144,12 +144,16 @@ $(function () {
       calculatePlan();
     }
 
-    $calcForm.on('click', '#calc-submit-btn', runCalculator);
+
     $calcForm.on('submit', function (event) {
       // preventDefault(): расчёт выполняется в браузере, серверу отправлять нечего.
       // Без него страница перезагрузится и результат расчёта исчезнет.
       event.preventDefault();
       runCalculator();
+    });
+
+    $calcForm.on('input change', 'input, select', function () {
+      $results.stop(true, true).addClass('is-hidden');
     });
 
     $calcForm.on('reset', function () {
@@ -188,6 +192,7 @@ $(function () {
        секции расписания (#training-schedule). */
     const $wrap = make('section', 'mb-5').attr('id', 'training-booking').attr('aria-label', 'Онлайн-запись к тренерам и на групповые занятия');
     $wrap.append(make('h2', 'h3 fw-bold mb-3', 'Тренеры и групповые занятия'));
+    $wrap.append(make('p', 'text-body-secondary', 'Пример расписания. Актуальное время и наличие мест подтвердит администратор клуба.'));
     $wrap.append(make('p', 'text-body-secondary mb-4',
       'Выберите тренера и удобное время или групповую программу. ' +
       'Доступность времени уточняйте в клубе. Форма работает в демонстрационном режиме.'));
@@ -247,15 +252,15 @@ $(function () {
     const $bookingBody = make('div', 'modal-body');
     const $target = make('p', 'fw-bold mb-3', 'Цель записи не выбрана.');
     $bookingBody.append($target);
-    $bookingBody.append(make('p', 'text-body-secondary mb-3', 'Данные не отправляются в клуб. Для записи позвоните +7 (778) 345-74-05.'));
+    $bookingBody.append(make('p', 'text-body-secondary mb-3', 'Заявка формируется на этом устройстве. Для подтверждения времени свяжитесь с клубом.'));
 
     const $nameGroup = make('div', 'mb-3');
-    $nameGroup.append(make('label', 'form-label', 'Ваше имя:').attr('for', 'booking-name'));
+    $nameGroup.append(make('label', 'form-label', 'Имя и фамилия:').attr('for', 'booking-name'));
     const $name = make('input', 'form-control')
       .attr('type', 'text')
       .attr('id', 'booking-name')
       .attr('name', 'booking-name')
-      .attr('placeholder', 'Например, Алия');
+      .attr('placeholder', 'Имя Фамилия').attr('autocomplete', 'name').attr('maxlength', 80);
     $nameGroup.append($name);
     $bookingBody.append($nameGroup);
 
@@ -264,7 +269,7 @@ $(function () {
     const $phone = make('input', 'form-control')
       .attr('type', 'tel')
       .attr('id', 'booking-phone')
-      .attr('name', 'booking-phone')
+      .attr('name', 'booking-phone').attr('maxlength', 18)
       .attr('placeholder', '+7 (7XX) XXX-XX-XX');
     $phoneGroup.append($phone);
     $bookingBody.append($phoneGroup);
@@ -283,6 +288,7 @@ $(function () {
     /* Одно переиспользуемое окно: добавляем в <body> и создаём экземпляр Bootstrap. */
     $('body').append($bookingModal);
     const bookingModal = new bootstrap.Modal($bookingModal.get(0));
+    $bookingModal.on('shown.bs.modal', function () { $name.trigger('focus'); });
 
     /* Вставляем готовый блок в страницу после секции расписания. */
     $scheduleSection.after($wrap);
@@ -360,6 +366,7 @@ $(function () {
     /* Открывает попап записи для выбранной цели (тренер и время либо занятие). */
     function selectTarget(target) {
       selected = target;
+      $bookingForm.find('button[type="submit"]').prop('disabled', false);
       $target.text(target.label);
       clearFeedback();
       /* Сбрасываем поля и сообщения об ошибках перед новой записью. */
@@ -374,7 +381,7 @@ $(function () {
     function validateBooking() {
       let $firstInvalid = $();
       const checks = [
-        { $field: $name, message: EF.rules.required($name.val()) || EF.rules.minLength($name.val(), 2) },
+        { $field: $name, message: EF.rules.required($name.val()) || EF.rules.fullName($name.val()) },
         { $field: $phone, message: EF.rules.required($phone.val()) || EF.rules.phone($phone.val()) }
       ];
 
@@ -415,18 +422,12 @@ $(function () {
 
       clearFeedback();
       const $alert = make('div', 'alert alert-success mb-0');
+      $alert.append(make('p', 'mb-2', selected.label));
       $alert.append(make('p', 'fw-bold mb-2', 'Демонстрационная заявка: ' + EF.generateReference('EF')));
       $alert.append(make('p', 'mb-0', 'Запись в клуб не создана. Подтвердите время по телефону +7 (778) 345-74-05.'));
-      $bookingFeedback.append($alert).addClass('is-success');
-
-      /* Для группового занятия уменьшаем число свободных мест и перерисовываем список. */
-      if (selected.classId) {
-        const item = EF.findGroupClassById(selected.classId);
-        if (item && item.spotsLeft > 0) {
-          item.spotsLeft = item.spotsLeft - 1;
-          renderClasses();
-        }
-      }
+      $bookingFeedback.append($alert).addClass('is-success').attr('tabindex', '-1').trigger('focus');
+      selected = null;
+      $bookingForm.find('button[type="submit"]').prop('disabled', true);
 
       /* Очищаем форму после успешной записи. */
       $name.val('');
@@ -454,7 +455,7 @@ $(function () {
 
     $wrap.on('click', '[data-class-book]', function () {
       const item = EF.findGroupClassById($(this).attr('data-class-book'));
-      if (!item) {
+      if (!item || item.spotsLeft <= 0) {
         return;
       }
       selectTarget({

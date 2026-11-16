@@ -10,8 +10,33 @@
 #pricing-plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-inline: 0; }
 #pricing-plans > * { width: auto; margin-top: 0; }
 #pricing-plans > h2, #pricing-plans > .pricing-controls, #pricing-plans > p { grid-column: 1 / -1; }
-.pricing-card { border: 1px solid var(--bs-border-color); border-radius: 1rem; padding: 1.7rem; background: var(--bs-tertiary-bg); }
-.pricing-card[data-tariff="exp-plus"] { border-color: var(--bs-link-color); }
+.pricing-card {
+  position: relative; isolation: isolate; border: 1px solid var(--bs-border-color);
+  border-radius: 1rem; padding: 1.7rem; background: var(--bs-tertiary-bg); cursor: pointer;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .3s ease, box-shadow .35s ease;
+}
+.pricing-card::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 0%, rgba(204,255,0,.18), transparent 65%);
+  opacity: 0; transition: opacity .35s ease;
+}
+.pricing-card:hover, .pricing-card:focus-within {
+  z-index: 2; transform: translateY(-12px) scale(1.025); border-color: var(--bs-link-color);
+  box-shadow: 0 24px 48px rgba(0,0,0,.4), 0 0 28px rgba(204,255,0,.16), inset 0 1px 0 rgba(204,255,0,.45);
+}
+.pricing-card:hover::before, .pricing-card:focus-within::before { opacity: 1; }
+.pricing-card .pricing-start strong { transition: color .3s ease; }
+.pricing-card:hover .pricing-start strong, .pricing-card:focus-within .pricing-start strong { color: var(--bs-link-color); }
+.pricing-card > .btn { transition: background-color .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.pricing-card:hover > .btn, .pricing-card:focus-within > .btn {
+  background-color: var(--bs-link-color); border-color: var(--bs-link-color); color: #111318;
+  box-shadow: 0 6px 20px rgba(204,255,0,.2);
+}
+.pricing-card:active { transform: translateY(-6px) scale(1.01); }
+@media (prefers-reduced-motion: reduce) {
+  .pricing-card, .pricing-card::before, .pricing-card .pricing-start strong, .pricing-card > .btn { transition: none; }
+  .pricing-card:hover, .pricing-card:focus-within, .pricing-card:active { transform: none; }
+}
 .pricing-card[data-tariff="big-plus"] h3 { color: #edce80; }
 .pricing-description { min-height: 4.5rem; }
 .pricing-start { margin-block: 1rem 1.5rem; }
