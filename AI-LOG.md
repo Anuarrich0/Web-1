@@ -29,3 +29,5 @@ User requested fixing project defects, making behavior realistic, and specifical
 Validation performed: Node source/logic checks, static label/ARIA checks, photo size checks and inspection of a compressed photo. Browser inspection of the local file was rejected by the browser URL policy; browser execution, mobile hardware and W3C validation are not claimed. No real messages, payments or bookings were performed. External contact lookup used a public listing linked in FINAL-CHECKLIST.md; current hours and business terms remain unverified.
 
 User correction: remove the telephone action button from the selected-training confirmation. Codex removed that button; the confirmation still states that a real booking was not created.
+
+User requested removing the test-data fill button. Codex removed the button, its click handler and obsolete selector, and updated the current documentation.

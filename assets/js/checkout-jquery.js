@@ -115,9 +115,6 @@
     $cardFields.find('#checkout-card-expiry').attr({ autocomplete: 'cc-exp', inputmode: 'numeric', maxlength: 5 });
     $cardFields.find('#checkout-card-cvv').attr({ autocomplete: 'cc-csc', inputmode: 'numeric', maxlength: CARD_CVV_DIGITS });
 
-    $('<button type="button" id="checkout-test-data" class="btn btn-outline-light mb-3"></button>')
-      .text('Заполнить тестовыми данными').appendTo($body);
-
     /* Согласия: обработка персональных данных и оферта. */
     const $consents = $('<div class="row g-2" id="checkout-consents"></div>').appendTo($body);
     $consents.append(
@@ -206,13 +203,6 @@
     $modal.on('input', '#checkout-card-name', function () {
       this.value = this.value.toUpperCase();
     });
-    $modal.on('click', '#checkout-test-data', function () {
-      $modal.find('#checkout-card-number').val('4242 4242 4242 4242').trigger('input');
-      $modal.find('#checkout-card-name').val('IVAN IVANOV').trigger('input');
-      $modal.find('#checkout-card-expiry').val('12/' + String(new Date().getFullYear() + 2).slice(-2)).trigger('input');
-      $modal.find('#checkout-card-cvv').val('123').trigger('input');
-    });
-
     /* Делегированный обработчик: пока пользователь правит любое поле, снимаем с него ошибку.
        Прямая привязка к каждому полю не нужна — .on() со вторым аргументом ловит все поля. */
     $modal.on('input change', 'input', function () {
@@ -238,7 +228,7 @@
       completed = true;
       /* Успех: сообщение показывается внутри попапа, страница не перезагружается. */
       $modal.find('#checkout-card-fields input').val('');
-      $modal.find('#checkout-card-fields, #checkout-consents, #checkout-test-data').addClass('is-hidden');
+      $modal.find('#checkout-card-fields, #checkout-consents').addClass('is-hidden');
       $modal.find('#checkout-submit, #checkout-cancel').addClass('is-hidden');
       $modal.find('#checkout-done').removeClass('is-hidden');
       $feedback
