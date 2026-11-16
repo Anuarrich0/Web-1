@@ -10,7 +10,7 @@
    «Оформить». Оплата демонстрационная: страница не перезагружается и никуда
    не переходит — сценарий заканчивается на сайте.
 
-   HTML и CSS страниц заморожены (Midterm), поэтому разметка попапа целиком
+   Разметка попапа целиком
    собирается кодом и вставляется в <body> через .append().
    Используется на странице pricing.html.
 
@@ -66,7 +66,9 @@
     if ($note.length === 0) {
       $note = $('<span class="field-error d-block text-danger small mt-1"></span>').appendTo($target);
     }
-    $note.text(message);
+    const errorId = $field.attr('id') + '-error';
+    $note.attr({ id: errorId, role: 'alert' }).text(message);
+    $field.attr('aria-describedby', errorId);
   }
 
   /* Помечает поле корректным и убирает текст ошибки. */
@@ -77,14 +79,14 @@
 
   /* Строит DOM попапа под конкретный заказ (title + summary уже подставлены). */
   function buildModal(options) {
-    const $modal = $('<div class="modal fade" tabindex="-1" aria-hidden="true"></div>');
+    const $modal = $('<div class="modal fade" tabindex="-1" aria-hidden="true" aria-labelledby="checkout-title"></div>');
     /* Цепочка из 3 звеньев: диалог, внутри него контент, у контента — шапка/тело/подвал. */
     const $dialog = $('<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"></div>').appendTo($modal);
-    const $content = $('<div class="modal-content"></div>').appendTo($dialog);
+    const $content = $('<form class="modal-content" novalidate></form>').appendTo($dialog);
 
     /* Шапка с заголовком и кнопкой закрытия (кнопка — стандартный Bootstrap-компонент). */
     const $header = $('<div class="modal-header"></div>').appendTo($content);
-    $('<h2 class="modal-title h5"></h2>').text(options.title).appendTo($header);
+    $('<h2 id="checkout-title" class="modal-title h5"></h2>').text(options.title).appendTo($header);
     $('<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>').appendTo($header);
 
     const $body = $('<div class="modal-body"></div>').appendTo($content);
@@ -92,7 +94,7 @@
     /* Предупреждение + сводка данных, введённых в форме, — пользователь проверяет их перед оплатой. */
     const $warning = $('<div class="alert alert-warning"></div>').appendTo($body);
     $('<p class="fw-bold mb-2"></p>')
-      .text('Проверьте, правильно ли вы оформили данные в форме.')
+      .text('Тестовый режим — деньги не списываются. Не вводите настоящие реквизиты карты.')
       .appendTo($warning);
     const $summary = $('<ul class="mb-0 ps-3"></ul>').appendTo($warning);
     $(options.summary).each(function () {
@@ -113,20 +115,23 @@
     $cardFields.find('#checkout-card-expiry').attr({ autocomplete: 'cc-exp', inputmode: 'numeric', maxlength: 5 });
     $cardFields.find('#checkout-card-cvv').attr({ autocomplete: 'cc-csc', inputmode: 'numeric', maxlength: CARD_CVV_DIGITS });
 
+    $('<button type="button" id="checkout-test-data" class="btn btn-outline-light mb-3"></button>')
+      .text('Заполнить тестовыми данными').appendTo($body);
+
     /* Согласия: обработка персональных данных и оферта. */
     const $consents = $('<div class="row g-2" id="checkout-consents"></div>').appendTo($body);
     $consents.append(
-      checkField('checkout-consent-data', 'Я согласен на обработку персональных данных'),
-      checkField('checkout-consent-offer', 'Я ознакомлен и согласен с условиями оферты')
+      checkField('checkout-consent-data', 'Ввожу только тестовые данные'),
+      checkField('checkout-consent-offer', 'Понимаю, что реальная оплата не проводится')
     );
 
     /* Контейнер итогового сообщения. */
-    $('<div class="form-feedback-container mt-3"></div>').appendTo($body);
+    $('<div class="form-feedback-container mt-3" aria-live="polite"></div>').appendTo($body);
 
     /* Подвал с кнопками. «Готово» скрыто до успешной оплаты. */
     const $footer = $('<div class="modal-footer"></div>').appendTo($content);
-    $('<button type="button" id="checkout-submit" class="btn btn-primary btn-lg"></button>')
-      .text('Оформить').appendTo($footer);
+    $('<button type="submit" id="checkout-submit" class="btn btn-primary btn-lg"></button>')
+      .text('Проверить оформление').appendTo($footer);
     $('<button type="button" id="checkout-done" class="btn btn-primary btn-lg is-hidden" data-bs-dismiss="modal"></button>')
       .text('Готово').appendTo($footer);
     $('<button type="button" id="checkout-cancel" class="btn btn-outline-light" data-bs-dismiss="modal"></button>')
@@ -147,12 +152,12 @@
     const $consentOffer = $modal.find('#checkout-consent-offer');
 
     const checks = [
-      { $field: $number, message: onlyDigits($number.val()).length === CARD_NUMBER_DIGITS ? '' : 'Введите 16 цифр номера карты' },
+      { $field: $number, message: cardNumberError($number.val()) },
       { $field: $name, message: EF.rules.fullName($name.val()) },
       { $field: $expiry, message: cardExpiryError($expiry.val().trim()) },
       { $field: $cvv, message: new RegExp('^\\d{' + CARD_CVV_DIGITS + '}$').test($cvv.val().trim()) ? '' : 'Введите 3 цифры CVV' },
-      { $field: $consentData, message: $consentData.prop('checked') ? '' : 'Отметьте согласие на обработку персональных данных' },
-      { $field: $consentOffer, message: $consentOffer.prop('checked') ? '' : 'Отметьте согласие с офертой' }
+      { $field: $consentData, message: $consentData.prop('checked') ? '' : 'Подтвердите использование тестовых данных' },
+      { $field: $consentOffer, message: $consentOffer.prop('checked') ? '' : 'Подтвердите тестовый режим' }
     ];
 
     /* .each() проходит по плану проверок; this — очередной пункт. */
@@ -173,9 +178,12 @@
 
   /* Открывает попап. options: { title, reference, summary: [...], onSuccess(reference) }. */
   function openCheckout(options) {
+    if (document.getElementById('checkout-title')) return;
+    const opener = document.activeElement;
+    let completed = false;
     const settings = options || {};
     const lines = settings.summary || [];
-    const reference = settings.reference || 'EF-000000';
+    const reference = settings.reference || EF.generateReference('EF');
 
     const $modal = buildModal({ title: settings.title || 'Оформление заказа', summary: lines });
     $('body').append($modal);
@@ -198,11 +206,11 @@
     $modal.on('input', '#checkout-card-name', function () {
       this.value = this.value.toUpperCase();
     });
-    $modal.on('keydown', 'input', function (event) {
-      if (event.key === 'Enter') {
-        event.preventDefault();
-        $modal.find('#checkout-submit').trigger('click');
-      }
+    $modal.on('click', '#checkout-test-data', function () {
+      $modal.find('#checkout-card-number').val('4242 4242 4242 4242').trigger('input');
+      $modal.find('#checkout-card-name').val('IVAN IVANOV').trigger('input');
+      $modal.find('#checkout-card-expiry').val('12/' + String(new Date().getFullYear() + 2).slice(-2)).trigger('input');
+      $modal.find('#checkout-card-cvv').val('123').trigger('input');
     });
 
     /* Делегированный обработчик: пока пользователь правит любое поле, снимаем с него ошибку.
@@ -214,7 +222,9 @@
     });
 
     /* Кнопка «Оформить»: проверяем карту и согласия; при ошибке ничего не оплачиваем. */
-    $modal.on('click', '#checkout-submit', function () {
+    $modal.on('submit', 'form', function (event) {
+      event.preventDefault();
+      if (completed) return;
       const $feedback = $modal.find('.form-feedback-container');
       const $firstInvalid = validateCheckout($modal);
 
@@ -225,14 +235,18 @@
         return;
       }
 
+      completed = true;
       /* Успех: сообщение показывается внутри попапа, страница не перезагружается. */
       $modal.find('#checkout-card-fields input').val('');
-      $modal.find('#checkout-card-fields, #checkout-consents').addClass('is-hidden');
+      $modal.find('#checkout-card-fields, #checkout-consents, #checkout-test-data').addClass('is-hidden');
       $modal.find('#checkout-submit, #checkout-cancel').addClass('is-hidden');
       $modal.find('#checkout-done').removeClass('is-hidden');
       $feedback
-        .text('Заявка ' + reference + ' оформлена. Оплата подтверждена (демонстрация).')
+        .text('Оформление ' + reference + ' проверено. Оплата не проводилась; для покупки свяжитесь с клубом.')
         .removeClass('is-error').addClass('is-success');
+
+      $('<a class="btn btn-outline-light mt-3"></a>').attr('href', EF.CLUB.callCenterHref).text('Позвонить для покупки').appendTo($feedback);
+      $modal.find('#checkout-done').trigger('focus');
 
       if (typeof settings.onSuccess === 'function') {
         settings.onSuccess(reference);
@@ -240,8 +254,10 @@
     });
 
     /* Когда попап закрыт — убираем его из DOM, чтобы не копить дубли id при повторном открытии. */
+    $modal.on('shown.bs.modal', function () { $modal.find('#checkout-card-number').trigger('focus'); });
     $modal.on('hidden.bs.modal', function () {
       $(this).remove();
+      if (opener && opener.isConnected) opener.focus();
     });
 
     modal.show();

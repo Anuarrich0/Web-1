@@ -4,7 +4,7 @@
    Assignment 6, фича 1: валидация формы обратной связи (страница «Контакты»).
    Подключён jQuery 3.7.1.
 
-   Что заменили (сравнение со старой Vanilla-версией из old-js-version.js):
+   Что заменили (сравнение со старой Vanilla-версией из Git history (Vanilla version)):
      document.getElementById('id')            ->  $('#id')
      addEventListener('submit'/'input'/'change')->  .on('submit') / .on('input change', ...)
      classList.add / remove / toggle          ->  .addClass() / .removeClass() / .toggleClass()
@@ -51,7 +51,9 @@ $(function () {
     if ($note.length === 0) {
       $note = $('<span class="field-error d-block text-danger small mt-1"></span>').appendTo($field.parent());
     }
-    $note.text(message);
+    const errorId = $field.attr('id') + '-error';
+    $note.attr({ id: errorId, role: 'alert' }).text(message);
+    $field.attr('aria-describedby', errorId);
   }
 
   /* Помечает поле корректным и убирает текст ошибки. */
@@ -78,14 +80,15 @@ $(function () {
         function () { return phoneMessage(); }
       ] },
       { $field: $('#client-age'), checks: [
-        function (value) { return value.trim() === '' ? '' : EF.rules.numberRange(value, 12, 99); }
+        function (value) { return value.trim() === '' ? '' : EF.rules.numberRange(value, 14, 99, true); }
       ] },
       { $field: $('#callback-date'), checks: [
-        function (value) { return value === '' ? '' : EF.rules.notPastDate(value); }
+        function (value) { return value === '' ? '' : EF.rules.withinDays(value, 30); }
       ] },
       { $field: $('#message'), checks: [
         function (value) { return EF.rules.required(value); },
-        function (value) { return EF.rules.minLength(value, 10); }
+        function (value) { return EF.rules.minLength(value, 10); },
+        function (value) { return EF.rules.maxLength(value, 2000); }
       ] },
       { $field: $('#agree-contact'), checks: [
         function () { return EF.rules.checked($('#agree-contact').prop('checked')); }
@@ -141,9 +144,10 @@ $(function () {
     }
     // Цепочка из 4 звеньев: очистить контейнер, сменить состояние, вставить блок, задать класс.
     $feedback.html('').removeClass('is-error is-success').addClass(isSuccess ? 'is-success' : 'is-error').append($box);
-    $feedback.hide().slideDown(300, function () {
+    if (isSuccess) $('<a class="btn btn-primary mt-3"></a>').attr('href', EF.CLUB.callCenterHref).text('Позвонить в клуб').appendTo($box);
+    $feedback.stop(true, true).hide().slideDown(300, function () {
       // callback после анимации: делаем блок фокусируемым и переводим на него фокус.
-      $(this).attr('tabindex', '-1').trigger('focus');
+      if (isSuccess) $(this).attr('tabindex', '-1').trigger('focus');
     });
   }
 
@@ -151,6 +155,7 @@ $(function () {
      Прямая привязка к каждому input/select/textarea потребовала бы перебора всех полей;
      делегирование через второй аргумент .on() покрывает все поля одной строкой. */
   $form.on('input change', 'input, select, textarea', function () {
+    if ($feedback.hasClass('is-success')) $feedback.empty().removeClass('is-success');
     const $field = $(this); // $(this) — поле, которое только что изменил пользователь
     $field.removeClass('is-error').removeAttr('aria-invalid');
     $field.parent().find('.field-error').text('');
@@ -176,13 +181,13 @@ $(function () {
     const replyMethod = $('input[name="reply-method"]:checked').val();
     const method = replyMethod === 'email' ? 'по электронной почте' : 'по телефону';
     const reference = EF.generateReference('MSG');
-    showFeedback('success', 'Сообщение ' + reference + ' принято', [
+    showFeedback('success', 'Сообщение ' + reference + ' подготовлено', [
       'Имя: ' + $('#name').val().trim(),
       'Тема: ' + EF.describeTopic($('#topic').val()),
       'Способ ответа: ' + method,
       'Контакт: ' + $('#email').val().trim() +
         ($('#phone').val().trim() === '' ? '' : ', ' + $('#phone').val().trim()),
-      'Демонстрационная форма: сообщение не отправлено на сервер и не создаёт реальное обращение.'
+      'Сообщение не отправлено. Чтобы связаться с клубом, позвоните по указанному ниже номеру.'
     ]);
   });
 

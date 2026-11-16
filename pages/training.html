@@ -13,13 +13,14 @@
     />
     <title>Тренировки — Experience Fitness</title>
     <!-- Bootstrap 5.3.8 из CDN; свои стили подключены после него для корректной работы каскада. -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/vendor/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/css/base.css" />
     <link rel="stylesheet" href="../assets/css/roha.css" />
     <link rel="icon" href="../assets/images/logo-white.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="../assets/css/site.css" />
   </head>
   <body class="d-flex flex-column min-vh-100">
+    <a href="#main-content" class="skip-link">Перейти к содержимому</a>
 
     <!-- 1. Шапка сайта: логотип, меню, контакты -->
     <!-- Bootstrap Navbar: меню сворачивается до 1200 px. Ссылки адаптированы под страницы клуба. https://getbootstrap.com/docs/5.3/components/navbar/ -->
@@ -77,7 +78,7 @@
 
     <!-- 2. Основное содержимое -->
     <!-- container ограничивает ширину текста; container-fluid у шапки и подвала занимает всю ширину. -->
-    <main id="main-content" class="container flex-grow-1 py-4 py-md-5 text-break">
+    <main id="main-content" tabindex="-1" class="container flex-grow-1 py-4 py-md-5 text-break">
 <section class="training-hero mb-5" aria-labelledby="training-title">
  <div><p class="training-eyebrow">EXPERIENCE FITNESS / ТРЕНИРОВКИ</p><h1 id="training-title">Сильнее.<br>С каждым<br><span>занятием.</span></h1><p class="lead text-body-secondary mt-4">Ваш темп. Ваша цель. Зал, групповые программы и персональные тренировки — найдите формат, к которому захочется возвращаться.</p><div class="d-flex flex-wrap gap-3 mt-4"><a class="btn btn-primary btn-lg" href="#training-booking">Выбрать тренировку ↗</a><a class="btn btn-outline-light btn-lg" href="pricing.html">Абонементы</a></div><p class="small text-body-secondary mt-4 mb-0">Впервые в зале? Начните со знакомства с тренером.</p></div>
  <figure class="training-hero-photo mb-0"><img src="../assets/images/training-hall.jpg" width="600" height="400" alt="Тренажёрный зал Experience Fitness" fetchpriority="high"><figcaption>Место, где начинается ваша новая привычка.</figcaption></figure>
@@ -178,7 +179,7 @@
             <!-- DIV: колонка с полем ввода веса внутри сетки fieldset. -->
             <div class="col-12 col-md-6 col-lg-4">
               <label for="calc-weight" class="form-label">Вес (кг):</label>
-              <input type="number" id="calc-weight" name="calc-weight" min="35" max="250" value="70" required class="form-control" />
+              <input type="number" step="0.1" id="calc-weight" name="calc-weight" min="35" max="250" value="70" required class="form-control" />
             </div>
             <!-- DIV: колонка с полем выбора активности внутри сетки fieldset. -->
             <div class="col-12 col-md-6 col-lg-4">
@@ -202,7 +203,7 @@
           </fieldset>
           <!-- DIV: группа кнопок формы калькулятора. -->
           <div class="d-flex flex-wrap gap-2 align-items-center">
-            <button type="button" id="calc-submit-btn" class="btn btn-primary">Рассчитать план</button>
+            <button type="submit" id="calc-submit-btn" class="btn btn-primary">Рассчитать план</button>
             <button type="reset" id="calc-reset-btn" class="btn btn-outline-light">Сбросить</button>
           </div>
         </form>
@@ -248,7 +249,8 @@
  <details class="training-faq"><summary>Как выбрать занятие?</summary><p>Для работы с весами подойдёт тренажёрный зал, для индивидуального плана — персональный тренинг. Если нравится заниматься вместе, попробуйте групповую программу.</p></details>
  <details class="training-faq"><summary>Входит ли тренер в абонемент?</summary><p>Условия зависят от тарифа и формата тренировки. Посмотрите <a href="pricing.html">абонементы</a> или уточните детали в клубе перед записью.</p></details>
 </section>
-<section class="training-cta p-4 p-md-5 mb-4"><div><p class="training-eyebrow">УВИДИМСЯ В ЗАЛЕ</p><h2 class="h1 fw-bold">Ваша следующая цель<br>начинается здесь.</h2><p class="text-body-secondary mb-0">Выберите клуб и сделайте первый шаг.</p></div><a class="btn btn-primary btn-lg" href="locations.html">Найти свой клуб ↗</a></section></main>
+<section class="training-cta p-4 p-md-5 mb-4"><div><p class="training-eyebrow">УВИДИМСЯ В ЗАЛЕ</p><h2 class="h1 fw-bold">Ваша следующая цель<br>начинается здесь.</h2><p class="text-body-secondary mb-0">Выберите клуб и сделайте первый шаг.</p></div><a class="btn btn-primary btn-lg" href="locations.html">Найти свой клуб ↗</a></section><noscript><p class="alert alert-info">Для расчётов и форм включите JavaScript. Связаться с отделом продаж можно по телефону <a href="tel:+77783457405">+7 (778) 345-74-05</a>.</p></noscript>
+</main>
 
     <!-- 3. Подвал сайта -->
     <!-- footer сам служит container-fluid и row; его section и nav являются колонками. -->
@@ -267,12 +269,12 @@
             class="brand-logo"
           />
         </a>
-        <p class="footer-tagline text-body-secondary small mt-3">Крупнейшая сеть фитнес-центров в Астане.</p>
+        <p class="footer-tagline text-body-secondary small mt-3">Фитнес-клубы Experience Fitness в Астане.</p>
       </section>
       <nav class="footer-nav col-12 col-md-6 col-lg-4" aria-label="Навигация в подвале">
         <h2 class="footer-title h6 fw-bold mb-3">Навигация</h2>
         <ul class="list-unstyled">
-          <li class="mb-2"><a href="locations.html">11 филиалов в Астане</a></li>
+          <li class="mb-2"><a href="locations.html">Филиалы в Астане</a></li>
           <li class="mb-2"><a href="services.html">Финские сауны и залы</a></li>
           <li class="mb-2"><a href="pricing.html">Безлимитные абонементы</a></li>
           <li class="mb-2"><a href="promotions.html">Партнерские скидки</a></li>
@@ -280,12 +282,12 @@
       </nav>
       <section class="footer-contacts col-12 col-md-6 col-lg-4">
         <h2 class="footer-title h6 fw-bold mb-3">Контакты</h2>
-        <p>Единый call-центр: <a href="tel:+77783457405">+7 (778) 345-74-05</a></p>
-        <p>График работы: Пн-Вс 07:00 – 23:00</p>
+        <p>Отдел продаж: <a href="tel:+77783457405">+7 (778) 345-74-05</a></p>
+        <p>График работы уточняйте у выбранного филиала</p>
         <p class="social-links d-flex flex-wrap gap-3">
           <a href="https://wa.me/77783457405" target="_blank" rel="noopener" aria-label="WhatsApp"
             >WhatsApp</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+          <a href="locations.html">Адреса клубов</a>
         </p>
       </section>
       <section class="footer-bottom col-12 border-top pt-4 text-center small text-body-secondary">
@@ -295,10 +297,10 @@
     </footer>
 
     <!-- 4. Bootstrap JS: работа меню и компонентов -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- 5. jQuery 3.7.1 из CDN (Assignment 6). defer: подключается до своих скриптов,
+    <script src="../assets/vendor/bootstrap.bundle.min.js"></script>
+    <!-- 5. Локальная jQuery 3.7.1 (Assignment 6). defer: подключается до своих скриптов,
          порядок выполнения сохраняется, DOM к моменту запуска готов. -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" defer></script>
+    <script src="../assets/vendor/jquery.min.js" defer></script>
     <!-- 6. Свои скрипты: общий модуль данных, справочные данные и jQuery-логика страницы -->
     <script src="../assets/js/main.js" defer></script>
     <script src="../assets/js/training.js" defer></script>

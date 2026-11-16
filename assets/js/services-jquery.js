@@ -4,7 +4,7 @@
    Assignment 6, фича 2: фильтр каталога услуг + поиск и валидация формы записи
    на консультацию (страница «Услуги и Зоны»). Подключён jQuery 3.7.1.
 
-   Что заменили (сравнение со старой Vanilla-версией из old-js-version.js):
+   Что заменили (сравнение со старой Vanilla-версией из Git history (Vanilla version)):
      document.getElementById('id')          ->  $('#id')
      document.querySelectorAll('.card')     ->  $('.card')
      addEventListener('click'/'input')      ->  .on('click') / .on('input')
@@ -35,6 +35,7 @@ $(function () {
     '#service-spa': 'spa'
   };
   let activeCategory = 'all';
+  let selectedService = '';
 
   /* Панель поиска целиком собирается через jQuery (разметку руками не меняли). */
   const $panel = $('<div class="col-12 mb-3"></div>');
@@ -57,7 +58,7 @@ $(function () {
     /* Каждая карточка собирается через $('<...>') и .appendTo() родителя. */
     const $card = $('<article class="service-result-card border rounded-3 p-3 mb-2"></article>')
       .attr('data-category', service.category)
-      .attr('data-name', service.name);
+      .attr('data-name', service.name).attr('tabindex', '0').attr('role', 'button').attr('aria-pressed', 'false');
     $('<h3 class="h6 fw-semibold mb-1 text-primary"></h3>').text(service.name).appendTo($card);
     $('<p class="small mb-1"></p>').text(service.description).appendTo($card);
     $('<p class="small text-body-secondary mb-0"></p>').text(EF.describeService(service)).appendTo($card);
@@ -80,8 +81,17 @@ $(function () {
   $list.on('click', '.service-result-card', function () {
     const $card = $(this); // $(this) — карточка, по которой кликнули
     /* Цепочка из 3 звеньев: переключить выделение карточки, снять его у соседних, показать имя. */
-    $card.toggleClass('is-selected').siblings('.service-result-card').removeClass('is-selected');
+    selectedService = $card.attr('data-name');
+    $('#selected-service').text('Выбрана услуга: ' + selectedService);
+    $card.addClass('is-selected').attr('aria-pressed', 'true').siblings('.service-result-card').removeClass('is-selected').attr('aria-pressed', 'false');
     $status.hide().text('Выбрана услуга: ' + $card.attr('data-name')).fadeIn(200);
+  });
+
+  $list.on('keydown', '.service-result-card', function (event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      $(this).trigger('click');
+    }
   });
 
   /* Пересчитывает видимость карточек по активной категории и поисковой строке. */
@@ -158,6 +168,8 @@ $(function () {
   }
 
   const $form = $feedback.closest('form');
+  const $selection = $('<p id="selected-service" class="alert alert-info" role="status"></p>').text('Услуга: вводная консультация. Можно выбрать другую в каталоге выше.');
+  $form.prepend($selection);
   const $output = $('#calc-output');
   /* Кнопка submit отключена в разметке midterm — включаем её через .prop(). */
   $form.find('button[type="submit"]').prop('disabled', false);
@@ -179,7 +191,9 @@ $(function () {
     if ($note.length === 0) {
       $note = $('<span class="field-error d-block text-danger small mt-1"></span>').appendTo($target);
     }
-    $note.text(message);
+    const errorId = $field.attr('id') + '-error';
+    $note.attr({ id: errorId, role: 'alert' }).text(message);
+    $field.attr('aria-describedby', errorId);
   }
 
   function markFieldValid($field) {
@@ -205,13 +219,16 @@ $(function () {
         function (value) { return EF.rules.phone(value); }
       ] },
       { $field: $('#client-age'), checks: [
-        function (value) { return value.trim() === '' ? '' : EF.rules.numberRange(value, 14, 90); }
+        function (value) { return value.trim() === '' ? '' : EF.rules.numberRange(value, 14, 90, true); }
       ] },
       { $field: $('#visit-date'), checks: [
-        function (value) { return value === '' ? '' : EF.rules.notPastDate(value); }
+        function (value) { return value === '' ? '' : EF.rules.withinDays(value, 30); }
       ] },
       { $field: $('#branch-select'), checks: [
         function (value) { return EF.rules.required(value); }
+      ] },
+      { $field: $('#client-goals'), checks: [
+        function (value) { return EF.rules.maxLength(value, 500); }
       ] },
       { $field: $('#health-agree'), checks: [
         function () { return EF.rules.checked($('#health-agree').prop('checked')); }
@@ -265,14 +282,16 @@ $(function () {
     }
     // Цепочка из 4 звеньев: очистить контейнер, сменить состояние, задать класс, вставить блок.
     $feedback.html('').removeClass('is-error is-success').addClass(isSuccess ? 'is-success' : 'is-error').append($box);
-    $feedback.hide().slideDown(300, function () {
+    if (isSuccess) $('<a class="btn btn-primary mt-3"></a>').attr('href', EF.CLUB.callCenterHref).text('Позвонить в клуб').appendTo($box);
+    $feedback.stop(true, true).hide().slideDown(300, function () {
       // callback после анимации: делаем блок фокусируемым и переводим на него фокус.
-      $(this).attr('tabindex', '-1').trigger('focus');
+      if (isSuccess) $(this).attr('tabindex', '-1').trigger('focus');
     });
   }
 
   /* Делегированный обработчик полей: снимаем ошибку сразу, как только поле исправляют. */
   $form.on('input change', 'input, select, textarea', function () {
+    if ($feedback.hasClass('is-success')) $feedback.empty().removeClass('is-success');
     const $field = $(this); // $(this) — поле, которое только что изменил пользователь
     $field.removeClass('is-error').removeAttr('aria-invalid');
     errorTarget($field).find('.field-error').text('');
@@ -299,11 +318,12 @@ $(function () {
 
     const branch = EF.findBranchById(BRANCH_BY_OPTION[$('#branch-select').val()]);
     const reference = EF.generateReference('EF');
-    showFeedback('success', 'Заявка ' + reference + ' принята', [
+    showFeedback('success', 'Заявка ' + reference + ' подготовлена', [
       'Клиент: ' + $('#client-name').val().trim(),
+      'Услуга: ' + (selectedService || 'Вводная консультация'),
       'Филиал: ' + EF.describeBranch(branch),
       'Дата визита: ' + EF.formatDateRu($('#visit-date').val()),
-      'Возраст: ' + $('#client-age').val() + ' лет',
+      'Возраст: ' + ($('#client-age').val() ? $('#client-age').val() + ' лет' : 'не указан'),
       'Контакт: ' + $('#client-phone').val().trim() + ', ' + $('#subscriber-email').val().trim(),
       'Демонстрационная заявка: данные не отправлены на сервер, реальная запись не создана.'
     ]);
@@ -316,6 +336,9 @@ $(function () {
     // .find() собирает все помеченные поля и тексты ошибок внутри формы.
     $form.find('.is-error, .is-success, [aria-invalid]').removeClass('is-error is-success').removeAttr('aria-invalid');
     $form.find('.field-error').remove();
+    selectedService = '';
+    $selection.text('Услуга: вводная консультация. Можно выбрать другую в каталоге выше.');
+    $list.find('.service-result-card').removeClass('is-selected').attr('aria-pressed', 'false');
     $feedback.html('').removeClass('is-error is-success');
     if ($output.length > 0) {
       $output.text('Заполните обязательные поля формы');

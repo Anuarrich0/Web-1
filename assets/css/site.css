@@ -75,3 +75,13 @@ body::before {
   .site-cta { flex-direction: column; align-items: flex-start; }
   .site-facts { gap: 1.3rem; }
 }
+
+.skip-link { position: fixed; top: .75rem; left: 1rem; z-index: 2000; padding: .8rem 1rem; border-radius: .5rem; background: #ccff00; color: #111318; transform: translateY(-160%); }
+.skip-link:focus { transform: translateY(0); }
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex="0"]:focus-visible { outline: 2px solid var(--bs-link-color); outline-offset: 3px; }
+.field-error { min-height: 1em; }
+.service-result-card { cursor: pointer; transition: border-color .2s ease, box-shadow .2s ease; }
+.service-result-card:hover { border-color: var(--bs-link-color) !important; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

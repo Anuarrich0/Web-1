@@ -4,7 +4,7 @@
    Assignment 6, фича 3: фильтр филиалов по районам (страница «Филиалы»).
    Подключён jQuery 3.7.1.
 
-   Что заменили (сравнение со старой Vanilla-версией из old-js-version.js):
+   Что заменили (сравнение со старой Vanilla-версией из Git history (Vanilla version)):
      document.getElementById('id')        ->  $('#id')
      querySelectorAll('a')                ->  .find('a') / .siblings('a')
      addEventListener('click', ...)       ->  .on('click', 'a', ...)
@@ -53,7 +53,7 @@ $(function () {
       .text(branch.phone)
       .appendTo($card);
     $('<p class="small text-body-secondary mb-0"></p>')
-      .text('Вместимость: ' + branch.capacity + ' гостей. Есть: сауна/SPA, зона единоборств')
+      .text('Оснащение: сауна/SPA, зона единоборств. Наличие услуг уточняйте перед визитом.')
       .appendTo($card);
     $card.appendTo($cardsWrap);
   });
@@ -61,9 +61,9 @@ $(function () {
 
   /* Кнопка и скрытая сводка по сети — пример эффекта .slideToggle(). */
   const $summaryButton = $('<button type="button" class="btn btn-outline-light btn-sm mb-3"></button>')
-    .text('Показать сводку по сети');
-  const $summary = $('<p class="small text-body-secondary"></p>')
-    .text(EF.getNetworkSummary())
+    .text('Показать сводку по сети').attr({ 'aria-expanded': 'false', 'aria-controls': 'network-summary' });
+  const $summary = $('<p id="network-summary" class="small text-body-secondary"></p>')
+    .text('На сайте представлены ' + EF.BRANCHES.length + ' филиала. Условия посещения и расписание уточняйте в выбранном клубе.')
     .hide();
   $tableSection.before($summaryButton);
   $summaryButton.after($summary);
@@ -107,9 +107,10 @@ $(function () {
     // slideToggle с длительностью плавно раскрывает и сворачивает сводку по сети.
     $summary.slideToggle(200, function () {
       // callback после анимации: по состоянию видимости меняем подпись кнопки.
+      $summaryButton.attr('aria-expanded', String($(this).is(':visible')));
       $(this).is(':visible')
         ? $summaryButton.text('Скрыть сводку по сети')
-        : $summaryButton.text('Показать сводку по сети');
+        : $summaryButton.text('Показать сводку по сети').attr({ 'aria-expanded': 'false', 'aria-controls': 'network-summary' });
     });
   });
 

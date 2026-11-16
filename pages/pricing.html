@@ -10,13 +10,14 @@
       content="Безлимитные фитнес-абонементы и тарифные планы сети Experience Fitness в Астане. Выберите карту GYM/EXP, GYM/EXP+ или BIG+/EXP."
     />
     <title>Абонементы и Тарифы — Experience Fitness</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/vendor/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/css/base.css" />
     <link rel="stylesheet" href="../assets/css/anuar.css" />
     <link rel="icon" href="../assets/images/logo-white.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="../assets/css/site.css" />
   </head>
   <body class="d-flex flex-column min-vh-100">
+    <a href="#main-content" class="skip-link">Перейти к содержимому</a>
 <header
       class="main-header navbar navbar-expand-xl bg-body-tertiary border-bottom py-3 container-fluid px-3 px-lg-4"
     >
@@ -67,7 +68,7 @@
         <a href="contacts.html#contact-form" class="btn btn-primary btn-sm">Пробная тренировка</a>
       </p>
     </header>
-<main id="main-content" class="container flex-grow-1 py-4 py-md-5 text-break">
+<main id="main-content" tabindex="-1" class="container flex-grow-1 py-4 py-md-5 text-break">
  <section class="pricing-hero mb-5" aria-labelledby="pricing-title"><div><p class="pricing-eyebrow">EXPERIENCE FITNESS / АБОНЕМЕНТЫ</p><h1 id="pricing-title">Ваш ритм.<br>Ваш <span>абонемент.</span></h1><p class="lead text-body-secondary mt-4">Зал рядом с домом или свобода тренироваться по всей сети. Выберите карту, которая подходит вашему образу жизни.</p><div class="d-flex flex-wrap gap-3 mt-4"><a class="btn btn-primary btn-lg" href="#pricing-plans">Выбрать тариф ↗</a><a class="btn btn-outline-light btn-lg" href="locations.html">Выбрать клуб</a></div><p class="small text-body-secondary mt-4 mb-0">От 1 до 12 месяцев · Стоимость в тенге · Расчёт до оформления</p></div><figure class="mb-0"><img src="../assets/images/training-hall-with-logo.jpg" alt="Зал Experience Fitness с фирменной вывеской" width="600" height="400" fetchpriority="high"><figcaption>Ваше место для новых личных результатов.</figcaption></figure></section>
  <nav class="pricing-nav mb-5" aria-label="Разделы абонементов"><a href="#pricing-plans">Тарифы и цены</a><a href="#membership-steps">Как начать</a><a href="#order-form">Оформление</a><a href="#pricing-faq">Вопросы</a></nav>
  <section id="pricing-plans" class="row g-4 mb-5"><h2 class="display-6 fw-bold col-12 mb-0">Один шаг к вашей цели</h2><article class="pricing-card col-12 col-lg-4 d-flex flex-column" data-tariff="exp">
@@ -81,7 +82,7 @@
  <ul class="price-list list-unstyled mb-4"><li class="row g-2 border-bottom py-2"><span class="col-5 text-body-secondary small">1 мес.</span><span class="col-7 fw-bold text-end">35 000 ₸</span></li><li class="row g-2 border-bottom py-2"><span class="col-5 text-body-secondary small">3 мес.</span><span class="col-7 fw-bold text-end">70 000 ₸</span></li><li class="row g-2 border-bottom py-2"><span class="col-5 text-body-secondary small">6 мес.</span><span class="col-7 fw-bold text-end">100 000 ₸</span></li><li class="row g-2 border-bottom py-2"><span class="col-5 text-body-secondary small">12 мес.</span><span class="col-7 fw-bold text-end">130 000 ₸</span></li></ul>
  <p class="small text-body-secondary">Выберите срок и сравните полную стоимость.</p><a href="#order-form" class="btn btn-primary mt-auto">Выбрать GYM/EXP+ ↗</a></article>
 <article class="pricing-card col-12 col-lg-4 d-flex flex-column" data-tariff="big-plus">
- <p class="pricing-eyebrow">03 / Вся сеть — ваша</p><h3 class="h2 fw-bold">BIG+/EXP</h3><p class="text-body-secondary pricing-description">Один абонемент для всех 11 филиалов сети.</p>
+ <p class="pricing-eyebrow">03 / Вся сеть — ваша</p><h3 class="h2 fw-bold">BIG+/EXP</h3><p class="text-body-secondary pricing-description">Один абонемент для филиалов сети.</p>
  <p class="pricing-start"><strong>40 000 ₸</strong><span>за 1 месяц</span></p>
  <ul class="price-list list-unstyled mb-4"><li class="row g-2 border-bottom py-2"><span class="col-5 text-body-secondary small">1 мес.</span><span class="col-7 fw-bold text-end">40 000 ₸</span></li><li class="row g-2 border-bottom py-2"><span class="col-5 text-body-secondary small">3 мес.</span><span class="col-7 fw-bold text-end">100 000 ₸</span></li><li class="row g-2 border-bottom py-2"><span class="col-5 text-body-secondary small">6 мес.</span><span class="col-7 fw-bold text-end">130 000 ₸</span></li><li class="row g-2 border-bottom py-2"><span class="col-5 text-body-secondary small">12 мес.</span><span class="col-7 fw-bold text-end">180 000 ₸</span></li></ul>
  <p class="small text-body-secondary">Выберите срок и сравните полную стоимость.</p><a href="#order-form" class="btn btn-outline-light mt-auto">Выбрать BIG+/EXP ↗</a></article></section>
@@ -97,18 +98,18 @@
             <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary col-12">Личные данные</legend>
             <p class="col-12 col-md-6">
               <label for="client-name" class="form-label">Имя</label>
-              <input
+              <input maxlength="80"
                 type="text"
                 id="client-name"
                 name="client-name"
                 required
-                placeholder="Ваше имя"
+                placeholder="Имя Фамилия"
                 class="form-control"
               />
             </p>
             <p class="col-12 col-md-6">
               <label for="client-email" class="form-label">Email</label>
-              <input
+              <input maxlength="254"
                 type="email"
                 id="client-email"
                 name="client-email"
@@ -119,7 +120,7 @@
             </p>
             <p class="col-12 col-md-6">
               <label for="client-phone" class="form-label">Телефон</label>
-              <input
+              <input maxlength="18"
                 type="tel"
                 id="client-phone"
                 name="client-phone"
@@ -179,7 +180,7 @@
             <p class="col-12">
               <label for="client-comment" class="form-label">Комментарий</label>
               <textarea
-                id="client-comment"
+                maxlength="500" id="client-comment"
                 name="comment"
                 placeholder="Пожелания по тренировкам или филиалу"
                 class="form-control"
@@ -201,13 +202,14 @@
         </form>
       </section>
  <section id="pricing-faq" class="mb-5"><p class="pricing-eyebrow">ПОЛЕЗНО ЗНАТЬ</p><h2 class="h2 fw-bold mb-4">Перед покупкой</h2>
- <details class="pricing-faq"><summary>Чем отличаются карты?</summary><p>GYM/EXP даёт доступ к одному выбранному филиалу. GYM/EXP+ добавляет привилегии в одном филиале — их состав уточняйте в клубе. BIG+/EXP подходит для тренировок во всех 11 филиалах.</p></details>
+ <details class="pricing-faq"><summary>Чем отличаются карты?</summary><p>GYM/EXP даёт доступ к одному выбранному филиалу. GYM/EXP+ добавляет привилегии в одном филиале — их состав уточняйте в клубе. BIG+/EXP подходит для тренировок в филиалах сети.</p></details>
  <details class="pricing-faq"><summary>Есть ли студенческая скидка?</summary><p>В форме можно рассчитать предварительную скидку 15%. Для её подтверждения в клубе понадобится студенческий билет.</p></details>
  <details class="pricing-faq"><summary>Можно ли заморозить абонемент?</summary><p>Возможность, длительность и условия заморозки зависят от карты. Уточните их в выбранном филиале до оформления.</p></details>
  <details class="pricing-faq"><summary>Включены ли персональные тренировки?</summary><p>Условия занятий с тренером уточняются отдельно. Посмотрите <a href="training.html">направления и тренеров</a>, чтобы выбрать формат под вашу цель.</p></details>
  </section>
  <section class="pricing-contact pricing-panel p-4 p-md-5 mb-4"><div><p class="pricing-eyebrow">ПОМОЖЕМ ВЫБРАТЬ</p><h2 class="h2 fw-bold">Остались вопросы по карте?</h2><p class="text-body-secondary mb-0">Обсудите тариф и условия с клубом перед оформлением.</p></div><a class="btn btn-primary btn-lg" href="tel:+77783457405">+7 (778) 345-74-05</a></section>
- </main>
+ <noscript><p class="alert alert-info">Для расчётов и форм включите JavaScript. Связаться с отделом продаж можно по телефону <a href="tel:+77783457405">+7 (778) 345-74-05</a>.</p></noscript>
+</main>
 <footer
       class="main-footer border-top bg-body-tertiary mt-auto py-5 text-break container-fluid row g-4 mx-0 px-3 px-lg-5"
       id="site-footer"
@@ -223,12 +225,12 @@
             class="brand-logo"
           />
         </a>
-        <p class="footer-tagline text-body-secondary small mt-3">Крупнейшая сеть фитнес-центров в Астане.</p>
+        <p class="footer-tagline text-body-secondary small mt-3">Фитнес-клубы Experience Fitness в Астане.</p>
       </section>
       <nav class="footer-nav col-12 col-md-6 col-lg-4" aria-label="Навигация в подвале">
         <h2 class="footer-title h6 fw-bold mb-3">Навигация</h2>
         <ul class="list-unstyled">
-          <li class="mb-2"><a href="locations.html">11 филиалов в Астане</a></li>
+          <li class="mb-2"><a href="locations.html">Филиалы в Астане</a></li>
           <li class="mb-2"><a href="services.html">Финские сауны и залы</a></li>
           <li class="mb-2"><a href="pricing.html">Безлимитные абонементы</a></li>
           <li class="mb-2"><a href="promotions.html">Партнерские скидки</a></li>
@@ -236,12 +238,12 @@
       </nav>
       <section class="footer-contacts col-12 col-md-6 col-lg-4">
         <h2 class="footer-title h6 fw-bold mb-3">Контакты</h2>
-        <p>Единый call-центр: <a href="tel:+77783457405">+7 (778) 345-74-05</a></p>
-        <p>График работы: Пн-Вс 07:00 – 23:00</p>
+        <p>Отдел продаж: <a href="tel:+77783457405">+7 (778) 345-74-05</a></p>
+        <p>График работы уточняйте у выбранного филиала</p>
         <p class="social-links d-flex flex-wrap gap-3">
           <a href="https://wa.me/77783457405" target="_blank" rel="noopener" aria-label="WhatsApp"
             >WhatsApp</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+          <a href="locations.html">Адреса клубов</a>
         </p>
       </section>
       <section class="footer-bottom col-12 border-top pt-4 text-center small text-body-secondary">
@@ -249,10 +251,10 @@
         <p>© 2026 Experience Fitness. Все права защищены.</p>
       </section>
     </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- jQuery 3.7.1 из CDN (Assignment 6). defer: подключается до своих скриптов,
+<script src="../assets/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Локальная jQuery 3.7.1 (Assignment 6). defer: подключается до своих скриптов,
          порядок выполнения сохраняется, DOM к моменту запуска готов. -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" defer></script>
+    <script src="../assets/vendor/jquery.min.js" defer></script>
     <script src="../assets/js/main.js" defer></script>
     <!-- Общий попап оформления (jQuery): банковские данные, согласия, оферта. -->
     <script src="../assets/js/checkout-jquery.js" defer></script>

@@ -21,3 +21,11 @@ Follow-up request: add a subtle background instead of flat grey. Codex reused th
 Correction: the background request applies to every page, not the calculator. Codex moved the subdued gym photo into the shared site stylesheet as a fixed decorative backdrop and restored the calculator panel background.
 
 Follow-up correction: replace the photo background with subtle decorative details and icons across every page. Codex authored a lightweight SVG pattern with outlined dumbbells, kettlebells, weight plates and geometric accents, and applied it through the shared stylesheet.
+
+## Whole-site repair and input-limit correction
+
+User requested fixing project defects, making behavior realistic, and specifically limiting telephone input and similar fields. Codex edited HTML/CSS/JavaScript, compressed existing JPEGs, removed unused assets and uncalled helper functions, bundled the existing Bootstrap and jQuery versions locally, corrected validation and local-only form messaging, added accessibility and input limits, and expanded runnable checks. This is generated code and does not satisfy the assignment's restriction against AI-written code.
+
+Validation performed: Node source/logic checks, static label/ARIA checks, photo size checks and inspection of a compressed photo. Browser inspection of the local file was rejected by the browser URL policy; browser execution, mobile hardware and W3C validation are not claimed. No real messages, payments or bookings were performed. External contact lookup used a public listing linked in FINAL-CHECKLIST.md; current hours and business terms remain unverified.
+
+User correction: remove the telephone action button from the selected-training confirmation. Codex removed that button; the confirmation still states that a real booking was not created.

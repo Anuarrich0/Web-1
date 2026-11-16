@@ -3,7 +3,7 @@
 /* Логика страницы «Контакты» (contacts.html): темы обращений и график работы.
    Использует общий модуль window.EF (main.js).
    Здесь остались только справочные данные и функции; интерактив формы в Assignment 6
-   перенесён в contacts-jquery.js, а старая Vanilla-версия — в old-js-version.js. */
+   перенесён в contacts-jquery.js, а старая Vanilla-версия — в Git history (Vanilla version). */
 
 (function (EF) {
   'use strict';
@@ -21,7 +21,7 @@
   /* График работы сети (совпадает с таблицей на странице контактов). */
   EF.WORKING_HOURS = [
     { days: 'Понедельник — Суббота', from: 7, to: 23 },
-    { days: 'Воскресенье', from: 10, to: 20 }
+    { days: 'Воскресенье', from: 0, to: 0 }
   ];
 
   /* Возвращает тему обращения по её значению (строгое сравнение ===). */
@@ -32,28 +32,6 @@
     return found.length > 0 ? found[0] : null;
   };
 
-  /* Тема с самым быстрым ответом (минимальное responseHours). */
-  EF.getFastestTopic = function () {
-    if (EF.CONTACT_TOPICS.length === 0) {
-      return null;
-    }
-    return EF.CONTACT_TOPICS.reduce(function (fastest, topic) {
-      return topic.responseHours < fastest.responseHours ? topic : fastest;
-    });
-  };
-
-  /* Среднее время ответа по всем темам, в часах (функция вызывает EF.average). */
-  EF.getAverageResponseHours = function () {
-    const hours = EF.CONTACT_TOPICS.map(function (topic) {
-      return topic.responseHours;
-    });
-    return Math.round(EF.average(hours) * 10) / 10;
-  };
-
-  /* Открыт ли call-центр в указанный час (быстрый ответ с 10:00 до 19:00). */
-  EF.isCallCenterFastResponse = function (hour) {
-    return hour >= 10 && hour < 19;
-  };
 
   /* Описание темы обращения для подтверждения отправки. */
   EF.describeTopic = function (value) {
@@ -64,15 +42,5 @@
     return topic.label + ' — обрабатывает ' + topic.department + ', ориентировочно за ' + topic.responseHours + ' ч.';
   };
 
-  /* Сводка по графику: суммарная длительность рабочей недели в часах. */
-  EF.getWeeklyOpenHours = function () {
-    const dailyHours = EF.WORKING_HOURS.map(function (slot) {
-      const perDay = slot.to - slot.from;
-      const days = slot.days.indexOf('—') !== -1 ? 6 : 1;
-      return perDay * days;
-    });
-    return EF.sumBy(dailyHours, function (hours) {
-      return hours;
-    });
-  };
+
 })(window.EF);

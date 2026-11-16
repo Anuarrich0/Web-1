@@ -3,7 +3,7 @@
 /* ============================================================================
    Assignment 6 (продолжение), страница «Абонементы» на jQuery 3.7.1.
 
-   Переписано со старой Vanilla-версии (см. old-js-version.js, бывший pricing.js):
+   Переписано со старой Vanilla-версии (см. Git history (Vanilla version), бывший pricing.js):
      document.querySelector('#id')        ->  $('#id')
      querySelectorAll('[data-tariff]')    ->  $('#pricing-plans').find('[data-tariff]')
      addEventListener('input'/'change')   ->  .on('input') / .on('change')

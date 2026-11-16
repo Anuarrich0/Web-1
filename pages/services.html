@@ -12,13 +12,14 @@
     />
     <title>Услуги и Зоны — Experience Fitness</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/vendor/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/css/base.css" />
     <link rel="stylesheet" href="../assets/css/maksat.css" />
     <link rel="icon" href="../assets/images/logo-white.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="../assets/css/site.css" />
   </head>
   <body class="d-flex flex-column min-vh-100">
+    <a href="#main-content" class="skip-link">Перейти к содержимому</a>
 
     <header
       class="main-header navbar navbar-expand-xl bg-body-tertiary border-bottom py-3 container-fluid px-3 px-lg-4"
@@ -65,14 +66,14 @@
       </nav>
       <p class="header-actions d-none d-xxl-flex align-items-center gap-3 mb-0">
         <a
-          href="tel:+77783450000"
+          href="tel:+77783457405"
           class="header-phone d-none d-md-inline text-body text-decoration-none small"
-          >+7 (778) 345-00-00</a>
+          >+7 (778) 345-74-05</a>
         <a href="contacts.html#contact-form" class="btn btn-primary btn-sm">Пробная тренировка</a>
       </p>
     </header>
 
-    <main id="main-content" class="container flex-grow-1 py-4 py-md-5 text-break">
+    <main id="main-content" tabindex="-1" class="container flex-grow-1 py-4 py-md-5 text-break">
 <section id="services-intro" class="site-hero mb-5"><div><p class="site-eyebrow">EXPERIENCE FITNESS / ЗОНЫ И УСЛУГИ</p><h1>Больше, чем<br><span>просто зал.</span></h1><p class="lead text-body-secondary mt-4">Силовые тренировки, энергия групповых занятий и отдых после нагрузки. Соберите свой привычный маршрут в клубе.</p><div class="d-flex flex-wrap gap-3 mt-4"><a class="btn btn-primary btn-lg" href="#services-articles">Выбрать направление ↗</a><a class="btn btn-outline-light btn-lg" href="locations.html">Найти клуб</a></div></div><figure class="mb-0"><img src="../assets/images/strength-rack-and-boxing-bag.jpg" alt="ЗОНЫ И УСЛУГИ — Experience Fitness" width="600" height="400" fetchpriority="high"><figcaption>Ваш темп. Ваше пространство. Ваш результат.</figcaption></figure></section><nav class="category-tabs-nav mb-4" aria-label="Навигация по категориям услуг">
         <ul class="tabs-list list-unstyled d-flex flex-wrap gap-2">
           <li><a href="#services-articles" class="btn btn-outline-light btn-sm">Все зоны</a></li>
@@ -180,7 +181,7 @@
             </legend>
             <p class="form-field col-12 col-md-6">
               <label for="client-name" class="form-label">ФИО клиента:</label>
-              <input
+              <input maxlength="80"
                 type="text"
                 id="client-name"
                 name="fullname"
@@ -191,7 +192,7 @@
             </p>
             <p class="form-field col-12 col-md-6">
               <label for="subscriber-email" class="form-label">Ваш Email адрес:</label>
-              <input
+              <input maxlength="254"
                 type="email"
                 id="subscriber-email"
                 name="email"
@@ -202,7 +203,7 @@
             </p>
             <p class="form-field col-12 col-md-6">
               <label for="client-phone" class="form-label">Номер телефона:</label>
-              <input
+              <input maxlength="18"
                 type="tel"
                 id="client-phone"
                 name="phone"
@@ -278,7 +279,7 @@
             <p class="form-field col-12">
               <label for="client-goals" class="form-label">Ваши спортивные цели и пожелания:</label>
               <textarea
-                id="client-goals"
+                maxlength="500" id="client-goals"
                 name="goals"
                 rows="4"
                 placeholder="Расскажите о ваших целях (набор массы, похудение, реабилитация)..."
@@ -291,7 +292,7 @@
             </p>
             <p class="form-actions col-12 d-flex flex-wrap gap-2 align-items-center mb-0">
               <button type="submit" class="btn btn-primary btn-lg" disabled aria-describedby="form-note-0">
-                Отправить заявку
+                Сформировать заявку
               </button>
               <button type="reset" class="btn btn-outline-light">Сбросить поля</button>
             </p>
@@ -300,6 +301,7 @@
           </fieldset>
         </form>
       </section>
+<noscript><p class="alert alert-info">Для расчётов и форм включите JavaScript. Связаться с отделом продаж можно по телефону <a href="tel:+77783457405">+7 (778) 345-74-05</a>.</p></noscript>
 </main>
 
     <footer
@@ -332,12 +334,12 @@
       </nav>
       <section class="footer-contacts col-12 col-md-6 col-lg-4">
         <h2 class="footer-title h6 fw-bold mb-3">Контакты</h2>
-        <p>Единый call-центр: <a href="tel:+77783450000">+7 (778) 345-00-00</a></p>
-        <p>График работы: Пн – Сб 07:00 – 23:00, Вс: выходной</p>
+        <p>Отдел продаж: <a href="tel:+77783457405">+7 (778) 345-74-05</a></p>
+        <p>График работы уточняйте у выбранного филиала</p>
         <p class="social-links d-flex flex-wrap gap-3">
-          <a href="https://wa.me/77783450000" target="_blank" rel="noopener" aria-label="WhatsApp"
+          <a href="https://wa.me/77783457405" target="_blank" rel="noopener" aria-label="WhatsApp"
             >WhatsApp</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+          <a href="locations.html">Адреса клубов</a>
         </p>
       </section>
       <section class="footer-bottom col-12 border-top pt-4 text-center small text-body-secondary">
@@ -346,9 +348,9 @@
       </section>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/bootstrap.bundle.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" defer></script>
+    <script src="../assets/vendor/jquery.min.js" defer></script>
 
     <script src="../assets/js/main.js" defer></script>
     <script src="../assets/js/services.js" defer></script>
