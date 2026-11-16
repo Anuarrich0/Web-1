@@ -11,3 +11,5 @@ Earlier AI use is not reconstructed here.
 Follow-up request: highlight and slightly enlarge membership cards on hover and select the tariff by clicking anywhere on its card. Codex updated the existing card CSS and click handler, synchronized button highlighting with the selected tariff, and ran the site checks.
 
 Follow-up correction: use a subtle hover lift and highlight without scaling. Codex reduced the lift to 4px, softened the shadow and removed enlargement.
+
+Follow-up request: make the card effect more prominent and polished. Codex added a 12px lift, gentle scaling, a gradient glow, layered shadows, price and button highlighting, pressed feedback and reduced-motion support using CSS.
