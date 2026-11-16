@@ -35,3 +35,5 @@ User requested removing the test-data fill button. Codex removed the button, its
 User requested removing the bottom checkout checkboxes. Codex removed both checkbox fields, their required checks and the unused checkbox helper.
 
 User requested removing remaining test-oriented UI. Codex replaced visible demo/test labels with ordinary request-preparation wording, retained a clear online-payment-unavailable notice, and preserved honest completion steps. Internal regression tests and documentation of technical limitations remain.
+
+User requested removing the online-payment-unavailable notice. Codex removed the notice paragraph, restyled the retained order summary as a neutral panel and updated current documentation. Completion wording still describes preparation rather than a completed payment.

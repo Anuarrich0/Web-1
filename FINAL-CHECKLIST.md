@@ -10,7 +10,7 @@ Reviewed on 2026-11-16 against the supplied final-project requirements.
 - Service selection is included in the prepared request and is available from the keyboard.
 - Forms describe their local-only result honestly and provide a direct telephone contact. They do not claim a real booking or payment.
 - Training no longer decrements real-looking availability after a local demo; duplicate submission is blocked. Sunday example sessions were removed to match the project's closed-Sunday schedule.
-- Checkout supports native form submission, a clear online-payment-unavailable notice, card checksum validation, focus restoration and clearing card inputs.
+- Checkout supports native form submission, card checksum validation, focus restoration and clearing card inputs.
 - Calculator results are cleared when their inputs change. It remains a standalone visible section.
 - Photos were resized and recompressed. All remaining JPEGs are below 250 KB. Unreferenced photos/map and the unused old JavaScript implementation were removed; old content remains in Git history.
 - Uncalled helper functions were removed. Bootstrap 5.3.8 and jQuery 3.7.1 are bundled locally with their license notices, so the interface does not depend on CDN availability.

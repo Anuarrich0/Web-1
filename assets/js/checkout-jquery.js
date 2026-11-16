@@ -82,12 +82,9 @@
 
     const $body = $('<div class="modal-body"></div>').appendTo($content);
 
-    /* Предупреждение + сводка данных, введённых в форме, — пользователь проверяет их перед оплатой. */
-    const $warning = $('<div class="alert alert-warning"></div>').appendTo($body);
-    $('<p class="fw-bold mb-2"></p>')
-      .text('Онлайн-оплата пока недоступна. Для завершения покупки свяжитесь с клубом.')
-      .appendTo($warning);
-    const $summary = $('<ul class="mb-0 ps-3"></ul>').appendTo($warning);
+    /* Сводка выбранного абонемента и контактных данных. */
+    const $summaryBox = $('<div class="border rounded-3 p-3 mb-3"></div>').appendTo($body);
+    const $summary = $('<ul class="mb-0 ps-3"></ul>').appendTo($summaryBox);
     $(options.summary).each(function () {
       $('<li></li>').text(this).appendTo($summary);
     });
